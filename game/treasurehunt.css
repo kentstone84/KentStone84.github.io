@@ -9,11 +9,11 @@ body {
 }
 h1, h3, button {
   font-family: cursive;
-  color: red;
+  color: rgb(138, 131, 131);
   }
 
   p1 {
-    color: red;
+    color: rgb(110, 121, 85);
   }
     @keyframes color-change {
     0% { color: red; }
@@ -76,9 +76,6 @@ th {
     transform: translate(0px, 0px) rotate(0deg);
   }
 }
-white_check_mark
-eyes
-raised_hands::skin-tone-2
 
 
 
@@ -95,7 +92,6 @@ raised_hands::skin-tone-2
 
 
 
-Message Fred McBurnett, Mike SC
 
 
 
@@ -104,4 +100,3 @@ Message Fred McBurnett, Mike SC
 
 
 
-Shift + Return to add a new line

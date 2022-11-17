@@ -4,22 +4,24 @@
 // function appleChanger
 // takes an id of an apple on the HTML page from an on click
 // and changes the HTML element that the ID represents to an emoji
-// var zombie = Math.floor(Math.random() * 8 )
- var zombie = Math.floor(Math.random()*8)
- var diamond = Math.floor(Math.random()*8)
- if (diamond === zombie) {
-  var diamond = Math.floor(Math.random()*8)
+// var tornado = Math.floor(Math.random() * 8 )
+ var tornado = Math.floor(Math.random()*8)
+ var sunnyday = Math.floor(Math.random()*8)
+ if (sunnyday === tornado) {
+  var sunnyday = Math.floor(Math.random()*8)
  }
- // console.log(zombie, diamond);
+ // console.log(tornado, sunnyday);
  const imgChanger = (id) => {
-  if (diamond === id){
-    document.getElementById(id).innerHTML = "💎";
-    alert("Yippee Ki Yay! You Won!")
-  } else if(zombie === id){
-        alert("U R CuRsEd!.!.!")
-    return document.getElementById(id).innerHTML = "🧟";
+  if (sunnyday === id){
+    document.getElementById(id).innerHTML = "🌤️";
+    alert("A sunny day, everyone wins!")
+  } else if(tornado === id){
+        alert("Tornado has hit, you lose!")
+    return document.getElementById(id).innerHTML = "🌪️";
   }
     else {
-    return document.getElementById(id).innerHTML = "⌛";
+    return document.getElementById(id).innerHTML = "🌬️";
     }
 }
+
+
