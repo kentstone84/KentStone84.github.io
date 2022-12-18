@@ -1,5 +1,4 @@
 
-
 body {
   background-image: url(https://publicdomainvectors.org/photos/pyramids-of-egypt-publicdomain.jpg);
   background-size: cover;
@@ -7,31 +6,40 @@ body {
   background-attachment: fixed;
   background-color: azure;
 }
+
 h1, h3, button {
   font-family: cursive;
   color: red;
-  }
+}
 
-  p1 {
+p1 {
+  color: red;
+}
+
+@keyframes color-change {
+  0% {
     color: red;
   }
-    @keyframes color-change {
-    0% { color: red; }
-    50% { color: black; }
-    100% { color: red; }
+  50% {
+    color: black;
+  }
+  100% {
+    color: red;
+  }
 }
 
-table, tr, td {
- padding-top: 50px;
-  padding-right: 50px;
-  padding-bottom: 50px;
-  padding-left: 50px;
+table,
+tr,
+td {
+  padding: 50px;
 }
+
 .fade-in-text {
   font-family: Arial;
   font-size: 150px;
   animation: fadeIn 5s;
 }
+
 button {
   font-size: 30px;
 }
@@ -47,16 +55,19 @@ table {
   border-collapse: collapse;
   width: 70px;
 }
+
 th {
   height: 70px;
 }
 
- #tut {
- font-size: 900px;
+#tut {
+  font-size: 900px;
 }
 
 @keyframes shake {
-  0% {transform: translate(1px, 1px) rotate(0deg);}
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
   15% {
     transform: translate(-3px, 0px) rotate(1deg);
   }
@@ -76,32 +87,3 @@ th {
     transform: translate(0px, 0px) rotate(0deg);
   }
 }
-white_check_mark
-eyes
-raised_hands::skin-tone-2
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Message Fred McBurnett, Mike SC
-
-
-
-
-
-
-
-
-Shift + Return to add a new line
