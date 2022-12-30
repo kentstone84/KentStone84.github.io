@@ -140,6 +140,7 @@
 
 										$article.addClass('active');
 
+
 										// Window stuff.
 											$window
 												.scrollTop(0)

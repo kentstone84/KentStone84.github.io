@@ -117,8 +117,8 @@
 		background-size: 1.25rem;
 		background-repeat: no-repeat;
 		background-position: calc(100% - 1rem) center;
-		height: _size(element-height);
-		padding-right: _size(element-height);
+		height: _size(auto);
+		padding-right: _size(auto);
 		text-overflow: ellipsis;
 
 		option {

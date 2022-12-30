@@ -691,7 +691,7 @@ input, select, textarea {
 		}
 
 			.image.fit img {
-				width: 100%;
+				width: auto;
 			}
 
 		.image.main {
@@ -1111,7 +1111,7 @@ input, select, textarea {
 		-webkit-transform: scale(1.0);
 		-ms-transform: scale(1.0);
 		transform: scale(1.0);
-		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
 		
 		position: fixed;
 		top: 0;
@@ -1546,7 +1546,7 @@ input, select, textarea {
 			padding: 4.5rem 2.5rem 1.5rem 2.5rem ;
 			position: relative;
 			width: 40rem;
-			max-width: 100%;
+			max-width: 200%;
 			background-color: rgba(27, 31, 34, 0.85);
 			border-radius: 4px;
 			opacity: 0;
@@ -1574,10 +1574,10 @@ input, select, textarea {
 			}
 
 				#main article .close:before {
-					-moz-transition: background-color 0.2s ease-in-out;
-					-webkit-transition: background-color 0.2s ease-in-out;
-					-ms-transition: background-color 0.2s ease-in-out;
-					transition: background-color 0.2s ease-in-out;
+					-moz-transition: background-color 0.4s ease-in-out;
+					-webkit-transition: background-color 0.4s ease-in-out;
+					-ms-transition: background-color 0.4s ease-in-out;
+					transition: background-color 0.4s ease-in-out;
 					content: '';
 					display: block;
 					position: absolute;
@@ -1660,3 +1660,4 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+

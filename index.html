@@ -42,13 +42,19 @@
 						<!-- To Start -->
 							<article id="intro">
 								<h2 class="major">A Brief</h2>
-								<p>Growing up on a working farm taught me the value of hard work. We plowed the land and reaped the rewards with fresh vegetables and fruits. In high school I hacked into the school's main server using a brute force attack, I showed the teacher what I had done in an attempt to show that my school was not protecting itself or its students. The only action the school took was for me to be suspended. As further punishment, I was enrolled in vo-tech to take computer network technology while completing my junior year of high school. With 9/11 I enlisted in the Army and became an NBC specialist for the 1-71 CAV. After returning from Iraq, I worked for a chemical company as their in-house IT Tech before starting to travel the world. I have visited all 50 States and 60 countries learning from different cultures. After multiple cave diving deaths of people close to me, I wrapped up the Wonderland Project and attended Full-Stack Development to learn web and software development.
+								<p>""Growing up on a working farm taught me the value of hard work. We plowed the land and reaped the rewards with fresh vegetables and fruits. In high school I hacked into the school's main server using a brute force attack, I showed the teacher what I had done in an attempt to show that my school was not protecting itself or its students. The only action the school took was for me to be suspended. As further punishment, I was enrolled in vo-tech to take computer network technology while completing my junior year of high school. With 9/11 I enlisted in the Army and became an NBC specialist for the 1-71 CAV. After returning from Iraq, I worked for a chemical company as their in-house IT Tech before starting to travel the world. I have visited all 50 States and 60 countries learning from different cultures. After multiple cave diving deaths of people close to me, I wrapped up the Wonderland Project and attended Full-Stack Development to learn web and software development."
 								<br></br>
 								<a href="https://www.bbc.com/travel/article/20190826-mexicos-mysterious-uncharted-caves">Learn about The Wonderland Project</a>.</p>
 								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+								<h5>Everyone loves a good selfie.</h5>
 								<span class="image main"><img src="images/pic04.jpeg" alt="Team Swim" /></span>
+								<h5>Cave diving requires the highest degree of attention to detail.</h5>
 								<span class="image main"><img src="images/teaching.jpg" alt="PADI Teaching" /></span>
+								<h5>Teaching is a great way to learn.</h5>							
 								<span class="image main"><img src="images/team1.jpg" alt="Team 1" /></span>
+								<h5>Teamwork is the key to success.</h5>
+
+								<br></br>
 								
 								<ul class="actions">
 									<li><a href="index.html" class="button next">Home Page</a></li>
@@ -58,11 +64,36 @@
 							</article>
 
 						<!-- Past -->
-							<article id="work">
-								<h2 class="major">Resume</h2>
-								<span class="Resume"><img src="images/Resume Kent Stone.jpg" height="700" width="auto" alt="Resume" /></span>
+						<article id="work">
+							<h2 class="major">Resume</h2>
+							<span class="Resume">
+							  <img src="images/Resume Kent Stone.jpg" id="resume-image" alt="Resume" onclick="enlargeImage()" title="Click to enlarge" width="500" height="auto" />
+							</span>
+						 
+						  
+						  <style>
+							#resume-image {
+							  display: block;
+							  margin: 0 auto;
+							  transition: all 0.5s ease;
+							}
+						  </style>
+						  
+						  <script>
+							function enlargeImage() {
+							  var image = document.getElementById('resume-image');
+							  image.style.width = '800px';
+							  image.style.height = 'auto';
+						  
+							  setTimeout(function() {
+								image.style.width = '500px';
+								image.style.height = 'auto';
+							  }, 10000);
+							}
+						  </script>
 								
-							
+							<br></br>
+				
 								<ul class="actions">
 									<li><a href="index.html" class="button next">Home Page</a></li>
 									<li><a href="#about" class="button next">About Me</a></li>
@@ -74,7 +105,7 @@
 							<article id="about">
 								<h2 class="major">About</h2>
 								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>I am currently attending LEARN Academy where I recieved a 480-hour coding boot camp, gaining hands-on experience in various programming languages and technologies including Ruby and JavaScript. Developed a strong foundation in computer science concepts and applied knowledge through projects and assignments simulating real-world scenarios. Received guidance and support from experienced instructors to overcome challenges and achieve goals.</p>
+								<p>I am currently attending LEARN Academy where I recieved a 480-hour coding boot camp, gaining hands-on experience in various programming languages and technologies including Ruby and JavaScript. Developed a strong foundation in computer science concepts and applied knowledge through projects and assignments simulating real-world scenarios. Received guidance and support from experienced instructors to overcome challenges and achieve goals."</p>
 							
 								<ul class="actions">
 									<li><a href="index.html" class="button next">Home Page</a></li>
