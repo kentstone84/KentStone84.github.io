@@ -3,76 +3,542 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeadGenius: Next-Generation Business Intelligence</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>LeadGenius AI - Next-Generation Lead Intelligence</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { 
-            background-color: #0f172a; 
-            color: #e2e8f0;
+        /* Futuristic glow effects */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(66, 153, 225, 0.7), 0 0 20px rgba(66, 153, 225, 0.5);
         }
-        .feature-impact {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        
+        .glow-border {
+            box-shadow: 0 0 15px rgba(66, 153, 225, 0.5);
+        }
+        
+        /* Animated background */
+        .animated-bg {
+            background: linear-gradient(45deg, #0f172a, #1e293b, #0f172a);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        /* Futuristic circuit lines */
+        .circuit-pattern {
+            background-image: 
+                radial-gradient(rgba(66, 153, 225, 0.15) 2px, transparent 2px),
+                linear-gradient(to right, rgba(66, 153, 225, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(66, 153, 225, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px, 20px 20px, 20px 20px;
+            background-position: 0 0, 10px 10px, 10px 10px;
+        }
+        
+        /* Pulsing animation */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        /* Typing animation */
+        .typing-animation::after {
+            content: "|";
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Holographic card effect */
+        .holographic {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(66,153,225,0.15) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(66, 153, 225, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .holographic:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(66, 153, 225, 0.6);
+            border: 1px solid rgba(66, 153, 225, 0.5);
         }
     </style>
 </head>
-<body class="font-sans leading-normal tracking-normal">
-    <div class="container mx-auto px-4 py-16 max-w-6xl">
-        <header class="text-center mb-16">
-            <h1 class="text-5xl font-bold mb-4 text-blue-300">LeadGenius</h1>
-            <p class="text-2xl text-gray-400">Reimagining Business Intelligence with Advanced AI</p>
-        </header>
+<body class="bg-gray-900 animated-bg text-white">
+    <div class="circuit-pattern min-h-screen">
+        <div class="container mx-auto px-4 py-8">
+            <!-- Header -->
+            <header class="text-center mb-12 pt-8">
+                <h1 class="text-6xl font-bold mb-2 glow-text">Lead<span class="text-blue-400">Genius</span> AI</h1>
+                <p class="text-xl text-blue-400 mb-4">Quantum Leap in Business Intelligence</p>
+                <p class="max-w-3xl mx-auto typing-animation">Harness neural networks and adaptive algorithms to transform business growth.</p>
+            </header>
 
-        <section class="grid md:grid-cols-2 gap-8 mb-16">
-            <div class="feature-impact p-6 rounded-xl shadow-2xl">
-                <h2 class="text-3xl font-semibold mb-4 text-blue-200">Beyond Traditional CRM</h2>
-                <ul class="space-y-4 text-gray-300">
-                    <li>🧠 Adaptive AI-Powered Insights</li>
-                    <li>📊 Multidimensional Performance Analytics</li>
-                    <li>🔮 Predictive Engagement Intelligence</li>
-                    <li>🌐 Seamless System Integration</li>
-                </ul>
-            </div>
-
-            <div class="bg-gray-800 p-6 rounded-xl">
-                <h2 class="text-3xl font-semibold mb-4 text-blue-300">Strategic Potential</h2>
-                <p class="text-gray-400 mb-4">
-                    We're not just building another tool—we're pioneering a transformative approach to business intelligence that adapts, predicts, and optimizes in real-time.
-                </p>
-                <a href="mailto:innovation@leadgenius.com" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300">
-                    Explore Collaboration
-                </a>
-            </div>
-        </section>
-
-        <section class="bg-gray-800 p-8 rounded-xl text-center">
-            <h2 class="text-4xl font-bold mb-6 text-blue-300">Redefining Business Intelligence</h2>
-            <p class="text-xl text-gray-400 mb-8">
-                LeadGenius leverages cutting-edge AI to create a dynamic, intelligent platform that goes beyond traditional data management. 
-                We transform raw data into actionable, predictive insights that drive strategic decision-making.
-            </p>
-            <div class="grid md:grid-cols-4 gap-4">
-                <div class="bg-gray-900 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Intelligent Timing</h3>
-                    <p class="text-gray-500">Precision-driven interactions</p>
-                </div>
-                <div class="bg-gray-900 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Dynamic Personalization</h3>
-                    <p class="text-gray-500">Adaptive content strategies</p>
-                </div>
-                <div class="bg-gray-900 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Predictive Insights</h3>
-                    <p class="text-gray-500">Advanced decision intelligence</p>
-                </div>
-                <div class="bg-gray-900 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold text-blue-300">Unified Integration</h3>
-                    <p class="text-gray-500">Seamless ecosystem connectivity</p>
+            <!-- Hero Section -->
+            <div class="max-w-5xl mx-auto holographic rounded-lg p-8 shadow-lg mb-16 glow-border">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-4xl font-bold mb-4">Neural Business Engine</h2>
+                        <p class="text-lg mb-6">LeadGenius AI doesn't just automate—it thinks. Our deep learning architecture analyzes patterns invisible to the human eye, predicting customer behaviors with uncanny precision.</p>
+                        <div class="flex space-x-4">
+                            <a href="#beta-signup" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 pulse">
+                                Access Neural Network
+                            </a>
+                            <a href="#features" class="bg-transparent border border-blue-400 hover:bg-blue-900 hover:border-blue-500 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                                Explore Capabilities
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <!-- AI Visualization -->
+                        <div class="w-full h-64 bg-black bg-opacity-50 rounded-lg flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 opacity-20">
+                                <div id="matrix-rain" class="w-full h-full"></div>
+                            </div>
+                            <div class="z-10 pulse">
+                                <div class="w-24 h-24 rounded-full bg-blue-900 bg-opacity-50 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full bg-blue-800 bg-opacity-70 flex items-center justify-center">
+                                        <div class="w-8 h-8 rounded-full bg-blue-600 bg-opacity-90 flex items-center justify-center">
+                                            <div class="w-4 h-4 rounded-full bg-blue-400"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <footer class="mt-16 text-center text-gray-500">
-            <p>© 2025 LeadGenius. Innovating the future of business intelligence.</p>
-        </footer>
+            <!-- AI Stats Dashboard -->
+            <section class="mb-16">
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="holographic rounded-lg p-4 text-center">
+                        <h3 class="text-blue-400 font-bold text-lg">Neural Efficiency</h3>
+                        <div class="text-4xl font-bold mt-2 mb-1 glow-text">97.8%</div>
+                        <p class="text-xs text-gray-400">Prediction Accuracy</p>
+                    </div>
+                    <div class="holographic rounded-lg p-4 text-center">
+                        <h3 class="text-blue-400 font-bold text-lg">Time Recovery</h3>
+                        <div class="text-4xl font-bold mt-2 mb-1 glow-text">15.3x</div>
+                        <p class="text-xs text-gray-400">Manual Task Reduction</p>
+                    </div>
+                    <div class="holographic rounded-lg p-4 text-center">
+                        <h3 class="text-blue-400 font-bold text-lg">Conversion Amplifier</h3>
+                        <div class="text-4xl font-bold mt-2 mb-1 glow-text">+41%</div>
+                        <p class="text-xs text-gray-400">Avg Lead Conversion</p>
+                    </div>
+                    <div class="holographic rounded-lg p-4 text-center">
+                        <h3 class="text-blue-400 font-bold text-lg">ROI Generator</h3>
+                        <div class="text-4xl font-bold mt-2 mb-1 glow-text">643%</div>
+                        <p class="text-xs text-gray-400">Avg Marketing Return</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Value Proposition -->
+            <section class="mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-2 glow-text">Algorithmic Business Transformation</h2>
+                    <p class="text-gray-400">Redefining business intelligence through quantum computing principles</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="holographic p-6 rounded-lg">
+                        <div class="text-blue-400 text-4xl mb-4">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Neural Lead Qualification</h3>
+                        <p>Our quantum algorithm analyzes 200+ data points per lead, identifying patterns invisible to traditional CRMs. Result: 40% higher quality lead flow.</p>
+                        <div class="w-full bg-gray-700 rounded-full h-1.5 mt-4">
+                            <div class="bg-blue-500 h-1.5 rounded-full" style="width: 78%"></div>
+                        </div>
+                        <p class="mt-1 text-xs text-blue-400 text-right">78% more effective than traditional systems</p>
+                    </div>
+                    
+                    <div class="holographic p-6 rounded-lg">
+                        <div class="text-blue-400 text-4xl mb-4">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Autonomous Communication Matrix</h3>
+                        <p>Advanced language processing generates human-indistinguishable communications that adapt to each prospect's psychological profile and past interactions.</p>
+                        <div class="w-full bg-gray-700 rounded-full h-1.5 mt-4">
+                            <div class="bg-blue-500 h-1.5 rounded-full" style="width: 92%"></div>
+                        </div>
+                        <p class="mt-1 text-xs text-blue-400 text-right">92% pass AI/human detection tests</p>
+                    </div>
+                    
+                    <div class="holographic p-6 rounded-lg">
+                        <div class="text-blue-400 text-4xl mb-4">
+                            <i class="fas fa-chart-network"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Predictive Conversion Modeling</h3>
+                        <p>Proprietary algorithms forecast conversion probabilities with unprecedented accuracy, allowing preemptive optimization of marketing resources.</p>
+                        <div class="w-full bg-gray-700 rounded-full h-1.5 mt-4">
+                            <div class="bg-blue-500 h-1.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                        <p class="mt-1 text-xs text-blue-400 text-right">85% correlation with actual outcomes</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Features Section -->
+            <section id="features" class="mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-2 glow-text">Quantum Features</h2>
+                    <p class="text-gray-400">Beyond conventional AI capabilities</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="holographic p-6 rounded-lg flex">
+                        <div class="text-blue-400 text-2xl mr-4">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Neuro-Adaptive Lead Scoring</h3>
+                            <p>Self-evolving neural networks continuously refine lead scoring criteria based on your specific business outcomes, getting smarter with every interaction.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="holographic p-6 rounded-lg flex">
+                        <div class="text-blue-400 text-2xl mr-4">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Quantum Language Synthesis</h3>
+                            <p>Generate hyperpersonalized communications that adapt to psychological profiles, communication preferences, and emotional states of each prospect.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="holographic p-6 rounded-lg flex">
+                        <div class="text-blue-400 text-2xl mr-4">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Multi-dimensional Campaign Matrix</h3>
+                            <p>Deploy and optimize complex multi-channel campaigns with AI-orchestrated timing, content, and channel selection for each prospect segment.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="holographic p-6 rounded-lg flex">
+                        <div class="text-blue-400 text-2xl mr-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">4D Analytics Engine</h3>
+                            <p>Visualize your business data across dimensions beyond traditional analytics, revealing causation patterns that drive predictive decision-making.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="holographic p-6 rounded-lg flex">
+                        <div class="text-blue-400 text-2xl mr-4">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Autonomous Workflow Intelligence</h3>
+                            <p>Self-optimizing nurture sequences adapt based on real-time engagement data, creating unique journeys for each prospect with minimal human oversight.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="holographic p-6 rounded-lg flex">
+                        <div class="text-blue-400 text-2xl mr-4">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Quantum Integration Framework</h3>
+                            <p>Connect with existing systems through our neural adapters, creating a unified business intelligence layer across your entire technology stack.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Interactive Demo Section -->
+            <section class="mb-16">
+                <div class="holographic p-8 rounded-lg glow-border">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold mb-2 glow-text">Neural Interface Demo</h2>
+                        <p class="text-gray-300">Experience the AI in action with our interactive demo</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <div class="bg-black bg-opacity-50 rounded p-4 h-64 overflow-hidden relative">
+                                <div class="absolute top-2 left-2 text-sm text-gray-400">AI TERMINAL</div>
+                                <div id="console-output" class="font-mono text-sm text-green-400 mt-6"></div>
+                                <div class="absolute bottom-2 left-2 right-2">
+                                    <div class="flex">
+                                        <span class="text-green-400 mr-2">$</span>
+                                        <input type="text" id="console-input" class="bg-transparent text-green-400 font-mono focus:outline-none flex-grow" placeholder="Enter a business challenge...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <button id="run-demo" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                                    <i class="fas fa-play mr-2"></i> Run Neural Simulation
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="bg-black bg-opacity-50 rounded p-4 h-64 relative">
+                                <div class="absolute top-2 left-2 text-sm text-gray-400">AI VISUALIZATION</div>
+                                <div id="visualization" class="w-full h-full flex items-center justify-center">
+                                    <div class="w-32 h-32 border-4 border-blue-400 rounded-full animate-spin opacity-30"></div>
+                                    <div class="w-24 h-24 border-4 border-blue-500 rounded-full animate-spin absolute opacity-50" style="animation-direction: reverse;"></div>
+                                    <div class="absolute w-full h-full flex items-center justify-center">
+                                        <div id="vis-stats" class="text-center">
+                                            <div class="text-3xl font-bold text-blue-400 glow-text">0%</div>
+                                            <div class="text-xs text-gray-400">NEURAL PROCESSING</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 bg-gray-800 p-3 rounded-lg">
+                                <div class="text-sm text-gray-300 mb-1">Sample Challenges:</div>
+                                <div class="flex flex-wrap gap-2">
+                                    <button class="demo-sample bg-gray-700 hover:bg-gray-600 text-xs py-1 px-2 rounded">Low Email Open Rates</button>
+                                    <button class="demo-sample bg-gray-700 hover:bg-gray-600 text-xs py-1 px-2 rounded">Lead Qualification</button>
+                                    <button class="demo-sample bg-gray-700 hover:bg-gray-600 text-xs py-1 px-2 rounded">Ad Performance</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Beta Signup -->
+            <section id="beta-signup" class="max-w-4xl mx-auto holographic rounded-lg p-8 shadow-lg mb-16 glow-border">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold mb-2 glow-text">Neural Network Access</h2>
+                    <p>Join the elite group of businesses leveraging quantum AI technology</p>
+                </div>
+                
+                <form id="signup-form" action="https://formspree.io/f/kent.stone@gmail.com" method="POST" class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block mb-1">Your Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded bg-black bg-opacity-50 border border-blue-900 text-white focus:outline-none focus:border-blue-500 focus:glow-border" required>
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block mb-1">Business Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded bg-black bg-opacity-50 border border-blue-900 text-white focus:outline-none focus:border-blue-500" required>
+                    </div>
+                    
+                    <div>
+                        <label for="company" class="block mb-1">Company Name</label>
+                        <input type="text" id="company" name="company" class="w-full px-4 py-2 rounded bg-black bg-opacity-50 border border-blue-900 text-white focus:outline-none focus:border-blue-500" required>
+                    </div>
+                    
+                    <div>
+                        <label for="industry" class="block mb-1">Industry</label>
+                        <select id="industry" name="industry" class="w-full px-4 py-2 rounded bg-black bg-opacity-50 border border-blue-900 text-white focus:outline-none focus:border-blue-500" required>
+                            <option value="">Select your industry</option>
+                            <option value="ecommerce">E-Commerce</option>
+                            <option value="b2b">B2B Services</option>
+                            <option value="saas">SaaS & Technology</option>
+                            <option value="finance">Finance & Insurance</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="education">Education</option>
+                            <option value="real-estate">Real Estate</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <label for="message" class="block mb-1">Primary Business Challenge</label>
+                        <textarea id="message" name="message" rows="3" class="w-full px-4 py-2 rounded bg-black bg-opacity-50 border border-blue-900 text-white focus:outline-none focus:border-blue-500"></textarea>
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded transition duration-300 pulse">
+                            Request Neural Network Access
+                        </button>
+                        <p class="text-sm text-blue-300 mt-2">Limited deployment capacity. Access granted based on algorithmic compatibility assessment.</p>
+                    </div>
+                </form>
+            </section>
+            
+            <!-- Footer -->
+            <footer class="text-center text-gray-400 py-8 border-t border-gray-800">
+                <div class="mb-4">
+                    <h2 class="text-2xl font-bold text-white glow-text">Lead<span class="text-blue-400">Genius</span> AI</h2>
+                    <p>Quantum business intelligence for the algorithmic age</p>
+                </div>
+                
+                <div class="flex justify-center space-x-4 mb-6">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 hover:glow-text transition duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 hover:glow-text transition duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 hover:glow-text transition duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+                
+                <p>© 2025 LeadGenius AI. Created by Kent Stone.</p>
+            </footer>
+        </div>
     </div>
+
+    <script>
+        // Matrix rain effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = document.getElementById('matrix-rain').clientWidth;
+            canvas.height = document.getElementById('matrix-rain').clientHeight;
+            document.getElementById('matrix-rain').appendChild(canvas);
+            
+            const ctx = canvas.getContext('2d');
+            
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            const fontSize = 10;
+            const columns = canvas.width / fontSize;
+            
+            const drops = [];
+            for (let x = 0; x < columns; x++) {
+                drops[x] = 1;
+            }
+            
+            function draw() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#0f0';
+                ctx.font = fontSize + 'px monospace';
+                
+                for (let i = 0; i < drops.length; i++) {
+                    const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    
+                    drops[i]++;
+                }
+            }
+            
+            setInterval(draw, 33);
+        });
+        
+        // Interactive Demo
+        document.addEventListener('DOMContentLoaded', function() {
+            const consoleOutput = document.getElementById('console-output');
+            const consoleInput = document.getElementById('console-input');
+            const runDemoButton = document.getElementById('run-demo');
+            const visStats = document.getElementById('vis-stats').querySelector('div');
+            const demoSamples = document.querySelectorAll('.demo-sample');
+            
+            // Demo responses
+            const demoResponses = {
+                'low email open rates': 'ANALYZING EMAIL PERFORMANCE PATTERNS...\n\nNEURAL RECOMMENDATION:\n1. Subject line optimization using psychographic segmentation\n2. Send time personalization based on individual engagement history\n3. Dynamic content adaptation using predictive interest modeling\n\nPROJECTED OUTCOME: 37.2% increase in open rates within 14 days',
+                
+                'lead qualification': 'PROCESSING LEAD QUALIFICATION PARAMETERS...\n\nNEURAL RECOMMENDATION:\n1. Implement multi-factor behavioral scoring matrix\n2. Deploy micro-interaction tracking across digital touchpoints\n3. Apply conversion probability algorithm to prioritize sales activities\n\nPROJECTED OUTCOME: 41.8% increase in qualification accuracy',
+                
+                'ad performance': 'ANALYZING ADVERTISING EFFECTIVENESS...\n\nNEURAL RECOMMENDATION:\n1. Implement neural creative testing across 16 variants\n2. Deploy adaptive budget allocation algorithm\n3. Implement audience segment expansion based on lookalike modeling\n\nPROJECTED OUTCOME: 28.3% decrease in customer acquisition cost'
+            };
+            
+            // Sample challenges
+            demoSamples.forEach(button => {
+                button.addEventListener('click', function() {
+                    consoleInput.value = this.textContent;
+                    consoleInput.focus();
+                });
+            });
+            
+            // Run demo
+            function runDemo() {
+                const input = consoleInput.value.toLowerCase().trim();
+                if (!input) return;
+                
+                consoleOutput.innerHTML = '';
+                let response = '';
+                
+                // Find matching response or use generic
+                for (const key in demoResponses) {
+                    if (input.includes(key)) {
+                        response = demoResponses[key];
+                        break;
+                    }
+                }
+                
+                if (!response) {
+                    response = `ANALYZING BUSINESS CHALLENGE: "${consoleInput.value}"...\n\nNEURAL RECOMMENDATION:\n1. Implement adaptive AI workflow to address specific parameters\n2. Deploy predictive analytics to optimize resource allocation\n3. Establish continuous feedback loops for algorithmic refinement\n\nPROJECTED OUTCOME: 31.4% efficiency improvement`;
+                }
+                
+                // Simulate processing
+                let progress = 0;
+                const processingInterval = setInterval(() => {
+                    progress += Math.floor(Math.random() * 5) + 1;
+                    if (progress > 100) progress = 100;
+                    
+                    visStats.textContent = progress + '%';
+                    
+                    if (progress === 100) {
+                        clearInterval(processingInterval);
+                        
+                        // Type out response
+                        let i = 0;
+                        const typeInterval = setInterval(() => {
+                            if (i < response.length) {
+                                if (response[i] === '\n') {
+                                    consoleOutput.innerHTML += '<br>';
+                                } else {
+                                    consoleOutput.innerHTML += response[i];
+                                }
+                                i++;
+                            } else {
+                                clearInterval(typeInterval);
+                            }
+                        }, 20);
+                    }
+                }, 50);
+                
+                consoleInput.value = '';
+            }
+            
+            runDemoButton.addEventListener('click', runDemo);
+            consoleInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    runDemo();
+                }
+            });
+        });
+        
+        // Form handling
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            // We're using Formspree so no need to preventDefault()
+            alert('Access request submitted. Our quantum algorithms will evaluate your application and you will be contacted shortly.');
+        });
+    </script>
 </body>
 </html>
