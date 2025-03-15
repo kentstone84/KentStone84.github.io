@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeadGenius AI - Beta Access</title>
+    <title>LeadGenius AI - Intelligent CRM & Lead Nurturing</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -17,26 +17,64 @@
         .glow-text {
             text-shadow: 0 0 10px rgba(66, 153, 225, 0.7);
         }
-        .card {
+        .feature-card {
             background-color: rgba(30, 41, 59, 0.5);
             border: 1px solid rgba(66, 153, 225, 0.2);
             transition: all 0.3s ease;
         }
-        .card:hover {
+        .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 0 25px rgba(66, 153, 225, 0.3);
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4 gradient-bg">
-    <div class="w-full max-w-md">
-        <div class="text-center mb-8">
-            <h1 class="text-4xl font-bold mb-2 glow-text">Lead<span class="text-blue-400">Genius</span> AI</h1>
-            <p class="text-blue-300 mb-4">Next-Generation Lead Intelligence</p>
+<body class="gradient-bg">
+    <div class="container mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold mb-4 glow-text">Lead<span class="text-blue-400">Genius</span> AI</h1>
+            <p class="text-xl text-blue-300 mb-6">Quantum-Powered CRM & Lead Nurturing Platform</p>
         </div>
 
-        <div class="card rounded-lg p-8 shadow-lg">
-            <h2 class="text-2xl font-semibold mb-6 text-center">Beta Access Request</h2>
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="feature-card rounded-lg p-6">
+                <div class="text-blue-400 text-4xl mb-4">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Neural Lead Qualification</h3>
+                <p class="text-gray-300">
+                    Our AI analyzes 200+ data points per lead, identifying high-potential prospects with 97.8% accuracy. Automatically prioritize and score leads using advanced machine learning algorithms.
+                </p>
+                <div class="mt-4 text-sm text-blue-200">
+                    <strong>Key Capabilities:</strong>
+                    <ul class="list-disc list-inside">
+                        <li>Predictive lead scoring</li>
+                        <li>Behavioral pattern recognition</li>
+                        <li>Real-time engagement tracking</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-card rounded-lg p-6">
+                <div class="text-blue-400 text-4xl mb-4">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Autonomous Lead Nurturing</h3>
+                <p class="text-gray-300">
+                    Intelligent workflow automation that creates personalized communication journeys. Our AI adapts messaging, timing, and channel selection for each prospect in real-time.
+                </p>
+                <div class="mt-4 text-sm text-blue-200">
+                    <strong>Key Capabilities:</strong>
+                    <ul class="list-disc list-inside">
+                        <li>Multi-channel communication</li>
+                        <li>Dynamic content personalization</li>
+                        <li>Adaptive engagement sequences</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-2xl mx-auto bg-gray-800 rounded-lg p-8 shadow-lg">
+            <h2 class="text-2xl font-semibold mb-6 text-center glow-text">Beta Access Request</h2>
             
             <form id="signup-form" action="https://formspree.io/f/mldjddvg" method="POST">
                 <div class="mb-4">
@@ -46,7 +84,7 @@
                         id="name" 
                         name="name" 
                         required 
-                        class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
+                        class="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
                     >
                 </div>
 
@@ -57,7 +95,7 @@
                         id="email" 
                         name="email" 
                         required 
-                        class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
+                        class="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
                     >
                 </div>
 
@@ -68,17 +106,17 @@
                         id="company" 
                         name="company" 
                         required 
-                        class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
+                        class="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
                     >
                 </div>
 
-                <div class="mb-6">
+                <div class="mb-4">
                     <label for="industry" class="block mb-2 text-sm">Industry</label>
                     <select 
                         id="industry" 
                         name="industry" 
                         required 
-                        class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
+                        class="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
                     >
                         <option value="">Select your industry</option>
                         <option value="saas">SaaS & Technology</option>
@@ -89,6 +127,17 @@
                     </select>
                 </div>
 
+                <div class="mb-6">
+                    <label for="challenges" class="block mb-2 text-sm">Primary Business Challenges</label>
+                    <textarea 
+                        id="challenges" 
+                        name="challenges" 
+                        rows="3"
+                        class="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
+                        placeholder="Describe your lead generation and nurturing challenges..."
+                    ></textarea>
+                </div>
+
                 <button 
                     type="submit" 
                     class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded transition duration-300"
@@ -97,12 +146,12 @@
                 </button>
 
                 <p class="text-xs text-center text-gray-500 mt-4">
-                    Limited beta spots available. Access granted based on compatibility assessment.
+                    Limited beta spots available. Access granted based on AI-powered compatibility assessment.
                 </p>
             </form>
         </div>
 
-        <div class="text-center mt-6">
+        <div class="text-center mt-8">
             <div class="flex justify-center space-x-4 mb-4">
                 <a href="#" class="text-gray-400 hover:text-blue-400 transition">
                     <i class="fab fa-twitter text-xl"></i>
@@ -120,7 +169,7 @@
 
     <script>
         document.getElementById('signup-form').addEventListener('submit', function(e) {
-            alert('Beta access request submitted. Our team will review your application.');
+            alert('Beta access request submitted. Our AI will review your application and assess compatibility.');
         });
     </script>
 </body>
