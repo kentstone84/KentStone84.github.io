@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeadGenius AI - Intelligent CRM & Lead Nurturing</title>
+    <title>LeadGenius AI - User Interface Mockups</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -11,166 +11,201 @@
             background-color: #0f172a;
             color: #e2e8f0;
         }
-        .gradient-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        }
-        .glow-text {
-            text-shadow: 0 0 10px rgba(66, 153, 225, 0.7);
-        }
-        .feature-card {
+        .ui-mockup {
             background-color: rgba(30, 41, 59, 0.5);
             border: 1px solid rgba(66, 153, 225, 0.2);
-            transition: all 0.3s ease;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
         }
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 25px rgba(66, 153, 225, 0.3);
+        .ui-title {
+            color: #60a5fa;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        .ai-highlight {
+            color: #38bdf8;
+            font-weight: 600;
+        }
+        .progress-bar {
+            background-color: rgba(66, 153, 225, 0.2);
+        }
+        .progress-bar-fill {
+            background-color: #60a5fa;
         }
     </style>
 </head>
-<body class="gradient-bg">
-    <div class="container mx-auto px-4 py-12">
-        <div class="text-center mb-12">
-            <h1 class="text-5xl font-bold mb-4 glow-text">Lead<span class="text-blue-400">Genius</span> AI</h1>
-            <p class="text-xl text-blue-300 mb-6">Quantum-Powered CRM & Lead Nurturing Platform</p>
-        </div>
+<body class="bg-gray-900 text-white min-h-screen py-12">
+    <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold text-center mb-12">
+            LeadGenius AI <span class="text-blue-400">Interface Mockups</span>
+        </h1>
 
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-            <div class="feature-card rounded-lg p-6">
-                <div class="text-blue-400 text-4xl mb-4">
-                    <i class="fas fa-brain"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Neural Lead Qualification</h3>
-                <p class="text-gray-300">
-                    Our AI analyzes 200+ data points per lead, identifying high-potential prospects with 97.8% accuracy. Automatically prioritize and score leads using advanced machine learning algorithms.
-                </p>
-                <div class="mt-4 text-sm text-blue-200">
-                    <strong>Key Capabilities:</strong>
-                    <ul class="list-disc list-inside">
-                        <li>Predictive lead scoring</li>
-                        <li>Behavioral pattern recognition</li>
-                        <li>Real-time engagement tracking</li>
-                    </ul>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="ui-mockup">
+                <h2 class="ui-title">
+                    <i class="fas fa-chart-line mr-2"></i>
+                    Lead Scoring Dashboard
+                </h2>
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm">Lead Quality Prediction</span>
+                        <span class="text-sm ai-highlight">AI Powered</span>
+                    </div>
+                    <div class="progress-bar h-2 rounded-full mb-4">
+                        <div class="progress-bar-fill h-2 rounded-full" style="width: 87%"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div>
+                            <div class="text-2xl font-bold text-green-400">87%</div>
+                            <div class="text-xs text-gray-400">Conversion Probability</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-blue-400">A+</div>
+                            <div class="text-xs text-gray-400">Lead Grade</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-purple-400">High</div>
+                            <div class="text-xs text-gray-400">Priority Level</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 bg-gray-700 rounded-lg p-3">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <div class="font-semibold">Sarah Johnson</div>
+                                <div class="text-xs text-gray-400">Enterprise Software Sales</div>
+                            </div>
+                            <span class="text-green-400 text-sm">✓ Hot Lead</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="feature-card rounded-lg p-6">
-                <div class="text-blue-400 text-4xl mb-4">
-                    <i class="fas fa-project-diagram"></i>
+            <div class="ui-mockup">
+                <h2 class="ui-title">
+                    <i class="fas fa-project-diagram mr-2"></i>
+                    Lead Nurturing Workflow
+                </h2>
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="mb-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm">Automated Engagement Sequence</span>
+                            <span class="ai-highlight text-sm">🤖 AI Orchestrated</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="bg-gray-700 rounded-lg p-3 flex items-center">
+                                <i class="fas fa-envelope text-blue-400 mr-3"></i>
+                                <div>
+                                    <div class="font-semibold">Initial Contact Email</div>
+                                    <div class="text-xs text-gray-400">Sent 2 days ago</div>
+                                </div>
+                                <span class="ml-auto text-green-400">Opened</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-lg p-3 flex items-center">
+                                <i class="fas fa-sms text-purple-400 mr-3"></i>
+                                <div>
+                                    <div class="font-semibold">Follow-up SMS</div>
+                                    <div class="text-xs text-gray-400">Scheduled in 1 day</div>
+                                </div>
+                                <span class="ml-auto text-yellow-400">Pending</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-lg p-3 flex items-center opacity-50">
+                                <i class="fas fa-phone text-green-400 mr-3"></i>
+                                <div>
+                                    <div class="font-semibold">Sales Call</div>
+                                    <div class="text-xs text-gray-400">Scheduled in 3 days</div>
+                                </div>
+                                <span class="ml-auto text-gray-400">Queued</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold mb-3">Autonomous Lead Nurturing</h3>
-                <p class="text-gray-300">
-                    Intelligent workflow automation that creates personalized communication journeys. Our AI adapts messaging, timing, and channel selection for each prospect in real-time.
-                </p>
-                <div class="mt-4 text-sm text-blue-200">
-                    <strong>Key Capabilities:</strong>
-                    <ul class="list-disc list-inside">
-                        <li>Multi-channel communication</li>
-                        <li>Dynamic content personalization</li>
-                        <li>Adaptive engagement sequences</li>
-                    </ul>
+            </div>
+
+            <div class="ui-mockup">
+                <h2 class="ui-title">
+                    <i class="fas fa-comments mr-2"></i>
+                    AI Communication Assistant
+                </h2>
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="bg-gray-700 rounded-lg p-3 mb-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm">AI-Powered Email Drafting</span>
+                            <span class="ai-highlight text-sm">💡 Smart Composition</span>
+                        </div>
+                        <textarea class="w-full bg-gray-600 rounded-lg p-2 text-sm" rows="4" placeholder="Drafting personalized email...">Based on our previous conversation and your recent website interactions, I wanted to share how our solution could specifically address your team's scalability challenges...</textarea>
+                        <div class="mt-2 flex justify-between">
+                            <div class="text-xs text-gray-400">
+                                Tone: <span class="text-blue-400">Professional</span>
+                                | Personalization: <span class="text-green-400">High</span>
+                            </div>
+                            <button class="bg-blue-600 text-white text-xs px-3 py-1 rounded">Send</button>
+                        </div>
+                    </div>
+                    <div class="bg-gray-700 rounded-lg p-3">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-magic text-purple-400 mr-3"></i>
+                            <span class="text-sm">AI Recommendations</span>
+                        </div>
+                        <ul class="text-xs space-y-1">
+                            <li>✓ Highlighted key pain points</li>
+                            <li>✓ Personalized solution approach</li>
+                            <li>✓ Tailored to prospect's industry</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui-mockup">
+                <h2 class="ui-title">
+                    <i class="fas fa-chart-pie mr-2"></i>
+                    Predictive Analytics Dashboard
+                </h2>
+                <div class="bg-gray-800 rounded-lg p-4">
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <div class="text-sm text-gray-400 mb-1">Conversion Forecast</div>
+                            <div class="text-2xl font-bold text-green-400">41.6%</div>
+                            <div class="text-xs text-gray-500">Next 30 Days</div>
+                        </div>
+                        <div>
+                            <div class="text-sm text-gray-400 mb-1">Revenue Projection</div>
+                            <div class="text-2xl font-bold text-blue-400">$642K</div>
+                            <div class="text-xs text-gray-500">Predicted Pipeline</div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-700 rounded-lg p-3">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm">Performance Indicators</span>
+                            <span class="ai-highlight text-sm">🔮 Predictive</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-xs text-gray-400">Lead Conversion Rate</span>
+                                <span class="text-blue-400 text-xs">37.2%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-xs text-gray-400">Sales Cycle Length</span>
+                                <span class="text-purple-400 text-xs">28 Days</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-xs text-gray-400">Customer Acquisition Cost</span>
+                                <span class="text-green-400 text-xs">$124</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="max-w-2xl mx-auto bg-gray-800 rounded-lg p-8 shadow-lg">
-            <h2 class="text-2xl font-semibold mb-6 text-center glow-text">Beta Access Request</h2>
-            
-            <form id="signup-form" action="https://formspree.io/f/mldjddvg" method="POST">
-                <div class="mb-4">
-                    <label for="name" class="block mb-2 text-sm">Full Name</label>
-                    <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
-                        required 
-                        class="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
-                    >
-                </div>
-
-                <div class="mb-4">
-                    <label for="email" class="block mb-2 text-sm">Business Email</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        required 
-                        class="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
-                    >
-                </div>
-
-                <div class="mb-4">
-                    <label for="company" class="block mb-2 text-sm">Company Name</label>
-                    <input 
-                        type="text" 
-                        id="company" 
-                        name="company" 
-                        required 
-                        class="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
-                    >
-                </div>
-
-                <div class="mb-4">
-                    <label for="industry" class="block mb-2 text-sm">Industry</label>
-                    <select 
-                        id="industry" 
-                        name="industry" 
-                        required 
-                        class="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
-                    >
-                        <option value="">Select your industry</option>
-                        <option value="saas">SaaS & Technology</option>
-                        <option value="ecommerce">E-Commerce</option>
-                        <option value="b2b">B2B Services</option>
-                        <option value="finance">Finance & Insurance</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <div class="mb-6">
-                    <label for="challenges" class="block mb-2 text-sm">Primary Business Challenges</label>
-                    <textarea 
-                        id="challenges" 
-                        name="challenges" 
-                        rows="3"
-                        class="w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded focus:outline-none focus:border-blue-500"
-                        placeholder="Describe your lead generation and nurturing challenges..."
-                    ></textarea>
-                </div>
-
-                <button 
-                    type="submit" 
-                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded transition duration-300"
-                >
-                    Request Beta Access
-                </button>
-
-                <p class="text-xs text-center text-gray-500 mt-4">
-                    Limited beta spots available. Access granted based on AI-powered compatibility assessment.
-                </p>
-            </form>
-        </div>
-
-        <div class="text-center mt-8">
-            <div class="flex justify-center space-x-4 mb-4">
-                <a href="#" class="text-gray-400 hover:text-blue-400 transition">
-                    <i class="fab fa-twitter text-xl"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-blue-400 transition">
-                    <i class="fab fa-linkedin text-xl"></i>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-blue-400 transition">
-                    <i class="fab fa-github text-xl"></i>
-                </a>
-            </div>
-            <p class="text-xs text-gray-500">© 2025 LeadGenius AI</p>
+        <div class="text-center mt-12">
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                These interface mockups demonstrate LeadGenius AI's comprehensive approach to intelligent lead management, 
+                showcasing how advanced AI transforms every aspect of the sales and marketing workflow.
+            </p>
         </div>
     </div>
-
-    <script>
-        document.getElementById('signup-form').addEventListener('submit', function(e) {
-            alert('Beta access request submitted. Our AI will review your application and assess compatibility.');
-        });
-    </script>
 </body>
 </html>
