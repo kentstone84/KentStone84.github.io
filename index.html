@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeadGenius AI - Beta Tester Signup</title>
+    <title>LeadGenius AI - Transforming Sales Intelligence</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -14,10 +14,24 @@
         .gradient-bg {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
         }
+        .feature-card {
+            background-color: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(66, 153, 225, 0.2);
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(66, 153, 225, 0.3);
+        }
+        .ui-mockup {
+            background-color: rgba(30, 41, 59, 0.5);
+            border-radius: 8px;
+            padding: 16px;
+        }
         .form-input {
             background-color: rgba(30, 41, 59, 0.5);
             border-color: rgba(66, 153, 225, 0.2);
-            color: #white;
+            color: white;
         }
         .form-input:focus {
             border-color: #60a5fa;
@@ -25,13 +39,97 @@
         }
     </style>
 </head>
-<body class="gradient-bg min-h-screen flex items-center justify-center py-12">
-    <div class="container mx-auto px-4 max-w-2xl">
-        <div class="bg-gray-800 rounded-xl shadow-2xl overflow-hidden">
-            <div class="p-8 text-center">
-                <h1 class="text-4xl font-bold mb-4 text-blue-400">LeadGenius AI</h1>
-                <p class="text-xl text-gray-300 mb-8">Beta Tester Application</p>
+<body class="bg-gray-900">
+    <div class="container mx-auto px-4 py-12">
+        <header class="text-center mb-16">
+            <h1 class="text-5xl font-bold mb-4 text-white">
+                Lead<span class="text-blue-400">Genius</span> AI
+            </h1>
+            <p class="text-xl text-blue-300 max-w-2xl mx-auto">
+                Revolutionizing Sales Intelligence Through Advanced AI
+            </p>
+        </header>
 
+        <section class="mb-16">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="feature-card p-6 rounded-lg">
+                    <div class="text-blue-400 text-4xl mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4 text-white">Sales Transformation</h2>
+                    <p class="text-gray-300 mb-4">
+                        LeadGenius AI doesn't just improve sales processes—it fundamentally reimagines how businesses identify, engage, and convert prospects.
+                    </p>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            97.8% Lead Prediction Accuracy
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            41% Increase in Conversion Rates
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            15.3x Reduction in Manual Tasks
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="feature-card p-6 rounded-lg">
+                    <div class="text-blue-400 text-4xl mb-4">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4 text-white">AI-Powered Intelligence</h2>
+                    <p class="text-gray-300 mb-4">
+                        Our neural networks analyze 200+ data points per lead, creating a holistic understanding of potential customers.
+                    </p>
+                    <div class="bg-gray-800 rounded-lg p-4">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-gray-400">Lead Scoring Accuracy</span>
+                            <span class="text-blue-400">97.8%</span>
+                        </div>
+                        <div class="w-full bg-gray-700 h-2 rounded-full">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 97.8%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">
+                User Interface Showcase
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="ui-mockup">
+                    <h3 class="text-xl font-bold mb-4 text-blue-400">
+                        <i class="fas fa-chart-pie mr-2"></i>
+                        Predictive Dashboard
+                    </h3>
+                    <img src="/api/placeholder/500/300" alt="Predictive Dashboard Mockup" class="w-full rounded-lg mb-4">
+                    <p class="text-gray-300">
+                        Real-time analytics that predict lead conversion, revenue potential, and sales cycle dynamics.
+                    </p>
+                </div>
+                <div class="ui-mockup">
+                    <h3 class="text-xl font-bold mb-4 text-blue-400">
+                        <i class="fas fa-project-diagram mr-2"></i>
+                        Lead Nurturing Workflow
+                    </h3>
+                    <img src="/api/placeholder/500/300" alt="Lead Nurturing Workflow Mockup" class="w-full rounded-lg mb-4">
+                    <p class="text-gray-300">
+                        Automated, intelligent communication sequences tailored to each prospect's unique profile.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="beta-signup" class="max-w-4xl mx-auto">
+            <div class="bg-gray-800 rounded-lg p-8">
+                <h2 class="text-3xl font-bold text-center mb-8 text-white">
+                    Beta Access Application
+                </h2>
                 <form 
                     id="signup-form" 
                     action="https://formspree.io/f/mldjddvg" 
@@ -45,7 +143,7 @@
                             id="name" 
                             name="name" 
                             required 
-                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700 focus:outline-none"
+                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700"
                             placeholder="Your full name"
                         >
                     </div>
@@ -57,7 +155,7 @@
                             id="email" 
                             name="email" 
                             required 
-                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700 focus:outline-none"
+                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700"
                             placeholder="you@company.com"
                         >
                     </div>
@@ -69,7 +167,7 @@
                             id="company" 
                             name="company" 
                             required 
-                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700 focus:outline-none"
+                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700"
                             placeholder="Your company"
                         >
                     </div>
@@ -80,7 +178,7 @@
                             id="industry" 
                             name="industry" 
                             required 
-                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700 focus:outline-none"
+                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700"
                         >
                             <option value="">Select Industry</option>
                             <option value="saas">SaaS & Technology</option>
@@ -92,13 +190,13 @@
                     </div>
 
                     <div class="md:col-span-2">
-                        <label for="challenges" class="block text-sm font-medium text-gray-300 mb-2">Primary Business Challenges</label>
+                        <label for="challenges" class="block text-sm font-medium text-gray-300 mb-2">Primary Sales Challenges</label>
                         <textarea 
                             id="challenges" 
                             name="challenges" 
                             rows="3" 
-                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700 focus:outline-none"
-                            placeholder="Describe the lead generation and nurturing challenges your business faces..."
+                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700"
+                            placeholder="Describe your current sales and lead generation challenges..."
                         ></textarea>
                     </div>
 
@@ -111,21 +209,12 @@
                         </button>
                     </div>
                 </form>
-
-                <div class="mt-6 text-sm text-gray-400">
-                    <p>
-                        By applying, you'll be considered for early access to LeadGenius AI's 
-                        beta program. Limited spots available.
-                    </p>
-                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="text-center mt-6">
-            <p class="text-gray-500 text-xs">
-                © 2025 LeadGenius AI. All rights reserved.
-            </p>
-        </div>
+        <footer class="text-center text-gray-400 mt-12">
+            <p>© 2025 LeadGenius AI. All rights reserved.</p>
+        </footer>
     </div>
 
     <script>
