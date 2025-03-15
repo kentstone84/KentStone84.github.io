@@ -1,201 +1,546 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadGenius AI - Next-Generation Lead Intelligence</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Futuristic glow effects */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(66, 153, 225, 0.7), 0 0 20px rgba(66, 153, 225, 0.5);
+        }
+        
+        .glow-border {
+            box-shadow: 0 0 15px rgba(66, 153, 225, 0.5);
+        }
+        
+        /* Animated background */
+        .animated-bg {
+            background: linear-gradient(45deg, #0f172a, #1e293b, #0f172a);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        /* Futuristic circuit lines */
+        .circuit-pattern {
+            background-image: 
+                radial-gradient(rgba(66, 153, 225, 0.15) 2px, transparent 2px),
+                linear-gradient(to right, rgba(66, 153, 225, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(66, 153, 225, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px, 20px 20px, 20px 20px;
+            background-position: 0 0, 10px 10px, 10px 10px;
+        }
+        
+        /* Pulsing animation */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        /* Typing animation */
+        .typing-animation::after {
+            content: "|";
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Holographic card effect */
+        .holographic {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(66,153,225,0.15) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(66, 153, 225, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .holographic:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(66, 153, 225, 0.6);
+            border: 1px solid rgba(66, 153, 225, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 animated-bg text-white">
+    <div class="circuit-pattern min-h-screen">
+        <div class="container mx-auto px-4 py-8">
+            <!-- Header -->
+            <header class="text-center mb-12 pt-8">
+                <h1 class="text-6xl font-bold mb-2 glow-text">Lead<span class="text-blue-400">Genius</span> AI</h1>
+                <p class="text-xl text-blue-400 mb-4">Quantum Leap in Business Intelligence</p>
+                <p class="max-w-3xl mx-auto typing-animation">Harness neural networks and adaptive algorithms to transform business growth.</p>
+            </header>
 
-<html>
-	<head>
-		<title>Designer Kent Stone</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	
-	
-	</head>
-	
-	<body class="is-preload">
+            <!-- Hero Section -->
+            <div class="max-w-5xl mx-auto holographic rounded-lg p-8 shadow-lg mb-16 glow-border">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-4xl font-bold mb-4">Neural Business Engine</h2>
+                        <p class="text-lg mb-6">LeadGenius AI doesn't just automate—it thinks. Our deep learning architecture analyzes patterns invisible to the human eye, predicting customer behaviors with uncanny precision.</p>
+                        <div class="flex space-x-4">
+                            <a href="#beta-signup" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 pulse">
+                                Access Neural Network
+                            </a>
+                            <a href="#features" class="bg-transparent border border-blue-400 hover:bg-blue-900 hover:border-blue-500 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                                Explore Capabilities
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <!-- AI Visualization -->
+                        <div class="w-full h-64 bg-black bg-opacity-50 rounded-lg flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 opacity-20">
+                                <div id="matrix-rain" class="w-full h-full"></div>
+                            </div>
+                            <div class="z-10 pulse">
+                                <div class="w-24 h-24 rounded-full bg-blue-900 bg-opacity-50 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full bg-blue-800 bg-opacity-70 flex items-center justify-center">
+                                        <div class="w-8 h-8 rounded-full bg-blue-600 bg-opacity-90 flex items-center justify-center">
+                                            <div class="w-4 h-4 rounded-full bg-blue-400"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-		<p id="welcome-message"></p>
-  <!-- <script>
-    window.onload = function() {
-      var name = window.alert("Welcome to a design by Kent Stone. This site was designed to show my skills as a web developer. If you would like to contact me faster my cell phone number is +51-974-635-098.");
-	 
-    }
+            <!-- AI Stats Dashboard -->
+            <section class="mb-16">
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="holographic rounded-lg p-4 text-center">
+                        <h3 class="text-blue-400 font-bold text-lg">Neural Efficiency</h3>
+                        <div class="text-4xl font-bold mt-2 mb-1 glow-text">97.8%</div>
+                        <p class="text-xs text-gray-400">Prediction Accuracy</p>
+                    </div>
+                    <div class="holographic rounded-lg p-4 text-center">
+                        <h3 class="text-blue-400 font-bold text-lg">Time Recovery</h3>
+                        <div class="text-4xl font-bold mt-2 mb-1 glow-text">15.3x</div>
+                        <p class="text-xs text-gray-400">Manual Task Reduction</p>
+                    </div>
+                    <div class="holographic rounded-lg p-4 text-center">
+                        <h3 class="text-blue-400 font-bold text-lg">Conversion Amplifier</h3>
+                        <div class="text-4xl font-bold mt-2 mb-1 glow-text">+41%</div>
+                        <p class="text-xs text-gray-400">Avg Lead Conversion</p>
+                    </div>
+                    <div class="holographic rounded-lg p-4 text-center">
+                        <h3 class="text-blue-400 font-bold text-lg">ROI Generator</h3>
+                        <div class="text-4xl font-bold mt-2 mb-1 glow-text">643%</div>
+                        <p class="text-xs text-gray-400">Avg Marketing Return</p>
+                    </div>
+                </div>
+            </section>
 
-  </script> -->
-		
+            <!-- Value Proposition -->
+            <section class="mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-2 glow-text">Algorithmic Business Transformation</h2>
+                    <p class="text-gray-400">Redefining business intelligence through quantum computing principles</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="holographic p-6 rounded-lg">
+                        <div class="text-blue-400 text-4xl mb-4">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Neural Lead Qualification</h3>
+                        <p>Our quantum algorithm analyzes 200+ data points per lead, identifying patterns invisible to traditional CRMs. Result: 40% higher quality lead flow.</p>
+                        <div class="w-full bg-gray-700 rounded-full h-1.5 mt-4">
+                            <div class="bg-blue-500 h-1.5 rounded-full" style="width: 78%"></div>
+                        </div>
+                        <p class="mt-1 text-xs text-blue-400 text-right">78% more effective than traditional systems</p>
+                    </div>
+                    
+                    <div class="holographic p-6 rounded-lg">
+                        <div class="text-blue-400 text-4xl mb-4">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Autonomous Communication Matrix</h3>
+                        <p>Advanced language processing generates human-indistinguishable communications that adapt to each prospect's psychological profile and past interactions.</p>
+                        <div class="w-full bg-gray-700 rounded-full h-1.5 mt-4">
+                            <div class="bg-blue-500 h-1.5 rounded-full" style="width: 92%"></div>
+                        </div>
+                        <p class="mt-1 text-xs text-blue-400 text-right">92% pass AI/human detection tests</p>
+                    </div>
+                    
+                    <div class="holographic p-6 rounded-lg">
+                        <div class="text-blue-400 text-4xl mb-4">
+                            <i class="fas fa-chart-network"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Predictive Conversion Modeling</h3>
+                        <p>Proprietary algorithms forecast conversion probabilities with unprecedented accuracy, allowing preemptive optimization of marketing resources.</p>
+                        <div class="w-full bg-gray-700 rounded-full h-1.5 mt-4">
+                            <div class="bg-blue-500 h-1.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                        <p class="mt-1 text-xs text-blue-400 text-right">85% correlation with actual outcomes</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Features Section -->
+            <section id="features" class="mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-2 glow-text">Quantum Features</h2>
+                    <p class="text-gray-400">Beyond conventional AI capabilities</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="holographic p-6 rounded-lg flex">
+                        <div class="text-blue-400 text-2xl mr-4">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Neuro-Adaptive Lead Scoring</h3>
+                            <p>Self-evolving neural networks continuously refine lead scoring criteria based on your specific business outcomes, getting smarter with every interaction.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="holographic p-6 rounded-lg flex">
+                        <div class="text-blue-400 text-2xl mr-4">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Quantum Language Synthesis</h3>
+                            <p>Generate hyperpersonalized communications that adapt to psychological profiles, communication preferences, and emotional states of each prospect.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="holographic p-6 rounded-lg flex">
+                        <div class="text-blue-400 text-2xl mr-4">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Multi-dimensional Campaign Matrix</h3>
+                            <p>Deploy and optimize complex multi-channel campaigns with AI-orchestrated timing, content, and channel selection for each prospect segment.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="holographic p-6 rounded-lg flex">
+                        <div class="text-blue-400 text-2xl mr-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">4D Analytics Engine</h3>
+                            <p>Visualize your business data across dimensions beyond traditional analytics, revealing causation patterns that drive predictive decision-making.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="holographic p-6 rounded-lg flex">
+                        <div class="text-blue-400 text-2xl mr-4">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Autonomous Workflow Intelligence</h3>
+                            <p>Self-optimizing nurture sequences adapt based on real-time engagement data, creating unique journeys for each prospect with minimal human oversight.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="holographic p-6 rounded-lg flex">
+                        <div class="text-blue-400 text-2xl mr-4">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Quantum Integration Framework</h3>
+                            <p>Connect with existing systems through our neural adapters, creating a unified business intelligence layer across your entire technology stack.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Interactive Demo Section -->
+            <section class="mb-16">
+                <div class="holographic p-8 rounded-lg glow-border">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold mb-2 glow-text">Neural Interface Demo</h2>
+                        <p class="text-gray-300">Experience the AI in action with our interactive demo</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <div class="bg-black bg-opacity-50 rounded p-4 h-64 overflow-hidden relative">
+                                <div class="absolute top-2 left-2 text-sm text-gray-400">AI TERMINAL</div>
+                                <div id="console-output" class="font-mono text-sm text-green-400 mt-6"></div>
+                                <div class="absolute bottom-2 left-2 right-2">
+                                    <div class="flex">
+                                        <span class="text-green-400 mr-2">$</span>
+                                        <input type="text" id="console-input" class="bg-transparent text-green-400 font-mono focus:outline-none flex-grow" placeholder="Enter a business challenge...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <button id="run-demo" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                                    <i class="fas fa-play mr-2"></i> Run Neural Simulation
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="bg-black bg-opacity-50 rounded p-4 h-64 relative">
+                                <div class="absolute top-2 left-2 text-sm text-gray-400">AI VISUALIZATION</div>
+                                <div id="visualization" class="w-full h-full flex items-center justify-center">
+                                    <div class="w-32 h-32 border-4 border-blue-400 rounded-full animate-spin opacity-30"></div>
+                                    <div class="w-24 h-24 border-4 border-blue-500 rounded-full animate-spin absolute opacity-50" style="animation-direction: reverse;"></div>
+                                    <div class="absolute w-full h-full flex items-center justify-center">
+                                        <div id="vis-stats" class="text-center">
+                                            <div class="text-3xl font-bold text-blue-400 glow-text">0%</div>
+                                            <div class="text-xs text-gray-400">NEURAL PROCESSING</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 bg-gray-800 p-3 rounded-lg">
+                                <div class="text-sm text-gray-300 mb-1">Sample Challenges:</div>
+                                <div class="flex flex-wrap gap-2">
+                                    <button class="demo-sample bg-gray-700 hover:bg-gray-600 text-xs py-1 px-2 rounded">Low Email Open Rates</button>
+                                    <button class="demo-sample bg-gray-700 hover:bg-gray-600 text-xs py-1 px-2 rounded">Lead Qualification</button>
+                                    <button class="demo-sample bg-gray-700 hover:bg-gray-600 text-xs py-1 px-2 rounded">Ad Performance</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Beta Signup -->
+            <section id="beta-signup" class="max-w-4xl mx-auto holographic rounded-lg p-8 shadow-lg mb-16 glow-border">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold mb-2 glow-text">Neural Network Access</h2>
+                    <p>Join the elite group of businesses leveraging quantum AI technology</p>
+                </div>
+                
+                <form id="signup-form" action="https://formspree.io/f/kent.stone@gmail.com" method="POST" class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block mb-1">Your Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded bg-black bg-opacity-50 border border-blue-900 text-white focus:outline-none focus:border-blue-500 focus:glow-border" required>
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block mb-1">Business Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded bg-black bg-opacity-50 border border-blue-900 text-white focus:outline-none focus:border-blue-500" required>
+                    </div>
+                    
+                    <div>
+                        <label for="company" class="block mb-1">Company Name</label>
+                        <input type="text" id="company" name="company" class="w-full px-4 py-2 rounded bg-black bg-opacity-50 border border-blue-900 text-white focus:outline-none focus:border-blue-500" required>
+                    </div>
+                    
+                    <div>
+                        <label for="industry" class="block mb-1">Industry</label>
+                        <select id="industry" name="industry" class="w-full px-4 py-2 rounded bg-black bg-opacity-50 border border-blue-900 text-white focus:outline-none focus:border-blue-500" required>
+                            <option value="">Select your industry</option>
+                            <option value="ecommerce">E-Commerce</option>
+                            <option value="b2b">B2B Services</option>
+                            <option value="saas">SaaS & Technology</option>
+                            <option value="finance">Finance & Insurance</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="education">Education</option>
+                            <option value="real-estate">Real Estate</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <label for="message" class="block mb-1">Primary Business Challenge</label>
+                        <textarea id="message" name="message" rows="3" class="w-full px-4 py-2 rounded bg-black bg-opacity-50 border border-blue-900 text-white focus:outline-none focus:border-blue-500"></textarea>
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded transition duration-300 pulse">
+                            Request Neural Network Access
+                        </button>
+                        <p class="text-sm text-blue-300 mt-2">Limited deployment capacity. Access granted based on algorithmic compatibility assessment.</p>
+                    </div>
+                </form>
+            </section>
+            
+            <!-- Footer -->
+            <footer class="text-center text-gray-400 py-8 border-t border-gray-800">
+                <div class="mb-4">
+                    <h2 class="text-2xl font-bold text-white glow-text">Lead<span class="text-blue-400">Genius</span> AI</h2>
+                    <p>Quantum business intelligence for the algorithmic age</p>
+                </div>
+                
+                <div class="flex justify-center space-x-4 mb-6">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 hover:glow-text transition duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 hover:glow-text transition duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 hover:glow-text transition duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+                
+                <p>© 2025 LeadGenius AI. Created by Kent Stone.</p>
+            </footer>
+        </div>
+    </div>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="fas fa-terminal"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Kent Stone</h1>
-								<h3>Full-Stack Developer</h3>	
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#intro">A Brief Bio</a></li>
-								<li><a href="#work">Resume</a></li>
-								<li><a href="#Projects">Projects</a></li>
-								<li><a href="#contact">The Future</a></li>
-							</ul>
-						</nav>
-					</header>
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- To Start -->
-							<article id="intro">
-								<h2 class="major">A Brief</h2>
-								<p>""Growing up on a working farm taught me the value of hard work. We plowed the land and reaped the rewards with fresh vegetables and fruits. In high school I hacked into the school's main server using a brute force attack, I showed the teacher what I had done in an attempt to show that my school was not protecting itself or its students. The only action the school took was for me to be suspended. As further punishment, I was enrolled in vo-tech to take computer network technology while completing my junior year of high school. With 9/11 I enlisted in the Army and became an NBC specialist for the 1-71 CAV. After returning from Iraq, I worked for a chemical company as their in-house IT Tech before starting to travel the world. I have visited all 50 States and 60 countries learning from different cultures. After multiple cave diving deaths of people close to me, I wrapped up the Wonderland Project and attended Full-Stack Development to learn web and software development."
-								<br></br>
-								<a href="https://www.bbc.com/travel/article/20190826-mexicos-mysterious-uncharted-caves">Learn about The Wonderland Project</a>.</p>
-								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<h4>Always a good time for a selfie</h4>
-								<span class="image main"><img src="images/pic04.jpeg" alt="Team Swim" /></span>
-								<h4>The Team is crossing a shallow pool through a hidden cavern</h4>
-								<span class="image main"><img src="images/teaching.jpg" alt="PADI Teaching" /></span>
-								<h4>Being a PADI Open Water Scuba Instructor has taught me more than I could have imagined</h4>
-								<span class="image main"><img src="images/team1.jpg" alt="Team 1" /></span>
-								<h4>Exploration team conducting final checks before entering the cave</h4>
-								
-								<ul class="actions">
-									<li><a href="index.html" class="button next">Home Page</a></li>
-									<li><a href="#work" class="button next">My Resume</a></li>
-									<li><a href="#Projects" class="button next">Projects</a></li>
-									<li><a href="#contact" class="button next">Contact Me</a></li>
-							</article>
-
-						<!-- Past -->
-						<article id="work">
-							<h2 class="major">Resume</h2>
-							<a href="images/Resume Kent Stone.jpg" target="_blank">
-							  <img src="images/Resume Kent Stone.jpg" alt="Resume" style="max-width: 150%;" />
-							</a>
-							<ul class="actions">
-							  <li><a href="index.html" class="button next">Home Page</a></li>
-							  <li><a href="#Projects" class="button next">Projects</a></li>
-							  <li><a href="#contact" class="button next">Contact Me</a></li>
-							</ul>
-						  </article>
-
-						<!-- Present -->
-							<article id="Projects">
-								<h2 class="major">Coding Projects</h2>
-								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>I am currently attending LEARN Academy where I recieved a 480-hour coding boot camp, gaining hands-on experience in various programming languages and technologies including Ruby and JavaScript. Developed a strong foundation in computer science concepts and applied knowledge through projects and assignments simulating real-world scenarios. Received guidance and support from experienced instructors to overcome challenges and achieve goals.</p>
-								<ul>
-									<br></br>
-									
-									<h2>Project Repositories</h2>
-
-									<li>
-									  <a href="https://github.com/kentstone84/Treasurehunt.github.io" target="_blank">
-										<img src="images/Treasurehunt.png" alt="Treasure Hunt Game" width="300" height="200">
-										Treasure Hunt
-									  </a>
-									</li>
-									<br></br>
-									<li>
-									  <a href="https://github.com/kentstone84/Ruby-tictactoe" target="_blank">
-										<img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Tic_Tac_Toe.jpg" alt="Ruby TicTacToe">
-										Ruby TicTacToe
-									  </a>
-									</li>
-									<br></br>
-									<li>
-									  <a href="https://github.com/kentstone84/piglatin" target="_blank"> 
-										<img src="https://assets.ltkcontent.com/images/44651/pig-latin-words_27c5571306.webp" alt="Pig Latin Translator" width="300" height="200">
-										Pig Latin Translator
-									  </a>
-									</li>
-								  </ul>
-								<br></br>
-								<h3>Direct Link to my Repo</h3>
-								<a href="https://github.com/kentstone84" target="_blank">
-									<img src="images/github.jpg" alt="Github" width="375" height="200">
-								  </a>
-								  
-
-
-
-
-
-								  
-								<ul class="actions">
-									<li><a href="index.html" class="button next">Home</a></li>
-									<li><a href="#work" class="button next">My Resume</a></li>
-									<li><a href="#contact" class="button next">Contact Me</a></li>
-							
-							</article>
-
-						<!-- Future -->
-							<article id="contact">
-								<h3> One person alone can not change the world, it takes many with a common goal. </h3>
-								<h2 class="major">Lets talk...</h2>
-								<form method="post" action="#">
-									<div class="field">
-										<div class="field half">
-											<label for="name">First Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<dive class="field half">
-											<label for="name">Last Name</label>
-											<input type="text" name="name" id="name" />
-
-
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="fields">
-											<label for="message">Whats your idea?</label>
-											<textarea name="message" id="message" rows="6"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</form>
-								<ul class="actions">
-									<li><a href="index.html" class="button next">Home</a></li>
-									<li><a href="#work" class="button next">Resume</a></li>
-									<li><a href="#Projects" class="button next">Projects</a></li>
-								</ul>
-
-								<ul class="icons">
-									<li><a href="https://www.linkedin.com/in/kent-stone-73286b1b/" class="icon brands fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
-									<li><a href="https://www.instagram.com/stone.kent" class="icon brands fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
-									<li><a href="https://github.com/kentstone84" class="icon brands fa-github" target="_blank"><span class="label">GitHub</span></a></li>
-								  </ul>
-								  
-							</article>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; Stone Design: <a href="https://www.WonderlandProject.org">World Explorer</a>.</p>
-					</footer>
-
-			</div>
-
-		<!-- BG -->
-			<div id="bg"></div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
+    <script>
+        // Matrix rain effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = document.getElementById('matrix-rain').clientWidth;
+            canvas.height = document.getElementById('matrix-rain').clientHeight;
+            document.getElementById('matrix-rain').appendChild(canvas);
+            
+            const ctx = canvas.getContext('2d');
+            
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            const fontSize = 10;
+            const columns = canvas.width / fontSize;
+            
+            const drops = [];
+            for (let x = 0; x < columns; x++) {
+                drops[x] = 1;
+            }
+            
+            function draw() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#0f0';
+                ctx.font = fontSize + 'px monospace';
+                
+                for (let i = 0; i < drops.length; i++) {
+                    const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    
+                    drops[i]++;
+                }
+            }
+            
+            setInterval(draw, 33);
+        });
+        
+        // Interactive Demo
+        document.addEventListener('DOMContentLoaded', function() {
+            const consoleOutput = document.getElementById('console-output');
+            const consoleInput = document.getElementById('console-input');
+            const runDemoButton = document.getElementById('run-demo');
+            const visStats = document.getElementById('vis-stats').querySelector('div');
+            const demoSamples = document.querySelectorAll('.demo-sample');
+            
+            // Demo responses
+            const demoResponses = {
+                'low email open rates': 'ANALYZING EMAIL PERFORMANCE PATTERNS...\n\nNEURAL RECOMMENDATION:\n1. Subject line optimization using psychographic segmentation\n2. Send time personalization based on individual engagement history\n3. Dynamic content adaptation using predictive interest modeling\n\nPROJECTED OUTCOME: 37.2% increase in open rates within 14 days',
+                
+                'lead qualification': 'PROCESSING LEAD QUALIFICATION PARAMETERS...\n\nNEURAL RECOMMENDATION:\n1. Implement multi-factor behavioral scoring matrix\n2. Deploy micro-interaction tracking across digital touchpoints\n3. Apply conversion probability algorithm to prioritize sales activities\n\nPROJECTED OUTCOME: 41.8% increase in qualification accuracy',
+                
+                'ad performance': 'ANALYZING ADVERTISING EFFECTIVENESS...\n\nNEURAL RECOMMENDATION:\n1. Implement neural creative testing across 16 variants\n2. Deploy adaptive budget allocation algorithm\n3. Implement audience segment expansion based on lookalike modeling\n\nPROJECTED OUTCOME: 28.3% decrease in customer acquisition cost'
+            };
+            
+            // Sample challenges
+            demoSamples.forEach(button => {
+                button.addEventListener('click', function() {
+                    consoleInput.value = this.textContent;
+                    consoleInput.focus();
+                });
+            });
+            
+            // Run demo
+            function runDemo() {
+                const input = consoleInput.value.toLowerCase().trim();
+                if (!input) return;
+                
+                consoleOutput.innerHTML = '';
+                let response = '';
+                
+                // Find matching response or use generic
+                for (const key in demoResponses) {
+                    if (input.includes(key)) {
+                        response = demoResponses[key];
+                        break;
+                    }
+                }
+                
+                if (!response) {
+                    response = `ANALYZING BUSINESS CHALLENGE: "${consoleInput.value}"...\n\nNEURAL RECOMMENDATION:\n1. Implement adaptive AI workflow to address specific parameters\n2. Deploy predictive analytics to optimize resource allocation\n3. Establish continuous feedback loops for algorithmic refinement\n\nPROJECTED OUTCOME: 31.4% efficiency improvement`;
+                }
+                
+                // Simulate processing
+                let progress = 0;
+                const processingInterval = setInterval(() => {
+                    progress += Math.floor(Math.random() * 5) + 1;
+                    if (progress > 100) progress = 100;
+                    
+                    visStats.textContent = progress + '%';
+                    
+                    if (progress === 100) {
+                        clearInterval(processingInterval);
+                        
+                        // Type out response
+                        let i = 0;
+                        const typeInterval = setInterval(() => {
+                            if (i < response.length) {
+                                if (response[i] === '\n') {
+                                    consoleOutput.innerHTML += '<br>';
+                                } else {
+                                    consoleOutput.innerHTML += response[i];
+                                }
+                                i++;
+                            } else {
+                                clearInterval(typeInterval);
+                            }
+                        }, 20);
+                    }
+                }, 50);
+                
+                consoleInput.value = '';
+            }
+            
+            runDemoButton.addEventListener('click', runDemo);
+            consoleInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    runDemo();
+                }
+            });
+        });
+        
+        // Form handling
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            // We're using Formspree so no need to preventDefault()
+            alert('Access request submitted. Our quantum algorithms will evaluate your application and you will be contacted shortly.');
+        });
+    </script>
+</body>
+</html>
 	</body>
 </html>
