@@ -1,226 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeadGenius AI - Transforming Sales Intelligence</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            background-color: #0f172a;
-            color: #e2e8f0;
-        }
-        .gradient-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        }
-        .feature-card {
-            background-color: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(66, 153, 225, 0.2);
-            transition: all 0.3s ease;
-        }
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 25px rgba(66, 153, 225, 0.3);
-        }
-        .ui-mockup {
-            background-color: rgba(30, 41, 59, 0.5);
-            border-radius: 8px;
-            padding: 16px;
-        }
-        .form-input {
-            background-color: rgba(30, 41, 59, 0.5);
-            border-color: rgba(66, 153, 225, 0.2);
-            color: white;
-        }
-        .form-input:focus {
-            border-color: #60a5fa;
-            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AiOne: Offline AI Assistant</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0e0e0e;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 2em;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #4ce1b6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+    a.button {
+      display: inline-block;
+      padding: 12px 20px;
+      margin-top: 20px;
+      background: #4ce1b6;
+      color: #0e0e0e;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    pre {
+      background: #1a1a1a;
+      padding: 1em;
+      overflow-x: auto;
+      border-radius: 6px;
+      margin-top: 1em;
+    }
+    code {
+      font-family: monospace;
+      color: #4ce1b6;
+    }
+    .blog-post {
+      margin-top: 4em;
+      padding-top: 2em;
+      border-top: 1px solid #333;
+    }
+  </style>
 </head>
-<body class="bg-gray-900">
-    <div class="container mx-auto px-4 py-12">
-        <header class="text-center mb-16">
-            <h1 class="text-5xl font-bold mb-4 text-white">
-                Lead<span class="text-blue-400">Genius</span> AI
-            </h1>
-            <p class="text-xl text-blue-300 max-w-2xl mx-auto">
-                Revolutionizing Sales Intelligence Through Advanced AI
-            </p>
-        </header>
+<body>
+  <div class="container">
+    <h1>AiOne: The Offline AI Assistant</h1>
+    <p><strong>Built from source. Powered by CUDA 12.8 with full support for RTX 5080/5090 GPUs (sm_120).</strong></p>
+    <a class="button" href="https://github.com/YOUR-USERNAME/YOUR-REPO">View on GitHub</a>
 
-        <section class="mb-16">
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="feature-card p-6 rounded-lg">
-                    <div class="text-blue-400 text-4xl mb-4">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold mb-4 text-white">Sales Transformation</h2>
-                    <p class="text-gray-300 mb-4">
-                        LeadGenius AI doesn't just improve sales processes—it fundamentally reimagines how businesses identify, engage, and convert prospects.
-                    </p>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            97.8% Lead Prediction Accuracy
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            41% Increase in Conversion Rates
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            15.3x Reduction in Manual Tasks
-                        </li>
-                    </ul>
-                </div>
+    <div class="blog-post">
+      <h2>🧠 Dev Log: The Pain of sm_120</h2>
+      <p>
+        When NVIDIA released the RTX 5080 and 5090 GPUs, they introduced a new compute architecture called <code>sm_120</code>. Unfortunately, PyTorch—at the time—had no official support for this, leaving bleeding-edge devs in the dark.
+      </p>
+      <p>
+        Here's the error I hit when I first tried to build my AI assistant with the new GPU:
+      </p>
+      <pre><code>CMake Error at select_compute_arch.cmake:
+  Unknown CUDA Architecture Name 12.0 in CUDA_SELECT_NVCC_ARCH_FLAGS</code></pre>
 
-                <div class="feature-card p-6 rounded-lg">
-                    <div class="text-blue-400 text-4xl mb-4">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h2 class="text-2xl font-bold mb-4 text-white">AI-Powered Intelligence</h2>
-                    <p class="text-gray-300 mb-4">
-                        Our neural networks analyze 200+ data points per lead, creating a holistic understanding of potential customers.
-                    </p>
-                    <div class="bg-gray-800 rounded-lg p-4">
-                        <div class="flex justify-between mb-2">
-                            <span class="text-gray-400">Lead Scoring Accuracy</span>
-                            <span class="text-blue-400">97.8%</span>
-                        </div>
-                        <div class="w-full bg-gray-700 h-2 rounded-full">
-                            <div class="bg-blue-500 h-2 rounded-full" style="width: 97.8%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <p>
+        After reverse-engineering part of the PyTorch build process and manually patching the <code>select_compute_arch.cmake</code> file, I added support for sm_120. Here’s the patch I injected:
+      </p>
+      <pre><code>elseif("${arch}" STREQUAL "120")
+  set(gencode_flags "${gencode_flags} -gencode=arch=compute_120,code=sm_120")</code></pre>
 
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-12 text-white">
-                User Interface Showcase
-            </h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="ui-mockup">
-                    <h3 class="text-xl font-bold mb-4 text-blue-400">
-                        <i class="fas fa-chart-pie mr-2"></i>
-                        Predictive Dashboard
-                    </h3>
-                    <img src="/api/placeholder/500/300" alt="Predictive Dashboard Mockup" class="w-full rounded-lg mb-4">
-                    <p class="text-gray-300">
-                        Real-time analytics that predict lead conversion, revenue potential, and sales cycle dynamics.
-                    </p>
-                </div>
-                <div class="ui-mockup">
-                    <h3 class="text-xl font-bold mb-4 text-blue-400">
-                        <i class="fas fa-project-diagram mr-2"></i>
-                        Lead Nurturing Workflow
-                    </h3>
-                    <img src="/api/placeholder/500/300" alt="Lead Nurturing Workflow Mockup" class="w-full rounded-lg mb-4">
-                    <p class="text-gray-300">
-                        Automated, intelligent communication sequences tailored to each prospect's unique profile.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="beta-signup" class="max-w-4xl mx-auto">
-            <div class="bg-gray-800 rounded-lg p-8">
-                <h2 class="text-3xl font-bold text-center mb-8 text-white">
-                    Beta Access Application
-                </h2>
-                <form 
-                    id="signup-form" 
-                    action="https://formspree.io/f/mldjddvg" 
-                    method="POST" 
-                    class="grid md:grid-cols-2 gap-6"
-                >
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
-                        <input 
-                            type="text" 
-                            id="name" 
-                            name="name" 
-                            required 
-                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700"
-                            placeholder="Your full name"
-                        >
-                    </div>
-
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Business Email</label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            required 
-                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700"
-                            placeholder="you@company.com"
-                        >
-                    </div>
-
-                    <div>
-                        <label for="company" class="block text-sm font-medium text-gray-300 mb-2">Company Name</label>
-                        <input 
-                            type="text" 
-                            id="company" 
-                            name="company" 
-                            required 
-                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700"
-                            placeholder="Your company"
-                        >
-                    </div>
-
-                    <div>
-                        <label for="industry" class="block text-sm font-medium text-gray-300 mb-2">Industry</label>
-                        <select 
-                            id="industry" 
-                            name="industry" 
-                            required 
-                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700"
-                        >
-                            <option value="">Select Industry</option>
-                            <option value="saas">SaaS & Technology</option>
-                            <option value="ecommerce">E-Commerce</option>
-                            <option value="b2b">B2B Services</option>
-                            <option value="finance">Finance & Insurance</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="md:col-span-2">
-                        <label for="challenges" class="block text-sm font-medium text-gray-300 mb-2">Primary Sales Challenges</label>
-                        <textarea 
-                            id="challenges" 
-                            name="challenges" 
-                            rows="3" 
-                            class="form-input w-full px-4 py-2 rounded-lg border border-gray-700"
-                            placeholder="Describe your current sales and lead generation challenges..."
-                        ></textarea>
-                    </div>
-
-                    <div class="md:col-span-2">
-                        <button 
-                            type="submit" 
-                            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition duration-300"
-                        >
-                            Apply for Beta Access
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-        <footer class="text-center text-gray-400 mt-12">
-            <p>© 2025 LeadGenius AI. All rights reserved.</p>
-        </footer>
+      <p>
+        I built PyTorch from source with CUDA 12.8, manually resolving low-level incompatibilities. This project now runs *entirely offline*, even on next-gen hardware—something OpenAI, Microsoft, and most cloud providers aren't allowing developers to do.
+      </p>
+      <p>
+        This project is not just software—it's a statement. You should own your AI.
+      </p>
     </div>
-
-    <script>
-        document.getElementById('signup-form').addEventListener('submit', function(e) {
-            alert('Thank you for applying to the LeadGenius AI beta program! We will review your application and contact you soon.');
-        });
-    </script>
+  </div>
 </body>
 </html>
+
