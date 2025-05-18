@@ -3,82 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AiOne: Offline AI Assistant</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0e0e0e;
-      color: #f5f5f5;
-      margin: 0;
-      padding: 2em;
-      line-height: 1.6;
-    }
-    h1, h2 {
-      color: #4ce1b6;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-    }
-    a.button {
-      display: inline-block;
-      padding: 12px 20px;
-      margin-top: 20px;
-      background: #4ce1b6;
-      color: #0e0e0e;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-    pre {
-      background: #1a1a1a;
-      padding: 1em;
-      overflow-x: auto;
-      border-radius: 6px;
-      margin-top: 1em;
-    }
-    code {
-      font-family: monospace;
-      color: #4ce1b6;
-    }
-    .blog-post {
-      margin-top: 4em;
-      padding-top: 2em;
-      border-top: 1px solid #333;
-    }
-  </style>
+  <title>Kent "The Architect" Stone</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <div class="container">
-    <h1>AiOne: The Offline AI Assistant</h1>
-    <p><strong>Built from source. Powered by CUDA 12.8 with full support for RTX 5080/5090 GPUs (sm_120).</strong></p>
-    <a class="button" href="https://github.com/YOUR-USERNAME/YOUR-REPO">View on GitHub</a>
+<body class="bg-gray-900 text-white font-sans">
 
-    <div class="blog-post">
-      <h2>🧠 Dev Log: The Pain of sm_120</h2>
-      <p>
-        When NVIDIA released the RTX 5080 and 5090 GPUs, they introduced a new compute architecture called <code>sm_120</code>. Unfortunately, PyTorch—at the time—had no official support for this, leaving bleeding-edge devs in the dark.
-      </p>
-      <p>
-        Here's the error I hit when I first tried to build my AI assistant with the new GPU:
-      </p>
-      <pre><code>CMake Error at select_compute_arch.cmake:
-  Unknown CUDA Architecture Name 12.0 in CUDA_SELECT_NVCC_ARCH_FLAGS</code></pre>
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-gradient-to-br from-gray-800 to-black">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">Kent "The Architect" Stone</h1>
+    <p class="text-xl md:text-2xl max-w-2xl text-gray-300">Veteran. Hacker. Diver. Nomad. Architect of AI and Autonomous Systems. Building the future from the edge of the world.</p>
+  </section>
 
-      <p>
-        After reverse-engineering part of the PyTorch build process and manually patching the <code>select_compute_arch.cmake</code> file, I added support for sm_120. Here’s the patch I injected:
-      </p>
-      <pre><code>elseif("${arch}" STREQUAL "120")
-  set(gencode_flags "${gencode_flags} -gencode=arch=compute_120,code=sm_120")</code></pre>
+  <!-- About Me -->
+  <section class="px-8 py-16 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6">About Me</h2>
+    <p class="text-gray-300 leading-relaxed">
+      I'm a full-stack AI developer, veteran of the US Army's 10th Mountain Division, and explorer of both deep caves and global tech. With experience ranging from combat deployments to underwater 3D mapping, and now leading-edge AI systems, I live to build what others say is impossible.
+    </p>
+    <p class="text-gray-400 mt-4">
+      Born on a farm in Oklahoma, I fought my way through adversity, taught skiing in the Rockies, dove uncharted caves in Mexico, and now develop powerful, privacy-respecting AI tools from my base in Peru. I’ve been to 72 countries, and my code reflects the depth of that experience.
+    </p>
+  </section>
 
-      <p>
-        I built PyTorch from source with CUDA 12.8, manually resolving low-level incompatibilities. This project now runs *entirely offline*, even on next-gen hardware—something OpenAI, Microsoft, and most cloud providers aren't allowing developers to do.
-      </p>
-      <p>
-        This project is not just software—it's a statement. You should own your AI.
-      </p>
+  <!-- Experience Section -->
+  <section class="bg-gray-800 px-8 py-16">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6">Experience</h2>
+      <ul class="space-y-6">
+        <li>
+          <h3 class="text-xl font-semibold">US Army – 10th Mountain Division</h3>
+          <p class="text-gray-400">CBRN Specialist & Forward Observer | 2002–2006 | Iraq Deployment 2005</p>
+        </li>
+        <li>
+          <h3 class="text-xl font-semibold">Cave Diver & Explorer – Tulum, Mexico</h3>
+          <p class="text-gray-400">200+ full cave dives | 3D mapping with photogrammetry | Artifact scanning</p>
+        </li>
+        <li>
+          <h3 class="text-xl font-semibold">AI Systems Architect – AiOne Project</h3>
+          <p class="text-gray-400">Building an offline, Jarvis-style AI assistant powered by local LLMs, RAG, and multimodal inputs</p>
+        </li>
+        <li>
+          <h3 class="text-xl font-semibold">Reverse Engineer – NVIDIA RTX 5080 Patch</h3>
+          <p class="text-gray-400">Unlocked sm_120 support via Ghidra and binary patching, outperforming public benchmarks</p>
+        </li>
+      </ul>
     </div>
-  </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="px-8 py-16 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6">Skills & Tools</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-gray-300">
+      <div>Python / FastAPI</div>
+      <div>PyTorch / CUDA</div>
+      <div>Reverse Engineering</div>
+      <div>Ghidra / Assembly</div>
+      <div>Llama.cpp / Local LLMs</div>
+      <div>Full-stack Dev</div>
+      <div>Security+ / A+</div>
+      <div>CI/CD & GitHub</div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="bg-gray-800 px-8 py-16 text-center">
+    <h2 class="text-3xl font-bold mb-4">Get in Touch</h2>
+    <p class="text-gray-400 mb-6">I'm open to collaborations, contracts, or just good conversations.</p>
+    <p class="text-xl">📧 <a href="mailto:kent.stone@gmail.com" class="text-blue-400 hover:underline">kent.stone@gmail.com</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-600 py-6 bg-black">
+    &copy; 2025 Kent "The Architect" Stone — Built with Tailwind on GitHub Pages
+  </footer>
+
 </body>
 </html>
-
