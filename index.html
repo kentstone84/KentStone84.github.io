@@ -1,81 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kent "The Architect" Stone</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The digital home of Kent Stone — Architect, Explorer, and Ethical Technologist.">
+  <title>Kent Stone | Architect of Fire</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Share Tech Mono', monospace;
+  background: #0e0e0e;
+  color: #f5f5f5;
+  line-height: 1.6;
+  padding: 2rem;
+  background-image: radial-gradient(#111 1px, transparent 0);
+  background-size: 25px 25px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #00ffe7;
+  text-shadow: 0 0 10px #00ffe7;
+}
+
+h2 {
+  color: #ff007c;
+  margin-top: 2rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+}
+
+section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+a {
+  color: #00bfff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  margin-top: 4rem;
+  color: #666;
+}
+
+  </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body>
+  <header>
+    <h1>Kent Stone</h1>
+    <p>Architect of Fire | Full-Stack Dev | Ethical Technologist | Cave Diver</p>
+  </header>  <section>
+    <h2>About Me</h2>
+    <p>
+      I'm a combat veteran, deep systems thinker, and full-stack developer building human-centric tools for survival and meaning in a world on fire. I blend hardware, AI, and narrative to create experiences that protect, connect, and disrupt.
+    </p><h2>Featured Projects</h2>
+<ul>
+  <li><strong>GhostNode</strong> – Decentralized AI engine with fail-safe logic and SRF (Stone Retrieval Function). [<a href="#">repo</a>]</li>
+  <li><strong>Nadine Protocol</strong> – Guardian AI for the aging and forgotten. Empathy-coded. [<a href="#">repo</a>]</li>
+  <li><strong>Marked</strong> – A raw video series uplifting vitiligo youth through my lens. [<a href="#">coming soon</a>]</li>
+</ul>
 
-  <!-- Hero Section -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-gradient-to-br from-gray-800 to-black">
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">Kent "The Architect" Stone</h1>
-    <p class="text-xl md:text-2xl max-w-2xl text-gray-300">Veteran. Hacker. Diver. Nomad. Architect of AI and Autonomous Systems. Building the future from the edge of the world.</p>
-  </section>
+<h2>Writing</h2>
+<p>
+  Read my latest short stories from <em>The Architect’s Guide to Dissociation in a Burning World</em> on <a href="https://linkedin.com">LinkedIn</a>. I write mythic, glitchpunk dispatches for those left behind.
+</p>
 
-  <!-- About Me -->
-  <section class="px-8 py-16 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold mb-6">About Me</h2>
-    <p class="text-gray-300 leading-relaxed">
-      I'm a full-stack AI developer, veteran of the US Army's 10th Mountain Division, and explorer of both deep caves and global tech. With experience ranging from combat deployments to underwater 3D mapping, and now leading-edge AI systems, I live to build what others say is impossible.
-    </p>
-    <p class="text-gray-400 mt-4">
-      Born on a farm in Oklahoma, I fought my way through adversity, taught skiing in the Rockies, dove uncharted caves in Mexico, and now develop powerful, privacy-respecting AI tools from my base in Peru. I’ve been to 72 countries, and my code reflects the depth of that experience.
-    </p>
-  </section>
+<h2>Contact</h2>
+<p>
+  Reach me via <a href="mailto:your.email@domain.com">your.email@domain.com</a> or connect on <a href="https://linkedin.com">LinkedIn</a>.
+</p>
 
-  <!-- Experience Section -->
-  <section class="bg-gray-800 px-8 py-16">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl font-bold mb-6">Experience</h2>
-      <ul class="space-y-6">
-        <li>
-          <h3 class="text-xl font-semibold">US Army – 10th Mountain Division</h3>
-          <p class="text-gray-400">CBRN Specialist & Forward Observer | 2002–2006 | Iraq Deployment 2005</p>
-        </li>
-        <li>
-          <h3 class="text-xl font-semibold">Cave Diver & Explorer – Tulum, Mexico</h3>
-          <p class="text-gray-400">200+ full cave dives | 3D mapping with photogrammetry | Artifact scanning</p>
-        </li>
-        <li>
-          <h3 class="text-xl font-semibold">AI Systems Architect – AiOne Project</h3>
-          <p class="text-gray-400">Building an offline, Jarvis-style AI assistant powered by local LLMs, RAG, and multimodal inputs</p>
-        </li>
-        <li>
-          <h3 class="text-xl font-semibold">Reverse Engineer – NVIDIA RTX 5080 Patch</h3>
-          <p class="text-gray-400">Unlocked sm_120 support via Ghidra and binary patching, outperforming public benchmarks</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section class="px-8 py-16 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold mb-6">Skills & Tools</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-gray-300">
-      <div>Python / FastAPI</div>
-      <div>PyTorch / CUDA</div>
-      <div>Reverse Engineering</div>
-      <div>Ghidra / Assembly</div>
-      <div>Llama.cpp / Local LLMs</div>
-      <div>Full-stack Dev</div>
-      <div>Security+ / A+</div>
-      <div>CI/CD & GitHub</div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="bg-gray-800 px-8 py-16 text-center">
-    <h2 class="text-3xl font-bold mb-4">Get in Touch</h2>
-    <p class="text-gray-400 mb-6">I'm open to collaborations, contracts, or just good conversations.</p>
-    <p class="text-xl">📧 <a href="mailto:kent.stone@gmail.com" class="text-blue-400 hover:underline">kent.stone@gmail.com</a></p>
-  </section>
-
-  <!-- Footer -->
-  <footer class="text-center text-sm text-gray-600 py-6 bg-black">
-    &copy; 2025 Kent "The Architect" Stone — Built with Tailwind on GitHub Pages
-  </footer>
-
-</body>
-</html>
+  </section>  <footer>
+    <p>Site forged by Kent Stone | &copy; 2025</p
