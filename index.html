@@ -1,90 +1,115 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The digital home of Kent Stone — Architect, Explorer, and Ethical Technologist.">
-  <title>Kent Stone | Architect of Fire</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kent Stone Gallery</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Share Tech Mono', monospace;
-  background: #0e0e0e;
-  color: #f5f5f5;
-  line-height: 1.6;
-  padding: 2rem;
-  background-image: radial-gradient(#111 1px, transparent 0);
-  background-size: 25px 25px;
-}
-
-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-h1 {
-  font-size: 3rem;
-  color: #00ffe7;
-  text-shadow: 0 0 10px #00ffe7;
-}
-
-h2 {
-  color: #ff007c;
-  margin-top: 2rem;
-  border-bottom: 1px solid #444;
-  padding-bottom: 0.5rem;
-}
-
-section {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-a {
-  color: #00bfff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-footer {
-  text-align: center;
-  margin-top: 4rem;
-  color: #666;
-}
-
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: #eee;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      background: #222;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 10px #000;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #08f;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    .caption {
+      font-size: 0.9rem;
+      color: #ccc;
+      word-break: break-word;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Kent Stone</h1>
-    <p>Architect of Fire | Full-Stack Dev | Ethical Technologist | Cave Diver</p>
-  </header>  <section>
-    <h2>About Me</h2>
-    <p>
-      I'm a combat veteran, deep systems thinker, and full-stack developer building human-centric tools for survival and meaning in a world on fire. I blend hardware, AI, and narrative to create experiences that protect, connect, and disrupt.
-    </p><h2>Featured Projects</h2>
-<ul>
-  <li><strong>GhostNode</strong> – Decentralized AI engine with fail-safe logic and SRF (Stone Retrieval Function). [<a href="#">repo</a>]</li>
-  <li><strong>Nadine Protocol</strong> – Guardian AI for the aging and forgotten. Empathy-coded. [<a href="#">repo</a>]</li>
-  <li><strong>Marked</strong> – A raw video series uplifting vitiligo youth through my lens. [<a href="#">coming soon</a>]</li>
-</ul>
 
-<h2>Writing</h2>
-<p>
-  Read my latest short stories from <em>The Architect’s Guide to Dissociation in a Burning World</em> on <a href="https://linkedin.com">LinkedIn</a>. I write mythic, glitchpunk dispatches for those left behind.
-</p>
+  <h1>Kent Stone - Image Gallery</h1>
 
-<h2>Contact</h2>
-<p>
-  Reach me via <a href="mailto:kent.stone@gmail.com">kent.stone@gmail.com</a>.
-</p>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="/images/Resume Kent Stone.jpg" alt="Resume Kent Stone" />
+      <div class="caption">Resume Kent Stone.jpg</div>
+    </div>
 
-  </section>  <footer>
-    <p>Site forged by Kent Stone | &copy; 2025</p
+    <div class="gallery-item">
+      <img src="/images/Treasurehunt.png" alt="Treasurehunt" />
+      <div class="caption">Treasurehunt.png</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="/images/bg.jpg" alt="Background" />
+      <div class="caption">bg.jpg</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="/images/github.jpg" alt="Github" />
+      <div class="caption">github.jpg</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="/images/overlay.png" alt="Overlay" />
+      <div class="caption">overlay.png</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="/images/pic01.jpg" alt="Pic 01" />
+      <div class="caption">pic01.jpg</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="/images/pic02.jpg" alt="Pic 02" />
+      <div class="caption">pic02.jpg</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="/images/pic03.jpg" alt="Pic 03" />
+      <div class="caption">pic03.jpg</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="/images/pic04.jpeg" alt="Pic 04" />
+      <div class="caption">pic04.jpeg</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="/images/teaching.jpg" alt="Teaching" />
+      <div class="caption">teaching.jpg</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="/images/team1.jpg" alt="Team 1" />
+      <div class="caption">team1.jpg</div>
+    </div>
+  </div>
+
+</body>
+</html>
