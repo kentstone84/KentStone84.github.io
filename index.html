@@ -1,595 +1,333 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeuroAuth - Cyberpunk Security</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            background: #000;
-            color: #fff;
-            overflow-x: hidden;
-            position: relative;
-        }
-        
-        /* Animated background */
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -2;
-            width: 100vw;
-            height: 100vh;
-        }
-        
-        .cyber-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: 
-                linear-gradient(90deg, rgba(0,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(rgba(0,255,255,0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridPulse 4s ease-in-out infinite;
-        }
-        
-        @keyframes gridPulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.1; }
-        }
-        
-        /* Neon text effects */
-        .neon-title {
-            font-family: 'Orbitron', monospace;
-            font-weight: 900;
-            text-shadow: 
-                0 0 5px #00ffff,
-                0 0 10px #00ffff,
-                0 0 15px #00ffff,
-                0 0 20px #00ffff,
-                0 0 35px #00ffff,
-                0 0 40px #00ffff;
-            animation: neonFlicker 2s ease-in-out infinite alternate;
-        }
-        
-        .neon-green {
-            color: #00ff41;
-            text-shadow: 
-                0 0 5px #00ff41,
-                0 0 10px #00ff41,
-                0 0 15px #00ff41,
-                0 0 20px #00ff41;
-            animation: greenGlow 3s ease-in-out infinite;
-        }
-        
-        @keyframes neonFlicker {
-            0%, 100% { 
-                text-shadow: 
-                    0 0 5px #00ffff,
-                    0 0 10px #00ffff,
-                    0 0 15px #00ffff,
-                    0 0 20px #00ffff,
-                    0 0 35px #00ffff,
-                    0 0 40px #00ffff;
-            }
-            50% { 
-                text-shadow: 
-                    0 0 2px #00ffff,
-                    0 0 5px #00ffff,
-                    0 0 8px #00ffff,
-                    0 0 12px #00ffff,
-                    0 0 18px #00ffff,
-                    0 0 25px #00ffff;
-            }
-        }
-        
-        @keyframes greenGlow {
-            0%, 100% { 
-                text-shadow: 
-                    0 0 5px #00ff41,
-                    0 0 10px #00ff41,
-                    0 0 15px #00ff41,
-                    0 0 20px #00ff41;
-            }
-            50% { 
-                text-shadow: 
-                    0 0 8px #00ff41,
-                    0 0 15px #00ff41,
-                    0 0 25px #00ff41,
-                    0 0 35px #00ff41;
-            }
-        }
-        
-        /* Hologram effects */
-        .holo-container {
-            position: relative;
-            background: linear-gradient(135deg, rgba(0,255,255,0.1), rgba(255,0,255,0.05));
-            border: 1px solid rgba(0,255,255,0.3);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .holo-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0,255,255,0.4), transparent);
-            animation: holoScan 3s linear infinite;
-            z-index: 1;
-        }
-        
-        .holo-container:hover {
-            transform: translateY(-10px);
-            box-shadow: 
-                0 20px 40px rgba(0,255,255,0.3),
-                0 0 20px rgba(0,255,255,0.1);
-            border-color: rgba(0,255,255,0.6);
-        }
-        
-        @keyframes holoScan {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-        
-        /* Glitch effects */
-        .glitch {
-            position: relative;
-            animation: glitchText 2s infinite;
-        }
-        
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .glitch::before {
-            animation: glitchBefore 2s infinite;
-            color: #ff0080;
-            z-index: -1;
-        }
-        
-        .glitch::after {
-            animation: glitchAfter 2s infinite;
-            color: #00ffff;
-            z-index: -2;
-        }
-        
-        @keyframes glitchText {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-        }
-        
-        @keyframes glitchBefore {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(2px, 0); }
-            40% { transform: translate(-2px, 0); }
-            60% { transform: translate(0, 2px); }
-            80% { transform: translate(0, -2px); }
-        }
-        
-        @keyframes glitchAfter {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(-2px, 0); }
-            40% { transform: translate(2px, 0); }
-            60% { transform: translate(0, -2px); }
-            80% { transform: translate(0, 2px); }
-        }
-        
-        /* Cyber buttons */
-        .cyber-btn {
-            position: relative;
-            padding: 15px 30px;
-            background: linear-gradient(45deg, #ff0080, #00ffff, #00ff41);
-            color: #000;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border: none;
-            cursor: pointer;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%);
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .cyber-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, #ff0080, #00ffff, #00ff41);
-            z-index: -1;
-            transition: all 0.3s ease;
-        }
-        
-        .cyber-btn::after {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            right: 2px;
-            bottom: 2px;
-            background: #000;
-            z-index: -1;
-            clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 100%, 18px 100%);
-            transition: all 0.3s ease;
-        }
-        
-        .cyber-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,255,255,0.5);
-        }
-        
-        .cyber-btn:hover::after {
-            background: rgba(0,0,0,0.8);
-        }
-        
-        .cyber-btn span {
-            position: relative;
-            z-index: 1;
-            background: linear-gradient(45deg, #ff0080, #00ffff, #00ff41);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        /* Feature cards */
-        .feature-card {
-            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,50,50,0.3));
-            border: 1px solid rgba(0,255,255,0.3);
-            border-radius: 15px;
-            padding: 30px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-        }
-        
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(0,255,255,0.3), transparent);
-            animation: rotate 4s linear infinite;
-            z-index: -1;
-        }
-        
-        .feature-card::after {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            right: 2px;
-            bottom: 2px;
-            background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(0,30,30,0.8));
-            border-radius: 13px;
-            z-index: -1;
-        }
-        
-        @keyframes rotate {
-            100% { transform: rotate(360deg); }
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-15px) scale(1.05);
-            box-shadow: 
-                0 25px 50px rgba(0,255,255,0.4),
-                0 0 30px rgba(0,255,255,0.2);
-        }
-        
-        /* Icon animations */
-        .cyber-icon {
-            font-size: 2.5rem;
-            color: #00ff41;
-            text-shadow: 0 0 20px #00ff41;
-            animation: iconPulse 2s ease-in-out infinite;
-            display: block;
-            margin-bottom: 20px;
-        }
-        
-        @keyframes iconPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); text-shadow: 0 0 30px #00ff41; }
-        }
-        
-        /* Section spacing and layout */
-        section {
-            position: relative;
-            z-index: 1;
-            padding: 100px 20px;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        /* Typography */
-        h2 {
-            font-size: 3.5rem;
-            font-family: 'Orbitron', monospace;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        h3 {
-            font-size: 1.8rem;
-            font-family: 'Orbitron', monospace;
-            margin-bottom: 20px;
-        }
-        
-        p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #ccc;
-        }
-        
-        .lead {
-            font-size: 1.4rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            color: #aaa;
-        }
-        
-        /* List styling */
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .feature-list li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: rgba(0,255,255,0.05);
-            border-left: 3px solid #00ff41;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .feature-list li:hover {
-            background: rgba(0,255,255,0.1);
-            transform: translateX(10px);
-        }
-        
-        .feature-list .icon {
-            color: #00ff41;
-            font-size: 1.5rem;
-            margin-right: 15px;
-            text-shadow: 0 0 10px #00ff41;
-            flex-shrink: 0;
-        }
-        
-        /* Parallax sections */
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            h2 { font-size: 2.5rem; }
-            h3 { font-size: 1.5rem; }
-            .grid-3 { grid-template-columns: 1fr; gap: 30px; }
-            section { padding: 60px 15px; }
-        }
-        
-        /* Scanline effect */
-        .scanlines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 2;
-            background: linear-gradient(
-                transparent 50%,
-                rgba(0,255,0,0.02) 50%
-            );
-            background-size: 100% 4px;
-            animation: scanline 0.1s linear infinite;
-        }
-        
-        @keyframes scanline {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 4px; }
-        }
-    </style>
-</head>
-<body>
-    <!-- Background canvas for 3D effects -->
-    <canvas id="bg-canvas"></canvas>
-    
-    <!-- Cyber grid overlay -->
-    <div class="cyber-grid"></div>
-    
-    <!-- Scanlines -->
-    <div class="scanlines"></div>
-    
-    <!-- Transform Your Workplace Security Section -->
-    <section>
-        <div class="container">
-            <div class="holo-container" style="padding: 50px; margin-bottom: 60px;">
-                <h2 class="neon-title glitch" data-text="TRANSFORM YOUR WORKPLACE SECURITY">
-                    TRANSFORM YOUR WORKPLACE SECURITY
-                </h2>
-                <p class="lead">
-                    Enter the future of digital authentication where cyberpunk aesthetics meet military-grade security
+                        Your computer unlocks instantly. No waiting, no typing mistakes. It's security that feels like magic.
+
+                    </p>
+
+                    <div class="flex justify-center">
+
+                        <img src="http://static.photos/technology/320x240/3" alt="Computer Unlock" class="rounded-lg w-full">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Consumer Model -->
+
+    <section id="consumer" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 circuit-bg">
+
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-20" data-aos="fade-up">
+
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 neon-green">For Consumers</h2>
+
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+
+                    Speed, style, and security for gamers and tech enthusiasts
+
                 </p>
-                
-                <ul class="feature-list" style="max-width: 800px; margin: 40px auto;">
-                    <li>
-                        <span class="icon">💰</span>
-                        <span><strong>Reduce IT costs by eliminating password resets</strong><br>
-                        Save thousands in support tickets and lost productivity</span>
-                    </li>
-                    <li>
-                        <span class="icon">👥</span>
-                        <span><strong>Easily manage employee access with centralized control</strong><br>
-                        Neural-link dashboard for instant access management</span>
-                    </li>
-                    <li>
-                        <span class="icon">🔒</span>
-                        <span><strong>Eliminate weak or shared passwords across your organization</strong><br>
-                        Quantum-encrypted authentication protocols</span>
-                    </li>
-                    <li>
-                        <span class="icon">📊</span>
-                        <span><strong>Detailed access logs for security audits</strong><br>
-                        Real-time monitoring with AI threat detection</span>
-                    </li>
-                </ul>
-                
-                <div style="text-align: center; margin-top: 40px;">
-                    <a href="#pricing" class="cyber-btn">
-                        <span>INITIATE BUSINESS PROTOCOL</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Why It's Different Section -->
-    <section>
-        <div class="container">
-            <h2 class="neon-green">WHY IT'S DIFFERENT</h2>
-            <p class="lead">
-                Cyberpunk aesthetic meets serious security protocols from the future
-            </p>
+            </div>
+
             
-            <div class="grid-3">
-                <div class="feature-card">
-                    <div class="cyber-icon">⚡</div>
-                    <h3 class="neon-green">NO MORE TYPING</h3>
-                    <p>
-                        Login becomes as simple as neural interface activation. No more memorizing complex passwords or waiting for biometric scans. Instant authentication through quantum entanglement.
-                    </p>
+
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+
+                <div data-aos="fade-right">
+
+                    <h3 class="text-2xl font-bold mb-6 neon-green">Cyberpunk Style Meets Cutting-Edge Security</h3>
+
+                    <ul class="space-y-4 text-gray-300">
+
+                        <li class="flex items-start">
+
+                            <i data-feather="zap" class="text-green-400 mr-3"></i>
+
+                            <span>Login faster than typing any password</span>
+
+                        </li>
+
+                        <li class="flex items-start">
+
+                            <i data-feather="shield" class="text-green-400 mr-3"></i>
+
+                            <span>No more password leaks or phishing attacks</span>
+
+                        </li>
+
+                        <li class="flex items-start">
+
+                            <i data-feather="award" class="text-green-400 mr-3"></i>
+
+                            <span>Collectible RFID cards with cyberpunk designs</span>
+
+                        </li>
+
+                        <li class="flex items-start">
+
+                            <i data-feather="cpu" class="text-green-400 mr-3"></i>
+
+                            <span>Compatible with Windows, Mac, and Linux</span>
+
+                        </li>
+
+                    </ul>
+
+                    <div class="mt-8">
+
+                        <a href="#pricing" class="px-6 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-md text-lg font-bold hover:from-green-500 hover:to-blue-600 transition inline-block">
+
+                            See Consumer Packages
+
+                        </a>
+
+                    </div>
+
                 </div>
+
                 
-                <div class="feature-card">
-                    <div class="cyber-icon">🛡️</div>
-                    <h3 class="neon-green">NO MORE HACKS</h3>
-                    <p>
-                        Physical authentication can't be phished, keylogged, or brute-forced like traditional passwords. Military-grade encryption meets cyberpunk innovation.
-                    </p>
+
+                <div data-aos="fade-left" class="grid grid-cols-2 gap-4">
+
+                    <div class="bg-gray-900 p-4 rounded-lg border border-gray-700">
+
+                        <img src="http://static.photos/technology/320x240/4" alt="RFID Card" class="rounded-lg w-full">
+
+                        <p class="text-center mt-2 text-gray-300">Standard Card</p>
+
+                    </div>
+
+                    <div class="bg-gray-900 p-4 rounded-lg border border-gray-700">
+
+                        <img src="http://static.photos/technology/320x240/5" alt="RFID Bracelet" class="rounded-lg w-full">
+
+                        <p class="text-center mt-2 text-gray-300">Bracelet</p>
+
+                    </div>
+
+                    <div class="bg-gray-900 p-4 rounded-lg border border-gray-700">
+
+                        <img src="http://static.photos/technology/320x240/6" alt="Cyberpunk Card" class="rounded-lg w-full">
+
+                        <p class="text-center mt-2 text-gray-300">Cyberpunk Edition</p>
+
+                    </div>
+
+                    <div class="bg-gray-900 p-4 rounded-lg border border-gray-700">
+
+                        <img src="http://static.photos/technology/320x240/8" alt="Gaming Card" class="rounded-lg w-full">
+
+                        <p class="text-center mt-2 text-gray-300">Gamer Edition</p>
+
+                    </div>
+
                 </div>
-                
-                <div class="feature-card">
-                    <div class="cyber-icon">🔄</div>
-                    <h3 class="neon-green">NO MORE RESETS</h3>
-                    <p>
-                        Forget about "forgot password" emails forever. Lost your access card? Deactivate it instantly through the neural network and issue a quantum-encrypted replacement.
-                    </p>
-                </div>
+
             </div>
+
         </div>
+
     </section>
 
-    <!-- Testimonials Section -->
-    <section>
-        <div class="container">
-            <div class="holo-container" style="padding: 60px;">
-                <h2 class="neon-title">WHAT CYBER-CITIZENS ARE SAYING</h2>
-                <p class="lead">
-                    Join thousands who have already embraced the future of neural authentication
+    <!-- Business Model -->
+
+    <section id="business" class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 bg-black bg-opacity-80">
+
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-20" data-aos="fade-up">
+
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 neon-green">For Business</h2>
+
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+
+                    Enterprise-grade security with seamless scalability
+
                 </p>
-                
-                <div class="grid-3" style="margin-top: 50px;">
-                    <div class="feature-card">
-                        <div class="cyber-icon">💬</div>
-                        <h3 class="neon-green">"GAME CHANGING TECH"</h3>
-                        <p>
-                            "This isn't just security - it's a glimpse into tomorrow. Our entire corporate infrastructure transformed overnight."
-                        </p>
-                        <div style="margin-top: 20px; color: #00ffff;">
-                            — Alex Chen, CTO at NeoTech Corp
-                        </div>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="cyber-icon">🚀</div>
-                        <h3 class="neon-green">"BEYOND EXPECTATIONS"</h3>
-                        <p>
-                            "The cyberpunk aesthetic isn't just for show - the technology behind it is genuinely revolutionary. Zero security breaches in 12 months."
-                        </p>
-                        <div style="margin-top: 20px; color: #00ffff;">
-                            — Maya Rodriguez, Security Director
-                        </div>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="cyber-icon">⭐</div>
-                        <h3 class="neon-green">"FUTURE IS NOW"</h3>
-                        <p>
-                            "Our employees feel like they're working in a sci-fi movie. Productivity up 300% since implementation. The future is here."
-                        </p>
-                        <div style="margin-top: 20px; color: #00ffff;">
-                            — Dr. Kenji Tanaka, Research Lead
-                        </div>
-                    </div>
-                </div>
+
             </div>
+
+            
+
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+
+                <div data-aos="fade-right" class="order-2 md:order-1">
+
+                    <img src="http://static.photos/office/640x360/1" alt="Office Setup" class="rounded-lg shadow-xl w-full">
+
+                </div>
+
+                
+
+                <div data-aos="fade-left" class="order-1 md:order-2">
+
+                    <h3 class="text-2xl font-bold mb-6 neon-green">Transform Your Workplace Security</h3>
+
+                    <ul class="space-y-4 text-gray-300">
+
+                        <li class="flex items-start">
+
+                            <i data-feather="dollar-sign" class="text-green-400 mr-3"></i>
+
+                            <span>Reduce IT costs by eliminating password resets</span>
+
+                        </li>
+
+                        <li class="flex items-start">
+
+                            <i data-feather="users" class="text-green-400 mr-3"></i>
+
+                            <span>Easily manage employee access with centralized control</span>
+
+                        </li>
+
+                        <li class="flex items-start">
+
+                            <i data-feather="lock" class="text-green-400 mr-3"></i>
+
+                            <span>Eliminate weak or shared passwords across your organization</span>
+
+                        </li>
+
+                        <li class="flex items-start">
+
+                            <i data-feather="activity" class="text-green-400 mr-3"></i>
+
+                            <span>Detailed access logs for security audits</span>
+
+                        </li>
+
+                    </ul>
+
+                    <div class="mt-8">
+
+                        <a href="#pricing" class="px-6 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-md text-lg font-bold hover:from-green-500 hover:to-blue-600 transition inline-block">
+
+                            See Business Solutions
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
+
     </section>
 
-    <script>
-        // Three.js background animation
-        let scene, camera, renderer, particles;
-        
-        function initThree() {
-            const canvas = document.getElementById('bg-canvas');
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
+    <!-- Why Different -->
+
+    <section class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
+
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-20" data-aos="fade-up">
+
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 neon-green">Why It's Different</h2>
+
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+
+                    Cyberpunk aesthetic meets serious security
+
+                </p>
+
+            </div>
+
             
-            // Create particle system
-            const geometry = new THREE.BufferGeometry();
-            const positions = [];
-            const colors = [];
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <div class="bg-gray-900 p-8 rounded-lg border border-gray-800" data-aos="fade-up">
+
+                    <div class="text-green-400 mb-4">
+
+                        <i data-feather="clock" class="w-10 h-10"></i>
+
+                    </div>
+
+                    <h3 class="text-xl font-bold mb-4 neon-green">No More Typing</h3>
+
+                    <p class="text-gray-300">
+
+                        Login becomes as simple as tapping your card. No more memorizing complex passwords or waiting for authentication.
+
+                    </p>
+
+                </div>
+
+                
+
+                <div class="bg-gray-900 p-8 rounded-lg border border-gray-800" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="text-green-400 mb-4">
+
+                        <i data-feather="shield" class="w-10 h-10"></i>
+
+                    </div>
+
+                    <h3 class="text-xl font-bold mb-4 neon-green">No More Hacks</h3>
+
+                    <p class="text-gray-300">
+
+                        Physical authentication can't be phished, keylogged, or brute-forced like traditional passwords.
+
+                    </p>
+
+                </div>
+
+                
+
+                <div class="bg-gray-900 p-8 rounded-lg border border-gray-800" data-aos="fade-up" data-aos-delay="200">
+
+                    <div class="text-green-400 mb-4">
+
+                        <i data-feather="user" class="w-10 h-10"></i>
+
+                    </div>
+
+                    <h3 class="text-xl font-bold mb-4 neon-green">No More Resets</h3>
+
+                    <p class="text-gray-300">
+
+                        Forget about "forgot password" emails. Lost your card? Deactivate it instantly and issue a new one.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Testimonials -->
+
+    <section class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 bg-black bg-opacity-80">
+
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-20" data-aos="fade-up">
+
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 neon-green">What People Are Saying</h2>
+
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+
+                    Join thousands who have already embraced the future of authentication
+
+                </p>
+
+            </div>
+
             
-            for (let i = 0; i < 1000; i
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+      
