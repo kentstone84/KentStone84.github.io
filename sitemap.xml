@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Main Page -->
+  <url>
+    <loc>https://www.bft.com.pe/</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.bft.com.pe/assets/images/Mesa de trabajo 1.png</image:loc>
+      <image:caption>BFT Fibra Óptica Logo</image:caption>
+      <image:title>BFT - Internet Fibra Óptica Lima</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.bft.com.pe/assets/images/3x5 equipo ax50.png</image:loc>
+      <image:caption>Router WiFi 6 AX50 incluido en planes BFT</image:caption>
+      <image:title>Router AX50 Fibra Óptica</image:title>
+    </image:image>
+  </url>
+
+  <!-- Services Section -->
+  <url>
+    <loc>https://www.bft.com.pe/#services</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Plans Section -->
+  <url>
+    <loc>https://www.bft.com.pe/#plans</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.bft.com.pe/assets/images/400MEGAS PLAN MENSUAL.png</image:loc>
+      <image:caption>Plan 400 Megas Internet Fibra Óptica Lima</image:caption>
+      <image:title>Plan 400 Mbps BFT</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.bft.com.pe/assets/images/anual rrss.png</image:loc>
+      <image:caption>Plan Anual Internet Fibra Óptica con descuento</image:caption>
+      <image:title>Plan Anual BFT</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.bft.com.pe/assets/images/camara rrss.png</image:loc>
+      <image:caption>Plan Internet más Cámaras de Seguridad</image:caption>
+      <image:title>Plan Seguridad BFT</image:title>
+    </image:image>
+  </url>
+
+  <!-- Coverage Section -->
+  <url>
+    <loc>https://www.bft.com.pe/#coverage</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Offers Section -->
+  <url>
+    <loc>https://www.bft.com.pe/#offers</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact Section -->
+  <url>
+    <loc>https://www.bft.com.pe/#contact</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Coverage Areas - District Pages -->
+  <url>
+    <loc>https://www.bft.com.pe/cobertura/miraflores</loc>
+    <lastmod>2024-01-10T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bft.com.pe/cobertura/san-isidro</loc>
+    <lastmod>2024-01-10T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bft.com.pe/cobertura/surco</loc>
+    <lastmod>2024-01-10T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bft.com.pe/cobertura/la-molina</loc>
+    <lastmod>2024-01-10T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Plan Details Pages -->
+  <url>
+    <loc>https://www.bft.com.pe/planes/400-megas</loc>
+    <lastmod>2024-01-12T10:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bft.com.pe/planes/plan-anual</loc>
+    <lastmod>2024-01-12T10:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bft.com.pe/planes/plan-seguridad</loc>
+    <lastmod>2024-01-12T10:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog/Articles Section -->
+  <url>
+    <loc>https://www.bft.com.pe/blog</loc>
+    <lastmod>2024-01-14T10:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bft.com.pe/blog/beneficios-fibra-optica</loc>
+    <lastmod>2024-01-14T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bft.com.pe/blog/wifi-6-ventajas</loc>
+    <lastmod>2024-01-13T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bft.com.pe/blog/como-elegir-plan-internet</loc>
+    <lastmod>2024-01-12T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Support Pages -->
+  <url>
+    <loc>https://www.bft.com.pe/soporte</loc>
+    <lastmod>2024-01-10T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bft.com.pe/soporte/preguntas-frecuentes</loc>
+    <lastmod>2024-01-10T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bft.com.pe/soporte/configuracion-router</loc>
+    <lastmod>2024-01-08T10:00:00+00:00</lastmod>
+    <changefreq>rarely</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://www.bft.com.pe/terminos-condiciones</loc>
+    <lastmod>2024-01-01T10:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bft.com.pe/politica-privacidad</loc>
+    <lastmod>2024-01-01T10:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://www.bft.com.pe/cookies</loc>
+    <lastmod>2024-01-01T10:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+</urlset>
