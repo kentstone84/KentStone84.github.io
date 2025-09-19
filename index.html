@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+<div class="flex items-start">
+                            <span class="text-gray-700 mr-3 mt-1">📧</span>
+                            <div>
+                                <h4 class="font-medium">Correo Electrónico</h4>
+                                <p class="text-gray-600">contacto@bft.com.pe</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-gray-700 mr-3 mt-1">📞</span>
+                            <div>
+                                <h4 class="font-medium">Teléfono</h4>
+                                <p class="text-gray-600">(01) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-gray-700 mr-3 mt-1">📍</span>
+                            <div>
+                                <h4 class="font-medium">Dirección</h4>
+                                <p class="text-gray-600">Av. Javier Prado 1234, San Isidro, Lima</p>
+                            </div>
+                        </div><!DOCTYPE html>
 <html lang="es" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
@@ -54,17 +74,23 @@
         .text-center { text-align: center; }
         .text-left { text-align: left; }
         .text-white { color: white; }
-        .text-blue-600 { color: #2563eb; }
-        .text-green-600 { color: #059669; }
+        .text-black { color: #000000; }
+        .text-gray-300 { color: #d1d5db; }
+        .text-gray-400 { color: #9ca3af; }
         .text-gray-600 { color: #4b5563; }
         .text-gray-700 { color: #374151; }
-        .text-yellow-300 { color: #fcd34d; }
+        .text-gray-800 { color: #1f2937; }
+        .text-gray-900 { color: #111827; }
         
         .bg-white { background-color: white; }
-        .bg-blue-600 { background-color: #2563eb; }
-        .bg-green-500 { background-color: #10b981; }
-        .bg-green-50 { background-color: #ecfdf5; }
+        .bg-black { background-color: #000000; }
         .bg-gray-50 { background-color: #f9fafb; }
+        .bg-gray-100 { background-color: #f3f4f6; }
+        .bg-gray-200 { background-color: #e5e7eb; }
+        .bg-gray-600 { background-color: #4b5563; }
+        .bg-gray-700 { background-color: #374151; }
+        .bg-gray-800 { background-color: #1f2937; }
+        .bg-gray-900 { background-color: #111827; }
         
         .font-bold { font-weight: 700; }
         .font-semibold { font-weight: 600; }
@@ -154,7 +180,7 @@
         
         /* Specific Component Styles */
         .hero-gradient {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, #111827 0%, #374151 100%);
             min-height: 100vh;
         }
         
@@ -174,7 +200,7 @@
         }
         
         .nav-link:hover {
-            color: #2563eb;
+            color: #111827;
         }
         
         .feature-card {
@@ -202,7 +228,7 @@
         }
         
         .popular-badge {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            background: linear-gradient(135deg, #111827 0%, #374151 100%);
             animation: pulse 2s infinite;
         }
         
@@ -218,7 +244,7 @@
         }
         
         .price-highlight {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            background: linear-gradient(135deg, #111827 0%, #374151 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -237,7 +263,7 @@
         }
         
         .btn-primary {
-            background-color: #2563eb;
+            background-color: #111827;
             color: white;
             padding: 0.75rem 2rem;
             border-radius: 0.5rem;
@@ -247,11 +273,11 @@
         }
         
         .btn-primary:hover {
-            background-color: #1d4ed8;
+            background-color: #374151;
         }
         
         .btn-secondary {
-            background-color: #10b981;
+            background-color: #4b5563;
             color: white;
             padding: 0.75rem 2rem;
             border-radius: 0.5rem;
@@ -261,7 +287,7 @@
         }
         
         .btn-secondary:hover {
-            background-color: #059669;
+            background-color: #374151;
         }
         
         .btn-outline {
@@ -277,7 +303,7 @@
         
         .btn-outline:hover {
             background-color: white;
-            color: #2563eb;
+            color: #111827;
         }
         
         img {
@@ -362,13 +388,13 @@
         <div class="container">
             <div class="flex items-center justify-between py-3">
                 <div class="flex items-center">
-                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
+                    <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold">
                         BFT
                     </div>
-                    <span class="ml-3 text-xl font-bold text-blue-600">BFT</span>
+                    <span class="ml-3 text-xl font-bold text-gray-900">BFT</span>
                 </div>
                 <div class="hidden-mobile flex space-x-8">
-                    <a href="#home" class="nav-link text-blue-600 font-medium">Inicio</a>
+                    <a href="#home" class="nav-link text-gray-900 font-medium">Inicio</a>
                     <a href="#services" class="nav-link text-gray-600">Servicios</a>
                     <a href="#plans" class="nav-link text-gray-600">Planes</a>
                     <a href="#coverage" class="nav-link text-gray-600">Cobertura</a>
@@ -384,7 +410,7 @@
             <div class="flex flex-col-mobile md-flex md-flex-row items-center">
                 <div class="md-w-1-2 mb-8">
                     <h1 class="text-4xl md:text-5xl font-bold mb-6">
-                        Internet de <span class="text-yellow-300">Fibra Óptica</span> en Lima
+                        Internet de <span class="text-gray-400">Fibra Óptica</span> en Lima
                     </h1>
                     <p class="text-xl mb-8">En BFT, creemos que un buen internet es más que velocidad: es atención humana, soluciones rápidas y una experiencia sin estrés.</p>
                     <div class="flex flex-col space-y-4-mobile space-y-4">
@@ -426,14 +452,14 @@
     </section>
 
     <!-- WhatsApp CTA -->
-    <section class="bg-green-50 py-8">
+    <section class="bg-gray-100 py-8">
         <div class="container text-center">
             <div class="flex flex-col-mobile md-flex items-center justify-center">
                 <div class="mb-4 mr-6">
                     <span class="text-2xl mr-2">💬</span>
                     <span class="text-lg font-medium">Cuando nos escribes por WhatsApp, hablas con una persona real.</span>
                 </div>
-                <a href="https://wa.me/51987654321" class="bg-green-500 text-white px-6 py-2 rounded-lg font-medium cta-button">
+                <a href="https://wa.me/51987654321" class="bg-gray-800 text-white px-6 py-2 rounded-lg font-medium cta-button">
                     📱 Escríbenos
                 </a>
             </div>
@@ -446,21 +472,21 @@
             <h2 class="text-3xl font-bold text-center mb-16">Nuestro Compromiso</h2>
             <div class="grid grid-cols-1 md-grid-cols-3 gap-8">
                 <div class="feature-card p-8">
-                    <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white text-2xl">
+                    <div class="bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white text-2xl">
                         ⚡
                     </div>
                     <h3 class="text-xl font-bold mb-3">Velocidad Constante</h3>
                     <p class="text-gray-600">Trabajamos para garantizar que disfrutes de una conexión estable, rápida e ininterrumpida en cada rincón de tu hogar.</p>
                 </div>
                 <div class="feature-card p-8">
-                    <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white text-2xl">
+                    <div class="bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white text-2xl">
                         🎧
                     </div>
                     <h3 class="text-xl font-bold mb-3">Atención Personal</h3>
                     <p class="text-gray-600">Nuestro equipo está disponible para resolver tus dudas y problemas con atención humana y soluciones rápidas.</p>
                 </div>
                 <div class="feature-card p-8">
-                    <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white text-2xl">
+                    <div class="bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white text-2xl">
                         🛡️
                     </div>
                     <h3 class="text-xl font-bold mb-3">Sin Estrés</h3>
@@ -488,10 +514,10 @@
                         <div class="price-highlight text-4xl font-bold mb-4">S/ 89</div>
                         <p class="text-gray-600 mb-6">Perfecto para familias grandes y gaming</p>
                         <div class="text-left space-y-2 mb-8">
-                            <div class="flex items-center"><span class="text-green-500 mr-2">✅</span>400 Mbps de velocidad</div>
-                            <div class="flex items-center"><span class="text-green-500 mr-2">✅</span>Router WiFi 6 incluido</div>
-                            <div class="flex items-center"><span class="text-green-500 mr-2">✅</span>Instalación gratuita</div>
-                            <div class="flex items-center"><span class="text-green-500 mr-2">✅</span>Soporte técnico 24/7</div>
+                            <div class="flex items-center"><span class="text-gray-600 mr-2">✅</span>400 Mbps de velocidad</div>
+                            <div class="flex items-center"><span class="text-gray-600 mr-2">✅</span>Router WiFi 6 incluido</div>
+                            <div class="flex items-center"><span class="text-gray-600 mr-2">✅</span>Instalación gratuita</div>
+                            <div class="flex items-center"><span class="text-gray-600 mr-2">✅</span>Soporte técnico 24/7</div>
                         </div>
                         <a href="#contact" class="btn-primary w-full text-center">Contratar Ahora</a>
                     </div>
@@ -505,10 +531,10 @@
                         <div class="price-highlight text-4xl font-bold mb-4">S/ 79</div>
                         <p class="text-gray-600 mb-6">El mejor precio pagando anual</p>
                         <div class="text-left space-y-2 mb-8">
-                            <div class="flex items-center"><span class="text-green-500 mr-2">✅</span>300 Mbps de velocidad</div>
-                            <div class="flex items-center"><span class="text-green-500 mr-2">✅</span>2 meses gratis</div>
-                            <div class="flex items-center"><span class="text-green-500 mr-2">✅</span>Router premium</div>
-                            <div class="flex items-center"><span class="text-green-500 mr-2">✅</span>Precio fijo por 12 meses</div>
+                            <div class="flex items-center"><span class="text-gray-600 mr-2">✅</span>300 Mbps de velocidad</div>
+                            <div class="flex items-center"><span class="text-gray-600 mr-2">✅</span>2 meses gratis</div>
+                            <div class="flex items-center"><span class="text-gray-600 mr-2">✅</span>Router premium</div>
+                            <div class="flex items-center"><span class="text-gray-600 mr-2">✅</span>Precio fijo por 12 meses</div>
                         </div>
                         <a href="#contact" class="btn-secondary w-full text-center">Contratar Ahora</a>
                     </div>
@@ -522,10 +548,10 @@
                         <div class="price-highlight text-4xl font-bold mb-4">S/ 149</div>
                         <p class="text-gray-600 mb-6">Internet + cámaras de seguridad</p>
                         <div class="text-left space-y-2 mb-8">
-                            <div class="flex items-center"><span class="text-green-500 mr-2">✅</span>200 Mbps de velocidad</div>
-                            <div class="flex items-center"><span class="text-green-500 mr-2">✅</span>2 cámaras IP incluidas</div>
-                            <div class="flex items-center"><span class="text-green-500 mr-2">✅</span>App móvil gratuita</div>
-                            <div class="flex items-center"><span class="text-green-500 mr-2">✅</span>Grabación en la nube</div>
+                            <div class="flex items-center"><span class="text-gray-600 mr-2">✅</span>200 Mbps de velocidad</div>
+                            <div class="flex items-center"><span class="text-gray-600 mr-2">✅</span>2 cámaras IP incluidas</div>
+                            <div class="flex items-center"><span class="text-gray-600 mr-2">✅</span>App móvil gratuita</div>
+                            <div class="flex items-center"><span class="text-gray-600 mr-2">✅</span>Grabación en la nube</div>
                         </div>
                         <a href="#contact" class="btn-primary w-full text-center">Contratar Ahora</a>
                     </div>
@@ -534,52 +560,203 @@
         </div>
     </section>
 
- <!-- Coverage Section -->
-<section id="coverage" class="py-16 bg-blue-600 text-white">
-    <div class="container">
-        <div class="flex flex-col-mobile md-flex md-flex-row items-center">
-            <div class="md-w-1-2 mb-8">
-                <h2 class="text-3xl font-bold mb-6">¡Estamos expandiendo nuestra cobertura!</h2>
-                <p class="text-xl mb-8">Llegamos a toda Lima Metropolitana con nuestra red de fibra óptica de última generación.</p>
-                <div class="grid grid-cols-2 gap-4 mb-8">
-                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
-                        <h4 class="font-bold">Miraflores</h4>
-                        <p class="text-sm opacity-90">100% Cobertura</p>
+    <!-- Coverage Section -->
+    <section id="coverage" class="py-16 bg-blue-600 text-white">
+        <div class="container">
+            <div class="flex flex-col-mobile md-flex md-flex-row items-center">
+                <div class="md-w-1-2 mb-8">
+                    <h2 class="text-3xl font-bold mb-6">¡Estamos expandiendo nuestra cobertura!</h2>
+                    <p class="text-xl mb-8">Llegamos a toda Lima Metropolitana con nuestra red de fibra óptica de última generación.</p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                            <h4 class="font-bold">La Molina</h4>
+                            <p class="text-sm opacity-90">90% Cobertura</p>
+                        </div>
                     </div>
-                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
-                        <h4 class="font-bold">San Isidro</h4>
-                        <p class="text-sm opacity-90">100% Cobertura</p>
-                    </div>
-                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
-                        <h4 class="font-bold">Surco</h4>
-                        <p class="text-sm opacity-90">95% Cobertura</p>
-                    </div>
-                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
-                        <h4 class="font-bold">La Molina</h4>
-                        <p class="text-sm opacity-90">90% Cobertura</p>
+                    <a href="#contact" class="btn-outline">Verificar cobertura</a>
+                </div>
+                <div class="md-w-1-2">
+                    <div class="bg-white bg-opacity-10 rounded-lg p-8">
+                        <h3 class="text-2xl font-bold mb-4">Próximamente en:</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center"><span class="mr-2">📍</span> Pueblo Libre</div>
+                            <div class="flex items-center"><span class="mr-2">📍</span> Jesús María</div>
+                            <div class="flex items-center"><span class="mr-2">📍</span> Magdalena</div>
+                            <div class="flex items-center"><span class="mr-2">📍</span> Barranco</div>
+                        </div>
                     </div>
                 </div>
-                <a href="#contact" class="btn-outline">Consulta tu zona</a>
-            </div>
-            <div class="md-w-1-2">
-                <img src="https://kentstone84.github.io/assets/images/lima-map.png" alt="Mapa de Cobertura Lima" class="rounded-xl shadow-xl">
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Contact Section -->
-<section id="contact" class="py-16 bg-gray-50">
-    <div class="container text-center">
-        <h2 class="text-3xl font-bold mb-6">Contáctanos</h2>
-        <p class="text-gray-600 mb-8">Estamos listos para ayudarte a elegir el mejor plan de internet para ti.</p>
-        <a href="https://wa.me/51987654321" class="btn-primary px-8 py-3">📱 WhatsApp</a>
-    </div>
-</section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container">
+            <h2 class="text-3xl font-bold text-center mb-12">Contáctanos</h2>
+            <div class="flex flex-col-mobile md-flex md-flex-row gap-8">
+                <div class="md-w-1-2">
+                    <h3 class="text-xl font-semibold mb-4">Tu satisfacción es nuestra prioridad</h3>
+                    <p class="text-gray-600 mb-6">Descubre los beneficios exclusivos que te esperan al ser parte de la familia BFT.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="text-blue-600 mr-3 mt-1">📧</span>
+                            <div>
+                                <h4 class="font-medium">Correo Electrónico</h4>
+                                <p class="text-gray-600">contacto@bft.com.pe</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-blue-600 mr-3 mt-1">📞</span>
+                            <div>
+                                <h4 class="font-medium">Teléfono</h4>
+                                <p class="text-gray-600">(01) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-blue-600 mr-3 mt-1">📍</span>
+                            <div>
+                                <h4 class="font-medium">Dirección</h4>
+                                <p class="text-gray-600">Av. Javier Prado 1234, San Isidro, Lima</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md-w-1-2">
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-bold mb-6">Envíanos un mensaje</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Nombre completo</label>
+                                <input type="text" class="w-full px-4 py-2 border rounded-lg" placeholder="Tu nombre">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Correo electrónico</label>
+                                <input type="email" class="w-full px-4 py-2 border rounded-lg" placeholder="tu@email.com">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Teléfono</label>
+                                <input type="tel" class="w-full px-4 py-2 border rounded-lg" placeholder="999 123 456">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Mensaje</label>
+                                <textarea rows="4" class="w-full px-4 py-2 border rounded-lg" placeholder="¿En qué podemos ayudarte?"></textarea>
+                            </div>
+                            <button class="btn-primary w-full">Enviar mensaje</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Footer -->
-<footer class="bg-white py-6 text-center text-gray-600 text-sm">
-    &copy; 2024 BFT Fibra Óptica. Todos los derechos reservados.
-</footer>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container">
+            <div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center text-white font-bold mr-3">
+                            BFT
+                        </div>
+                        <span class="text-xl font-bold">BFT</span>
+                    </div>
+                    <p class="text-gray-400">Proveedor líder de internet por fibra óptica en Lima, Perú.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Enlaces rápidos</h3>
+                    <div class="space-y-2">
+                        <div><a href="#home" class="text-gray-400 hover:text-white">Inicio</a></div>
+                        <div><a href="#services" class="text-gray-400 hover:text-white">Servicios</a></div>
+                        <div><a href="#plans" class="text-gray-400 hover:text-white">Planes</a></div>
+                        <div><a href="#coverage" class="text-gray-400 hover:text-white">Cobertura</a></div>
+                        <div><a href="#contact" class="text-gray-400 hover:text-white">Contacto</a></div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <div class="flex items-start">
+                            <span class="mr-2 mt-1">📍</span>
+                            <span>Av. Javier Prado 1234, San Isidro</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="mr-2">📞</span>
+                            <span>(01) 123-4567</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="mr-2">📧</span>
+                            <span>contacto@bft.com.pe</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-600">
+                            📘
+                        </a>
+                        <a href="#" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-600">
+                            🐦
+                        </a>
+                        <a href="#" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-600">
+                            📷
+                        </a>
+                        <a href="https://wa.me/51987654321" class="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-600">
+                            📱
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 BFT Fibra Óptica. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/51987654321?text=Hola, me interesa información sobre los planes de internet de fibra óptica" 
+       class="fixed bottom-5 right-5 bg-gray-800 text-white p-4 rounded-full shadow-xl hover:bg-gray-600 z-50"
+       style="animation: pulse 2s infinite;">
+        📱
+    </a>
+
+    <!-- Basic JavaScript for smooth scrolling -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Simple form handling
+        document.querySelector('button[type="button"]') || 
+        document.querySelector('.btn-primary').addEventListener('click', function(e) {
+            if (this.textContent.includes('Enviar mensaje')) {
+                e.preventDefault();
+                alert('¡Gracias por tu mensaje! Nos contactaremos contigo pronto.');
+            }
+        });
+    </script>
 </body>
-</html>
+</html> class="font-bold">Miraflores</h4>
+                            <p class="text-sm opacity-90">100% Cobertura</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                            <h4 class="font-bold">San Isidro</h4>
+                            <p class="text-sm opacity-90">100% Cobertura</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                            <h4 class="font-bold">Surco</h4>
+                            <p class="text-sm opacity-90">95% Cobertura</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                            <h4></h4>
