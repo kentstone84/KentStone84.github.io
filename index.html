@@ -574,4 +574,1052 @@
         .led-gold {
             background: radial-gradient(circle, var(--gold-color), #d97706);
             color: white;
-            anim
+            animation: pulse 2s infinite;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .feature-description {
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        /* Applications Section */
+        .applications {
+            padding: 6rem 0;
+            background: var(--dark-gradient);
+            color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #d1d5db;
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .application-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .application-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        /* Technical Specs */
+        .specs {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .spec-list {
+            list-style: none;
+        }
+
+        .spec-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .spec-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--dark-gradient);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #e5e7eb;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+
+        .contact-info {
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero-stats {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .contact-content,
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-animate.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="logo">
+                    <div class="logo-icon">🔒</div>
+                    LockStone
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#demo">Live Demo</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#applications">Applications</a></li>
+                    <li><a href="#specs">Specifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Enter Your
+                        <span style="color: var(--accent-color);">Command Center</span>
+                        Like a Pro
+                    </h1>
+                    <p class="hero-subtitle">
+                        Transform your gaming rig or workstation into an elite command center. 
+                        One swipe grants access - no passwords, no delays, just pure hacker vibes with 16-LED visual feedback.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#demo" class="btn btn-primary">⚡ See Matrix Mode</a>
+                        <a href="#contact" class="btn btn-secondary">🔥 Get LockStone</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span>🎮</span>
+                            <span>10,000+ gamers connected</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>💀</span>
+                            <span>Zero password fatigue</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>⚡</span>
+                            <span>0.1s hack-level speed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="scanner-display">
+                        <div class="led-ring">
+                            <div class="rfid-icon">📡</div>
+                        </div>
+                        <div class="scanner-status">ACCESS GRANTED</div>
+                        <div class="scanner-description">
+                            Command center ready - 16 NeoPixel ring active
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo Section -->
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <h2 class="section-title">Command Center Feedback</h2>
+            <p class="section-subtitle">
+                Experience the thrill of authentic command center access with 16-LED matrix-style feedback
+            </p>
+            <div class="demo-grid">
+                <div class="demo-card scroll-animate">
+                    <div class="led-demo led-green">✓</div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--success-color);">
+                        ACCESS GRANTED
+                    </h3>
+                    <p style="color: #e5e7eb; line-height: 1.6;">
+                        Green matrix cascade confirms entry to your digital fortress. 
+                        Your gaming rig or workstation unlocks with movie-level satisfaction.
+                    </p>
+                </div>
+                
+                <div class="demo-card scroll-animate">
+                    <div class="led-demo led-red">✗</div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--danger-color);">
+                        ACCESS DENIED
+                    </h3>
+                    <p style="color: #e5e7eb; line-height: 1.6;">
+                        Red warning pulse protects your digital domain. 
+                        Unauthorized cards get the full cyberpunk rejection treatment.
+                    </p>
+                </div>
+                
+                <div class="demo-card scroll-animate">
+                    <div class="led-demo led-gold">+</div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--gold-color);">
+                        PAIRING MODE
+                    </h3>
+                    <p style="color: #e5e7eb; line-height: 1.6;">
+                        Golden spiral initiates new card enrollment. 
+                        Add squad members to your elite access network.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title" style="color: #1f2937;">Elite Command Center Features</h2>
+            <p class="section-subtitle" style="color: #6b7280;">
+                Built for gamers, hackers, and businesses who demand more than ordinary security
+            </p>
+            <div class="features-grid">
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">🎮</div>
+                    <h3 class="feature-title">Gaming Command Center</h3>
+                    <p class="feature-description">
+                        Transform your setup into a true command center. Swipe your custom card 
+                        to unlock your digital fortress with movie-level satisfaction. No more 
+                        typing passwords mid-stream or during clutch moments.
+                    </p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">💀</div>
+                    <h3 class="feature-title">Hacker Aesthetic</h3>
+                    <p class="feature-description">
+                        16 programmable NeoPixel LEDs create matrix-style visual feedback. 
+                        Green cascades for access granted, red pulses for denied, 
+                        gold spirals for pairing mode. Pure cyberpunk vibes.
+                    </p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">🏢</div>
+                    <h3 class="feature-title">IT Helpdesk Killer</h3>
+                    <p class="feature-description">
+                        Businesses save thousands in IT support costs. No more "forgot my password" 
+                        tickets. Employees tap in/out for accurate time tracking. 
+                        Remote work compatibility included.
+                    </p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-description">
+                        0.1 second response time from card tap to system unlock. 
+                        No delays, no loading screens, no frustration. 
+                        Just instant access to your digital domain.
+                    </p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">🔧</div>
+                    <h3 class="feature-title">Plug & Dominate</h3>
+                    <p class="feature-description">
+                        USB-C plug and play setup. Compatible with Windows, macOS, Linux. 
+                        Advanced users get full API access for custom integrations 
+                        and automation scripts.
+                    </p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Fort Knox Security</h3>
+                    <p class="feature-description">
+                        AES-256 encryption protects your access credentials. 
+                        Military-grade security meets consumer simplicity. 
+                        Your digital fortress remains impenetrable.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section id="applications" class="applications">
+        <div class="container">
+            <h2 class="section-title">Built for Digital Rebels</h2>
+            <p class="section-subtitle">
+                Whether you're gaming, hacking, or running a business - LockStone transforms ordinary access into epic experiences
+            </p>
+            <div class="applications-grid">
+                <div class="application-card scroll-animate">
+                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">🎮</div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent-color);">
+                        Gaming Command Centers
+                    </h3>
+                    <p style="color: #d1d5db; line-height: 1.7; margin-bottom: 1.5rem;">
+                        Turn your battlestation into a true command center. No more password fumbling during streams, 
+                        raids, or clutch moments. Just swipe and dominate.
+                    </p>
+                    <ul style="list-style: none; color: #e5e7eb;">
+                        <li style="margin-bottom: 0.5rem;">⚡ Instant stream-ready access</li>
+                        <li style="margin-bottom: 0.5rem;">🎯 No interruption to gameplay</li>
+                        <li style="margin-bottom: 0.5rem;">💀 Epic visual feedback</li>
+                        <li style="margin-bottom: 0.5rem;">🔥 Squad member access control</li>
+                    </ul>
+                </div>
+                
+                <div class="application-card scroll-animate">
+                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">💀</div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent-color);">
+                        Hacker Workstations
+                    </h3>
+                    <p style="color: #d1d5db; line-height: 1.7; margin-bottom: 1.5rem;">
+                        Maximum control over your digital fortress. Customize LED patterns, 
+                        integrate with your existing tools, and maintain that authentic hacker aesthetic.
+                    </p>
+                    <ul style="list-style: none; color: #e5e7eb;">
+                        <li style="margin-bottom: 0.5rem;">🛠️ Full API control</li>
+                        <li style="margin-bottom: 0.5rem;">⚡ Custom automation scripts</li>
+                        <li style="margin-bottom: 0.5rem;">🔒 Paranoid-level security</li>
+                        <li style="margin-bottom: 0.5rem;">💻 Multi-OS compatibility</li>
+                    </ul>
+                </div>
+                
+                <div class="application-card scroll-animate">
+                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">🏢</div>
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent-color);">
+                        IT Helpdesk Destroyer
+                    </h3>
+                    <p style="color: #d1d5db; line-height: 1.7; margin-bottom: 1.5rem;">
+                        Eliminate 80% of password-related IT tickets. Built-in time tracking for payroll. 
+                        Employees love the sci-fi experience, IT loves the reduced workload.
+                    </p>
+                    <ul style="list-style: none; color: #e5e7eb;">
+                        <li style="margin-bottom: 0.5rem;">💰 Massive IT cost savings</li>
+                        <li style="margin-bottom: 0.5rem;">⏰ Automatic time tracking</li>
+                        <li style="margin-bottom: 0.5rem;">🌐 Remote work compatible</li>
+                        <li style="margin-bottom: 0.5rem;">📊 Detailed access logs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section id="specs" class="specs">
+        <div class="container">
+            <h2 class="section-title" style="color: #1f2937;">Technical Arsenal</h2>
+            <p class="section-subtitle" style="color: #6b7280;">
+                Premium hardware meets elite software for the ultimate command center experience
+            </p>
+            
+            <div class="specs-grid">
+                <div class="scroll-animate">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #1f2937;">
+                        Command Center Hardware
+                    </h3>
+                    <ul class="spec-list">
+                        <li>
+                            <div class="spec-icon">💎</div>
+                            <div>
+                                <strong>16 NeoPixel Matrix Ring</strong><br>
+                                <span style="color: #6b7280;">Programmable RGB LEDs with cinema-grade animations</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="spec-icon">📡</div>
+                            <div>
+                                <strong>RFID Command Scanner</strong><br>
+                                <span style="color: #6b7280;">13.56MHz frequency, 10cm range, military precision</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="spec-icon">⚡</div>
+                            <div>
+                                <strong>USB-C Power</strong><br>
+                                <span style="color: #6b7280;">Plug-and-dominate setup, low power consumption</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="spec-icon">🖤</div>
+                            <div>
+                                <strong>Stealth Design</strong><br>
+                                <span style="color: #6b7280;">75mm cube, matte black, command center ready</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="spec-icon">🏆</div>
+                            <div>
+                                <strong>Elite Build Quality</strong><br>
+                                <span style="color: #6b7280;">Premium components, built to last, gamer approved</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="scroll-animate">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #1f2937;">
+                        Software Domination
+                    </h3>
+                    <ul class="spec-list">
+                        <li>
+                            <div class="spec-icon">💻</div>
+                            <div>
+                                <strong>Multi-OS Mastery</strong><br>
+                                <span style="color: #6b7280;">Windows, macOS, Linux - all conquered</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="spec-icon">🔐</div>
+                            <div>
+                                <strong>Fort Knox Security</strong><br>
+                                <span style="color: #6b7280;">AES-256 encryption, hacker-proof protocols</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="spec-icon">🛠️</div>
+                            <div>
+                                <strong>Full API Control</strong><br>
+                                <span style="color: #6b7280;">SDK for custom integrations, automation scripts</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="spec-icon">📊</div>
+                            <div>
+                                <strong>Command Dashboard</strong><br>
+                                <span style="color: #6b7280;">Web console, time tracking, access logs</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="spec-icon">🔄</div>
+                            <div>
+                                <strong>Auto Evolution</strong><br>
+                                <span style="color: #6b7280;">OTA updates, cloud sync, always improving</span>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: var(--primary-gradient); border-radius: 15px; color: white;">
+                        <h4 style="font-weight: 700; margin-bottom: 0.5rem;">Elite Package Includes</h4>
+                        <p style="margin-bottom: 1rem;">Everything for your command center transformation</p>
+                        <ul style="list-style: none;">
+                            <li>• LockStone RFID Scanner Unit</li>
+                            <li>• 5x Custom PVC Access Cards</li>
+                            <li>• 3x Cyberpunk Bracelet Pendants</li>
+                            <li>• Premium USB-C Cable</li>
+                            <li>• Setup & Domination Guide</li>
+                            <li>• Lifetime Software Updates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get Your SecureScan Pro</h2>
+            <p class="section-subtitle">
+                Ready to revolutionize your security and time tracking? Let's discuss your specific needs.
+            </p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">
+                        Ready to Upgrade Your Security?
+                    </h3>
+                    <p style="color: #d1d5db; margin-bottom: 2rem; line-height: 1.7;">
+                        Join hundreds of organizations already using SecureScan Pro to secure their 
+                        workstations and streamline employee time tracking. Our team is ready to 
+                        help you implement the perfect solution.
+                    </p>
+                    
+                    <div class="contact-item scroll-animate">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4 style="font-weight: 700;">Sales Inquiries</h4>
+                            <p style="color: #d1d5db; margin: 0.5rem 0;">Get pricing and bulk discounts</p>
+                            <a href="mailto:sales@securescanpro.com" style="color: var(--accent-color); font-weight: 600;">
+                                sales@securescanpro.com
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item scroll-animate">
+                        <div class="contact-icon">🛠️</div>
+                        <div>
+                            <h4 style="font-weight: 700;">Technical Support</h4>
+                            <p style="color: #d1d5db; margin: 0.5rem 0;">Integration and setup assistance</p>
+                            <a href="mailto:support@securescanpro.com" style="color: var(--accent-color); font-weight: 600;">
+                                support@securescanpro.com
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item scroll-animate">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4 style="font-weight: 700;">Phone Support</h4>
+                            <p style="color: #d1d5db; margin: 0.5rem 0;">Monday - Friday, 9AM - 6PM EST</p>
+                            <a href="tel:+1-555-SECURE-1" style="color: var(--accent-color); font-weight: 600;">
+                                +1 (555) SECURE-1
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 212, 255, 0.1); border: 1px solid var(--accent-color); border-radius: 15px;">
+                        <h4 style="color: var(--accent-color); font-weight: 700; margin-bottom: 0.5rem;">
+                            Volume Pricing Available
+                        </h4>
+                        <p style="color: #e5e7eb; margin-bottom: 1rem;">
+                            Special pricing for orders of 10+ units. Enterprise licensing and 
+                            custom integrations available.
+                        </p>
+                        <p style="color: #e5e7eb;">
+                            Starting at <strong style="color: var(--accent-color);">$149/unit</strong> 
+                            (MSRP $199)
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container scroll-animate">
+                    <div class="contact-form">
+                        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">
+                            Request Information
+                        </h3>
+                        <p style="color: #d1d5db; margin-bottom: 2rem;">
+                            Tell us about your requirements and we'll provide a customized solution.
+                        </p>
+                        
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label>Organization Name *</label>
+                                <input type="text" name="organization" required placeholder="Your company or institution">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Contact Person *</label>
+                                <input type="text" name="name" required placeholder="Your full name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Email Address *</label>
+                                <input type="email" name="email" required placeholder="your.email@company.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" name="phone" placeholder="+1 (555) 123-4567">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Industry Type</label>
+                                <select name="industry">
+                                    <option value="">Select your industry</option>
+                                    <option value="corporate">Corporate Office</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="education">Education</option>
+                                    <option value="gaming">Gaming/Entertainment</option>
+                                    <option value="government">Government</option>
+                                    <option value="manufacturing">Manufacturing</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Number of Units Needed</label>
+                                <select name="quantity">
+                                    <option value="">Select quantity</option>
+                                    <option value="1-5">1-5 units</option>
+                                    <option value="6-20">6-20 units</option>
+                                    <option value="21-50">21-50 units</option>
+                                    <option value="51-100">51-100 units</option>
+                                    <option value="100+">100+ units</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Special Requirements</label>
+                                <textarea name="requirements" rows="4" 
+                                         placeholder="Tell us about your specific needs, integration requirements, timeline, etc."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Request Quote & Demo
+                            </button>
+                        </form>
+                        
+                        <p style="font-size: 0.9rem; color: #9ca3af; text-align: center; margin-top: 1rem;">
+                            We respect your privacy and will never share your information with third parties.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <div class="logo-icon" style="margin-right: 0.5rem;">🔒</div>
+                        <span style="font-size: 1.5rem; font-weight: 800;">LockStone</span>
+                    </div>
+                    <p style="color: #9ca3af; line-height: 1.6;">
+                        Transforming boring password entry into epic command center experiences. 
+                        Built by hackers, for hackers, gamers, and forward-thinking businesses.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Command Center</h3>
+                    <ul>
+                        <li><a href="#features">Elite Features</a></li>
+                        <li><a href="#specs">Tech Arsenal</a></li>
+                        <li><a href="#applications">Use Cases</a></li>
+                        <li><a href="/downloads">Software Downloads</a></li>
+                        <li><a href="/api">Hacker API Docs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support Network</h3>
+                    <ul>
+                        <li><a href="/setup">Setup Guide</a></li>
+                        <li><a href="/troubleshoot">Troubleshooting</a></li>
+                        <li><a href="/community">Discord Community</a></li>
+                        <li><a href="/github">GitHub Repos</a></li>
+                        <li><a href="/warranty">Warranty Info</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="/story">Our Story</a></li>
+                        <li><a href="/team">The Team</a></li>
+                        <li><a href="/press">Press Kit</a></li>
+                        <li><a href="/careers">Join Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>
+                    © 2025 LockStone Technologies - All rights reserved. | 
+                    <a href="/privacy" style="color: #667eea;">Privacy Policy</a> | 
+                    <a href="/terms" style="color: #667eea;">Terms of Service</a> |
+                    <a href="/security" style="color: #667eea;">Security</a>
+                </p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                    Built with ❤️ for the command center elite.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.scroll-animate');
+            const windowHeight = window.innerHeight;
+
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on load
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const organization = formData.get('organization');
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone') || 'Not provided';
+            const industry = formData.get('industry') || 'Not specified';
+            const quantity = formData.get('quantity') || 'Not specified';
+            const requirements = formData.get('requirements') || 'No additional requirements';
+            
+            // Create email message
+            const emailMessage = `New SecureScan Pro Inquiry:
+
+Organization: ${organization}
+Contact: ${name}
+Email: ${email}
+Phone: ${phone}
+Industry: ${industry}
+Quantity Needed: ${quantity}
+
+Requirements:
+${requirements}
+
+Please follow up with pricing and demo information.`;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:sales@securescanpro.com?subject=SecureScan Pro Inquiry - ${organization}&body=${encodeURIComponent(emailMessage)}`;
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Thank you for your inquiry! Your default email client should open with a pre-filled message. If it doesn\'t, please email us directly at sales@securescanpro.com');
+            this.reset();
+        });
+
+        // Interactive LED ring simulation
+        function simulateLEDRing() {
+            const ledRing = document.querySelector('.led-ring::before');
+            const colors = ['rgba(16, 185, 129, 0.8)', 'rgba(239, 68, 68, 0.8)', 'rgba(251, 191, 36, 0.8)'];
+            let currentColor = 0;
+            
+            setInterval(() => {
+                if (ledRing) {
+                    currentColor = (currentColor + 1) % colors.length;
+                    ledRing.style.borderColor = colors[currentColor];
+                }
+            }, 2000);
+        }
+
+        // Add hover effects to cards
+        document.querySelectorAll('.demo-card, .feature-card, .application-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Mobile menu functionality
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            alert('Mobile menu - Contact us at sales@securescanpro.com for immediate assistance.');
+        });
+
+        // Performance optimization - Lazy loading for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Initialize LED simulation
+        simulateLEDRing();
+    </script>
+</body>
+</html>
