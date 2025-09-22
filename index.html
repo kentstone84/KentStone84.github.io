@@ -6,6 +6,18 @@
     <title>LockStone - Passwords Are Dead | Back Us on Kickstarter</title>
     <meta name="description" content="Back LockStone on Kickstarter - The RFID scanner that kills passwords forever. Gamer-ready, business-ready, senior-friendly. One swipe unlocks everything.">
     
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="LockStone - Passwords Are Dead | Back Us on Kickstarter">
+    <meta property="og:description" content="The RFID scanner that kills passwords forever. Tap. Glow. Access. Built by Army veteran Kent Stone in Peru.">
+    <meta property="og:image" content="assets/images/lockstone-social-banner.jpg">
+    <meta property="og:url" content="https://yourdomain.com/lockstone">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LockStone - Passwords Are Dead">
+    <meta name="twitter:description" content="RFID scanner with LED feedback. Gamer-ready, business-ready, senior-friendly. Back us on Kickstarter!">
+    <meta name="twitter:image" content="assets/images/lockstone-social-banner.jpg">
+    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
@@ -107,6 +119,7 @@
             gap: 2rem;
         }
 
+        /* Mobile Menu */
         .mobile-menu {
             display: none;
             cursor: pointer;
@@ -120,6 +133,46 @@
             height: 3px;
             background: var(--neon-green);
             transition: all 0.3s ease;
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 9999;
+            display: none;
+            padding-top: 80px;
+        }
+
+        .mobile-nav-overlay.active {
+            display: block;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .mobile-nav-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-links a:hover {
+            color: var(--neon-green);
+            background: rgba(0, 255, 65, 0.1);
         }
 
         .nav-links a {
@@ -147,8 +200,7 @@
             position: relative;
         }
 
-        .hero::before {
-            content: '';
+        .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -707,8 +759,23 @@
         </div>
     </nav>
 
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-links">
+            <a href="#demo" onclick="closeMobileMenu()">Demo</a>
+            <a href="#features" onclick="closeMobileMenu()">Features</a>
+            <a href="#rewards" onclick="closeMobileMenu()">Rewards</a>
+            <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+            <a href="#roadmap" onclick="closeMobileMenu()">Roadmap</a>
+            <div style="margin-top: 2rem;">
+                <a href="#rewards" class="btn btn-primary" onclick="closeMobileMenu()">Back Us on Kickstarter</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -741,10 +808,12 @@
                     </div>
                 </div>
                 <div class="product-demo">
-                    <div class="demo-device">
-                        <div class="led-ring">🔒</div>
-                        <div class="demo-status">ACCESS GRANTED</div>
-                        <p style="color: #ccc; font-size: 0.9rem;">16 LED ring shows authentication status</p>
+                    <div style="max-width: 400px; margin: 0 auto;">
+                        <img src="assets/images/lockstone-hero-device.jpg" alt="LockStone RFID Scanner with Rainbow LED Ring in action" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 255, 65, 0.3); animation: pulseGlow 3s infinite;" />
+                        <div style="text-align: center; margin-top: 2rem; background: rgba(0, 0, 0, 0.8); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(0, 255, 65, 0.3);">
+                            <div class="demo-status">ACCESS GRANTED</div>
+                            <p style="color: #ccc; font-size: 0.9rem;">16 LED ring shows authentication status in real-time</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -782,20 +851,18 @@
                 Watch the LED ring respond to authentication and see instant computer unlock
             </p>
             <div class="video-container">
-                <div style="position: relative; cursor: pointer;" onclick="playDemoVideo()">
-                    <div class="demo-video" style="background: linear-gradient(135deg, var(--deep-black) 0%, var(--dark-gray) 100%); position: relative; overflow: hidden;">
-                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
-                            <div style="width: 80px; height: 80px; background: rgba(0, 255, 65, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; animation: pulseGlow 2s infinite;">
-                                <span style="font-size: 2rem;">▶️</span>
-                            </div>
-                            <div style="color: var(--neon-green); font-weight: 700; margin-bottom: 0.5rem;">Watch LockStone in Action</div>
-                            <div style="color: #ccc; font-size: 0.9rem;">See LED animations + instant computer unlock</div>
-                        </div>
-                        <!-- Simulated LED ring animation in background -->
-                        <div style="position: absolute; top: 20px; right: 20px; width: 60px; height: 60px; border: 4px solid var(--neon-green); border-radius: 50%; animation: pulseGlow 3s infinite;"></div>
-                        <div style="position: absolute; bottom: 20px; left: 20px; width: 40px; height: 40px; border: 3px solid var(--neon-blue); border-radius: 50%; animation: pulseGlow 2s infinite 0.5s;"></div>
-                        <div style="position: absolute; top: 50px; left: 50px; width: 30px; height: 30px; border: 2px solid var(--neon-gold); border-radius: 50%; animation: pulseGlow 4s infinite 1s;"></div>
-                    </div>
+                <video 
+                    controls 
+                    autoplay 
+                    muted 
+                    loop 
+                    style="width: 100%; border-radius: 20px; box-shadow: 0 0 40px rgba(0, 255, 65, 0.3);"
+                    poster="assets/images/lockstone-video-poster.jpg">
+                    <source src="assets/video/lockstone.mp4" type="video/mp4">
+                    Your browser does not support the video tag. <a href="assets/video/lockstone.mp4">Download the demo video instead</a>.
+                </video>
+                <div style="text-align: center; margin-top: 1rem; color: #ccc; font-size: 0.9rem;">
+                    Watch the LED ring respond to different authentication states in real-time
                 </div>
             </div>
         </div>
@@ -842,7 +909,60 @@
         </div>
     </section>
 
-    <!-- How It Works -->
+    <!-- Product Comparison Section -->
+    <section style="padding: 6rem 0; background: var(--deep-black);">
+        <div class="container">
+            <h2 class="section-title">Choose Your Edition</h2>
+            <p class="section-subtitle">Same powerful technology, designed for different environments</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin: 4rem 0; align-items: center;">
+                <div style="text-align: center;">
+                    <img src="assets/images/gamer-vs-business-comparison.jpg" alt="LockStone Gamer Edition with rainbow LED ring vs Business Edition with discrete LED bar" style="width: 100%; max-width: 600px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 255, 65, 0.2);" />
+                    <h3 style="color: var(--neon-green); font-family: 'Orbitron', monospace; margin: 2rem 0 1rem; font-size: 2rem;">Two Worlds, One Solution</h3>
+                </div>
+                <div>
+                    <div style="margin-bottom: 3rem;">
+                        <h4 style="color: var(--neon-gold); font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            🎮 Gamer Edition
+                        </h4>
+                        <p style="color: #ccc; line-height: 1.7; margin-bottom: 1rem;">
+                            Full rainbow LED ring for maximum visual impact. Perfect for streamers, content creators, and gaming enthusiasts who want that epic command center aesthetic.
+                        </p>
+                        <ul style="color: #e5e7eb; list-style: none; margin-left: 1rem;">
+                            <li style="margin-bottom: 0.5rem;">• 16 individually addressable RGB LEDs</li>
+                            <li style="margin-bottom: 0.5rem;">• Custom animation patterns</li>
+                            <li style="margin-bottom: 0.5rem;">• Stream-friendly visual feedback</li>
+                            <li style="margin-bottom: 0.5rem;">• Cyberpunk aesthetic design</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: var(--neon-blue); font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            🏢 Business Edition
+                        </h4>
+                        <p style="color: #ccc; line-height: 1.7; margin-bottom: 1rem;">
+                            Subtle LED indicator for professional environments. Same powerful functionality with a more corporate-friendly appearance.
+                        </p>
+                        <ul style="color: #e5e7eb; list-style: none; margin-left: 1rem;">
+                            <li style="margin-bottom: 0.5rem;">• Professional discrete LED bar</li>
+                            <li style="margin-bottom: 0.5rem;">• Time tracking integration</li>
+                            <li style="margin-bottom: 0.5rem;">• Admin dashboard included</li>
+                            <li style="margin-bottom: 0.5rem;">• Corporate deployment ready</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Internal components showcase -->
+            <div style="text-align: center; margin-top: 4rem;">
+                <img src="assets/images/lockstone-internal-components.jpg" alt="LockStone internal components showing Arduino Nano, NeoPixel LED ring, and custom PCB assembly" style="width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 255, 65, 0.2);" />
+                <h3 style="color: var(--neon-green); margin: 2rem 0 1rem; font-family: 'Orbitron', monospace;">Handcrafted Arduino Engineering</h3>
+                <p style="color: #ccc; max-width: 600px; margin: 0 auto; line-height: 1.7;">
+                    Every LockStone is individually assembled with premium components, Arduino Nano microcontroller, and custom PCB design for maximum reliability. Built by hand in Kent's workshop in Peru.
+                </p>
+            </div>
+        </div>
+    </section>
     <section style="padding: 6rem 0; background: var(--deep-black);">
         <div class="container">
             <h2 class="section-title">How LockStone Works</h2>
