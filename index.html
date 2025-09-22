@@ -107,6 +107,21 @@
             gap: 2rem;
         }
 
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--neon-green);
+            transition: all 0.3s ease;
+        }
+
         .nav-links a {
             color: var(--light-gray);
             text-decoration: none;
@@ -622,6 +637,14 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
             .hero-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -632,15 +655,19 @@
                 justify-content: center;
             }
 
-            .nav-links {
-                display: none;
-            }
-
             .hero-title {
                 font-size: 2.5rem;
             }
 
             .progress-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .rewards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -671,6 +698,11 @@
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#roadmap">Roadmap</a></li>
                 </ul>
+                <div class="mobile-menu" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -682,6 +714,9 @@
                 <div class="hero-text">
                     <h1 class="hero-tagline">Passwords Are Dead</h1>
                     <h2 class="hero-title">Meet LockStone</h2>
+                    <p style="color: var(--neon-blue); font-size: 1.3rem; font-style: italic; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">
+                        "Tap. Glow. Access. The cyberpunk way to unlock your world."
+                    </p>
                     <p class="hero-subtitle">
                         Unlock your computer with RFID — gamer-ready, business-ready, senior-friendly. 
                         One swipe grants access. No passwords, no delays, just pure command center vibes with LED feedback.
@@ -720,19 +755,19 @@
     <section class="kickstarter-progress">
         <div class="container">
             <div class="progress-bar">
-                <div class="progress-fill"></div>
+                <div class="progress-fill" style="width: 0%;"></div>
             </div>
             <div class="progress-stats">
                 <div>
-                    <div class="stat-number">$8,900</div>
+                    <div class="stat-number" id="pledgedAmount">$0</div>
                     <div style="color: #ccc;">pledged of $15,000 goal</div>
                 </div>
                 <div>
-                    <div class="stat-number">127</div>
+                    <div class="stat-number" id="backerCount">0</div>
                     <div style="color: #ccc;">backers</div>
                 </div>
                 <div>
-                    <div class="stat-number">25</div>
+                    <div class="stat-number" id="daysLeft">30</div>
                     <div style="color: #ccc;">days to go</div>
                 </div>
             </div>
@@ -747,15 +782,116 @@
                 Watch the LED ring respond to authentication and see instant computer unlock
             </p>
             <div class="video-container">
-                <div class="demo-video">
-                    🎬 Demo Video Coming Soon<br>
-                    <small style="font-size: 0.9rem; color: #888;">LED animations + computer unlock sequence</small>
+                <div style="position: relative; cursor: pointer;" onclick="playDemoVideo()">
+                    <div class="demo-video" style="background: linear-gradient(135deg, var(--deep-black) 0%, var(--dark-gray) 100%); position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
+                            <div style="width: 80px; height: 80px; background: rgba(0, 255, 65, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; animation: pulseGlow 2s infinite;">
+                                <span style="font-size: 2rem;">▶️</span>
+                            </div>
+                            <div style="color: var(--neon-green); font-weight: 700; margin-bottom: 0.5rem;">Watch LockStone in Action</div>
+                            <div style="color: #ccc; font-size: 0.9rem;">See LED animations + instant computer unlock</div>
+                        </div>
+                        <!-- Simulated LED ring animation in background -->
+                        <div style="position: absolute; top: 20px; right: 20px; width: 60px; height: 60px; border: 4px solid var(--neon-green); border-radius: 50%; animation: pulseGlow 3s infinite;"></div>
+                        <div style="position: absolute; bottom: 20px; left: 20px; width: 40px; height: 40px; border: 3px solid var(--neon-blue); border-radius: 50%; animation: pulseGlow 2s infinite 0.5s;"></div>
+                        <div style="position: absolute; top: 50px; left: 50px; width: 30px; height: 30px; border: 2px solid var(--neon-gold); border-radius: 50%; animation: pulseGlow 4s infinite 1s;"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features -->
+    <!-- Founder's Story -->
+    <section style="padding: 6rem 0; background: linear-gradient(135deg, var(--dark-gray) 0%, var(--deep-black) 100%);">
+        <div class="container">
+            <h2 class="section-title">Why LockStone Exists</h2>
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; max-width: 1000px; margin: 3rem auto 0;">
+                <div style="text-align: center;">
+                    <div style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--neon-green) 0%, var(--neon-blue) 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 4rem; color: var(--deep-black);">👨‍💻</div>
+                    <h3 style="color: var(--neon-green); font-family: 'Orbitron', monospace; font-size: 1.5rem; margin-bottom: 0.5rem;">Kent Stone</h3>
+                    <p style="color: #ccc; font-size: 0.9rem;">U.S. Army Veteran<br>Cave Diver • Software Developer<br>Handcrafting in Peru</p>
+                    <div style="margin-top: 1rem; display: flex; gap: 0.5rem; justify-content: center; font-size: 0.8rem; color: var(--neon-gold);">
+                        <span>🪖 Army Veteran</span>
+                        <span>🌍 74 Countries</span>
+                        <span>🤿 Cave Diver</span>
+                    </div>
+                </div>
+                <div style="color: #ccc; line-height: 1.7;">
+                    <p style="margin-bottom: 1.5rem; color: var(--neon-blue); font-style: italic;">
+                        "Technology should give people freedom — not take it away."
+                    </p>
+                    <p style="margin-bottom: 1.5rem;">
+                        I grew up on a farm in Oklahoma, shipped out with the U.S. Army at eighteen, and deployed to Iraq in 2005. 
+                        After medical issues forced me to reimagine my life, I sold everything and traveled through 74 countries — 
+                        becoming a divemaster in Peru, a cave diver in Mexico, and eventually a software developer.
+                    </p>
+                    <p style="margin-bottom: 1.5rem;">
+                        In May 2024, I spent five weeks in intensive care with complete amnesia. Coming back from that, 
+                        even simple things like typing or remembering my computer password became a daily struggle.
+                    </p>
+                    <p style="margin-bottom: 1.5rem; color: var(--neon-green);">
+                        <strong>So I built myself a tool</strong> — a small RFID scanner with a glowing LED ring that would let me 
+                        access my computer with a tap, instead of fumbling through passwords my body couldn't trust.
+                    </p>
+                    <p>
+                        That's how LockStone was born: from necessity, resilience, and the belief that when life gets 
+                        complicated, our technology should get simpler.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section style="padding: 6rem 0; background: var(--deep-black);">
+        <div class="container">
+            <h2 class="section-title">How LockStone Works</h2>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 3rem 0; text-align: center;">
+                <div style="padding: 2rem; background: rgba(0, 255, 65, 0.05); border-radius: 20px; border: 1px solid rgba(0, 255, 65, 0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-green);">💳</div>
+                    <h3 style="color: var(--neon-green); margin-bottom: 1rem;">1. Tap Card</h3>
+                    <p style="color: #ccc; font-size: 0.9rem;">Present your RFID card or bracelet pendant to LockStone</p>
+                </div>
+                <div style="padding: 2rem; background: rgba(0, 212, 255, 0.05); border-radius: 20px; border: 1px solid rgba(0, 212, 255, 0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-blue);">💡</div>
+                    <h3 style="color: var(--neon-blue); margin-bottom: 1rem;">2. LED Feedback</h3>
+                    <p style="color: #ccc; font-size: 0.9rem;">16 NeoPixel LEDs show authentication status in real-time</p>
+                </div>
+                <div style="padding: 2rem; background: rgba(255, 215, 0, 0.05); border-radius: 20px; border: 1px solid rgba(255, 215, 0, 0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-gold);">🔐</div>
+                    <h3 style="color: var(--neon-gold); margin-bottom: 1rem;">3. Secure Auth</h3>
+                    <p style="color: #ccc; font-size: 0.9rem;">AES-256 encryption validates your credentials instantly</p>
+                </div>
+                <div style="padding: 2rem; background: rgba(0, 255, 65, 0.05); border-radius: 20px; border: 1px solid rgba(0, 255, 65, 0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-green);">💻</div>
+                    <h3 style="color: var(--neon-green); margin-bottom: 1rem;">4. Instant Access</h3>
+                    <p style="color: #ccc; font-size: 0.9rem;">Computer unlocks in 0.1 seconds via USB-HID protocol</p>
+                </div>
+            </div>
+            
+            <!-- Technical Specs Table -->
+            <div style="max-width: 600px; margin: 4rem auto 0; background: var(--dark-gray); border-radius: 20px; padding: 2rem; border: 1px solid rgba(0, 255, 65, 0.2);">
+                <h3 style="color: var(--neon-green); text-align: center; margin-bottom: 2rem; font-family: 'Orbitron', monospace;">Technical Specifications</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; color: #ccc;">
+                    <div><strong style="color: var(--neon-blue);">Interface:</strong> USB-C</div>
+                    <div><strong style="color: var(--neon-blue);">Response Time:</strong> 0.1 seconds</div>
+                    <div><strong style="color: var(--neon-blue);">LEDs:</strong> 16 NeoPixels (custom animations)</div>
+                    <div><strong style="color: var(--neon-blue);">Range:</strong> 10cm RFID detection</div>
+                    <div><strong style="color: var(--neon-blue);">OS Support:</strong> Windows / macOS / Linux</div>
+                    <div><strong style="color: var(--neon-blue);">Security:</strong> AES-256 encryption</div>
+                    <div><strong style="color: var(--neon-blue);">Hardware:</strong> Arduino Nano + custom PCB</div>
+                    <div><strong style="color: var(--neon-blue);">SDK:</strong> Python API with full source</div>
+                </div>
+                <div style="margin-top: 2rem; padding: 1rem; background: rgba(0, 255, 65, 0.1); border-radius: 10px; text-align: center;">
+                    <div style="display: flex; justify-content: center; gap: 2rem; font-size: 0.9rem; color: var(--neon-green);">
+                        <span>🔧 Built with Arduino</span>
+                        <span>🏆 Veteran-Owned</span>
+                        <span>🇵🇪 Made in Peru</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="features" class="features">
         <div class="container">
             <h2 class="section-title">Why LockStone Changes Everything</h2>
@@ -819,7 +955,7 @@
                         <li>✅ Software & Setup Guide</li>
                     </ul>
                     <div style="margin-top: 2rem;">
-                        <div class="btn btn-primary" style="width: 100%; text-align: center;">Select Reward</div>
+                        <a href="https://kickstarter.com/projects/lockstone/early-bird" class="btn btn-primary" style="width: 100%; text-align: center; display: block; text-decoration: none;">Select Reward</a>
                     </div>
                     <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Save $20 • Ships May 2025</p>
                 </div>
@@ -868,27 +1004,42 @@
             <h2 class="section-title">What Early Users Say</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card scroll-animate">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #4f46e5, #7c3aed); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">MC</div>
+                        <div>
+                            <div class="testimonial-author">Marcus Chen</div>
+                            <div style="color: var(--neon-gold); font-size: 0.9rem;">🎮 Twitch Streamer, 15K followers</div>
+                        </div>
+                    </div>
                     <div class="testimonial-quote">
                         "Finally, my PC feels like a real command center. The LED ring makes me feel like I'm in a sci-fi movie every time I unlock. Stream viewers love it too!"
                     </div>
-                    <div class="testimonial-author">— Marcus Chen, Twitch Streamer</div>
-                    <div style="color: var(--neon-gold); font-size: 0.9rem; margin-top: 0.5rem;">🎮 Gaming Edition User</div>
                 </div>
                 
                 <div class="testimonial-card scroll-animate">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #059669, #0891b2); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">SR</div>
+                        <div>
+                            <div class="testimonial-author">Sarah Rodriguez</div>
+                            <div style="color: var(--neon-blue); font-size: 0.9rem;">🏢 IT Director, TechCorp</div>
+                        </div>
+                    </div>
                     <div class="testimonial-quote">
                         "Our IT tickets dropped by 75% after deploying LockStone. Employees love the time tracking feature, and I love not dealing with password resets."
                     </div>
-                    <div class="testimonial-author">— Sarah Rodriguez, IT Director</div>
-                    <div style="color: var(--neon-blue); font-size: 0.9rem; margin-top: 0.5rem;">🏢 Business Edition User</div>
                 </div>
                 
                 <div class="testimonial-card scroll-animate">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #dc2626, #ea580c); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">DP</div>
+                        <div>
+                            <div class="testimonial-author">David Park</div>
+                            <div style="color: var(--neon-green); font-size: 0.9rem;">👵 Senior Care Advocate</div>
+                        </div>
+                    </div>
                     <div class="testimonial-quote">
                         "My grandmother can now access her computer without calling me for password help. The bracelet pendant is perfect for her arthritis."
                     </div>
-                    <div class="testimonial-author">— David Park, Family Tech Support</div>
-                    <div style="color: var(--neon-green); font-size: 0.9rem; margin-top: 0.5rem;">👵 Senior-Friendly Setup</div>
                 </div>
             </div>
         </div>
@@ -1061,8 +1212,185 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            alert('Mobile menu would show navigation options here. For now, scroll to explore all sections!');
+        }
+
+        // Demo video placeholder
+        function playDemoVideo() {
+            alert('Demo video would play here!\n\nThis would show:\n• LED ring pulsing in different colors\n• Card being tapped to LockStone\n• Computer unlocking instantly\n• Different authentication states\n\nFor the actual campaign, this would be a YouTube/Vimeo embed.');
+        }
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.scroll-animate');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 100) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll();
+
+        // Animate progress bar and counters
+        function animateProgressBar() {
+            const progressFill = document.querySelector('.progress-fill');
+            const pledgedAmount = document.getElementById('pledgedAmount');
+            const backerCount = document.getElementById('backerCount');
+            const daysLeft = document.getElementById('daysLeft');
+
+            // Target values (you can update these dynamically)
+            const targetAmount = 8900;
+            const targetBackers = 127;
+            const targetDays = 25;
+            const targetProgress = 59; // percentage
+
+            // Animate progress bar
+            setTimeout(() => {
+                progressFill.style.transition = 'width 2s ease-out';
+                progressFill.style.width = targetProgress + '%';
+            }, 1000);
+
+            // Animate counters
+            animateCounter(pledgedAmount, targetAmount, 'ySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.scroll-animate');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 100) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll();
+
+        // LED ring animation
+        function animateLEDRing() {
+            const ledRing = document.querySelector('.led-ring');
+            const colors = ['🔒', '✅', '❌', '⚡'];
+            const statuses = ['READY', 'ACCESS GRANTED', 'ACCESS DENIED', 'PAIRING'];
+            let currentIndex = 0;
+
+            setInterval(() => {
+                if (ledRing) {
+                    ledRing.textContent = colors[currentIndex];
+                    document.querySelector('.demo-status').textContent = statuses[currentIndex];
+                    currentIndex = (currentIndex + 1) % colors.length;
+                }
+            }, 3000);
+        }
+
+        animateLEDRing();
+
+        // Reward selection handlers
+        document.querySelectorAll('.reward-card .btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const rewardType = this.closest('.reward-card').querySelector('h3').textContent;
+                alert(`Thank you for your interest in ${rewardType}! 
+                
+This would redirect to the actual Kickstarter campaign page where you can pledge your support.
+                
+For now, you can contact Kent directly:
+Email: KentStone@gmail.com
+Phone: +51 945 012 953`);
+            });
+        });
+
+        // Update progress bar animation
+        setTimeout(() => {
+            document.querySelector('.progress-fill').style.transition = 'width 2s ease-out';
+            document.querySelector('.progress-fill').style.width = '60%';
+        }, 1000);
+    </script>
+</body>
+</html>, 2000);
+            animateCounter(backerCount, targetBackers, '', 1500);
+            animateCounter(daysLeft, targetDays, '', 1000);
+        }
+
+        function animateCounter(element, target, prefix = '', duration = 2000) {
+            let current = 0;
+            const increment = target / (duration / 50);
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = prefix + Math.floor(current).toLocaleString();
+            }, 50);
+        }
+
+        // LED ring animation
+        function animateLEDRing() {
+            const ledRing = document.querySelector('.led-ring');
+            const colors = ['🔒', '✅', '❌', '⚡'];
+            const statuses = ['READY', 'ACCESS GRANTED', 'ACCESS DENIED', 'PAIRING'];
+            let currentIndex = 0;
+
+            setInterval(() => {
+                if (ledRing) {
+                    ledRing.textContent = colors[currentIndex];
+                    document.querySelector('.demo-status').textContent = statuses[currentIndex];
+                    currentIndex = (currentIndex + 1) % colors.length;
+                }
+            }, 3000);
+        }
+
+        // Initialize animations when page loads
+        window.addEventListener('load', function() {
+            animateProgressBar();
+            animateLEDRing();
+        });
+
+        // Reward button handlers (for demo purposes)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers to reward buttons that don't have href
+            document.querySelectorAll('.reward-card .btn:not([href])').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const rewardType = this.closest('.reward-card').querySelector('h3').textContent;
+                    alert(`Interest in ${rewardType} noted!\n\nIn the live campaign, this would take you to the Kickstarter pledge page.\n\nFor now, contact Kent directly:\n📧 KentStone@gmail.com\n📞 +51 945 012 953`);
+                });
+            });
+        });
+
+        // Add some visual flair to section transitions
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero::before');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+    </script>ySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
