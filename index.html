@@ -750,6 +750,481 @@
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#roadmap">Roadmap</a></li>
                 </ul>
+                <div class="mobile-menu" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-links">
+            <a href="#demo" onclick="closeMobileMenu()">Demo</a>
+            <a href="#features" onclick="closeMobileMenu()">Features</a>
+            <a href="#rewards" onclick="closeMobileMenu()">Rewards</a>
+            <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+            <a href="#roadmap" onclick="closeMobileMenu()">Roadmap</a>
+            <div style="margin-top: 2rem;">
+                <a href="#rewards" class="btn btn-primary" onclick="closeMobileMenu()">Back Us on Kickstarter</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-tagline">Passwords Are Dead</h1>
+                    <h2 class="hero-title">Meet LockStone</h2>
+                    <p style="color: var(--neon-blue); font-size: 1.3rem; font-style: italic; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">
+                        "Tap. Glow. Access. The cyberpunk way to unlock your world."
+                    </p>
+                    <p class="hero-subtitle">
+                        Unlock your computer with RFID — gamer-ready, business-ready, senior-friendly. 
+                        One swipe grants access. No passwords, no delays, just pure command center vibes with LED feedback.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#rewards" class="btn btn-primary">🚀 Back Us on Kickstarter</a>
+                        <a href="#demo" class="btn btn-secondary">▶️ Watch Demo</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span>⚡</span>
+                            <span>0.1s unlock speed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>🛡️</span>
+                            <span>Military-grade security</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>💀</span>
+                            <span>Zero password fatigue</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-demo">
+                    <div style="max-width: 400px; margin: 0 auto;">
+                        <img src="assets/images/lockstone-hero-device.jpg" alt="LockStone RFID Scanner with Rainbow LED Ring in action" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 255, 65, 0.3); animation: pulseGlow 3s infinite;" />
+                        <div style="text-align: center; margin-top: 2rem; background: rgba(0, 0, 0, 0.8); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(0, 255, 65, 0.3);">
+                            <div class="demo-status">ACCESS GRANTED</div>
+                            <p style="color: #ccc; font-size: 0.9rem;">16 LED ring shows authentication status in real-time</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kickstarter Progress -->
+    <section class="kickstarter-progress">
+        <div class="container">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 0%;"></div>
+            </div>
+            <div class="progress-stats">
+                <div>
+                    <div class="stat-number" id="pledgedAmount">$0</div>
+                    <div style="color: #ccc;">pledged of $15,000 goal</div>
+                </div>
+                <div>
+                    <div class="stat-number" id="backerCount">0</div>
+                    <div style="color: #ccc;">backers</div>
+                </div>
+                <div>
+                    <div class="stat-number" id="daysLeft">30</div>
+                    <div style="color: #ccc;">days to go</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Demo -->
+    <section id="demo" class="video-demo">
+        <div class="container">
+            <h2 class="section-title">See It In Action</h2>
+            <p class="section-subtitle">
+                Watch the LED ring respond to authentication and see instant computer unlock
+            </p>
+            <div class="video-container">
+                <video 
+                    controls 
+                    autoplay 
+                    muted 
+                    loop 
+                    style="width: 100%; border-radius: 20px; box-shadow: 0 0 40px rgba(0, 255, 65, 0.3);"
+                    poster="assets/images/lockstone-video-poster.jpg">
+                    <source src="assets/video/lockstone.mp4" type="video/mp4">
+                    Your browser does not support the video tag. <a href="assets/video/lockstone.mp4">Download the demo video instead</a>.
+                </video>
+                <div style="text-align: center; margin-top: 1rem; color: #ccc; font-size: 0.9rem;">
+                    Watch the LED ring respond to different authentication states in real-time
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder's Story -->
+    <section style="padding: 6rem 0; background: linear-gradient(135deg, var(--dark-gray) 0%, var(--deep-black) 100%);">
+        <div class="container">
+            <h2 class="section-title">Why LockStone Exists</h2>
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; max-width: 1000px; margin: 3rem auto 0;">
+                <div style="text-align: center;">
+                    <div style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--neon-green) 0%, var(--neon-blue) 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 4rem; color: var(--deep-black);">👨‍💻</div>
+                    <h3 style="color: var(--neon-green); font-family: 'Orbitron', monospace; font-size: 1.5rem; margin-bottom: 0.5rem;">Kent Stone</h3>
+                    <p style="color: #ccc; font-size: 0.9rem;">U.S. Army Veteran<br>Cave Diver • Software Developer<br>Handcrafting in Peru</p>
+                    <div style="margin-top: 1rem; display: flex; gap: 0.5rem; justify-content: center; font-size: 0.8rem; color: var(--neon-gold);">
+                        <span>🪖 Army Veteran</span>
+                        <span>🌍 74 Countries</span>
+                        <span>🤿 Cave Diver</span>
+                    </div>
+                </div>
+                <div style="color: #ccc; line-height: 1.7;">
+                    <p style="margin-bottom: 1.5rem; color: var(--neon-blue); font-style: italic;">
+                        "Technology should give people freedom — not take it away."
+                    </p>
+                    <p style="margin-bottom: 1.5rem;">
+                        I grew up on a farm in Oklahoma, shipped out with the U.S. Army at eighteen, and deployed to Iraq in 2005. 
+                        After medical issues forced me to reimagine my life, I sold everything and traveled through 74 countries — 
+                        becoming a divemaster in Peru, a cave diver in Mexico, and eventually a software developer.
+                    </p>
+                    <p style="margin-bottom: 1.5rem;">
+                        In May 2024, I spent five weeks in intensive care with complete amnesia. Coming back from that, 
+                        even simple things like typing or remembering my computer password became a daily struggle.
+                    </p>
+                    <p style="margin-bottom: 1.5rem; color: var(--neon-green);">
+                        <strong>So I built myself a tool</strong> — a small RFID scanner with a glowing LED ring that would let me 
+                        access my computer with a tap, instead of fumbling through passwords my body couldn't trust.
+                    </p>
+                    <p>
+                        That's how LockStone was born: from necessity, resilience, and the belief that when life gets 
+                        complicated, our technology should get simpler.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Comparison Section -->
+    <section style="padding: 6rem 0; background: var(--deep-black);">
+        <div class="container">
+            <h2 class="section-title">Choose Your Edition</h2>
+            <p class="section-subtitle">Same powerful technology, designed for different environments</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin: 4rem 0; align-items: center;">
+                <div style="text-align: center;">
+                    <img src="assets/images/gamer-vs-business-comparison.jpg" alt="LockStone Gamer Edition with rainbow LED ring vs Business Edition with discrete LED bar" style="width: 100%; max-width: 600px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 255, 65, 0.2);" />
+                    <h3 style="color: var(--neon-green); font-family: 'Orbitron', monospace; margin: 2rem 0 1rem; font-size: 2rem;">Two Worlds, One Solution</h3>
+                </div>
+                <div>
+                    <div style="margin-bottom: 3rem;">
+                        <h4 style="color: var(--neon-gold); font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            🎮 Gamer Edition
+                        </h4>
+                        <p style="color: #ccc; line-height: 1.7; margin-bottom: 1rem;">
+                            Full rainbow LED ring for maximum visual impact. Perfect for streamers, content creators, and gaming enthusiasts who want that epic command center aesthetic.
+                        </p>
+                        <ul style="color: #e5e7eb; list-style: none; margin-left: 1rem;">
+                            <li style="margin-bottom: 0.5rem;">• 16 individually addressable RGB LEDs</li>
+                            <li style="margin-bottom: 0.5rem;">• Custom animation patterns</li>
+                            <li style="margin-bottom: 0.5rem;">• Stream-friendly visual feedback</li>
+                            <li style="margin-bottom: 0.5rem;">• Cyberpunk aesthetic design</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: var(--neon-blue); font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            🏢 Business Edition
+                        </h4>
+                        <p style="color: #ccc; line-height: 1.7; margin-bottom: 1rem;">
+                            Subtle LED indicator for professional environments. Same powerful functionality with a more corporate-friendly appearance.
+                        </p>
+                        <ul style="color: #e5e7eb; list-style: none; margin-left: 1rem;">
+                            <li style="margin-bottom: 0.5rem;">• Professional discrete LED bar</li>
+                            <li style="margin-bottom: 0.5rem;">• Time tracking integration</li>
+                            <li style="margin-bottom: 0.5rem;">• Admin dashboard included</li>
+                            <li style="margin-bottom: 0.5rem;">• Corporate deployment ready</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Internal components showcase -->
+            <div style="text-align: center; margin-top: 4rem;">
+                <img src="assets/images/lockstone-internal-components.jpg" alt="LockStone internal components showing Arduino Nano, NeoPixel LED ring, and custom PCB assembly" style="width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 255, 65, 0.2);" />
+                <h3 style="color: var(--neon-green); margin: 2rem 0 1rem; font-family: 'Orbitron', monospace;">Handcrafted Arduino Engineering</h3>
+                <p style="color: #ccc; max-width: 600px; margin: 0 auto; line-height: 1.7;">
+                    Every LockStone is individually assembled with premium components, Arduino Nano microcontroller, and custom PCB design for maximum reliability. Built by hand in Kent's workshop in Peru.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section style="padding: 6rem 0; background: var(--deep-black);">
+        <div class="container">
+            <h2 class="section-title">How LockStone Works</h2>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 3rem 0; text-align: center;">
+                <div style="padding: 2rem; background: rgba(0, 255, 65, 0.05); border-radius: 20px; border: 1px solid rgba(0, 255, 65, 0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-green);">💳</div>
+                    <h3 style="color: var(--neon-green); margin-bottom: 1rem;">1. Tap Card</h3>
+                    <p style="color: #ccc; font-size: 0.9rem;">Present your RFID card or bracelet pendant to LockStone</p>
+                </div>
+                <div style="padding: 2rem; background: rgba(0, 212, 255, 0.05); border-radius: 20px; border: 1px solid rgba(0, 212, 255, 0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-blue);">💡</div>
+                    <h3 style="color: var(--neon-blue); margin-bottom: 1rem;">2. LED Feedback</h3>
+                    <p style="color: #ccc; font-size: 0.9rem;">16 NeoPixel LEDs show authentication status in real-time</p>
+                </div>
+                <div style="padding: 2rem; background: rgba(255, 215, 0, 0.05); border-radius: 20px; border: 1px solid rgba(255, 215, 0, 0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-gold);">🔐</div>
+                    <h3 style="color: var(--neon-gold); margin-bottom: 1rem;">3. Secure Auth</h3>
+                    <p style="color: #ccc; font-size: 0.9rem;">AES-256 encryption validates your credentials instantly</p>
+                </div>
+                <div style="padding: 2rem; background: rgba(0, 255, 65, 0.05); border-radius: 20px; border: 1px solid rgba(0, 255, 65, 0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-green);">💻</div>
+                    <h3 style="color: var(--neon-green); margin-bottom: 1rem;">4. Instant Access</h3>
+                    <p style="color: #ccc; font-size: 0.9rem;">Computer unlocks in 0.1 seconds via USB-HID protocol</p>
+                </div>
+            </div>
+            
+            <!-- Technical Specs Table -->
+            <div style="max-width: 600px; margin: 4rem auto 0; background: var(--dark-gray); border-radius: 20px; padding: 2rem; border: 1px solid rgba(0, 255, 65, 0.2);">
+                <h3 style="color: var(--neon-green); text-align: center; margin-bottom: 2rem; font-family: 'Orbitron', monospace;">Technical Specifications</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; color: #ccc;">
+                    <div><strong style="color: var(--neon-blue);">Interface:</strong> USB-C</div>
+                    <div><strong style="color: var(--neon-blue);">Response Time:</strong> 0.1 seconds</div>
+                    <div><strong style="color: var(--neon-blue);">LEDs:</strong> 16 NeoPixels (custom animations)</div>
+                    <div><strong style="color: var(--neon-blue);">Range:</strong> 10cm RFID detection</div>
+                    <div><strong style="color: var(--neon-blue);">OS Support:</strong> Windows / macOS / Linux</div>
+                    <div><strong style="color: var(--neon-blue);">Security:</strong> AES-256 encryption</div>
+                    <div><strong style="color: var(--neon-blue);">Hardware:</strong> Arduino Nano + custom PCB</div>
+                    <div><strong style="color: var(--neon-blue);">SDK:</strong> Python API with full source</div>
+                </div>
+                <div style="margin-top: 2rem; padding: 1rem; background: rgba(0, 255, 65, 0.1); border-radius: 10px; text-align: center;">
+                    <div style="display: flex; justify-content: center; gap: 2rem; font-size: 0.9rem; color: var(--neon-green);">
+                        <span>🔧 Built with Arduino</span>
+                        <span>🏆 Veteran-Owned</span>
+                        <span>🇵🇪 Made in Peru</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why LockStone Changes Everything</h2>
+            <p class="section-subtitle">Built for gamers, hackers, and businesses who demand more than ordinary security</p>
+            
+            <div class="features-grid">
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Gaming Command Center</h3>
+                    <p>Transform your battlestation. Swipe to unlock during streams, raids, or clutch moments. No password fumbling ever again.</p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">🏢</div>
+                    <h3>IT Helpdesk Killer</h3>
+                    <p>Eliminate 80% of password reset tickets. Built-in time tracking. Remote work compatible. Save thousands in IT costs.</p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">👵</div>
+                    <h3>Senior-Friendly</h3>
+                    <p>No more forgotten passwords for elderly users. Simple tap-to-unlock with optional bracelet pendant for easy access.</p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">💀</div>
+                    <h3>Hacker Aesthetic</h3>
+                    <p>16 programmable LEDs create matrix-style feedback. Green for access, red for denied, gold for pairing. Pure cyberpunk.</p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>0.1 second response time. USB-C plug & play. Works with Windows, macOS, Linux. No drivers needed.</p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Fort Knox Security</h3>
+                    <p>AES-256 encryption. Military-grade protocols. Your digital fortress remains impenetrable to unauthorized access.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reward Tiers -->
+    <section id="rewards" class="rewards">
+        <div class="container">
+            <h2 class="section-title">Choose Your LockStone</h2>
+            <p class="section-subtitle">Early bird pricing available for limited time</p>
+            
+            <div class="rewards-grid">
+                <div class="reward-card">
+                    <div class="reward-price">$79</div>
+                    <h3 style="color: var(--neon-green); margin-bottom: 1rem;">Early Bird Special</h3>
+                    <ul style="text-align: left; color: #ccc; list-style: none;">
+                        <li>✅ LockStone RFID Scanner</li>
+                        <li>✅ 3 Custom PVC Cards</li>
+                        <li>✅ 2 Bracelet Pendants</li>
+                        <li>✅ USB-C Cable</li>
+                        <li>✅ Software & Setup Guide</li>
+                    </ul>
+                    <div style="margin-top: 2rem;">
+                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Select Reward</div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Save $20 • Ships May 2025</p>
+                </div>
+                
+                <div class="reward-card featured">
+                    <div class="reward-badge">Most Popular</div>
+                    <div class="reward-price">$89</div>
+                    <h3 style="color: var(--neon-gold); margin-bottom: 1rem;">LockStone Standard</h3>
+                    <ul style="text-align: left; color: #ccc; list-style: none;">
+                        <li>✅ LockStone RFID Scanner</li>
+                        <li>✅ 5 Custom PVC Cards</li>
+                        <li>✅ 3 Bracelet Pendants</li>
+                        <li>✅ USB-C Cable</li>
+                        <li>✅ Software & Full SDK</li>
+                        <li>✅ Priority Support</li>
+                    </ul>
+                    <div style="margin-top: 2rem;">
+                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Select Reward</div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Regular Price $99 • Ships May 2025</p>
+                </div>
+                
+                <div class="reward-card">
+                    <div class="reward-price">$399</div>
+                    <h3 style="color: var(--neon-blue); margin-bottom: 1rem;">Business Pack</h3>
+                    <ul style="text-align: left; color: #ccc; list-style: none;">
+                        <li>✅ 5x LockStone Units</li>
+                        <li>✅ 25 Employee Cards</li>
+                        <li>✅ Admin Dashboard</li>
+                        <li>✅ Time Tracking Software</li>
+                        <li>✅ 1-Year Support</li>
+                        <li>✅ Custom Branding</li>
+                    </ul>
+                    <div style="margin-top: 2rem;">
+                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Contact Sales</div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Save $46 vs Individual • Ships June 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Early Users Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card scroll-animate">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #4f46e5, #7c3aed); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">MC</div>
+                        <div>
+                            <div class="testimonial-author">Marcus Chen</div>
+                            <div style="color: var(--neon-gold); font-size: 0.9rem;">🎮 Twitch Streamer, 15K followers</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        "Finally, my PC feels like a real command center. The LED ring makes me feel like I'm in a sci-fi movie every time I unlock. Stream viewers love it too!"
+                    </div>
+                </div>
+                
+                <div class="testimonial-card scroll-animate">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #059669, #0891b2); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">SR</div>
+                        <div>
+                            <div class="testimonial-author">Sarah Rodriguez</div>
+                            <div style="color: var(--neon-blue); font-size: 0.9rem;">🏢 IT Director, TechCorp</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        "Our IT tickets dropped by 75% after deploying LockStone. Employees love the time tracking feature, and I love not dealing with password resets."
+                    </div>
+                </div>
+                
+                <div class="testimonial-card scroll-animate">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #dc2626, #ea580c); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">DP</div>
+                        <div>
+                            <div class="testimonial-author">David Park</div>
+                            <div style="color: var(--neon-green); font-size: 0.9rem;">👵 Senior Care Advocate</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        "My grandmother can now access her computer without calling me for password help. The bracelet pendant is perfect for her arthritis."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div style="max-width: 800px; margin: 3rem auto 0;">
+                <div class="faq-item">
+                    <div class="faq-question">What if I lose my card?</div>
+                    <div class="faq-answer">
+                        Each LockStone can store up to 50 authorized cards. You get multiple cards/pendants with each unit, and you can easily add/remove cards through the admin interface. Lost cards can be instantly deauthorized.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Does it work on Windows/Mac/Linux?</div>
+                    <div class="faq-answer">
+                        Yes! LockStone uses USB-HID protocol and works on Windows 10/11, macOS 10.14+, and most Linux distributions. No drivers needed - just plug and play.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I customize the LED patterns?</div>
+                    <div class="faq-answer">
+                        Absolutely. The Python SDK gives you full control over the 16 NeoPixel LEDs. Create custom animations, colors, and patterns for different users or events.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How secure is RFID compared to passwords?</div>
+                    <div class="faq-answer">
+                        LockStone uses AES-256 encrypted communication and secure authentication protocols. Physical cards are much harder to compromise than passwords, and lost cards can be instantly deauthorized.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I integrate it with existing systems?</div>
+                    <div class="faq-answer">
+                        Yes! The Python SDK allows integration with Active Directory, LDAP, time tracking systems, and custom applications. Full API documentation included.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section id="roadmap" class="roadmap">
+        <div class="container">
+            <h2 class="section-title">Development Roadmap</h2>
+            <div class="roadmap-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Feb 2025</div>
+                    <div>
+                        <h3 style="color: var(--neon-green); margin-bottom: 0.5rem;">Kickstarter Launch</h3>
+                        <p style="color: #ccc;">Campaign goes live with working prototypes and demo videos</p>
+                    </div>
+                </div>
+                
                 <div class="timeline-item">
                     <div class="timeline-date">Mar 2025</div>
                     <div>
@@ -950,485 +1425,8 @@
                 progressFill.style.width = targetProgress + '%';
             }, 1000);
 
-            // Animate counters - FIXED SYNTAX ERROR
-            animateCounter(pledgedAmount, targetAmount, '="mobile-menu" onclick="toggleMobileMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-        </div>
-    </section>
-
-    <!-- Kickstarter Progress -->
-    <section class="kickstarter-progress">
-        <div class="container">
-            <div class="progress-bar">
-                <div class="progress-fill" style="width: 0%;"></div>
-            </div>
-            <div class="progress-stats">
-                <div>
-                    <div class="stat-number" id="pledgedAmount">$0</div>
-                    <div style="color: #ccc;">pledged of $15,000 goal</div>
-                </div>
-                <div>
-                    <div class="stat-number" id="backerCount">0</div>
-                    <div style="color: #ccc;">backers</div>
-                </div>
-                <div>
-                    <div class="stat-number" id="daysLeft">30</div>
-                    <div style="color: #ccc;">days to go</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Demo -->
-    <section id="demo" class="video-demo">
-        <div class="container">
-            <h2 class="section-title">See It In Action</h2>
-            <p class="section-subtitle">
-                Watch the LED ring respond to authentication and see instant computer unlock
-            </p>
-            <div class="video-container">
-                <video 
-                    controls 
-                    muted 
-                    loop 
-                    style="width: 100%; border-radius: 20px; box-shadow: 0 0 40px rgba(0, 255, 65, 0.3);"
-                    poster="assets/images/lockstone-video-poster.jpg">
-                    <source src="assets/video/lockstone.mp4" type="video/mp4">
-                    <div style="padding: 2rem; text-align: center; color: #ccc;">
-                        <p>Video demo coming soon! Check back when the Kickstarter launches.</p>
-                        <p><a href="assets/video/lockstone.mp4" style="color: var(--neon-green);">Download demo when available</a></p>
-                    </div>
-                </video>
-                <div style="text-align: center; margin-top: 1rem; color: #ccc; font-size: 0.9rem;">
-                    Watch the LED ring respond to different authentication states in real-time
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Founder's Story -->
-    <section style="padding: 6rem 0; background: linear-gradient(135deg, var(--dark-gray) 0%, var(--deep-black) 100%);">
-        <div class="container">
-            <h2 class="section-title">Why LockStone Exists</h2>
-            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; max-width: 1000px; margin: 3rem auto 0;">
-                <div style="text-align: center;">
-                    <div style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--neon-green) 0%, var(--neon-blue) 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 4rem; color: var(--deep-black);">👨‍💻</div>
-                    <h3 style="color: var(--neon-green); font-family: 'Orbitron', monospace; font-size: 1.5rem; margin-bottom: 0.5rem;">Kent Stone</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">U.S. Army Veteran<br>Cave Diver • Software Developer<br>Handcrafting in Peru</p>
-                    <div style="margin-top: 1rem; display: flex; gap: 0.5rem; justify-content: center; font-size: 0.8rem; color: var(--neon-gold);">
-                        <span>🪖 Army Veteran</span>
-                        <span>🌍 74 Countries</span>
-                        <span>🤿 Cave Diver</span>
-                    </div>
-                </div>
-                <div style="color: #ccc; line-height: 1.7;">
-                    <p style="margin-bottom: 1.5rem; color: var(--neon-blue); font-style: italic;">
-                        "Technology should give people freedom — not take it away."
-                    </p>
-                    <p style="margin-bottom: 1.5rem;">
-                        I grew up on a farm in Oklahoma, shipped out with the U.S. Army at eighteen, and deployed to Iraq in 2005. 
-                        After medical issues forced me to reimagine my life, I sold everything and traveled through 74 countries — 
-                        becoming a divemaster in Peru, a cave diver in Mexico, and eventually a software developer.
-                    </p>
-                    <p style="margin-bottom: 1.5rem;">
-                        In May 2024, I spent five weeks in intensive care with complete amnesia. Coming back from that, 
-                        even simple things like typing or remembering my computer password became a daily struggle.
-                    </p>
-                    <p style="margin-bottom: 1.5rem; color: var(--neon-green);">
-                        <strong>So I built myself a tool</strong> — a small RFID scanner with a glowing LED ring that would let me 
-                        access my computer with a tap, instead of fumbling through passwords my body couldn't trust.
-                    </p>
-                    <p>
-                        That's how LockStone was born: from necessity, resilience, and the belief that when life gets 
-                        complicated, our technology should get simpler.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Comparison Section -->
-    <section style="padding: 6rem 0; background: var(--deep-black);">
-        <div class="container">
-            <h2 class="section-title">Choose Your Edition</h2>
-            <p class="section-subtitle">Same powerful technology, designed for different environments</p>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin: 4rem 0; align-items: center;">
-                <div style="text-align: center;">
-                    <img src="assets/images/gamer-vs-business-comparison.jpg" alt="LockStone Gamer Edition with rainbow LED ring vs Business Edition with discrete LED bar" style="width: 100%; max-width: 600px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 255, 65, 0.2);" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDYwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMWExYTFhIi8+Cjx0ZXh0IHg9IjMwMCIgeT0iMTUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMDBmZjQxIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjAiPkdhbWVyIHZzIEJ1c2luZXNzIEVkaXRpb25zPC90ZXh0Pgo8L3N2Zz4K';" />
-                    <h3 style="color: var(--neon-green); font-family: 'Orbitron', monospace; margin: 2rem 0 1rem; font-size: 2rem;">Two Worlds, One Solution</h3>
-                </div>
-                <div>
-                    <div style="margin-bottom: 3rem;">
-                        <h4 style="color: var(--neon-gold); font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                            🎮 Gamer Edition
-                        </h4>
-                        <p style="color: #ccc; line-height: 1.7; margin-bottom: 1rem;">
-                            Full rainbow LED ring for maximum visual impact. Perfect for streamers, content creators, and gaming enthusiasts who want that epic command center aesthetic.
-                        </p>
-                        <ul style="color: #e5e7eb; list-style: none; margin-left: 1rem;">
-                            <li style="margin-bottom: 0.5rem;">• 16 individually addressable RGB LEDs</li>
-                            <li style="margin-bottom: 0.5rem;">• Custom animation patterns</li>
-                            <li style="margin-bottom: 0.5rem;">• Stream-friendly visual feedback</li>
-                            <li style="margin-bottom: 0.5rem;">• Cyberpunk aesthetic design</li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h4 style="color: var(--neon-blue); font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                            🏢 Business Edition
-                        </h4>
-                        <p style="color: #ccc; line-height: 1.7; margin-bottom: 1rem;">
-                            Subtle LED indicator for professional environments. Same powerful functionality with a more corporate-friendly appearance.
-                        </p>
-                        <ul style="color: #e5e7eb; list-style: none; margin-left: 1rem;">
-                            <li style="margin-bottom: 0.5rem;">• Professional discrete LED bar</li>
-                            <li style="margin-bottom: 0.5rem;">• Time tracking integration</li>
-                            <li style="margin-bottom: 0.5rem;">• Admin dashboard included</li>
-                            <li style="margin-bottom: 0.5rem;">• Corporate deployment ready</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Internal components showcase -->
-            <div style="text-align: center; margin-top: 4rem;">
-                <img src="assets/images/lockstone-internal-components.jpg" alt="LockStone internal components showing Arduino Nano, NeoPixel LED ring, and custom PCB assembly" style="width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 255, 65, 0.2);" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMWExYTFhIi8+Cjx0ZXh0IHg9IjI1MCIgeT0iMTUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMDBmZjQxIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiPkFyZHVpbm8gSW50ZXJuYWxzPC90ZXh0Pgo8L3N2Zz4K';" />
-                <h3 style="color: var(--neon-green); margin: 2rem 0 1rem; font-family: 'Orbitron', monospace;">Handcrafted Arduino Engineering</h3>
-                <p style="color: #ccc; max-width: 600px; margin: 0 auto; line-height: 1.7;">
-                    Every LockStone is individually assembled with premium components, Arduino Nano microcontroller, and custom PCB design for maximum reliability. Built by hand in Kent's workshop in Peru.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section style="padding: 6rem 0; background: var(--deep-black);">
-        <div class="container">
-            <h2 class="section-title">How LockStone Works</h2>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 3rem 0; text-align: center;">
-                <div style="padding: 2rem; background: rgba(0, 255, 65, 0.05); border-radius: 20px; border: 1px solid rgba(0, 255, 65, 0.2);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-green);">💳</div>
-                    <h3 style="color: var(--neon-green); margin-bottom: 1rem;">1. Tap Card</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">Present your RFID card or bracelet pendant to LockStone</p>
-                </div>
-                <div style="padding: 2rem; background: rgba(0, 212, 255, 0.05); border-radius: 20px; border: 1px solid rgba(0, 212, 255, 0.2);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-blue);">💡</div>
-                    <h3 style="color: var(--neon-blue); margin-bottom: 1rem;">2. LED Feedback</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">16 NeoPixel LEDs show authentication status in real-time</p>
-                </div>
-                <div style="padding: 2rem; background: rgba(255, 215, 0, 0.05); border-radius: 20px; border: 1px solid rgba(255, 215, 0, 0.2);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-gold);">🔐</div>
-                    <h3 style="color: var(--neon-gold); margin-bottom: 1rem;">3. Secure Auth</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">AES-256 encryption validates your credentials instantly</p>
-                </div>
-                <div style="padding: 2rem; background: rgba(0, 255, 65, 0.05); border-radius: 20px; border: 1px solid rgba(0, 255, 65, 0.2);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-green);">💻</div>
-                    <h3 style="color: var(--neon-green); margin-bottom: 1rem;">4. Instant Access</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">Computer unlocks in 0.1 seconds via USB-HID protocol</p>
-                </div>
-            </div>
-            
-            <!-- Technical Specs Table -->
-            <div style="max-width: 600px; margin: 4rem auto 0; background: var(--dark-gray); border-radius: 20px; padding: 2rem; border: 1px solid rgba(0, 255, 65, 0.2);">
-                <h3 style="color: var(--neon-green); text-align: center; margin-bottom: 2rem; font-family: 'Orbitron', monospace;">Technical Specifications</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; color: #ccc;">
-                    <div><strong style="color: var(--neon-blue);">Interface:</strong> USB-C</div>
-                    <div><strong style="color: var(--neon-blue);">Response Time:</strong> 0.1 seconds</div>
-                    <div><strong style="color: var(--neon-blue);">LEDs:</strong> 16 NeoPixels (custom animations)</div>
-                    <div><strong style="color: var(--neon-blue);">Range:</strong> 10cm RFID detection</div>
-                    <div><strong style="color: var(--neon-blue);">OS Support:</strong> Windows / macOS / Linux</div>
-                    <div><strong style="color: var(--neon-blue);">Security:</strong> AES-256 encryption</div>
-                    <div><strong style="color: var(--neon-blue);">Hardware:</strong> Arduino Nano + custom PCB</div>
-                    <div><strong style="color: var(--neon-blue);">SDK:</strong> Python API with full source</div>
-                </div>
-                <div style="margin-top: 2rem; padding: 1rem; background: rgba(0, 255, 65, 0.1); border-radius: 10px; text-align: center;">
-                    <div style="display: flex; justify-content: center; gap: 2rem; font-size: 0.9rem; color: var(--neon-green);">
-                        <span>🔧 Built with Arduino</span>
-                        <span>🏆 Veteran-Owned</span>
-                        <span>🇵🇪 Made in Peru</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title">Why LockStone Changes Everything</h2>
-            <p class="section-subtitle">Built for gamers, hackers, and businesses who demand more than ordinary security</p>
-            
-            <div class="features-grid">
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">🎮</div>
-                    <h3>Gaming Command Center</h3>
-                    <p>Transform your battlestation. Swipe to unlock during streams, raids, or clutch moments. No password fumbling ever again.</p>
-                </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">🏢</div>
-                    <h3>IT Helpdesk Killer</h3>
-                    <p>Eliminate 80% of password reset tickets. Built-in time tracking. Remote work compatible. Save thousands in IT costs.</p>
-                </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">👵</div>
-                    <h3>Senior-Friendly</h3>
-                    <p>No more forgotten passwords for elderly users. Simple tap-to-unlock with optional bracelet pendant for easy access.</p>
-                </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">💀</div>
-                    <h3>Hacker Aesthetic</h3>
-                    <p>16 programmable LEDs create matrix-style feedback. Green for access, red for denied, gold for pairing. Pure cyberpunk.</p>
-                </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Lightning Fast</h3>
-                    <p>0.1 second response time. USB-C plug & play. Works with Windows, macOS, Linux. No drivers needed.</p>
-                </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Fort Knox Security</h3>
-                    <p>AES-256 encryption. Military-grade protocols. Your digital fortress remains impenetrable to unauthorized access.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reward Tiers -->
-    <section id="rewards" class="rewards">
-        <div class="container">
-            <h2 class="section-title">Choose Your LockStone</h2>
-            <p class="section-subtitle">Early bird pricing available for limited time</p>
-            
-            <div class="rewards-grid">
-                <div class="reward-card">
-                    <div class="reward-price">$79</div>
-                    <h3 style="color: var(--neon-green); margin-bottom: 1rem;">Early Bird Special</h3>
-                    <ul style="text-align: left; color: #ccc; list-style: none;">
-                        <li>✅ LockStone RFID Scanner</li>
-                        <li>✅ 3 Custom PVC Cards</li>
-                        <li>✅ 2 Bracelet Pendants</li>
-                        <li>✅ USB-C Cable</li>
-                        <li>✅ Software & Setup Guide</li>
-                    </ul>
-                    <div style="margin-top: 2rem;">
-                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Select Reward</div>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Save $20 • Ships May 2025</p>
-                </div>
-                
-                <div class="reward-card featured">
-                    <div class="reward-badge">Most Popular</div>
-                    <div class="reward-price">$89</div>
-                    <h3 style="color: var(--neon-gold); margin-bottom: 1rem;">LockStone Standard</h3>
-                    <ul style="text-align: left; color: #ccc; list-style: none;">
-                        <li>✅ LockStone RFID Scanner</li>
-                        <li>✅ 5 Custom PVC Cards</li>
-                        <li>✅ 3 Bracelet Pendants</li>
-                        <li>✅ USB-C Cable</li>
-                        <li>✅ Software & Full SDK</li>
-                        <li>✅ Priority Support</li>
-                    </ul>
-                    <div style="margin-top: 2rem;">
-                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Select Reward</div>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Regular Price $99 • Ships May 2025</p>
-                </div>
-                
-                <div class="reward-card">
-                    <div class="reward-price">$399</div>
-                    <h3 style="color: var(--neon-blue); margin-bottom: 1rem;">Business Pack</h3>
-                    <ul style="text-align: left; color: #ccc; list-style: none;">
-                        <li>✅ 5x LockStone Units</li>
-                        <li>✅ 25 Employee Cards</li>
-                        <li>✅ Admin Dashboard</li>
-                        <li>✅ Time Tracking Software</li>
-                        <li>✅ 1-Year Support</li>
-                        <li>✅ Custom Branding</li>
-                    </ul>
-                    <div style="margin-top: 2rem;">
-                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Contact Sales</div>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Save $46 vs Individual • Ships June 2025</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">What Early Users Say</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card scroll-animate">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #4f46e5, #7c3aed); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">MC</div>
-                        <div>
-                            <div class="testimonial-author">Marcus Chen</div>
-                            <div style="color: var(--neon-gold); font-size: 0.9rem;">🎮 Twitch Streamer, 15K followers</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        "Finally, my PC feels like a real command center. The LED ring makes me feel like I'm in a sci-fi movie every time I unlock. Stream viewers love it too!"
-                    </div>
-                </div>
-                
-                <div class="testimonial-card scroll-animate">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #059669, #0891b2); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">SR</div>
-                        <div>
-                            <div class="testimonial-author">Sarah Rodriguez</div>
-                            <div style="color: var(--neon-blue); font-size: 0.9rem;">🏢 IT Director, TechCorp</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        "Our IT tickets dropped by 75% after deploying LockStone. Employees love the time tracking feature, and I love not dealing with password resets."
-                    </div>
-                </div>
-                
-                <div class="testimonial-card scroll-animate">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #dc2626, #ea580c); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">DP</div>
-                        <div>
-                            <div class="testimonial-author">David Park</div>
-                            <div style="color: var(--neon-green); font-size: 0.9rem;">👵 Senior Care Advocate</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        "My grandmother can now access her computer without calling me for password help. The bracelet pendant is perfect for her arthritis."
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="faq">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div style="max-width: 800px; margin: 3rem auto 0;">
-                <div class="faq-item">
-                    <div class="faq-question">What if I lose my card?</div>
-                    <div class="faq-answer">
-                        Each LockStone can store up to 50 authorized cards. You get multiple cards/pendants with each unit, and you can easily add/remove cards through the admin interface. Lost cards can be instantly deauthorized.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Does it work on Windows/Mac/Linux?</div>
-                    <div class="faq-answer">
-                        Yes! LockStone uses USB-HID protocol and works on Windows 10/11, macOS 10.14+, and most Linux distributions. No drivers needed - just plug and play.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Can I customize the LED patterns?</div>
-                    <div class="faq-answer">
-                        Absolutely. The Python SDK gives you full control over the 16 NeoPixel LEDs. Create custom animations, colors, and patterns for different users or events.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">How secure is RFID compared to passwords?</div>
-                    <div class="faq-answer">
-                        LockStone uses AES-256 encrypted communication and secure authentication protocols. Physical cards are much harder to compromise than passwords, and lost cards can be instantly deauthorized.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Can I integrate it with existing systems?</div>
-                    <div class="faq-answer">
-                        Yes! The Python SDK allows integration with Active Directory, LDAP, time tracking systems, and custom applications. Full API documentation included.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Roadmap -->
-    <section id="roadmap" class="roadmap">
-        <div class="container">
-            <h2 class="section-title">Development Roadmap</h2>
-            <div class="roadmap-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Feb 2025</div>
-                    <div>
-                        <h3 style="color: var(--neon-green); margin-bottom: 0.5rem;">Kickstarter Launch</h3>
-                        <p style="color: #ccc;">Campaign goes live with working prototypes and demo videos</p>
-                    </div>
-                </div>
-                
-                <div class>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Navigation Overlay -->
-    <div class="mobile-nav-overlay" id="mobileNavOverlay">
-        <div class="mobile-nav-links">
-            <a href="#demo" onclick="closeMobileMenu()">Demo</a>
-            <a href="#features" onclick="closeMobileMenu()">Features</a>
-            <a href="#rewards" onclick="closeMobileMenu()">Rewards</a>
-            <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-            <a href="#roadmap" onclick="closeMobileMenu()">Roadmap</a>
-            <div style="margin-top: 2rem;">
-                <a href="#rewards" class="btn btn-primary" onclick="closeMobileMenu()">Back Us on Kickstarter</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-tagline">Passwords Are Dead</h1>
-                    <h2 class="hero-title">Meet LockStone</h2>
-                    <p style="color: var(--neon-blue); font-size: 1.3rem; font-style: italic; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">
-                        "Tap. Glow. Access. The cyberpunk way to unlock your world."
-                    </p>
-                    <p class="hero-subtitle">
-                        Unlock your computer with RFID — gamer-ready, business-ready, senior-friendly. 
-                        One swipe grants access. No passwords, no delays, just pure command center vibes with LED feedback.
-                    </p>
-                    <div class="cta-buttons">
-                        <a href="#rewards" class="btn btn-primary">🚀 Back Us on Kickstarter</a>
-                        <a href="#demo" class="btn btn-secondary">▶️ Watch Demo</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span>⚡</span>
-                            <span>0.1s unlock speed</span>
-                        </div>
-                        <div class="stat-item">
-                            <span>🛡️</span>
-                            <span>Military-grade security</span>
-                        </div>
-                        <div class="stat-item">
-                            <span>💀</span>
-                            <span>Zero password fatigue</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-demo">
-                    <div style="max-width: 400px; margin: 0 auto;">
-                        <img src="assets/images/lockstone-hero-device.jpg" alt="LockStone RFID Scanner with Rainbow LED Ring in action" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 255, 65, 0.3); animation: pulseGlow 3s infinite;" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGZpbGw9IiMwMGZmNDEiPgo8cmVjdCB4PSIxNzUiIHk9IjEyNSIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiByeD0iMjUiIHN0cm9rZT0iIzAwZmY0MSIgc3Ryb2tlLXdpZHRoPSI0IiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNDAiIHN0cm9rZT0iIzAwZGRhYSIgc3Ryb2tlLXdpZHRoPSI2IiBmaWxsPSJub25lIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTk1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiPkxvY2tTdG9uZTwvdGV4dD4KPC9nPgo8L3N2Zz4K';" />
-                        <div style="text-align: center; margin-top: 2rem; background: rgba(0, 0, 0, 0.8); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(0, 255, 65, 0.3);">
-                            <div class="demo-status">ACCESS GRANTED</div>
-                            <p style="color: #ccc; font-size: 0.9rem;">16 LED ring shows authentication status in real-time</p>
-                        </div>
-                    </div>
-                </div>
-            </div, 2000);
+            // Animate counters
+            animateCounter(pledgedAmount, targetAmount, ', 2000);
             animateCounter(backerCount, targetBackers, '', 1500);
             animateCounter(daysLeft, targetDays, '', 1000);
         }
@@ -1489,481 +1487,11 @@
         });
     </script>
 </body>
-</html>="mobile-menu" onclick="toggleMobileMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-        </div>
-    </section>
+</html>
 
-    <!-- Kickstarter Progress -->
-    <section class="kickstarter-progress">
-        <div class="container">
-            <div class="progress-bar">
-                <div class="progress-fill" style="width: 0%;"></div>
-            </div>
-            <div class="progress-stats">
-                <div>
-                    <div class="stat-number" id="pledgedAmount">$0</div>
-                    <div style="color: #ccc;">pledged of $15,000 goal</div>
-                </div>
-                <div>
-                    <div class="stat-number" id="backerCount">0</div>
-                    <div style="color: #ccc;">backers</div>
-                </div>
-                <div>
-                    <div class="stat-number" id="daysLeft">30</div>
-                    <div style="color: #ccc;">days to go</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Video Demo -->
-    <section id="demo" class="video-demo">
-        <div class="container">
-            <h2 class="section-title">See It In Action</h2>
-            <p class="section-subtitle">
-                Watch the LED ring respond to authentication and see instant computer unlock
-            </p>
-            <div class="video-container">
-                <video 
-                    controls 
-                    muted 
-                    loop 
-                    style="width: 100%; border-radius: 20px; box-shadow: 0 0 40px rgba(0, 255, 65, 0.3);"
-                    poster="assets/images/lockstone-video-poster.jpg">
-                    <source src="assets/video/lockstone.mp4" type="video/mp4">
-                    <div style="padding: 2rem; text-align: center; color: #ccc;">
-                        <p>Video demo coming soon! Check back when the Kickstarter launches.</p>
-                        <p><a href="assets/video/lockstone.mp4" style="color: var(--neon-green);">Download demo when available</a></p>
-                    </div>
-                </video>
-                <div style="text-align: center; margin-top: 1rem; color: #ccc; font-size: 0.9rem;">
-                    Watch the LED ring respond to different authentication states in real-time
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Founder's Story -->
-    <section style="padding: 6rem 0; background: linear-gradient(135deg, var(--dark-gray) 0%, var(--deep-black) 100%);">
-        <div class="container">
-            <h2 class="section-title">Why LockStone Exists</h2>
-            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; max-width: 1000px; margin: 3rem auto 0;">
-                <div style="text-align: center;">
-                    <div style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--neon-green) 0%, var(--neon-blue) 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 4rem; color: var(--deep-black);">👨‍💻</div>
-                    <h3 style="color: var(--neon-green); font-family: 'Orbitron', monospace; font-size: 1.5rem; margin-bottom: 0.5rem;">Kent Stone</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">U.S. Army Veteran<br>Cave Diver • Software Developer<br>Handcrafting in Peru</p>
-                    <div style="margin-top: 1rem; display: flex; gap: 0.5rem; justify-content: center; font-size: 0.8rem; color: var(--neon-gold);">
-                        <span>🪖 Army Veteran</span>
-                        <span>🌍 74 Countries</span>
-                        <span>🤿 Cave Diver</span>
-                    </div>
-                </div>
-                <div style="color: #ccc; line-height: 1.7;">
-                    <p style="margin-bottom: 1.5rem; color: var(--neon-blue); font-style: italic;">
-                        "Technology should give people freedom — not take it away."
-                    </p>
-                    <p style="margin-bottom: 1.5rem;">
-                        I grew up on a farm in Oklahoma, shipped out with the U.S. Army at eighteen, and deployed to Iraq in 2005. 
-                        After medical issues forced me to reimagine my life, I sold everything and traveled through 74 countries — 
-                        becoming a divemaster in Peru, a cave diver in Mexico, and eventually a software developer.
-                    </p>
-                    <p style="margin-bottom: 1.5rem;">
-                        In May 2024, I spent five weeks in intensive care with complete amnesia. Coming back from that, 
-                        even simple things like typing or remembering my computer password became a daily struggle.
-                    </p>
-                    <p style="margin-bottom: 1.5rem; color: var(--neon-green);">
-                        <strong>So I built myself a tool</strong> — a small RFID scanner with a glowing LED ring that would let me 
-                        access my computer with a tap, instead of fumbling through passwords my body couldn't trust.
-                    </p>
-                    <p>
-                        That's how LockStone was born: from necessity, resilience, and the belief that when life gets 
-                        complicated, our technology should get simpler.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Product Comparison Section -->
-    <section style="padding: 6rem 0; background: var(--deep-black);">
-        <div class="container">
-            <h2 class="section-title">Choose Your Edition</h2>
-            <p class="section-subtitle">Same powerful technology, designed for different environments</p>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin: 4rem 0; align-items: center;">
-                <div style="text-align: center;">
-                    <img src="assets/images/gamer-vs-business-comparison.jpg" alt="LockStone Gamer Edition with rainbow LED ring vs Business Edition with discrete LED bar" style="width: 100%; max-width: 600px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 255, 65, 0.2);" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDYwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMWExYTFhIi8+Cjx0ZXh0IHg9IjMwMCIgeT0iMTUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMDBmZjQxIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjAiPkdhbWVyIHZzIEJ1c2luZXNzIEVkaXRpb25zPC90ZXh0Pgo8L3N2Zz4K';" />
-                    <h3 style="color: var(--neon-green); font-family: 'Orbitron', monospace; margin: 2rem 0 1rem; font-size: 2rem;">Two Worlds, One Solution</h3>
-                </div>
-                <div>
-                    <div style="margin-bottom: 3rem;">
-                        <h4 style="color: var(--neon-gold); font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                            🎮 Gamer Edition
-                        </h4>
-                        <p style="color: #ccc; line-height: 1.7; margin-bottom: 1rem;">
-                            Full rainbow LED ring for maximum visual impact. Perfect for streamers, content creators, and gaming enthusiasts who want that epic command center aesthetic.
-                        </p>
-                        <ul style="color: #e5e7eb; list-style: none; margin-left: 1rem;">
-                            <li style="margin-bottom: 0.5rem;">• 16 individually addressable RGB LEDs</li>
-                            <li style="margin-bottom: 0.5rem;">• Custom animation patterns</li>
-                            <li style="margin-bottom: 0.5rem;">• Stream-friendly visual feedback</li>
-                            <li style="margin-bottom: 0.5rem;">• Cyberpunk aesthetic design</li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h4 style="color: var(--neon-blue); font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                            🏢 Business Edition
-                        </h4>
-                        <p style="color: #ccc; line-height: 1.7; margin-bottom: 1rem;">
-                            Subtle LED indicator for professional environments. Same powerful functionality with a more corporate-friendly appearance.
-                        </p>
-                        <ul style="color: #e5e7eb; list-style: none; margin-left: 1rem;">
-                            <li style="margin-bottom: 0.5rem;">• Professional discrete LED bar</li>
-                            <li style="margin-bottom: 0.5rem;">• Time tracking integration</li>
-                            <li style="margin-bottom: 0.5rem;">• Admin dashboard included</li>
-                            <li style="margin-bottom: 0.5rem;">• Corporate deployment ready</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Internal components showcase -->
-            <div style="text-align: center; margin-top: 4rem;">
-                <img src="assets/images/lockstone-internal-components.jpg" alt="LockStone internal components showing Arduino Nano, NeoPixel LED ring, and custom PCB assembly" style="width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 255, 65, 0.2);" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMWExYTFhIi8+Cjx0ZXh0IHg9IjI1MCIgeT0iMTUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMDBmZjQxIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiPkFyZHVpbm8gSW50ZXJuYWxzPC90ZXh0Pgo8L3N2Zz4K';" />
-                <h3 style="color: var(--neon-green); margin: 2rem 0 1rem; font-family: 'Orbitron', monospace;">Handcrafted Arduino Engineering</h3>
-                <p style="color: #ccc; max-width: 600px; margin: 0 auto; line-height: 1.7;">
-                    Every LockStone is individually assembled with premium components, Arduino Nano microcontroller, and custom PCB design for maximum reliability. Built by hand in Kent's workshop in Peru.
-                </p>
-            </div>
-        </div>
-    </section>
 
-    <!-- How It Works Section -->
-    <section style="padding: 6rem 0; background: var(--deep-black);">
-        <div class="container">
-            <h2 class="section-title">How LockStone Works</h2>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 3rem 0; text-align: center;">
-                <div style="padding: 2rem; background: rgba(0, 255, 65, 0.05); border-radius: 20px; border: 1px solid rgba(0, 255, 65, 0.2);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-green);">💳</div>
-                    <h3 style="color: var(--neon-green); margin-bottom: 1rem;">1. Tap Card</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">Present your RFID card or bracelet pendant to LockStone</p>
-                </div>
-                <div style="padding: 2rem; background: rgba(0, 212, 255, 0.05); border-radius: 20px; border: 1px solid rgba(0, 212, 255, 0.2);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-blue);">💡</div>
-                    <h3 style="color: var(--neon-blue); margin-bottom: 1rem;">2. LED Feedback</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">16 NeoPixel LEDs show authentication status in real-time</p>
-                </div>
-                <div style="padding: 2rem; background: rgba(255, 215, 0, 0.05); border-radius: 20px; border: 1px solid rgba(255, 215, 0, 0.2);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-gold);">🔐</div>
-                    <h3 style="color: var(--neon-gold); margin-bottom: 1rem;">3. Secure Auth</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">AES-256 encryption validates your credentials instantly</p>
-                </div>
-                <div style="padding: 2rem; background: rgba(0, 255, 65, 0.05); border-radius: 20px; border: 1px solid rgba(0, 255, 65, 0.2);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-green);">💻</div>
-                    <h3 style="color: var(--neon-green); margin-bottom: 1rem;">4. Instant Access</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">Computer unlocks in 0.1 seconds via USB-HID protocol</p>
-                </div>
-            </div>
-            
-            <!-- Technical Specs Table -->
-            <div style="max-width: 600px; margin: 4rem auto 0; background: var(--dark-gray); border-radius: 20px; padding: 2rem; border: 1px solid rgba(0, 255, 65, 0.2);">
-                <h3 style="color: var(--neon-green); text-align: center; margin-bottom: 2rem; font-family: 'Orbitron', monospace;">Technical Specifications</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; color: #ccc;">
-                    <div><strong style="color: var(--neon-blue);">Interface:</strong> USB-C</div>
-                    <div><strong style="color: var(--neon-blue);">Response Time:</strong> 0.1 seconds</div>
-                    <div><strong style="color: var(--neon-blue);">LEDs:</strong> 16 NeoPixels (custom animations)</div>
-                    <div><strong style="color: var(--neon-blue);">Range:</strong> 10cm RFID detection</div>
-                    <div><strong style="color: var(--neon-blue);">OS Support:</strong> Windows / macOS / Linux</div>
-                    <div><strong style="color: var(--neon-blue);">Security:</strong> AES-256 encryption</div>
-                    <div><strong style="color: var(--neon-blue);">Hardware:</strong> Arduino Nano + custom PCB</div>
-                    <div><strong style="color: var(--neon-blue);">SDK:</strong> Python API with full source</div>
-                </div>
-                <div style="margin-top: 2rem; padding: 1rem; background: rgba(0, 255, 65, 0.1); border-radius: 10px; text-align: center;">
-                    <div style="display: flex; justify-content: center; gap: 2rem; font-size: 0.9rem; color: var(--neon-green);">
-                        <span>🔧 Built with Arduino</span>
-                        <span>🏆 Veteran-Owned</span>
-                        <span>🇵🇪 Made in Peru</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title">Why LockStone Changes Everything</h2>
-            <p class="section-subtitle">Built for gamers, hackers, and businesses who demand more than ordinary security</p>
-            
-            <div class="features-grid">
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">🎮</div>
-                    <h3>Gaming Command Center</h3>
-                    <p>Transform your battlestation. Swipe to unlock during streams, raids, or clutch moments. No password fumbling ever again.</p>
-                </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">🏢</div>
-                    <h3>IT Helpdesk Killer</h3>
-                    <p>Eliminate 80% of password reset tickets. Built-in time tracking. Remote work compatible. Save thousands in IT costs.</p>
-                </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">👵</div>
-                    <h3>Senior-Friendly</h3>
-                    <p>No more forgotten passwords for elderly users. Simple tap-to-unlock with optional bracelet pendant for easy access.</p>
-                </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">💀</div>
-                    <h3>Hacker Aesthetic</h3>
-                    <p>16 programmable LEDs create matrix-style feedback. Green for access, red for denied, gold for pairing. Pure cyberpunk.</p>
-                </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Lightning Fast</h3>
-                    <p>0.1 second response time. USB-C plug & play. Works with Windows, macOS, Linux. No drivers needed.</p>
-                </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Fort Knox Security</h3>
-                    <p>AES-256 encryption. Military-grade protocols. Your digital fortress remains impenetrable to unauthorized access.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reward Tiers -->
-    <section id="rewards" class="rewards">
-        <div class="container">
-            <h2 class="section-title">Choose Your LockStone</h2>
-            <p class="section-subtitle">Early bird pricing available for limited time</p>
-            
-            <div class="rewards-grid">
-                <div class="reward-card">
-                    <div class="reward-price">$79</div>
-                    <h3 style="color: var(--neon-green); margin-bottom: 1rem;">Early Bird Special</h3>
-                    <ul style="text-align: left; color: #ccc; list-style: none;">
-                        <li>✅ LockStone RFID Scanner</li>
-                        <li>✅ 3 Custom PVC Cards</li>
-                        <li>✅ 2 Bracelet Pendants</li>
-                        <li>✅ USB-C Cable</li>
-                        <li>✅ Software & Setup Guide</li>
-                    </ul>
-                    <div style="margin-top: 2rem;">
-                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Select Reward</div>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Save $20 • Ships May 2025</p>
-                </div>
-                
-                <div class="reward-card featured">
-                    <div class="reward-badge">Most Popular</div>
-                    <div class="reward-price">$89</div>
-                    <h3 style="color: var(--neon-gold); margin-bottom: 1rem;">LockStone Standard</h3>
-                    <ul style="text-align: left; color: #ccc; list-style: none;">
-                        <li>✅ LockStone RFID Scanner</li>
-                        <li>✅ 5 Custom PVC Cards</li>
-                        <li>✅ 3 Bracelet Pendants</li>
-                        <li>✅ USB-C Cable</li>
-                        <li>✅ Software & Full SDK</li>
-                        <li>✅ Priority Support</li>
-                    </ul>
-                    <div style="margin-top: 2rem;">
-                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Select Reward</div>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Regular Price $99 • Ships May 2025</p>
-                </div>
-                
-                <div class="reward-card">
-                    <div class="reward-price">$399</div>
-                    <h3 style="color: var(--neon-blue); margin-bottom: 1rem;">Business Pack</h3>
-                    <ul style="text-align: left; color: #ccc; list-style: none;">
-                        <li>✅ 5x LockStone Units</li>
-                        <li>✅ 25 Employee Cards</li>
-                        <li>✅ Admin Dashboard</li>
-                        <li>✅ Time Tracking Software</li>
-                        <li>✅ 1-Year Support</li>
-                        <li>✅ Custom Branding</li>
-                    </ul>
-                    <div style="margin-top: 2rem;">
-                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Contact Sales</div>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Save $46 vs Individual • Ships June 2025</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">What Early Users Say</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card scroll-animate">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #4f46e5, #7c3aed); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">MC</div>
-                        <div>
-                            <div class="testimonial-author">Marcus Chen</div>
-                            <div style="color: var(--neon-gold); font-size: 0.9rem;">🎮 Twitch Streamer, 15K followers</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        "Finally, my PC feels like a real command center. The LED ring makes me feel like I'm in a sci-fi movie every time I unlock. Stream viewers love it too!"
-                    </div>
-                </div>
-                
-                <div class="testimonial-card scroll-animate">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #059669, #0891b2); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">SR</div>
-                        <div>
-                            <div class="testimonial-author">Sarah Rodriguez</div>
-                            <div style="color: var(--neon-blue); font-size: 0.9rem;">🏢 IT Director, TechCorp</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        "Our IT tickets dropped by 75% after deploying LockStone. Employees love the time tracking feature, and I love not dealing with password resets."
-                    </div>
-                </div>
-                
-                <div class="testimonial-card scroll-animate">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #dc2626, #ea580c); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">DP</div>
-                        <div>
-                            <div class="testimonial-author">David Park</div>
-                            <div style="color: var(--neon-green); font-size: 0.9rem;">👵 Senior Care Advocate</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        "My grandmother can now access her computer without calling me for password help. The bracelet pendant is perfect for her arthritis."
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="faq">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div style="max-width: 800px; margin: 3rem auto 0;">
-                <div class="faq-item">
-                    <div class="faq-question">What if I lose my card?</div>
-                    <div class="faq-answer">
-                        Each LockStone can store up to 50 authorized cards. You get multiple cards/pendants with each unit, and you can easily add/remove cards through the admin interface. Lost cards can be instantly deauthorized.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Does it work on Windows/Mac/Linux?</div>
-                    <div class="faq-answer">
-                        Yes! LockStone uses USB-HID protocol and works on Windows 10/11, macOS 10.14+, and most Linux distributions. No drivers needed - just plug and play.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Can I customize the LED patterns?</div>
-                    <div class="faq-answer">
-                        Absolutely. The Python SDK gives you full control over the 16 NeoPixel LEDs. Create custom animations, colors, and patterns for different users or events.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">How secure is RFID compared to passwords?</div>
-                    <div class="faq-answer">
-                        LockStone uses AES-256 encrypted communication and secure authentication protocols. Physical cards are much harder to compromise than passwords, and lost cards can be instantly deauthorized.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Can I integrate it with existing systems?</div>
-                    <div class="faq-answer">
-                        Yes! The Python SDK allows integration with Active Directory, LDAP, time tracking systems, and custom applications. Full API documentation included.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Roadmap -->
-    <section id="roadmap" class="roadmap">
-        <div class="container">
-            <h2 class="section-title">Development Roadmap</h2>
-            <div class="roadmap-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Feb 2025</div>
-                    <div>
-                        <h3 style="color: var(--neon-green); margin-bottom: 0.5rem;">Kickstarter Launch</h3>
-                        <p style="color: #ccc;">Campaign goes live with working prototypes and demo videos</p>
-                    </div>
-                </div>
-                
-                <div class>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Navigation Overlay -->
-    <div class="mobile-nav-overlay" id="mobileNavOverlay">
-        <div class="mobile-nav-links">
-            <a href="#demo" onclick="closeMobileMenu()">Demo</a>
-            <a href="#features" onclick="closeMobileMenu()">Features</a>
-            <a href="#rewards" onclick="closeMobileMenu()">Rewards</a>
-            <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-            <a href="#roadmap" onclick="closeMobileMenu()">Roadmap</a>
-            <div style="margin-top: 2rem;">
-                <a href="#rewards" class="btn btn-primary" onclick="closeMobileMenu()">Back Us on Kickstarter</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-tagline">Passwords Are Dead</h1>
-                    <h2 class="hero-title">Meet LockStone</h2>
-                    <p style="color: var(--neon-blue); font-size: 1.3rem; font-style: italic; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">
-                        "Tap. Glow. Access. The cyberpunk way to unlock your world."
-                    </p>
-                    <p class="hero-subtitle">
-                        Unlock your computer with RFID — gamer-ready, business-ready, senior-friendly. 
-                        One swipe grants access. No passwords, no delays, just pure command center vibes with LED feedback.
-                    </p>
-                    <div class="cta-buttons">
-                        <a href="#rewards" class="btn btn-primary">🚀 Back Us on Kickstarter</a>
-                        <a href="#demo" class="btn btn-secondary">▶️ Watch Demo</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span>⚡</span>
-                            <span>0.1s unlock speed</span>
-                        </div>
-                        <div class="stat-item">
-                            <span>🛡️</span>
-                            <span>Military-grade security</span>
-                        </div>
-                        <div class="stat-item">
-                            <span>💀</span>
-                            <span>Zero password fatigue</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-demo">
-                    <div style="max-width: 400px; margin: 0 auto;">
-                        <img src="assets/images/lockstone-hero-device.jpg" alt="LockStone RFID Scanner with Rainbow LED Ring in action" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 255, 65, 0.3); animation: pulseGlow 3s infinite;" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGZpbGw9IiMwMGZmNDEiPgo8cmVjdCB4PSIxNzUiIHk9IjEyNSIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiByeD0iMjUiIHN0cm9rZT0iIzAwZmY0MSIgc3Ryb2tlLXdpZHRoPSI0IiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNDAiIHN0cm9rZT0iIzAwZGRhYSIgc3Ryb2tlLXdpZHRoPSI2IiBmaWxsPSJub25lIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTk1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiPkxvY2tTdG9uZTwvdGV4dD4KPC9nPgo8L3N2Zz4K';" />
-                        <div style="text-align: center; margin-top: 2rem; background: rgba(0, 0, 0, 0.8); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(0, 255, 65, 0.3);">
-                            <div class="demo-status">ACCESS GRANTED</div>
-                            <p style="color: #ccc; font-size: 0.9rem;">16 LED ring shows authentication status in real-time</p>
-                        </div>
-                    </div>
-                </div>
-            </div
+        
