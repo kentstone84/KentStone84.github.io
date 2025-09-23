@@ -191,225 +191,137 @@
         }
 
         /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 6rem 0 4rem;
-            background: linear-gradient(135deg, var(--deep-black) 0%, var(--dark-gray) 100%);
-            position: relative;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,255,65,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
-            z-index: 0;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-family: 'Orbitron', monospace;
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--neon-green) 0%, var(--neon-blue) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            color: var(--light-gray);
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .hero-tagline {
-            font-size: 2rem;
-            color: var(--neon-gold);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            font-family: 'Orbitron', monospace;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1.2rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--neon-green) 0%, #00cc33 100%);
-            color: var(--deep-black);
-            animation: ledGlow 3s infinite;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 30px var(--neon-green);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--neon-blue);
-            border: 2px solid var(--neon-blue);
-        }
-
-        .btn-secondary:hover {
-            background: var(--neon-blue);
-            color: var(--deep-black);
-            transform: translateY(-3px);
-            box-shadow: 0 0 20px var(--neon-blue);
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            font-size: 0.9rem;
-            color: var(--light-gray);
-        }
-
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Product Demo */
-        .product-demo {
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .demo-device {
-            background: linear-gradient(145deg, var(--dark-gray) 0%, var(--deep-black) 100%);
-            border: 2px solid var(--neon-green);
-            border-radius: 20px;
-            padding: 3rem;
-            position: relative;
-            animation: ledGlow 4s infinite;
-        }
-
-        .led-ring {
-            width: 120px;
-            height: 120px;
-            border: 8px solid var(--neon-green);
-            border-radius: 50%;
-            margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            animation: pulseGlow 2s infinite;
-            background: radial-gradient(circle, rgba(0, 255, 65, 0.1), transparent);
-        }
-
-        .demo-status {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.2rem;
-            color: var(--neon-green);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        /* Kickstarter Progress */
-        .kickstarter-progress {
-            background: var(--dark-gray);
-            padding: 3rem 0;
-            border-top: 1px solid rgba(0, 255, 65, 0.2);
-            border-bottom: 1px solid rgba(0, 255, 65, 0.2);
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 20px;
-            background: rgba(0, 255, 65, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 1rem;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--neon-green) 0%, var(--neon-blue) 100%);
-            width: 60%;
-            animation: ledGlow 3s infinite;
-        }
-
-        .progress-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: 'Orbitron', monospace;
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--neon-green);
-        }
-
-        /* Video Demo Section */
-        .video-demo {
-            padding: 6rem 0;
-            text-align: center;
-        }
-
-        .video-container {
-            max-width: 800px;
-            margin: 3rem auto 0;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 2px solid var(--neon-green);
-            box-shadow: 0 0 40px rgba(0, 255, 65, 0.3);
-        }
-
-        .demo-video {
-            width: 100%;
-            height: 400px;
-            background: var(--dark-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: var(--neon-green);
-        }
-
+       .hero {
+  position: relative;
+  padding: 6rem 2rem;
+  color: #fff;
+  background: #000;
+  overflow: hidden;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at top left, rgba(0,255,65,0.2), transparent 70%),
+              radial-gradient(circle at bottom right, rgba(0,200,255,0.2), transparent 70%);
+  z-index: 1;
+}
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+.hero-text {
+  flex: 1 1 45%;
+  padding: 2rem;
+}
+.hero-tagline {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: var(--neon-green, #00ff41);
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+.hero-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(0, 255, 65, 0.9), 0 0 40px rgba(0, 200, 255, 0.8);
+  position: relative;
+  z-index: 10;
+}
+.lockstone-glow {
+  color: var(--neon-blue, #00eaff);
+  animation: flicker 2.5s infinite alternate;
+}
+.hero-quote {
+  color: var(--neon-blue, #00eaff);
+  font-size: 1.3rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  font-family: 'Orbitron', monospace;
+}
+.hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.btn {
+  padding: 0.9rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn-primary {
+  background: var(--neon-green, #00ff41);
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.8);
+}
+.btn-primary:hover {
+  background: #00cc33;
+}
+.btn-secondary {
+  border: 2px solid var(--neon-blue, #00eaff);
+  color: var(--neon-blue, #00eaff);
+}
+.btn-secondary:hover {
+  background: rgba(0, 234, 255, 0.1);
+}
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product-demo {
+  flex: 1 1 45%;
+  padding: 2rem;
+}
+.demo-box {
+  text-align: center;
+  margin-top: 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 255, 65, 0.3);
+}
+.demo-status {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--neon-green, #00ff41);
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+}
+.demo-subtext {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 20px 40px rgba(0, 255, 65, 0.2); }
+  50% { box-shadow: 0 20px 60px rgba(0, 255, 65, 0.6); }
+}
+@keyframes flicker {
+  0% { opacity: 1; text-shadow: 0 0 20px rgba(0, 234, 255, 0.9), 0 0 40px rgba(0, 200, 255, 0.8); }
+  45% { opacity: 0.8; text-shadow: 0 0 10px rgba(0, 234, 255, 0.6); }
+  55% { opacity: 1; text-shadow: 0 0 25px rgba(0, 234, 255, 1), 0 0 50px rgba(0, 200, 255, 0.9); }
+  100% { opacity: 0.9; text-shadow: 0 0 15px rgba(0, 234, 255, 0.7); }
+}
         /* Features Section */
         .features {
             padding: 6rem 0;
@@ -774,51 +686,61 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-tagline">Passwords Are Dead</h1>
-                    <h2 class="hero-title">Meet LockStone</h2>
-                    <p style="color: var(--neon-blue); font-size: 1.3rem; font-style: italic; margin-bottom: 1rem; font-family: 'Orbitron', monospace;">
-                        "Tap. Glow. Access. The cyberpunk way to unlock your world."
-                    </p>
-                    <p class="hero-subtitle">
-                        Unlock your computer with RFID — gamer-ready, business-ready, senior-friendly. 
-                        One swipe grants access. No passwords, no delays, just pure command center vibes with LED feedback.
-                    </p>
-                    <div class="cta-buttons">
-                        <a href="#rewards" class="btn btn-primary">🚀 Back Us on Kickstarter</a>
-                        <a href="#demo" class="btn btn-secondary">▶️ Watch Demo</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span>⚡</span>
-                            <span>0.1s unlock speed</span>
-                        </div>
-                        <div class="stat-item">
-                            <span>🛡️</span>
-                            <span>Military-grade security</span>
-                        </div>
-                        <div class="stat-item">
-                            <span>💀</span>
-                            <span>Zero password fatigue</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-demo">
-                    <div style="max-width: 400px; margin: 0 auto;">
-                        <img src="assets/images/lockstone-hero-device.jpg" alt="LockStone RFID Scanner with Rainbow LED Ring in action" style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 255, 65, 0.3); animation: pulseGlow 3s infinite;" />
-                        <div style="text-align: center; margin-top: 2rem; background: rgba(0, 0, 0, 0.8); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(0, 255, 65, 0.3);">
-                            <div class="demo-status">ACCESS GRANTED</div>
-                            <p style="color: #ccc; font-size: 0.9rem;">16 LED ring shows authentication status in real-time</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-tagline">Passwords Are Dead</h1>
+        
+        <!-- Fixed + Enhanced Title -->
+        <h2 class="hero-title">Meet <span class="lockstone-glow">LockStone</span></h2>
+        
+        <p class="hero-quote">
+          "Tap. Glow. Access. The cyberpunk way to unlock your world."
+        </p>
+        
+        <p class="hero-subtitle">
+          Unlock your computer with RFID — gamer-ready, business-ready, senior-friendly. 
+          One swipe grants access. No passwords, no delays, just pure command center vibes with LED feedback.
+        </p>
+        
+        <div class="cta-buttons">
+          <a href="#rewards" class="btn btn-primary">🚀 Back Us on Kickstarter</a>
+          <a href="#demo" class="btn btn-secondary">▶️ Watch Demo</a>
         </div>
-    </section>
+        
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span>⚡</span>
+            <span>0.1s unlock speed</span>
+          </div>
+          <div class="stat-item">
+            <span>🛡️</span>
+            <span>Military-grade security</span>
+          </div>
+          <div class="stat-item">
+            <span>💀</span>
+            <span>Zero password fatigue</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-demo">
+        <div style="max-width: 400px; margin: 0 auto;">
+          <img src="assets/images/lockstone-hero-device.jpg" 
+               alt="LockStone RFID Scanner with Rainbow LED Ring in action" 
+               style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 255, 65, 0.3); animation: pulseGlow 3s infinite;" />
+          
+          <div class="demo-box">
+            <div class="demo-status">ACCESS GRANTED</div>
+            <p class="demo-subtext">16 LED ring shows authentication status in real-time</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Kickstarter Progress -->
     <section class="kickstarter-progress">
