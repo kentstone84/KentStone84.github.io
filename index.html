@@ -963,6 +963,8 @@
             </div>
         </div>
     </section>
+
+    <!-- How It Works Section -->
     <section style="padding: 6rem 0; background: var(--deep-black);">
         <div class="container">
             <h2 class="section-title">How LockStone Works</h2>
@@ -1012,6 +1014,8 @@
             </div>
         </div>
     </section>
+
+    <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
             <h2 class="section-title">Why LockStone Changes Everything</h2>
@@ -1075,7 +1079,7 @@
                         <li>✅ Software & Setup Guide</li>
                     </ul>
                     <div style="margin-top: 2rem;">
-                        <a href="https://kickstarter.com/projects/lockstone/early-bird" class="btn btn-primary" style="width: 100%; text-align: center; display: block; text-decoration: none;">Select Reward</a>
+                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Select Reward</div>
                     </div>
                     <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Save $20 • Ships May 2025</p>
                 </div>
@@ -1093,7 +1097,7 @@
                         <li>✅ Priority Support</li>
                     </ul>
                     <div style="margin-top: 2rem;">
-                        <div class="btn btn-primary" style="width: 100%; text-align: center;">Select Reward</div>
+                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Select Reward</div>
                     </div>
                     <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Regular Price $99 • Ships May 2025</p>
                 </div>
@@ -1110,7 +1114,7 @@
                         <li>✅ Custom Branding</li>
                     </ul>
                     <div style="margin-top: 2rem;">
-                        <div class="btn btn-primary" style="width: 100%; text-align: center;">Contact Sales</div>
+                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Contact Sales</div>
                     </div>
                     <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Save $46 vs Individual • Ships June 2025</p>
                 </div>
@@ -1334,15 +1338,16 @@
     <script>
         // Mobile menu toggle
         function toggleMobileMenu() {
-            alert('Mobile menu would show navigation options here. For now, scroll to explore all sections!');
+            const overlay = document.getElementById('mobileNavOverlay');
+            overlay.classList.toggle('active');
         }
 
-        // Demo video placeholder
-        function playDemoVideo() {
-            alert('Demo video would play here!\n\nThis would show:\n• LED ring pulsing in different colors\n• Card being tapped to LockStone\n• Computer unlocking instantly\n• Different authentication states\n\nFor the actual campaign, this would be a YouTube/Vimeo embed.');
+        function closeMobileMenu() {
+            const overlay = document.getElementById('mobileNavOverlay');
+            overlay.classList.remove('active');
         }
 
-        // Smooth scrolling
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1367,6 +1372,29 @@
         window.addEventListener('scroll', animateOnScroll);
         animateOnScroll();
 
+        // LED ring animation cycle
+        function animateLEDRing() {
+            const ledRing = document.querySelector('.led-ring');
+            const statusElement = document.querySelector('.demo-status');
+            
+            if (!ledRing || !statusElement) return;
+            
+            const states = [
+                { icon: '🔒', status: 'READY' },
+                { icon: '✅', status: 'ACCESS GRANTED' },
+                { icon: '❌', status: 'ACCESS DENIED' },
+                { icon: '⚡', status: 'PAIRING' }
+            ];
+            
+            let currentIndex = 0;
+            
+            setInterval(() => {
+                ledRing.textContent = states[currentIndex].icon;
+                statusElement.textContent = states[currentIndex].status;
+                currentIndex = (currentIndex + 1) % states.length;
+            }, 3000);
+        }
+
         // Animate progress bar and counters
         function animateProgressBar() {
             const progressFill = document.querySelector('.progress-fill');
@@ -1374,11 +1402,13 @@
             const backerCount = document.getElementById('backerCount');
             const daysLeft = document.getElementById('daysLeft');
 
-            // Target values (you can update these dynamically)
+            if (!progressFill || !pledgedAmount || !backerCount || !daysLeft) return;
+
+            // Target values
             const targetAmount = 8900;
             const targetBackers = 127;
             const targetDays = 25;
-            const targetProgress = 59; // percentage
+            const targetProgress = 59;
 
             // Animate progress bar
             setTimeout(() => {
@@ -1387,70 +1417,7 @@
             }, 1000);
 
             // Animate counters
-            animateCounter(pledgedAmount, targetAmount, 'ySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Scroll animations
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.scroll-animate');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                if (elementTop < window.innerHeight - 100) {
-                    element.classList.add('animate');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll();
-
-        // LED ring animation
-        function animateLEDRing() {
-            const ledRing = document.querySelector('.led-ring');
-            const colors = ['🔒', '✅', '❌', '⚡'];
-            const statuses = ['READY', 'ACCESS GRANTED', 'ACCESS DENIED', 'PAIRING'];
-            let currentIndex = 0;
-
-            setInterval(() => {
-                if (ledRing) {
-                    ledRing.textContent = colors[currentIndex];
-                    document.querySelector('.demo-status').textContent = statuses[currentIndex];
-                    currentIndex = (currentIndex + 1) % colors.length;
-                }
-            }, 3000);
-        }
-
-        animateLEDRing();
-
-        // Reward selection handlers
-        document.querySelectorAll('.reward-card .btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const rewardType = this.closest('.reward-card').querySelector('h3').textContent;
-                alert(`Thank you for your interest in ${rewardType}! 
-                
-This would redirect to the actual Kickstarter campaign page where you can pledge your support.
-                
-For now, you can contact Kent directly:
-Email: KentStone@gmail.com
-Phone: +51 945 012 953`);
-            });
-        });
-
-        // Update progress bar animation
-        setTimeout(() => {
-            document.querySelector('.progress-fill').style.transition = 'width 2s ease-out';
-            document.querySelector('.progress-fill').style.width = '60%';
-        }, 1000);
-    </script>
-</body>
-</html>, 2000);
+            animateCounter(pledgedAmount, targetAmount, ', 2000);
             animateCounter(backerCount, targetBackers, '', 1500);
             animateCounter(daysLeft, targetDays, '', 1000);
         }
@@ -1468,109 +1435,47 @@ Phone: +51 945 012 953`);
             }, 50);
         }
 
-        // LED ring animation
-        function animateLEDRing() {
-            const ledRing = document.querySelector('.led-ring');
-            const colors = ['🔒', '✅', '❌', '⚡'];
-            const statuses = ['READY', 'ACCESS GRANTED', 'ACCESS DENIED', 'PAIRING'];
-            let currentIndex = 0;
-
-            setInterval(() => {
-                if (ledRing) {
-                    ledRing.textContent = colors[currentIndex];
-                    document.querySelector('.demo-status').textContent = statuses[currentIndex];
-                    currentIndex = (currentIndex + 1) % colors.length;
-                }
-            }, 3000);
-        }
-
-        // Initialize animations when page loads
-        window.addEventListener('load', function() {
-            animateProgressBar();
-            animateLEDRing();
-        });
-
-        // Reward button handlers (for demo purposes)
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add click handlers to reward buttons that don't have href
-            document.querySelectorAll('.reward-card .btn:not([href])').forEach(btn => {
+        // Reward button handlers
+        function setupRewardButtons() {
+            document.querySelectorAll('.reward-card .btn').forEach(btn => {
                 btn.addEventListener('click', function() {
-                    const rewardType = this.closest('.reward-card').querySelector('h3').textContent;
-                    alert(`Interest in ${rewardType} noted!\n\nIn the live campaign, this would take you to the Kickstarter pledge page.\n\nFor now, contact Kent directly:\n📧 KentStone@gmail.com\n📞 +51 945 012 953`);
+                    const rewardCard = this.closest('.reward-card');
+                    const rewardType = rewardCard.querySelector('h3').textContent;
+                    const price = rewardCard.querySelector('.reward-price').textContent;
+                    
+                    alert(`Interest in ${rewardType} (${price}) noted!\n\nIn the live campaign, this would take you to the Kickstarter pledge page.\n\nFor now, contact Kent directly:\n📧 KentStone@gmail.com\n📞 +51 945 012 953`);
                 });
             });
+        }
+
+        // Initialize all animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            animateProgressBar();
+            animateLEDRing();
+            setupRewardButtons();
         });
 
-        // Add some visual flair to section transitions
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.hero::before');
-            if (parallax) {
-                const speed = scrolled * 0.5;
-                parallax.style.transform = `translateY(${speed}px)`;
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const overlay = document.getElementById('mobileNavOverlay');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (overlay.classList.contains('active') && 
+                !overlay.contains(e.target) && 
+                !mobileMenu.contains(e.target)) {
+                closeMobileMenu();
             }
         });
-    </script>ySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const heroOverlay = document.querySelector('.hero-overlay');
+            if (heroOverlay) {
+                const speed = scrolled * 0.2;
+                heroOverlay.style.transform = `translateY(${speed}px)`;
+            }
         });
-
-        // Scroll animations
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.scroll-animate');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                if (elementTop < window.innerHeight - 100) {
-                    element.classList.add('animate');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll();
-
-        // LED ring animation
-        function animateLEDRing() {
-            const ledRing = document.querySelector('.led-ring');
-            const colors = ['🔒', '✅', '❌', '⚡'];
-            const statuses = ['READY', 'ACCESS GRANTED', 'ACCESS DENIED', 'PAIRING'];
-            let currentIndex = 0;
-
-            setInterval(() => {
-                if (ledRing) {
-                    ledRing.textContent = colors[currentIndex];
-                    document.querySelector('.demo-status').textContent = statuses[currentIndex];
-                    currentIndex = (currentIndex + 1) % colors.length;
-                }
-            }, 3000);
-        }
-
-        animateLEDRing();
-
-        // Reward selection handlers
-        document.querySelectorAll('.reward-card .btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const rewardType = this.closest('.reward-card').querySelector('h3').textContent;
-                alert(`Thank you for your interest in ${rewardType}! 
-                
-This would redirect to the actual Kickstarter campaign page where you can pledge your support.
-                
-For now, you can contact Kent directly:
-Email: KentStone@gmail.com
-Phone: +51 945 012 953`);
-            });
-        });
-
-        // Update progress bar animation
-        setTimeout(() => {
-            document.querySelector('.progress-fill').style.transition = 'width 2s ease-out';
-            document.querySelector('.progress-fill').style.width = '60%';
-        }, 1000);
     </script>
 </body>
 </html>
