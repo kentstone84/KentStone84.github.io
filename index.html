@@ -29,7 +29,7 @@
             background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
         }
         .glow {
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.7);
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
             transition: all 0.3s ease;
         }
         .card-hover {
@@ -38,9 +38,33 @@
         .card-hover:hover {
             transform: translateY(-5px);
         }
-        .card-hover.glow:hover {
-            box-shadow: 0 0 25px rgba(139, 92, 246, 0.9);
+        /* Rainbow Glow Animation */
+        @keyframes rgb-glow {
+            0% {
+                box-shadow: 0 0 10px #ff0000, 0 0 20px #00ff00, 0 0 30px #0000ff;
+            }
+            25% {
+                box-shadow: 0 0 10px #ff9900, 0 0 20px #33cc33, 0 0 30px #0099ff;
+            }
+            50% {
+                box-shadow: 0 0 10px #33cc33, 0 0 20px #0099ff, 0 0 30px #ff00ff;
+            }
+            75% {
+                box-shadow: 0 0 10px #0099ff, 0 0 20px #ff00ff, 0 0 30px #ff9900;
+            }
+            100% {
+                box-shadow: 0 0 10px #ff0000, 0 0 20px #00ff00, 0 0 30px #0000ff;
+            }
         }
+        .glow-rainbow {
+            box-shadow: 0 0 10px #8b5cf6;
+            transition: all 0.3s ease;
+        }
+        .glow-rainbow:hover {
+            animation: rgb-glow 3s linear infinite;
+            transform: translateY(-5px) scale(1.02);
+        }
+
         .feature-icon {
             width: 50px;
             height: 50px;
@@ -85,8 +109,8 @@
                     The Future of Passwordless Login.
                 </p>
                 <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
-                    <a href="#campaign" class="bg-white text-gray-900 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition duration-300 glow">Back Now</a>
-                    <a href="#video" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-gray-900 transition duration-300 glow">Watch Video</a>
+                    <a href="#campaign" class="bg-white text-gray-900 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition duration-300 glow glow-rainbow">Back Now</a>
+                    <a href="#video" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-gray-900 transition duration-300 glow glow-rainbow">Watch Video</a>
                 </div>
             </div>
         </div>
@@ -101,21 +125,21 @@
                 <p class="mt-4 text-gray-300 max-w-xl mx-auto">From gamers to the elderly, traditional passwords are cumbersome, insecure, and obsolete.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-700 p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow" data-aos="fade-up" data-aos-delay="100">
                     <div class="text-purple-500 mb-4">
                         <i data-feather="user" class="w-12 h-12"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Elderly Struggle</h3>
                     <p class="text-gray-300">Typing and remembering complex passwords is nearly impossible for many seniors.</p>
                 </div>
-                <div class="bg-gray-700 p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow" data-aos="fade-up" data-aos-delay="200">
                     <div class="text-purple-500 mb-4">
                         <i data-feather="monitor" class="w-12 h-12"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Gamer Frustration</h3>
                     <p class="text-gray-300">Typing passwords interrupts the gaming experience and breaks immersion.</p>
                 </div>
-                <div class="bg-gray-700 p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow" data-aos="fade-up" data-aos-delay="300">
                     <div class="text-purple-500 mb-4">
                         <i data-feather="briefcase" class="w-12 h-12"></i>
                     </div>
@@ -129,7 +153,7 @@
     <!-- Video Section -->
     <section id="video" class="py-12 md:py-24 bg-gray-900">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto bg-gray-800 rounded-xl overflow-hidden glow" data-aos="fade-up">
+            <div class="max-w-4xl mx-auto bg-gray-800 rounded-xl overflow-hidden glow glow-rainbow" data-aos="fade-up">
                 <div class="aspect-video relative">
                     <img src="https://huggingface.co/spaces/bodhistone/my-site/resolve/main/images/lockstone-video-poster.jpg" alt="LockStone Video" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
                     <i data-feather="play" class="w-20 h-20 text-purple-500 absolute inset-0 m-auto"></i>
@@ -183,21 +207,21 @@
                 <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-gray-800 p-8 rounded-xl card-hover glow" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-gray-800 p-8 rounded-xl card-hover glow glow-rainbow" data-aos="fade-up" data-aos-delay="100">
                     <div class="text-purple-500 mb-4">
                         <i data-feather="cpu" class="w-12 h-12"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">RFID Reader</h3>
                     <p class="text-gray-300">Secure RC522 reader that works with standard RFID tags and cards.</p>
                 </div>
-                <div class="bg-gray-800 p-8 rounded-xl card-hover glow" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-gray-800 p-8 rounded-xl card-hover glow glow-rainbow" data-aos="fade-up" data-aos-delay="200">
                     <div class="text-purple-500 mb-4">
                         <i data-feather="code" class="w-12 h-12"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Cross-Platform</h3>
                     <p class="text-gray-300">Works on macOS, Windows, and Linux with easy-to-use software.</p>
                 </div>
-                <div class="bg-gray-800 p-8 rounded-xl card-hover glow" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-gray-800 p-8 rounded-xl card-hover glow glow-rainbow" data-aos="fade-up" data-aos-delay="300">
                     <div class="text-purple-500 mb-4">
                         <i data-feather="shield" class="w-12 h-12"></i>
                     </div>
@@ -217,7 +241,7 @@
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- $25 Tier -->
-                <div class="bg-gray-700 p-8 rounded-xl card-hover glow" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-xl font-bold mb-2">$25 – Tap. Glow. Access.</h3>
                     <ul class="text-gray-300 list-disc list-inside space-y-2">
                         <li>Exclusive LockStone stickers + t-shirt</li>
@@ -226,7 +250,7 @@
                 </div>
 
                 <!-- $79 Tier -->
-                <div class="bg-gray-700 p-8 rounded-xl card-hover glow" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="text-xl font-bold mb-2">$79 – Early Access LockStone (Early Bird)</h3>
                     <ul class="text-gray-300 list-disc list-inside space-y-2">
                         <li>1x RFID Reader + Software</li>
@@ -235,7 +259,7 @@
                 </div>
 
                 <!-- $99 Tier -->
-                <div class="bg-gray-700 p-8 rounded-xl card-hover glow" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow" data-aos="fade-up" data-aos-delay="300">
                     <h3 class="text-xl font-bold mb-2">$99 – Gamer Pack</h3>
                     <ul class="text-gray-300 list-disc list-inside space-y-2">
                         <li>1x LockStone RFID Reader + Software</li>
@@ -245,7 +269,7 @@
                 </div>
 
                 <!-- $129 Tier -->
-                <div class="bg-gray-700 p-8 rounded-xl card-hover glow" data-aos="fade-up" data-aos-delay="400">
+                <div class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow" data-aos="fade-up" data-aos-delay="400">
                     <h3 class="text-xl font-bold mb-2">$129 – Pendant Pack</h3>
                     <ul class="text-gray-300 list-disc list-inside space-y-2">
                         <li>1x LockStone RFID Reader + Software</li>
@@ -255,7 +279,7 @@
                 </div>
 
                 <!-- $149 Tier -->
-                <div class="bg-gray-700 p-8 rounded-xl card-hover glow" data-aos="fade-up" data-aos-delay="500">
+                <div class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow" data-aos="fade-up" data-aos-delay="500">
                     <h3 class="text-xl font-bold mb-2">$149 – Business Starter Pack</h3>
                     <ul class="text-gray-300 list-disc list-inside space-y-2">
                         <li>2x LockStone Readers</li>
@@ -275,23 +299,22 @@
                 <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-800 p-8 rounded-xl card-hover glow" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-gray-800 p-8 rounded-xl card-hover glow glow-rainbow" data-aos="fade-up" data-aos-delay="100">
                     <p class="text-gray-300 italic">"LockStone changed the way I access my computer—finally no more passwords!"</p>
                     <p class="mt-4 font-bold">— Sarah P., Gamer</p>
                 </div>
-                <div class="bg-gray-800 p-8 rounded-xl card-hover glow" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-gray-800 p-8 rounded-xl card-hover glow glow-rainbow" data-aos="fade-up" data-aos-delay="200">
                     <p class="text-gray-300 italic">"As an elderly user, this is so easy and intuitive. I love it!"</p>
                     <p class="mt-4 font-bold">— John K., Retired Teacher</p>
                 </div>
-                <div class="bg-gray-800 p-8 rounded-xl card-hover glow" data-aos="fade-up" data-aos-delay="300">
-                    <p class="text-gray-300 italic">"Our office security improved instantly with LockStone."</p>
-                    <p class="mt-4 font-bold">— Emily R., CTO</p>
+                <div class="bg-gray-800 p-8 rounded-xl card-hover glow glow-rainbow" data-aos="fade-up" data-aos-delay="300">
+                    <p class="text-gray-300 italic">"Our business loves the simplicity and security. No more shared passwords!"</p>
+                    <p class="mt-4 font-bold">— Lisa M., Entrepreneur</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- FAQ Section -->
+   <!-- FAQ Section -->
     <section id="faq" class="py-12 md:py-24 bg-gray-800">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -353,35 +376,22 @@
             </form>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-12">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <p>&copy; 2025 LockStone. All rights reserved.</p>
-            <div class="flex justify-center space-x-4 mt-4">
-                <a href="#" class="hover:text-white transition duration-300"><i data-feather="twitter"></i></a>
-                <a href="#" class="hover:text-white transition duration-300"><i data-feather="instagram"></i></a>
-                <a href="#" class="hover:text-white transition duration-300"><i data-feather="github"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
     <script>
-        AOS.init({ once: true });
+        AOS.init();
         feather.replace();
+
         VANTA.GLOBE({
             el: "#vanta-bg",
             mouseControls: true,
             touchControls: true,
             minHeight: 200.00,
             minWidth: 200.00,
-            scale: 1.0,
-            scaleMobile: 1.0,
+            scale: 1.00,
+            scaleMobile: 1.00,
             color: 0x8b5cf6,
-            backgroundColor: 0x111111
+            color2: 0xec4899,
+            size: 1.20
         });
     </script>
-
 </body>
 </html>
