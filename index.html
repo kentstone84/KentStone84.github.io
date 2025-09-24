@@ -3,934 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LockStone - Passwords Are Dead | Back Us on Kickstarter</title>
-    <meta name="description" content="Back LockStone on Kickstarter - The RFID scanner that kills passwords forever. Gamer-ready, business-ready, senior-friendly. One swipe unlocks everything.">
-    
-    <!-- Social Media Meta Tags -->
-    <meta property="og:title" content="LockStone - Passwords Are Dead | Back Us on Kickstarter">
-    <meta property="og:description" content="The RFID scanner that kills passwords forever. Tap. Glow. Access. Built by Army veteran Kent Stone in Peru.">
-    <meta property="og:image" content="assets/images/lockstone-social-banner.jpg">
-    <meta property="og:url" content="https://yourdomain.com/lockstone">
-    <meta property="og:type" content="website">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="LockStone - Passwords Are Dead">
-    <meta name="twitter:description" content="RFID scanner with LED feedback. Gamer-ready, business-ready, senior-friendly. Back us on Kickstarter!">
-    <meta name="twitter:image" content="assets/images/lockstone-social-banner.jpg">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <title>LockStone: The Future of Passwordless Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
     <style>
-        :root {
-            --neon-green: #00ff41;
-            --neon-blue: #00d4ff;
-            --neon-gold: #ffd700;
-            --deep-black: #0a0a0a;
-            --dark-gray: #1a1a1a;
-            --light-gray: #e5e7eb;
-            --danger-red: #ff1744;
+        .hero-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .glow {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.7);
         }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--deep-black);
-            color: white;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* LED Glow Animations */
-        @keyframes ledGlow {
-            0%, 100% { box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green); }
-            50% { box-shadow: 0 0 20px var(--neon-green), 0 0 40px var(--neon-green); }
-        }
-
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.8; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
-        }
-
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes typewriter {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink {
-            0%, 50% { border-right-color: var(--neon-green); }
-            51%, 100% { border-right-color: transparent; }
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 255, 65, 0.2);
-            padding: 1rem 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--neon-green);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo::before {
-            content: "🔒";
-            font-size: 1.5rem;
-            animation: pulseGlow 2s infinite;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 4px;
-            padding: 0.5rem;
-        }
-
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: var(--neon-green);
+        .card-hover {
             transition: all 0.3s ease;
         }
-
-        .mobile-nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(20px);
-            z-index: 9999;
-            display: none;
-            padding-top: 80px;
-        }
-
-        .mobile-nav-overlay.active {
-            display: block;
-        }
-
-        .mobile-nav-links {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-            padding: 2rem;
-        }
-
-        .mobile-nav-links a {
-            color: var(--light-gray);
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 600;
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-nav-links a:hover {
-            color: var(--neon-green);
-            background: rgba(0, 255, 65, 0.1);
-        }
-
-        .nav-links a {
-            color: var(--light-gray);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-        }
-
-        .nav-links a:hover {
-            color: var(--neon-green);
-            background: rgba(0, 255, 65, 0.1);
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
-        }
-
-        /* Hero Section */
-       .hero {
-  position: relative;
-  padding: 6rem 2rem;
-  color: #fff;
-  background: #000;
-  overflow: hidden;
-}
-.hero-overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: radial-gradient(circle at top left, rgba(0,255,65,0.2), transparent 70%),
-              radial-gradient(circle at bottom right, rgba(0,200,255,0.2), transparent 70%);
-  z-index: 1;
-}
-.hero-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  z-index: 2;
-}
-.hero-text {
-  flex: 1 1 45%;
-  padding: 2rem;
-}
-.hero-tagline {
-  font-size: 2rem;
-  text-transform: uppercase;
-  color: var(--neon-green, #00ff41);
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
-}
-.hero-title {
-  font-size: 3rem;
-  font-weight: 900;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 20px rgba(0, 255, 65, 0.9), 0 0 40px rgba(0, 200, 255, 0.8);
-  position: relative;
-  z-index: 10;
-}
-.lockstone-glow {
-  color: var(--neon-blue, #00eaff);
-  animation: flicker 2.5s infinite alternate;
-}
-.hero-quote {
-  color: var(--neon-blue, #00eaff);
-  font-size: 1.3rem;
-  font-style: italic;
-  margin-bottom: 1rem;
-  font-family: 'Orbitron', monospace;
-}
-.hero-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-.cta-buttons {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-.btn {
-  padding: 0.9rem 1.5rem;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-.btn-primary {
-  background: var(--neon-green, #00ff41);
-  color: #000;
-  box-shadow: 0 0 20px rgba(0, 255, 65, 0.8);
-}
-.btn-primary:hover {
-  background: #00cc33;
-}
-.btn-secondary {
-  border: 2px solid var(--neon-blue, #00eaff);
-  color: var(--neon-blue, #00eaff);
-}
-.btn-secondary:hover {
-  background: rgba(0, 234, 255, 0.1);
-}
-.hero-stats {
-  display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
-  font-size: 1rem;
-}
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.product-demo {
-  flex: 1 1 45%;
-  padding: 2rem;
-}
-.demo-box {
-  text-align: center;
-  margin-top: 2rem;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 1.5rem;
-  border-radius: 15px;
-  border: 1px solid rgba(0, 255, 65, 0.3);
-}
-.demo-status {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: var(--neon-green, #00ff41);
-  text-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
-}
-.demo-subtext {
-  color: #ccc;
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
-}
-/* Animations */
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 20px 40px rgba(0, 255, 65, 0.2); }
-  50% { box-shadow: 0 20px 60px rgba(0, 255, 65, 0.6); }
-}
-@keyframes flicker {
-  0% { opacity: 1; text-shadow: 0 0 20px rgba(0, 234, 255, 0.9), 0 0 40px rgba(0, 200, 255, 0.8); }
-  45% { opacity: 0.8; text-shadow: 0 0 10px rgba(0, 234, 255, 0.6); }
-  55% { opacity: 1; text-shadow: 0 0 25px rgba(0, 234, 255, 1), 0 0 50px rgba(0, 200, 255, 0.9); }
-  100% { opacity: 0.9; text-shadow: 0 0 15px rgba(0, 234, 255, 0.7); }
-}
-        /* Features Section */
-        .features {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, var(--dark-gray) 0%, var(--deep-black) 100%);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            background: rgba(0, 255, 65, 0.05);
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .feature-card.animate {
-            opacity: 1;
-            transform: translateY(0);
-            animation: slideInUp 0.6s ease-out;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 255, 65, 0.2);
-            border-color: var(--neon-green);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--neon-green);
-        }
-
-        /* Reward Tiers */
-        .rewards {
-            padding: 6rem 0;
-            background: var(--deep-black);
-        }
-
-        .rewards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .reward-card {
-            background: var(--dark-gray);
-            border: 2px solid transparent;
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .reward-card.featured {
-            border-color: var(--neon-gold);
-            transform: scale(1.05);
-        }
-
-        .reward-card:hover {
-            border-color: var(--neon-green);
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
-        }
-
-        .reward-price {
-            font-family: 'Orbitron', monospace;
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--neon-green);
-            margin-bottom: 1rem;
-        }
-
-        .reward-badge {
-            background: var(--neon-gold);
-            color: var(--deep-black);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            position: absolute;
-            top: -10px;
-            right: 20px;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, var(--dark-gray) 0%, var(--deep-black) 100%);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial-card {
-            background: rgba(0, 255, 65, 0.05);
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .testimonial-quote {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: var(--light-gray);
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--neon-green);
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 6rem 0;
-            background: var(--deep-black);
-        }
-
-        .faq-item {
-            background: var(--dark-gray);
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            border-radius: 15px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            font-weight: 700;
-            color: var(--neon-green);
-            border-bottom: 1px solid rgba(0, 255, 65, 0.1);
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem 1.5rem;
-            color: var(--light-gray);
-            line-height: 1.7;
-        }
-
-        /* Roadmap */
-        .roadmap {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, var(--dark-gray) 0%, var(--deep-black) 100%);
-        }
-
-        .roadmap-timeline {
-            margin-top: 3rem;
-        }
-
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding: 2rem;
-            background: rgba(0, 255, 65, 0.05);
-            border-radius: 15px;
-            border-left: 4px solid var(--neon-green);
-        }
-
-        .timeline-date {
-            font-family: 'Orbitron', monospace;
-            font-weight: 900;
-            color: var(--neon-gold);
-            min-width: 120px;
-            font-size: 1.1rem;
-        }
-
-        /* Section Titles */
-        .section-title {
-            font-family: 'Orbitron', monospace;
-            font-size: clamp(2.5rem, 4vw, 4rem);
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--neon-green) 0%, var(--neon-blue) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--light-gray);
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Share Buttons */
-        .share-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 3rem 0;
-        }
-
-        .share-btn {
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .share-twitter {
-            background: #1da1f2;
-            color: white;
-        }
-
-        .share-facebook {
-            background: #4267b2;
-            color: white;
-        }
-
-        .share-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--deep-black);
-            border-top: 1px solid rgba(0, 255, 65, 0.2);
-            padding: 4rem 0 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            color: var(--neon-green);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section ul li a {
-            color: var(--light-gray);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: var(--neon-green);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .cta-buttons {
-                justify-content: center;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .progress-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .rewards-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Scroll animations */
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .scroll-animate.animate {
-            opacity: 1;
-            transform: translateY(0);
+        .card-hover:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="nav-content">
-                <a href="#" class="logo">LockStone</a>
-                <ul class="nav-links">
-                    <li><a href="#demo">Demo</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#rewards">Rewards</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#roadmap">Roadmap</a></li>
-                </ul>
-                <div class="mobile-menu" onclick="toggleMobileMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+<body class="bg-gray-900 text-white">
+    <!-- Hero Section with Vanta.js Background -->
+    <div id="hero" class="relative overflow-hidden hero-gradient min-h-screen flex items-center">
+        <div class="absolute inset-0" id="vanta-bg"></div>
+        <div class="container mx-auto px-6 relative z-10 py-20">
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">LockStone</h1>
+                <p class="text-2xl md:text-3xl font-light mb-8">Tap. Don't Type. The Future of Logging In.</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#campaign" class="bg-white text-gray-900 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition duration-300">Back Now</a>
+                    <a href="#video" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-gray-900 transition duration-300">Watch Video</a>
                 </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Navigation Overlay -->
-    <div class="mobile-nav-overlay" id="mobileNavOverlay">
-        <div class="mobile-nav-links">
-            <a href="#demo" onclick="closeMobileMenu()">Demo</a>
-            <a href="#features" onclick="closeMobileMenu()">Features</a>
-            <a href="#rewards" onclick="closeMobileMenu()">Rewards</a>
-            <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-            <a href="#roadmap" onclick="closeMobileMenu()">Roadmap</a>
-            <div style="margin-top: 2rem;">
-                <a href="#rewards" class="btn btn-primary" onclick="closeMobileMenu()">Back Us on Kickstarter</a>
             </div>
         </div>
     </div>
 
-    <!-- Hero Section -->
-<section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1 class="hero-tagline">Passwords Are Dead</h1>
-        
-        <!-- Fixed + Enhanced Title -->
-        <h2 class="hero-title">Meet <span class="lockstone-glow">LockStone</span></h2>
-        
-        <p class="hero-quote">
-          "Tap. Glow. Access. The cyberpunk way to unlock your world."
-        </p>
-        
-        <p class="hero-subtitle">
-          Unlock your computer with RFID — gamer-ready, business-ready, senior-friendly. 
-          One swipe grants access. No passwords, no delays, just pure command center vibes with LED feedback.
-        </p>
-        
-        <div class="cta-buttons">
-          <a href="#rewards" class="btn btn-primary">🚀 Back Us on Kickstarter</a>
-          <a href="#demo" class="btn btn-secondary">▶️ Watch Demo</a>
-        </div>
-        
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span>⚡</span>
-            <span>0.1s unlock speed</span>
-          </div>
-          <div class="stat-item">
-            <span>🛡️</span>
-            <span>Military-grade security</span>
-          </div>
-          <div class="stat-item">
-            <span>💀</span>
-            <span>Zero password fatigue</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="product-demo">
-        <div style="max-width: 400px; margin: 0 auto;">
-          <img src="assets/images/lockstone-hero-device.jpg" 
-               alt="LockStone RFID Scanner with Rainbow LED Ring in action" 
-               style="width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 255, 65, 0.3); animation: pulseGlow 3s infinite;" />
-          
-          <div class="demo-box">
-            <div class="demo-status">ACCESS GRANTED</div>
-            <p class="demo-subtext">16 LED ring shows authentication status in real-time</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <!-- Kickstarter Progress -->
-    <section class="kickstarter-progress">
-        <div class="container">
-            <div class="progress-bar">
-                <div class="progress-fill" style="width: 0%;"></div>
+    <!-- Problem Section -->
+    <section id="problem" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4">Passwords Are Broken</h2>
+                <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
             </div>
-            <div class="progress-stats">
-                <div>
-                    <div class="stat-number" id="pledgedAmount">$0</div>
-                    <div style="color: #ccc;">pledged of $15,000 goal</div>
-                </div>
-                <div>
-                    <div class="stat-number" id="backerCount">0</div>
-                    <div style="color: #ccc;">backers</div>
-                </div>
-                <div>
-                    <div class="stat-number" id="daysLeft">30</div>
-                    <div style="color: #ccc;">days to go</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Demo -->
-    <section id="demo" class="video-demo">
-        <div class="container">
-            <h2 class="section-title">See It In Action</h2>
-            <p class="section-subtitle">
-                Watch the LED ring respond to authentication and see instant computer unlock
-            </p>
-            <div class="video-container">
-                <video 
-                    controls 
-                    autoplay 
-                    muted 
-                    loop 
-                    style="width: 100%; border-radius: 20px; box-shadow: 0 0 40px rgba(0, 255, 65, 0.3);"
-                    poster="assets/images/lockstone-video-poster.jpg">
-                    <source src="assets/video/lockstone.mp4" type="video/mp4">
-                    Your browser does not support the video tag. <a href="assets/video/lockstone.mp4">Download the demo video instead</a>.
-                </video>
-                <div style="text-align: center; margin-top: 1rem; color: #ccc; font-size: 0.9rem;">
-                    Watch the LED ring respond to different authentication states in real-time
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Founder's Story -->
-    <section style="padding: 6rem 0; background: linear-gradient(135deg, var(--dark-gray) 0%, var(--deep-black) 100%);">
-        <div class="container">
-            <h2 class="section-title">Why LockStone Exists</h2>
-            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; max-width: 1000px; margin: 3rem auto 0;">
-                <div style="text-align: center;">
-                    <div style="width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--neon-green) 0%, var(--neon-blue) 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 4rem; color: var(--deep-black);">👨‍💻</div>
-                    <h3 style="color: var(--neon-green); font-family: 'Orbitron', monospace; font-size: 1.5rem; margin-bottom: 0.5rem;">Kent Stone</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">U.S. Army Veteran<br>Cave Diver • Software Developer<br>Handcrafting in Peru</p>
-                    <div style="margin-top: 1rem; display: flex; gap: 0.5rem; justify-content: center; font-size: 0.8rem; color: var(--neon-gold);">
-                        <span>🪖 Army Veteran</span>
-                        <span>🌍 74 Countries</span>
-                        <span>🤿 Cave Diver</span>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-700 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-purple-500 mb-4">
+                        <i data-feather="user" class="w-12 h-12"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-3">Elderly Struggle</h3>
+                    <p class="text-gray-300">Typing and remembering complex passwords is nearly impossible for many seniors.</p>
                 </div>
-                <div style="color: #ccc; line-height: 1.7;">
-                    <p style="margin-bottom: 1.5rem; color: var(--neon-blue); font-style: italic;">
-                        "Technology should give people freedom — not take it away."
-                    </p>
-                    <p style="margin-bottom: 1.5rem;">
-                        I grew up on a farm in Oklahoma, shipped out with the U.S. Army at eighteen, and deployed to Iraq in 2005. 
-                        After medical issues forced me to reimagine my life, I sold everything and traveled through 74 countries — 
-                        becoming a divemaster in Peru, a cave diver in Mexico, and eventually a software developer.
-                    </p>
-                    <p style="margin-bottom: 1.5rem;">
-                        In May 2024, I spent five weeks in intensive care with complete amnesia. Coming back from that, 
-                        even simple things like typing or remembering my computer password became a daily struggle.
-                    </p>
-                    <p style="margin-bottom: 1.5rem; color: var(--neon-green);">
-                        <strong>So I built myself a tool</strong> — a small RFID scanner with a glowing LED ring that would let me 
-                        access my computer with a tap, instead of fumbling through passwords my body couldn't trust.
-                    </p>
-                    <p>
-                        That's how LockStone was born: from necessity, resilience, and the belief that when life gets 
-                        complicated, our technology should get simpler.
-                    </p>
+                <div class="bg-gray-700 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-purple-500 mb-4">
+                        <i data-feather="monitor" class="w-12 h-12"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Gamer Frustration</h3>
+                    <p class="text-gray-300">Typing passwords interrupts the gaming experience and breaks immersion.</p>
+                </div>
+                <div class="bg-gray-700 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-purple-500 mb-4">
+                        <i data-feather="briefcase" class="w-12 h-12"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Business Headaches</h3>
+                    <p class="text-gray-300">Shared logins and password resets create security risks and inefficiencies.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Product Comparison Section -->
-    <section style="padding: 6rem 0; background: var(--deep-black);">
-        <div class="container">
-            <h2 class="section-title">Choose Your Edition</h2>
-            <p class="section-subtitle">Same powerful technology, designed for different environments</p>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin: 4rem 0; align-items: center;">
-                <div style="text-align: center;">
-                    <img src="assets/images/gamer-vs-business-comparison.jpg" alt="LockStone Gamer Edition with rainbow LED ring vs Business Edition with discrete LED bar" style="width: 100%; max-width: 600px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 255, 65, 0.2);" />
-                    <h3 style="color: var(--neon-green); font-family: 'Orbitron', monospace; margin: 2rem 0 1rem; font-size: 2rem;">Two Worlds, One Solution</h3>
-                </div>
-                <div>
-                    <div style="margin-bottom: 3rem;">
-                        <h4 style="color: var(--neon-gold); font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                            🎮 Gamer Edition
-                        </h4>
-                        <p style="color: #ccc; line-height: 1.7; margin-bottom: 1rem;">
-                            Full rainbow LED ring for maximum visual impact. Perfect for streamers, content creators, and gaming enthusiasts who want that epic command center aesthetic.
-                        </p>
-                        <ul style="color: #e5e7eb; list-style: none; margin-left: 1rem;">
-                            <li style="margin-bottom: 0.5rem;">• 16 individually addressable RGB LEDs</li>
-                            <li style="margin-bottom: 0.5rem;">• Custom animation patterns</li>
-                            <li style="margin-bottom: 0.5rem;">• Stream-friendly visual feedback</li>
-                            <li style="margin-bottom: 0.5rem;">• Cyberpunk aesthetic design</li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h4 style="color: var(--neon-blue); font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                            🏢 Business Edition
-                        </h4>
-                        <p style="color: #ccc; line-height: 1.7; margin-bottom: 1rem;">
-                            Subtle LED indicator for professional environments. Same powerful functionality with a more corporate-friendly appearance.
-                        </p>
-                        <ul style="color: #e5e7eb; list-style: none; margin-left: 1rem;">
-                            <li style="margin-bottom: 0.5rem;">• Professional discrete LED bar</li>
-                            <li style="margin-bottom: 0.5rem;">• Time tracking integration</li>
-                            <li style="margin-bottom: 0.5rem;">• Admin dashboard included</li>
-                            <li style="margin-bottom: 0.5rem;">• Corporate deployment ready</li>
-                        </ul>
+    <!-- Video Section -->
+    <section id="video" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-gray-800 rounded-xl overflow-hidden glow" data-aos="fade-up">
+                <div class="aspect-w-16 aspect-h-9">
+                    <div class="w-full h-0 pb-[56.25%] relative">
+                        <div class="absolute inset-0 bg-gray-700 flex items-center justify-center">
+                            <i data-feather="play" class="w-20 h-20 text-purple-500"></i>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Internal components showcase -->
-            <div style="text-align: center; margin-top: 4rem;">
-                <img src="assets/images/lockstone-internal-components.jpg" alt="LockStone internal components showing Arduino Nano, NeoPixel LED ring, and custom PCB assembly" style="width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 255, 65, 0.2);" />
-                <h3 style="color: var(--neon-green); margin: 2rem 0 1rem; font-family: 'Orbitron', monospace;">Handcrafted Arduino Engineering</h3>
-                <p style="color: #ccc; max-width: 600px; margin: 0 auto; line-height: 1.7;">
-                    Every LockStone is individually assembled with premium components, Arduino Nano microcontroller, and custom PCB design for maximum reliability. Built by hand in Kent's workshop in Peru.
-                </p>
-            </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section style="padding: 6rem 0; background: var(--deep-black);">
-        <div class="container">
-            <h2 class="section-title">How LockStone Works</h2>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 3rem 0; text-align: center;">
-                <div style="padding: 2rem; background: rgba(0, 255, 65, 0.05); border-radius: 20px; border: 1px solid rgba(0, 255, 65, 0.2);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-green);">💳</div>
-                    <h3 style="color: var(--neon-green); margin-bottom: 1rem;">1. Tap Card</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">Present your RFID card or bracelet pendant to LockStone</p>
+    <!-- Solution Section -->
+    <section id="solution" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <img src="http://static.photos/technology/640x360/42" alt="LockStone Device" class="rounded-xl glow w-full">
                 </div>
-                <div style="padding: 2rem; background: rgba(0, 212, 255, 0.05); border-radius: 20px; border: 1px solid rgba(0, 212, 255, 0.2);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-blue);">💡</div>
-                    <h3 style="color: var(--neon-blue); margin-bottom: 1rem;">2. LED Feedback</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">16 NeoPixel LEDs show authentication status in real-time</p>
-                </div>
-                <div style="padding: 2rem; background: rgba(255, 215, 0, 0.05); border-radius: 20px; border: 1px solid rgba(255, 215, 0, 0.2);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-gold);">🔐</div>
-                    <h3 style="color: var(--neon-gold); margin-bottom: 1rem;">3. Secure Auth</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">AES-256 encryption validates your credentials instantly</p>
-                </div>
-                <div style="padding: 2rem; background: rgba(0, 255, 65, 0.05); border-radius: 20px; border: 1px solid rgba(0, 255, 65, 0.2);">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--neon-green);">💻</div>
-                    <h3 style="color: var(--neon-green); margin-bottom: 1rem;">4. Instant Access</h3>
-                    <p style="color: #ccc; font-size: 0.9rem;">Computer unlocks in 0.1 seconds via USB-HID protocol</p>
-                </div>
-            </div>
-            
-            <!-- Technical Specs Table -->
-            <div style="max-width: 600px; margin: 4rem auto 0; background: var(--dark-gray); border-radius: 20px; padding: 2rem; border: 1px solid rgba(0, 255, 65, 0.2);">
-                <h3 style="color: var(--neon-green); text-align: center; margin-bottom: 2rem; font-family: 'Orbitron', monospace;">Technical Specifications</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; color: #ccc;">
-                    <div><strong style="color: var(--neon-blue);">Interface:</strong> USB-C</div>
-                    <div><strong style="color: var(--neon-blue);">Response Time:</strong> 0.1 seconds</div>
-                    <div><strong style="color: var(--neon-blue);">LEDs:</strong> 16 NeoPixels (custom animations)</div>
-                    <div><strong style="color: var(--neon-blue);">Range:</strong> 10cm RFID detection</div>
-                    <div><strong style="color: var(--neon-blue);">OS Support:</strong> Windows / macOS / Linux</div>
-                    <div><strong style="color: var(--neon-blue);">Security:</strong> AES-256 encryption</div>
-                    <div><strong style="color: var(--neon-blue);">Hardware:</strong> Arduino Nano + custom PCB</div>
-                    <div><strong style="color: var(--neon-blue);">SDK:</strong> Python API with full source</div>
-                </div>
-                <div style="margin-top: 2rem; padding: 1rem; background: rgba(0, 255, 65, 0.1); border-radius: 10px; text-align: center;">
-                    <div style="display: flex; justify-content: center; gap: 2rem; font-size: 0.9rem; color: var(--neon-green);">
-                        <span>🔧 Built with Arduino</span>
-                        <span>🏆 Veteran-Owned</span>
-                        <span>🇵🇪 Made in Peru</span>
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <h2 class="text-4xl font-bold mb-6">How LockStone Works</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-purple-500 rounded-full p-2 mr-4 mt-1">
+                                <i data-feather="usb" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">1. Plug In</h3>
+                                <p class="text-gray-300">Insert LockStone into any USB port on your computer.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-500 rounded-full p-2 mr-4 mt-1">
+                                <i data-feather="credit-card" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">2. Tap Your Card</h3>
+                                <p class="text-gray-300">Use your RFID card, bracelet, or necklace to authenticate.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-500 rounded-full p-2 mr-4 mt-1">
+                                <i data-feather="check-circle" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">3. You're In</h3>
+                                <p class="text-gray-300">No typing. No remembering. Just instant access.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -938,482 +133,230 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title">Why LockStone Changes Everything</h2>
-            <p class="section-subtitle">Built for gamers, hackers, and businesses who demand more than ordinary security</p>
-            
-            <div class="features-grid">
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">🎮</div>
-                    <h3>Gaming Command Center</h3>
-                    <p>Transform your battlestation. Swipe to unlock during streams, raids, or clutch moments. No password fumbling ever again.</p>
+    <section id="features" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4">LockStone Features</h2>
+                <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-purple-500 mb-4">
+                        <i data-feather="cpu" class="w-12 h-12"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">RFID Reader</h3>
+                    <p class="text-gray-300">Secure RC522 reader that works with standard RFID tags and cards.</p>
                 </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">🏢</div>
-                    <h3>IT Helpdesk Killer</h3>
-                    <p>Eliminate 80% of password reset tickets. Built-in time tracking. Remote work compatible. Save thousands in IT costs.</p>
+                <div class="bg-gray-800 p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-purple-500 mb-4">
+                        <i data-feather="code" class="w-12 h-12"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cross-Platform</h3>
+                    <p class="text-gray-300">Works on macOS, Windows, and Linux with our easy-to-use software.</p>
                 </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">👵</div>
-                    <h3>Senior-Friendly</h3>
-                    <p>No more forgotten passwords for elderly users. Simple tap-to-unlock with optional bracelet pendant for easy access.</p>
+                <div class="bg-gray-800 p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-purple-500 mb-4">
+                        <i data-feather="refresh-cw" class="w-12 h-12"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Easy Updates</h3>
+                    <p class="text-gray-300">Firmware updates are simple with built-in recovery tools.</p>
                 </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">💀</div>
-                    <h3>Hacker Aesthetic</h3>
-                    <p>16 programmable LEDs create matrix-style feedback. Green for access, red for denied, gold for pairing. Pure cyberpunk.</p>
+                <div class="bg-gray-800 p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-purple-500 mb-4">
+                        <i data-feather="zap" class="w-12 h-12"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">LED Feedback</h3>
+                    <p class="text-gray-300">Glowing LED ring shows status: Green = access, Red = denied, Gold = enroll.</p>
                 </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Lightning Fast</h3>
-                    <p>0.1 second response time. USB-C plug & play. Works with Windows, macOS, Linux. No drivers needed.</p>
+                <div class="bg-gray-800 p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-purple-500 mb-4">
+                        <i data-feather="shield" class="w-12 h-12"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Secure</h3>
+                    <p class="text-gray-300">Each device has unique encryption keys for maximum security.</p>
                 </div>
-                
-                <div class="feature-card scroll-animate">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Fort Knox Security</h3>
-                    <p>AES-256 encryption. Military-grade protocols. Your digital fortress remains impenetrable to unauthorized access.</p>
+                <div class="bg-gray-800 p-8 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-purple-500 mb-4">
+                        <i data-feather="users" class="w-12 h-12"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Multi-User</h3>
+                    <p class="text-gray-300">Business version supports unlimited users with access logs.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Reward Tiers -->
-    <section id="rewards" class="rewards">
-        <div class="container">
-            <h2 class="section-title">Choose Your LockStone</h2>
-            <p class="section-subtitle">Early bird pricing available for limited time</p>
-            
-            <div class="rewards-grid">
-                <div class="reward-card">
-                    <div class="reward-price">$79</div>
-                    <h3 style="color: var(--neon-green); margin-bottom: 1rem;">Early Bird Special</h3>
-                    <ul style="text-align: left; color: #ccc; list-style: none;">
-                        <li>✅ LockStone RFID Scanner</li>
-                        <li>✅ 3 Custom PVC Cards</li>
-                        <li>✅ 2 Bracelet Pendants</li>
-                        <li>✅ USB-C Cable</li>
-                        <li>✅ Software & Setup Guide</li>
-                    </ul>
-                    <div style="margin-top: 2rem;">
-                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Select Reward</div>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Save $20 • Ships May 2025</p>
-                </div>
-                
-                <div class="reward-card featured">
-                    <div class="reward-badge">Most Popular</div>
-                    <div class="reward-price">$89</div>
-                    <h3 style="color: var(--neon-gold); margin-bottom: 1rem;">LockStone Standard</h3>
-                    <ul style="text-align: left; color: #ccc; list-style: none;">
-                        <li>✅ LockStone RFID Scanner</li>
-                        <li>✅ 5 Custom PVC Cards</li>
-                        <li>✅ 3 Bracelet Pendants</li>
-                        <li>✅ USB-C Cable</li>
-                        <li>✅ Software & Full SDK</li>
-                        <li>✅ Priority Support</li>
-                    </ul>
-                    <div style="margin-top: 2rem;">
-                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Select Reward</div>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Regular Price $99 • Ships May 2025</p>
-                </div>
-                
-                <div class="reward-card">
-                    <div class="reward-price">$399</div>
-                    <h3 style="color: var(--neon-blue); margin-bottom: 1rem;">Business Pack</h3>
-                    <ul style="text-align: left; color: #ccc; list-style: none;">
-                        <li>✅ 5x LockStone Units</li>
-                        <li>✅ 25 Employee Cards</li>
-                        <li>✅ Admin Dashboard</li>
-                        <li>✅ Time Tracking Software</li>
-                        <li>✅ 1-Year Support</li>
-                        <li>✅ Custom Branding</li>
-                    </ul>
-                    <div style="margin-top: 2rem;">
-                        <div class="btn btn-primary" style="width: 100%; text-align: center; cursor: pointer;">Contact Sales</div>
-                    </div>
-                    <p style="font-size: 0.9rem; color: #888; margin-top: 1rem;">Save $46 vs Individual • Ships June 2025</p>
-                </div>
+    <!-- Campaign Section -->
+    <section id="campaign" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4">Back LockStone Today</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Join the movement to end password frustration forever.</p>
+                <div class="w-24 h-1 bg-purple-500 mx-auto mt-4"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">What Early Users Say</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card scroll-animate">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #4f46e5, #7c3aed); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">MC</div>
-                        <div>
-                            <div class="testimonial-author">Marcus Chen</div>
-                            <div style="color: var(--neon-gold); font-size: 0.9rem;">🎮 Twitch Streamer, 15K followers</div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Reward Tier 1 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Supporter</h3>
+                        <p class="text-purple-500 text-xl font-bold mb-4">$25+</p>
+                        <p class="text-gray-300 mb-6">Show your support and spread the word.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-purple-500"></i>
+                                <span>Exclusive LockStone stickers</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-purple-500"></i>
+                                <span>LockStone t-shirt</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-lg font-bold transition duration-300">Select Reward</button>
+                    </div>
+                </div>
+                
+                <!-- Reward Tier 2 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Early Bird</h3>
+                        <p class="text-purple-500 text-xl font-bold mb-4">$79</p>
+                        <p class="text-gray-300 mb-6">Get LockStone at our lowest price.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-purple-500"></i>
+                                <span>1x LockStone RFID Reader</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-purple-500"></i>
+                                <span>Software for all platforms</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-purple-500"></i>
+                                <span>1x Custom PVC RFID Card</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-lg font-bold transition duration-300">Select Reward</button>
+                    </div>
+                </div>
+                
+                <!-- Reward Tier 3 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden card-hover glow" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-2xl font-bold">Gamer Pack</h3>
+                            <span class="bg-yellow-500 text-gray-900 text-xs font-bold px-2 py-1 rounded">POPULAR</span>
                         </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        "Finally, my PC feels like a real command center. The LED ring makes me feel like I'm in a sci-fi movie every time I unlock. Stream viewers love it too!"
+                        <p class="text-purple-500 text-xl font-bold mb-4">$99</p>
+                        <p class="text-gray-300 mb-6">Perfect for gamers who want seamless login.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-purple-500"></i>
+                                <span>1x LockStone RFID Reader</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-purple-500"></i>
+                                <span>Software for all platforms</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-purple-500"></i>
+                                <span>1x Custom Printed Gamer ID Card</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-purple-500"></i>
+                                <span>Bonus LED animation mode</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-lg font-bold transition duration-300">Select Reward</button>
                     </div>
                 </div>
                 
-                <div class="testimonial-card scroll-animate">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #059669, #0891b2); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">SR</div>
-                        <div>
-                            <div class="testimonial-author">Sarah Rodriguez</div>
-                            <div style="color: var(--neon-blue); font-size: 0.9rem;">🏢 IT Director, TechCorp</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        "Our IT tickets dropped by 75% after deploying LockStone. Employees love the time tracking feature, and I love not dealing with password resets."
-                    </div>
-                </div>
-                
-                <div class="testimonial-card scroll-animate">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #dc2626, #ea580c); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">DP</div>
-                        <div>
-                            <div class="testimonial-author">David Park</div>
-                            <div style="color: var(--neon-green); font-size: 0.9rem;">👵 Senior Care Advocate</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        "My grandmother can now access her computer without calling me for password help. The bracelet pendant is perfect for her arthritis."
+                <!-- Reward Tier 4 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Business Starter</h3>
+                        <p class="text-purple-500 text-xl font-bold mb-4">$149</p>
+                        <p class="text-gray-300 mb-6">For businesses ready to upgrade security.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-purple-500"></i>
+                                <span>2x LockStone Readers</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-purple-500"></i>
+                                <span>4x Custom PVC ID Cards</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-purple-500"></i>
+                                <span>Business software features</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="w-4 h-4 mr-2 text-purple-500"></i>
+                                <span>All future software updates</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-lg font-bold transition duration-300">Select Reward</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="faq">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div style="max-width: 800px; margin: 3rem auto 0;">
-                <div class="faq-item">
-                    <div class="faq-question">What if I lose my card?</div>
-                    <div class="faq-answer">
-                        Each LockStone can store up to 50 authorized cards. You get multiple cards/pendants with each unit, and you can easily add/remove cards through the admin interface. Lost cards can be instantly deauthorized.
-                    </div>
+    <!-- Future Section -->
+    <section id="future" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-6">The Future of Computer Access</h2>
+                <p class="text-xl text-gray-300 mb-8">Today, LockStone is a Kickstarter project. Tomorrow, it could be the new standard for computer access — just like fingerprint readers are today on high-end laptops.</p>
+                <div class="bg-gray-800 p-8 rounded-xl glow">
+                    <p class="text-2xl font-light italic">"With your support, we'll make passwordless access available to everyone — not just those with expensive laptops."</p>
                 </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Does it work on Windows/Mac/Linux?</div>
-                    <div class="faq-answer">
-                        Yes! LockStone uses USB-HID protocol and works on Windows 10/11, macOS 10.14+, and most Linux distributions. No drivers needed - just plug and play.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Can I customize the LED patterns?</div>
-                    <div class="faq-answer">
-                        Absolutely. The Python SDK gives you full control over the 16 NeoPixel LEDs. Create custom animations, colors, and patterns for different users or events.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">How secure is RFID compared to passwords?</div>
-                    <div class="faq-answer">
-                        LockStone uses AES-256 encrypted communication and secure authentication protocols. Physical cards are much harder to compromise than passwords, and lost cards can be instantly deauthorized.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Can I integrate it with existing systems?</div>
-                    <div class="faq-answer">
-                        Yes! The Python SDK allows integration with Active Directory, LDAP, time tracking systems, and custom applications. Full API documentation included.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Roadmap -->
-    <section id="roadmap" class="roadmap">
-        <div class="container">
-            <h2 class="section-title">Development Roadmap</h2>
-            <div class="roadmap-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Feb 2025</div>
-                    <div>
-                        <h3 style="color: var(--neon-green); margin-bottom: 0.5rem;">Kickstarter Launch</h3>
-                        <p style="color: #ccc;">Campaign goes live with working prototypes and demo videos</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">Mar 2025</div>
-                    <div>
-                        <h3 style="color: var(--neon-blue); margin-bottom: 0.5rem;">Mass Production Begins</h3>
-                        <p style="color: #ccc;">Final hardware optimization, supplier partnerships, quality testing</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">Apr 2025</div>
-                    <div>
-                        <h3 style="color: var(--neon-gold); margin-bottom: 0.5rem;">Software Polish</h3>
-                        <p style="color: #ccc;">Final SDK release, mobile app, advanced integrations</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">May 2025</div>
-                    <div>
-                        <h3 style="color: var(--neon-green); margin-bottom: 0.5rem;">First Units Ship</h3>
-                        <p style="color: #ccc;">Early Bird and Standard rewards ship to backers worldwide</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">Jun 2025</div>
-                    <div>
-                        <h3 style="color: var(--neon-blue); margin-bottom: 0.5rem;">Business Packs Ship</h3>
-                        <p style="color: #ccc;">Enterprise features, bulk orders, custom integrations complete</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Share Section -->
-    <section style="padding: 4rem 0; background: var(--dark-gray);">
-        <div class="container" style="text-align: center;">
-            <h2 style="color: var(--neon-green); margin-bottom: 1rem;">Help Us Reach Our Goal</h2>
-            <p style="color: #ccc; margin-bottom: 2rem;">Share LockStone with friends who hate passwords as much as you do</p>
-            <div class="share-buttons">
-                <a href="https://twitter.com/intent/tweet?text=Check%20out%20LockStone%20-%20the%20RFID%20scanner%20that%20kills%20passwords%20forever!%20%23LockStone%20%23PasswordsAreDead" class="share-btn share-twitter">Share on Twitter</a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://kickstarter.com/lockstone" class="share-btn share-facebook">Share on Facebook</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section style="padding: 6rem 0; background: linear-gradient(135deg, var(--deep-black) 0%, var(--dark-gray) 100%); text-align: center;">
-        <div class="container">
-            <h2 style="font-family: 'Orbitron', monospace; font-size: 3rem; color: var(--neon-green); margin-bottom: 1rem;">Ready to Kill Passwords Forever?</h2>
-            <p style="color: #ccc; font-size: 1.2rem; margin-bottom: 3rem;">Join 127 backers who've already said goodbye to password frustration</p>
-            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-                <a href="#rewards" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.5rem 3rem;">🚀 Back LockStone Now</a>
-                <a href="mailto:KentStone@gmail.com" class="btn btn-secondary" style="font-size: 1.2rem; padding: 1.5rem 3rem;">✉️ Contact Kent</a>
+                <a href="#campaign" class="inline-block mt-10 bg-purple-500 hover:bg-purple-600 text-white px-10 py-4 rounded-full font-bold transition duration-300">Back LockStone Now</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>LockStone</h3>
-                    <p style="color: #ccc; margin-bottom: 1rem;">Handcrafted by Kent Stone in Peru. Inspired by cyberpunk culture and gaming aesthetics.</p>
-                    <p style="color: var(--neon-green); font-size: 0.9rem;">📍 Built in Surquillo, Peru</p>
+    <footer class="bg-gray-800 py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold">LockStone</h3>
+                    <p class="text-gray-400">Tap. Don't Type.</p>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="mailto:KentStone@gmail.com">Email Support</a></li>
-                        <li><a href="tel:+51945012953">Phone: +51 945 012 953</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="/setup-guide">Setup Guide</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Technology</h3>
-                    <ul>
-                        <li><a href="/arduino">Arduino Hardware</a></li>
-                        <li><a href="/python-sdk">Python SDK</a></li>
-                        <li><a href="/api-docs">API Documentation</a></li>
-                        <li><a href="/github">Source Code</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Community</h3>
-                    <ul>
-                        <li><a href="/discord">Discord Server</a></li>
-                        <li><a href="/reddit">Reddit Community</a></li>
-                        <li><a href="/updates">Project Updates</a></li>
-                        <li><a href="/press">Press Kit</a></li>
-                    </ul>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i data-feather="twitter" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i data-feather="facebook" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i data-feather="instagram" class="w-6 h-6"></i>
+                    </a>
                 </div>
             </div>
-            
-            <div style="border-top: 1px solid rgba(0, 255, 65, 0.2); padding-top: 2rem; text-align: center; color: #888;">
-                <p>© 2025 LockStone by Kent Stone • Handcrafted with passion in Peru 🇵🇪</p>
-                <p style="font-size: 0.9rem; margin-top: 0.5rem;">
-                    <a href="/privacy" style="color: var(--neon-green);">Privacy Policy</a> • 
-                    <a href="/terms" style="color: var(--neon-green);">Terms of Service</a>
-                </p>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 LockStone. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const overlay = document.getElementById('mobileNavOverlay');
-            overlay.classList.toggle('active');
-        }
-
-        function closeMobileMenu() {
-            const overlay = document.getElementById('mobileNavOverlay');
-            overlay.classList.remove('active');
-        }
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Scroll animations
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.scroll-animate');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                if (elementTop < window.innerHeight - 100) {
-                    element.classList.add('animate');
-                }
-            });
-
-            // Also animate feature cards
-            const featureCards = document.querySelectorAll('.feature-card');
-            featureCards.forEach(card => {
-                const cardTop = card.getBoundingClientRect().top;
-                if (cardTop < window.innerHeight - 100) {
-                    card.classList.add('animate');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll();
-
-        // LED ring animation cycle
-        function animateLEDRing() {
-            const ledRing = document.querySelector('.led-ring');
-            const statusElement = document.querySelector('.demo-status');
-            
-            if (!ledRing || !statusElement) return;
-            
-            const states = [
-                { icon: '🔒', status: 'READY' },
-                { icon: '✅', status: 'ACCESS GRANTED' },
-                { icon: '❌', status: 'ACCESS DENIED' },
-                { icon: '⚡', status: 'PAIRING' }
-            ];
-            
-            let currentIndex = 0;
-            
-            setInterval(() => {
-                ledRing.textContent = states[currentIndex].icon;
-                statusElement.textContent = states[currentIndex].status;
-                currentIndex = (currentIndex + 1) % states.length;
-            }, 3000);
-        }
-
-        // Animate progress bar and counters
-        function animateProgressBar() {
-            const progressFill = document.querySelector('.progress-fill');
-            const pledgedAmount = document.getElementById('pledgedAmount');
-            const backerCount = document.getElementById('backerCount');
-            const daysLeft = document.getElementById('daysLeft');
-
-            if (!progressFill || !pledgedAmount || !backerCount || !daysLeft) return;
-
-            // Target values
-            const targetAmount = 8900;
-            const targetBackers = 127;
-            const targetDays = 25;
-            const targetProgress = 59;
-
-            // Animate progress bar
-            setTimeout(() => {
-                progressFill.style.transition = 'width 2s ease-out';
-                progressFill.style.width = targetProgress + '%';
-            }, 1000);
-
-            // Animate counters
-            animateCounter(pledgedAmount, targetAmount, ', 2000);
-            animateCounter(backerCount, targetBackers, '', 1500);
-            animateCounter(daysLeft, targetDays, '', 1000);
-        }
-
-        function animateCounter(element, target, prefix = '', duration = 2000) {
-            let current = 0;
-            const increment = target / (duration / 50);
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                element.textContent = prefix + Math.floor(current).toLocaleString();
-            }, 50);
-        }
-
-        // Reward button handlers
-        function setupRewardButtons() {
-            document.querySelectorAll('.reward-card .btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const rewardCard = this.closest('.reward-card');
-                    const rewardType = rewardCard.querySelector('h3').textContent;
-                    const price = rewardCard.querySelector('.reward-price').textContent;
-                    
-                    alert('Interest in ' + rewardType + ' (' + price + ') noted!\n\nIn the live campaign, this would take you to the Kickstarter pledge page.\n\nFor now, contact Kent directly:\nEmail: KentStone@gmail.com\nPhone: +51 945 012 953');
-                });
-            });
-        }
-
-        // Initialize all animations when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            animateProgressBar();
-            animateLEDRing();
-            setupRewardButtons();
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const overlay = document.getElementById('mobileNavOverlay');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            
-            if (overlay.classList.contains('active') && 
-                !overlay.contains(e.target) && 
-                !mobileMenu.contains(e.target)) {
-                closeMobileMenu();
-            }
-        });
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const heroOverlay = document.querySelector('.hero-overlay');
-            if (heroOverlay) {
-                const speed = scrolled * 0.2;
-                heroOverlay.style.transform = `translateY(${speed}px)`;
-            }
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x5b21b6,
+            backgroundColor: 0x111827,
+            size: 0.8
         });
     </script>
+    <script>AOS.init();</script>
+    <script>feather.replace();</script>
 </body>
 </html>
-
-
-
-
-
-
-        
