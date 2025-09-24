@@ -9,41 +9,52 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 <style>
-/* Rainbow Animated Text */
+/* Rainbow Animated Text with Neon Flicker */
 @keyframes rainbow { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 22%, 24%, 55% { opacity: 0.4; }
+}
 .animate-text {
   background-size: 400% auto;
   background-image: linear-gradient(to right, #ff0000, #ff9900, #33cc33, #0099ff, #6633cc);
-  animation: rainbow 3s linear infinite;
+  animation: rainbow 3s linear infinite, flicker 2s infinite;
   display: inline-block;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 0 8px rgba(255,255,255,0.3);
+  text-shadow: 0 0 8px rgba(255,255,255,0.4);
 }
 
 /* Hero Gradient & Glow */
 .hero-gradient { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%); }
 .glow { box-shadow: 0 0 20px rgba(139, 92, 246, 0.7); transition: all 0.3s ease; }
-.card-hover { transition: all 0.3s ease; }
-.card-hover:hover { transform: translateY(-5px); }
-.card-hover.glow:hover { box-shadow: 0 0 25px rgba(139, 92, 246, 0.9); }
-
-/* Floating effect */
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
-}
+.card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.card-hover:hover { transform: translateY(-10px) rotateX(3deg) rotateY(3deg); box-shadow: 0 0 30px rgba(139, 92, 246, 1); }
 .card-hover.float { animation: float 4s ease-in-out infinite; }
+@keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+
+/* Glowing Buttons */
+.button-glow {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+.button-glow:hover {
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.9), 0 0 50px rgba(255,255,255,0.4);
+  transform: translateY(-3px);
+}
+
+/* Particles Background */
+#particles-bg { position:absolute; width:100%; height:100%; top:0; left:0; z-index:0; pointer-events:none; }
 </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-900 text-white relative">
 
 <!-- Hero Section -->
 <div id="hero" class="relative overflow-hidden hero-gradient min-h-screen flex items-center">
-  <div class="absolute inset-0" id="vanta-bg"></div>
+  <div id="vanta-bg" class="absolute inset-0"></div>
   <div class="container mx-auto px-6 relative z-10 py-20">
     <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
       <h1 class="text-5xl md:text-6xl font-bold mb-6">
@@ -51,15 +62,18 @@
       </h1>
       <p class="text-2xl md:text-3xl font-light mb-8">The Future of Logging In.</p>
       <div class="flex justify-center space-x-4">
-        <a href="#campaign" class="bg-white text-gray-900 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition duration-300">Back Now</a>
-        <a href="#video" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-gray-900 transition duration-300">Watch Video</a>
+        <a href="#campaign" class="bg-white text-gray-900 px-8 py-3 rounded-full font-bold button-glow hover:bg-gray-100 transition duration-300">Back Now</a>
+        <a href="#video" class="border-2 border-white px-8 py-3 rounded-full font-bold button-glow hover:bg-white hover:text-gray-900 transition duration-300">Watch Video</a>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Particles Background for Problem Section -->
+<div id="particles-bg"></div>
+
 <!-- Problem Section -->
-<section id="problem" class="py-12 md:py-20 bg-gray-800">
+<section id="problem" class="py-12 md:py-20 bg-gray-800 relative z-10">
   <div class="container mx-auto px-6">
     <div class="text-center mb-16" data-aos="fade-up">
       <h2 class="text-4xl font-bold mb-4">Passwords Are Broken</h2>
@@ -86,7 +100,7 @@
 </section>
 
 <!-- Video Section -->
-<section id="video" class="py-12 md:py-20 bg-gray-900">
+<section id="video" class="py-12 md:py-20 bg-gray-900 relative z-10">
   <div class="container mx-auto px-6">
     <div class="max-w-4xl mx-auto bg-gray-800 rounded-xl overflow-hidden glow card-hover float" data-aos="fade-up">
       <div class="aspect-video relative">
@@ -98,7 +112,7 @@
 </section>
 
 <!-- Solution Section -->
-<section id="solution" class="py-12 md:py-20 bg-gray-800">
+<section id="solution" class="py-12 md:py-20 bg-gray-800 relative z-10">
   <div class="container mx-auto px-6">
     <div class="flex flex-col md:flex-row items-center">
       <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
@@ -141,7 +155,7 @@
 </section>
 
 <!-- Features Section -->
-<section id="features" class="py-12 md:py-20 bg-gray-900">
+<section id="features" class="py-12 md:py-20 bg-gray-900 relative z-10">
   <div class="container mx-auto px-6">
     <div class="text-center mb-16" data-aos="fade-up">
       <h2 class="text-4xl font-bold mb-4">LockStone Features</h2>
@@ -168,7 +182,7 @@
 </section>
 
 <!-- Rewards Section -->
-<section id="rewards" class="py-12 md:py-20 bg-gray-900">
+<section id="rewards" class="py-12 md:py-20 bg-gray-900 relative z-10">
   <div class="container mx-auto px-6">
     <div class="text-center mb-16" data-aos="fade-up">
       <h2 class="text-4xl font-bold mb-4">
@@ -180,21 +194,21 @@
     </div>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       <!-- Reward Cards -->
-      <div class="bg-gray-800 p-8 rounded-xl card-hover glow float" data-aos="fade-up" data-aos-delay="100">
+      <div class="bg-gray-800 p-8 rounded-xl card-hover glow float button-glow" data-aos="fade-up" data-aos-delay="100">
         <h3 class="text-xl font-bold mb-2">$25 – Tap. Glow. Access.</h3>
         <ul class="text-gray-300 list-disc list-inside space-y-2">
           <li>Exclusive LockStone stickers + t-shirt</li>
           <li>Show your support and spread the word</li>
         </ul>
       </div>
-      <div class="bg-gray-800 p-8 rounded-xl card-hover glow float" data-aos="fade-up" data-aos-delay="200">
+      <div class="bg-gray-800 p-8 rounded-xl card-hover glow float button-glow" data-aos="fade-up" data-aos-delay="200">
         <h3 class="text-xl font-bold mb-2">$79 – Early Access LockStone (Early Bird)</h3>
         <ul class="text-gray-300 list-disc list-inside space-y-2">
           <li>1x RFID Reader + Software</li>
           <li>1x Custom PVC RFID Card</li>
         </ul>
       </div>
-      <div class="bg-gray-800 p-8 rounded-xl card-hover glow float" data-aos="fade-up" data-aos-delay="300">
+      <div class="bg-gray-800 p-8 rounded-xl card-hover glow float button-glow" data-aos="fade-up" data-aos-delay="300">
         <h3 class="text-xl font-bold mb-2">$99 – Gamer Pack</h3>
         <ul class="text-gray-300 list-disc list-inside space-y-2">
           <li>1x LockStone RFID Reader + Software</li>
@@ -202,35 +216,12 @@
           <li>Bonus LED animation mode unlocked</li>
         </ul>
       </div>
-      <div class="bg-gray-800 p-8 rounded-xl card-hover glow float" data-aos="fade-up" data-aos-delay="400">
-        <h3 class="text-xl font-bold mb-2">$129 – Pendant Pack</h3>
-        <ul class="text-gray-300 list-disc list-inside space-y-2">
-          <li>1x LockStone RFID Reader + Software</li>
-          <li>1x RFID Bracelet (pendant-style)</li>
-          <li>1x Custom Printed RFID Card</li>
-        </ul>
-      </div>
-      <div class="bg-gray-800 p-8 rounded-xl card-hover glow float" data-aos="fade-up" data-aos-delay="500">
-        <h3 class="text-xl font-bold mb-2">$149 – Business Starter Pack</h3>
-        <ul class="text-gray-300 list-disc list-inside space-y-2">
-          <li>2x LockStone Readers</li>
-          <li>4x Custom PVC ID Cards</li>
-          <li>Access to all future software updates</li>
-        </ul>
-      </div>
-    </div>
-    <div class="mt-16 text-center" data-aos="fade-up" data-aos-delay="600">
-      <h2 class="text-3xl font-bold mb-4">📈 The Future We See</h2>
-      <p class="text-gray-300 max-w-2xl mx-auto text-lg">
-        Today, LockStone is a Kickstarter project.<br>
-        Tomorrow, it’s the new normal for computer access.
-      </p>
     </div>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="bg-gray-800 py-12">
+<footer class="bg-gray-800 py-12 relative z-10">
   <div class="container mx-auto px-6 text-center text-gray-400">
     <p>&copy; 2025 LockStone. All rights reserved.</p>
     <div class="flex justify-center space-x-4 mt-4">
@@ -256,7 +247,19 @@ VANTA.GLOBE({
   color: 0x8b5cf6,
   backgroundColor: 0x111111
 });
-</script>
 
+/* tsParticles for subtle particles in Problem/Features sections */
+tsParticles.load("particles-bg", {
+  fullScreen: { enable: false },
+  particles: {
+    number: { value: 50 },
+    color: { value: "#8b5cf6" },
+    shape: { type: "circle" },
+    opacity: { value: 0.3 },
+    size: { value: { min: 1, max: 3 } },
+    move: { enable: true, speed: 0.3, direction: "none", random: true, straight: false, outModes: "out" }
+  }
+});
+</script>
 </body>
 </html>
