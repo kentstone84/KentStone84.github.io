@@ -118,7 +118,7 @@
 </head>
 <body class="bg-gray-900 text-white">
 
-    <!-- Hero Section -->
+     <!-- Hero Section -->
     <section id="hero" class="relative overflow-hidden hero-gradient min-h-screen flex items-center">
         <div id="vanta-bg" class="absolute inset-0"></div>
         <div id="hero-particles"></div>
@@ -389,38 +389,40 @@
         </div>
     </section>
 
-        
-        // AOS + Feather
-        AOS.init();
-        feather.replace();
+     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // AOS + Feather
+            AOS.init();
+            feather.replace();
 
-        // Vanta Globe
-        VANTA.GLOBE({
-            el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x8b5cf6,
-            color2: 0xec4899,
-            size: 1.20
+            // Vanta Globe
+            VANTA.GLOBE({
+                el: "#vanta-bg",
+                mouseControls: true,
+                touchControls: true,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x8b5cf6,
+                color2: 0xec4899,
+                size: 1.20
+            });
+
+            // Hero Particles
+            const particleContainer = document.getElementById('hero-particles');
+            const particleCount = 25; // adjust density
+            for(let i = 0; i < particleCount; i++){
+                const particle = document.createElement('div');
+                particle.classList.add('hero-particle');
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = 3 + Math.random() * 6 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDuration = 5 + Math.random() * 10 + 's';
+                particleContainer.appendChild(particle);
+            }
         });
-
-        // Hero Particles
-        const particleContainer = document.getElementById('hero-particles');
-        const particleCount = 25; // adjust density
-        for(let i = 0; i < particleCount; i++){
-            const particle = document.createElement('div');
-            particle.classList.add('hero-particle');
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.width = 3 + Math.random() * 6 + 'px';
-            particle.style.height = particle.style.width;
-            particle.style.animationDuration = 5 + Math.random() * 10 + 's';
-            particleContainer.appendChild(particle);
-        }
     </script>
 </body>
 </html>
