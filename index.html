@@ -1,1011 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LockStone - The Future of Authentication</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LockStone: Passwords are DEAD... Tap into the future.</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
     <style>
-        * { font-family: 'Inter', sans-serif; }
-        
-        /* Advanced CSS Variables */
-        :root {
-            --primary-glow: #8b5cf6;
-            --secondary-glow: #ec4899;
-            --accent-glow: #06b6d4;
-            --success-glow: #10b981;
+      @keyframes rainbow {
+        0% {
+          background-position: 0% 50%;
         }
-
-        /* Fluid Typography */
-        .fluid-text-hero { font-size: clamp(2.5rem, 8vw, 8rem); }
-        .fluid-text-lg { font-size: clamp(1.25rem, 4vw, 2.5rem); }
-        .fluid-text-md { font-size: clamp(1rem, 3vw, 1.5rem); }
-
-        /* Custom Animations */
-        @keyframes morphing-blob {
-            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        100% {
+          background-position: 100% 50%;
         }
-
-        @keyframes floating-particles {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-30px) rotate(120deg); }
-            66% { transform: translateY(15px) rotate(240deg); }
+      }
+      .animate-text {
+        background-size: 400% auto;
+        background-image: linear-gradient(
+          to right,
+          #ff0000,
+          #ff9900,
+          #33cc33,
+          #0099ff,
+          #6633cc
+        );
+        animation: rainbow 3s linear infinite;
+        display: inline-block;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+      }
+      .hero-gradient {
+        background: linear-gradient(
+          135deg,
+          #3b82f6 0%,
+          #8b5cf6 50%,
+          #ec4899 100%
+        );
+      }
+      .glow {
+        box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        transition: all 0.3s ease;
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+      }
+      @keyframes rgb-glow {
+        0% {
+          box-shadow: 0 0 10px #ff0000, 0 0 20px #00ff00, 0 0 30px #0000ff;
         }
-
-        @keyframes text-shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
+        25% {
+          box-shadow: 0 0 10px #ff9900, 0 0 20px #33cc33, 0 0 30px #0099ff;
         }
-
-        @keyframes pulse-ring {
-            0% { transform: scale(0.8); opacity: 1; }
-            100% { transform: scale(2.4); opacity: 0; }
+        50% {
+          box-shadow: 0 0 10px #33cc33, 0 0 20px #0099ff, 0 0 30px #ff00ff;
         }
-
-        @keyframes card-float {
-            0%, 100% { transform: translateY(0px) rotateX(0deg); }
-            50% { transform: translateY(-10px) rotateX(5deg); }
+        75% {
+          box-shadow: 0 0 10px #0099ff, 0 0 20px #ff00ff, 0 0 30px #ff9900;
         }
-
-        /* Advanced Background */
-        .hero-bg {
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.2) 0%, transparent 50%),
-                linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        100% {
+          box-shadow: 0 0 10px #ff0000, 0 0 20px #00ff00, 0 0 30px #0000ff;
         }
-
-        /* Morphing Elements */
-        .morphing-blob {
-            animation: morphing-blob 8s ease-in-out infinite;
-            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow), var(--accent-glow));
-            filter: blur(40px);
+      }
+      .glow-rainbow {
+        box-shadow: 0 0 10px #8b5cf6;
+        transition: all 0.3s ease;
+      }
+      .glow-rainbow:hover {
+        animation: rgb-glow 3s linear infinite;
+        transform: translateY(-5px) scale(1.02);
+      }
+      .feature-icon {
+        width: 50px;
+        height: 50px;
+      }
+      .usb-icon::before {
+        content: "🔌";
+        font-size: 2rem;
+      }
+      .rfid-icon::before {
+        content: "📶";
+        font-size: 2rem;
+      }
+      .access-icon::before {
+        content: "✅";
+        font-size: 2rem;
+        color: #34d399;
+      }
+      #hero-particles {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+      }
+      .hero-particle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: float 10s linear infinite;
+        opacity: 0.8;
+      }
+      @keyframes float {
+        0% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.6;
         }
-
-        /* Text Effects */
-        .shimmer-text {
-            background: linear-gradient(90deg, #ffffff 0%, var(--primary-glow) 50%, #ffffff 100%);
-            background-size: 200% 100%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: text-shimmer 3s ease-in-out infinite;
+        50% {
+          transform: translate(30px, -60px) scale(1.3);
+          opacity: 1;
         }
-
-        .holographic-text {
-            background: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0, #ff0080);
-            background-size: 400% 400%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: holographic-shift 4s ease-in-out infinite;
+        100% {
+          transform: translate(-20px, -120px) scale(0.8);
+          opacity: 0;
         }
-
-        @keyframes holographic-shift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        /* Interactive Elements */
-        .glass-morphism {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .neon-border {
-            border: 2px solid transparent;
-            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow)) padding-box,
-                        linear-gradient(45deg, var(--primary-glow), var(--secondary-glow), var(--accent-glow)) border-box;
-            box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
-        }
-
-        .card-3d {
-            transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .card-3d:hover {
-            transform: rotateY(5deg) rotateX(5deg) scale(1.02);
-        }
-
-        /* Particle System */
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: radial-gradient(circle, var(--primary-glow), transparent);
-            border-radius: 50%;
-            animation: floating-particles 6s ease-in-out infinite;
-        }
-
-        /* Pulse Rings */
-        .pulse-ring {
-            position: absolute;
-            border: 2px solid var(--primary-glow);
-            border-radius: 50%;
-            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1e293b; }
-        ::-webkit-scrollbar-thumb { 
-            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow));
-            border-radius: 4px;
-        }
-
-        /* Responsive Grid */
-        .masonry-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            grid-auto-rows: masonry;
-            gap: 2rem;
-        }
-
-        /* Interactive Hover States */
-        .hover-lift {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .hover-lift:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Gradient Animations */
-        .animated-gradient {
-            background: linear-gradient(-45deg, #8b5cf6, #ec4899, #06b6d4, #10b981);
-            background-size: 400% 400%;
-            animation: gradient-shift 8s ease infinite;
-        }
-
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Loading States */
-        .skeleton {
-            background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
-            background-size: 200% 100%;
-            animation: skeleton-loading 1.5s infinite;
-        }
-
-        @keyframes skeleton-loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        /* Mobile Optimizations */
-        @media (max-width: 768px) {
-            .card-3d:hover { transform: none; }
-            .morphing-blob { animation-duration: 12s; }
-        }
-
-        /* High Performance Mode */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
+      }
     </style>
-</head>
-<body class="bg-slate-900 text-white overflow-x-hidden">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-morphism">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold shimmer-text">LockStone</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#hero" class="hover:text-purple-400 transition-colors">Home</a>
-                    <a href="#problem" class="hover:text-purple-400 transition-colors">Problem</a>
-                    <a href="#solution" class="hover:text-purple-400 transition-colors">Solution</a>
-                    <a href="#features" class="hover:text-purple-400 transition-colors">Features</a>
-                    <a href="#pricing" class="hover:text-purple-400 transition-colors">Pricing</a>
-                </div>
-                <button class="md:hidden text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </nav>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <!-- Language & Currency Switcher -->
+    <div class="absolute top-4 right-4 flex space-x-2 z-20">
+      <select
+        id="language-selector"
+        class="bg-black/30 backdrop-blur-md text-white text-sm px-3 py-1 rounded-md border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      >
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+        <option value="fr">FR</option>
+      </select>
+      <select
+        id="currency-selector"
+        class="bg-black/30 backdrop-blur-md text-white text-sm px-3 py-1 rounded-md border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      >
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="PEN">PEN</option>
+      </select>
+    </div>
 
     <!-- Hero Section -->
-    <section id="hero" class="min-h-screen hero-bg relative flex items-center justify-center overflow-hidden">
-        <!-- Animated Background Elements -->
-        <div class="absolute inset-0">
-            <div class="morphing-blob absolute top-20 left-10 w-72 h-72 opacity-30"></div>
-            <div class="morphing-blob absolute bottom-20 right-10 w-96 h-96 opacity-20" style="animation-delay: -4s;"></div>
-            <div class="morphing-blob absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-10" style="animation-delay: -2s;"></div>
+    <section
+      id="hero"
+      class="relative overflow-hidden hero-gradient min-h-screen flex items-center"
+    >
+      <div id="vanta-bg" class="absolute inset-0"></div>
+      <div id="hero-particles"></div>
+      <div class="container mx-auto px-6 relative z-10 py-24">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            <span>Tap.</span>
+            <span class="animate-text">Glow.</span>
+            <span>Access.</span>
+          </h1>
+          <p class="text-2xl md:text-3xl font-light mb-12">
+            Passwords are DEAD, Tap into the future.
+          </p>
+          <div
+            class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4"
+          >
+            <a
+              href="https://www.kickstarter.com"
+              target="_blank"
+              class="bg-white text-gray-900 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition duration-300 glow glow-rainbow"
+              >Back Now</a
+            >
+            <a
+              href="#video"
+              class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-gray-900 transition duration-300 glow glow-rainbow"
+              >Watch Video</a
+            >
+          </div>
         </div>
-
-        <!-- Particle System -->
-        <div id="particles-container" class="absolute inset-0"></div>
-
-        <!-- 3D Canvas -->
-        <canvas id="three-canvas" class="absolute inset-0 z-10"></canvas>
-
-        <!-- Hero Content -->
-        <div class="relative z-20 text-center max-w-6xl mx-auto px-6">
-            <div class="relative">
-                <!-- Pulse Rings -->
-                <div class="pulse-ring absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32"></div>
-                <div class="pulse-ring absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32" style="animation-delay: -1s;"></div>
-                
-                <h1 class="fluid-text-hero font-black mb-6 leading-none" data-aos="fade-up">
-                    <span class="block">Tap.</span>
-                    <span class="block holographic-text">Glow.</span>
-                    <span class="block">Access.</span>
-                </h1>
-            </div>
-            
-            <p class="fluid-text-lg mb-12 text-gray-300 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                The <span class="shimmer-text font-semibold">revolutionary RFID authentication system</span> that makes passwords extinct. Born from National Geographic expeditions, perfected for everyone.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center" data-aos="fade-up" data-aos-delay="400">
-                <button class="group relative px-12 py-4 rounded-full font-bold text-lg overflow-hidden animated-gradient hover-lift">
-                    <span class="relative z-10">Back on Kickstarter</span>
-                    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
-                </button>
-                
-                <button class="px-12 py-4 rounded-full font-bold text-lg neon-border hover-lift bg-transparent">
-                    Watch Demo
-                </button>
-            </div>
-
-            <!-- Stats Bar -->
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 glass-morphism rounded-2xl p-8" data-aos="fade-up" data-aos-delay="600">
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-green-400 counter" data-target="127439">0</div>
-                    <div class="text-sm text-gray-400">Raised</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-blue-400 counter" data-target="1247">0</div>
-                    <div class="text-sm text-gray-400">Backers</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-purple-400 counter" data-target="23">0</div>
-                    <div class="text-sm text-gray-400">Days Left</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl font-bold text-yellow-400">4.9★</div>
-                    <div class="text-sm text-gray-400">Rating</div>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-32 bg-gradient-to-b from-blue-950/20 to-green-950/20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-6xl font-black mb-6">Choose Your <span class="holographic-text">Adventure</span></h2>
-                <div class="w-32 h-2 bg-green-500 mx-auto mb-8 rounded-full"></div>
-                <p class="text-2xl text-gray-300 max-w-4xl mx-auto">
-                    Limited Early Bird pricing - Save up to 40% off retail
-                </p>
-                <div class="mt-8 glass-morphism inline-block px-8 py-4 rounded-full">
-                    <span class="text-red-400 font-bold">Early Bird ends in: </span>
-                    <span id="countdown" class="text-white font-mono text-xl">23:14:07</span>
-                </div>
-            </div>
-
-            <div class="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                <!-- Early Bird Tier -->
-                <div class="card-3d neon-border rounded-3xl p-8 hover-lift transform scale-105 relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute top-4 right-4 bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-bold">
-                        MOST POPULAR
-                    </div>
-                    <div class="text-center mb-8">
-                        <div class="text-5xl font-black mb-2">
-                            $79 <span class="text-2xl line-through text-gray-500">$129</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-purple-400 mb-2">Early Bird Special</h3>
-                        <div class="text-gray-400">Save $50 • Limited to 1,000 units</div>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                            <span>1x LockStone RFID Reader</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                            <span>Cross-platform software suite</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                            <span>1x Custom PVC RFID card</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                            <span>Priority shipping (March 2025)</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                            <span>Lifetime firmware updates</span>
-                        </li>
-                    </ul>
-                    <div class="text-center mb-6">
-                        <div class="text-yellow-400 mb-2">823 claimed • 177 left</div>
-                        <div class="bg-yellow-400/20 rounded-full h-3 mb-4">
-                            <div class="bg-yellow-400 h-3 rounded-full" style="width: 82%"></div>
-                        </div>
-                    </div>
-                    <button class="w-full animated-gradient text-white font-bold py-4 px-6 rounded-full hover-lift">
-                        Claim Early Bird
-                    </button>
-                </div>
-
-                <!-- Gamer Pack -->
-                <div class="card-3d glass-morphism rounded-3xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-center mb-8">
-                        <div class="text-4xl font-black mb-2 text-green-400">$99</div>
-                        <h3 class="text-2xl font-bold text-green-400 mb-2">Gamer Elite Pack</h3>
-                        <div class="text-gray-400">Perfect for streamers</div>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                            <span>1x LockStone with RGB gaming mode</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                            <span>Custom printed gamer ID card</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                            <span>Exclusive LED animation patterns</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                            <span>Custom notification sounds</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                            <span>Streamer overlay support</span>
-                        </li>
-                    </ul>
-                    <div class="text-center mb-6">
-                        <div class="text-green-400">234 claimed</div>
-                    </div>
-                    <button class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-4 px-6 rounded-full hover-lift transition-colors">
-                        Level Up Now
-                    </button>
-                </div>
-
-                <!-- Ultimate Explorer -->
-                <div class="card-3d glass-morphism rounded-3xl p-8 hover-lift border-2 border-yellow-400" data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-center mb-8">
-                        <div class="bg-yellow-400 text-black px-3 py-1 rounded-full text-sm font-bold mb-4 inline-block">ULTIMATE</div>
-                        <div class="text-4xl font-black mb-2 text-yellow-400">$299</div>
-                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">Explorer's Edition</h3>
-                        <div class="text-gray-400">Everything + signed gear</div>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-yellow-400 rounded-full"></span>
-                            <span>3x LockStone readers</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-yellow-400 rounded-full"></span>
-                            <span>Full pendant + bracelet set</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-yellow-400 rounded-full"></span>
-                            <span>6x Custom cards (family pack)</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-yellow-400 rounded-full"></span>
-                            <span>Personally signed by team</span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-yellow-400 rounded-full"></span>
-                            <span>Exclusive behind-scenes book</span>
-                        </li>
-                    </ul>
-                    <div class="text-center mb-6">
-                        <div class="text-yellow-400">23 claimed • Very limited</div>
-                    </div>
-                    <button class="w-full bg-yellow-400 text-black font-bold py-4 px-6 rounded-full hover-lift hover:bg-yellow-300 transition-colors">
-                        Join Elite Explorers
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="py-32 bg-gradient-to-b from-green-950/20 to-purple-950/20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-6xl font-black mb-6">Meet the <span class="shimmer-text">Explorers</span></h2>
-                <div class="w-32 h-2 bg-purple-500 mx-auto mb-8 rounded-full"></div>
-                <p class="text-2xl text-gray-300 max-w-4xl mx-auto">
-                    From the depths of underwater caves to the heights of technology innovation
-                </p>
-            </div>
-
-            <div class="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
-                <div class="card-3d glass-morphism rounded-3xl p-8 text-center hover-lift" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative mb-8">
-                        <img src="https://ichef.bbci.co.uk/images/ic/1920xn/p07lnv4n.jpg.webp" 
-                             alt="Kent S." 
-                             class="w-32 h-32 rounded-full mx-auto object-cover shadow-2xl" />
-                        <div class="absolute -bottom-3 -right-3 bg-yellow-400 text-black text-xs px-3 py-1 rounded-full font-bold">
-                            Nat Geo
-                        </div>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-2 shimmer-text">Kent S.</h3>
-                    <p class="text-purple-400 mb-4 font-semibold text-lg">Founder & Lead Explorer</p>
-                    <p class="text-gray-300 mb-6">
-                        National Geographic cave diving explorer with 200+ dives across 15 countries. Former cybersecurity engineer who knows what real-world security means.
-                    </p>
-                    <div class="space-y-3 mb-6">
-                        <div class="bg-blue-900/30 p-3 rounded-xl text-sm">
-                            National Geographic Explorer
-                        </div>
-                        <div class="bg-purple-900/30 p-3 rounded-xl text-sm">
-                            15+ years cybersecurity
-                        </div>
-                        <div class="bg-green-900/30 p-3 rounded-xl text-sm">
-                            200+ cave expeditions
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-3d glass-morphism rounded-3xl p-8 text-center hover-lift" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative mb-8">
-                        <img src="https://ichef.bbci.co.uk/images/ic/1920xn/p07lnx25.jpg.webp" 
-                             alt="Adriana V." 
-                             class="w-32 h-32 rounded-full mx-auto object-cover shadow-2xl" />
-                        <div class="absolute -bottom-3 -right-3 bg-pink-600 text-white text-xs px-3 py-1 rounded-full font-bold">
-                            UX
-                        </div>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-2 shimmer-text">Adriana V.</h3>
-                    <p class="text-pink-400 mb-4 font-semibold text-lg">Product & Design Lead</p>
-                    <p class="text-gray-300 mb-6">
-                        Award-winning UX designer with a passion for making complex technology simple. Previously at Apple and Google.
-                    </p>
-                    <div class="space-y-3 mb-6">
-                        <div class="bg-pink-900/30 p-3 rounded-xl text-sm">
-                            Former Apple Design Team
-                        </div>
-                        <div class="bg-blue-900/30 p-3 rounded-xl text-sm">
-                            Ex-Google UX Research
-                        </div>
-                        <div class="bg-yellow-900/30 p-3 rounded-xl text-sm">
-                            Red Dot Design Award
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-3d glass-morphism rounded-3xl p-8 text-center hover-lift" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative mb-8">
-                        <img src="https://ichef.bbci.co.uk/images/ic/1920xn/p07lnwgc.jpg.webp" 
-                             alt="Mariela C." 
-                             class="w-32 h-32 rounded-full mx-auto object-cover shadow-2xl" />
-                        <div class="absolute -bottom-3 -right-3 bg-green-600 text-white text-xs px-3 py-1 rounded-full font-bold">
-                            PM
-                        </div>
-                    </div>
-                    <h3 class="text-3xl font-bold mb-2 shimmer-text">Mariela C.</h3>
-                    <p class="text-green-400 mb-4 font-semibold text-lg">Product Manager</p>
-                    <p class="text-gray-300 mb-6">
-                        Tech product strategist who's launched 12+ hardware products. Brings startup agility with enterprise execution.
-                    </p>
-                    <div class="space-y-3 mb-6">
-                        <div class="bg-green-900/30 p-3 rounded-xl text-sm">
-                            12+ hardware launches
-                        </div>
-                        <div class="bg-orange-900/30 p-3 rounded-xl text-sm">
-                            Y Combinator mentor
-                        </div>
-                        <div class="bg-purple-900/30 p-3 rounded-xl text-sm">
-                            $50M+ product revenue
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-32 bg-gradient-to-b from-purple-950/20 to-slate-900">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-20" data-aos="fade-up">
-                    <h2 class="text-6xl font-black mb-6">Let's <span class="holographic-text">Connect</span></h2>
-                    <div class="w-32 h-2 bg-purple-500 mx-auto mb-8 rounded-full"></div>
-                    <p class="text-2xl text-gray-300">Questions? Feedback? Ready to join the revolution?</p>
-                </div>
-
-                <div class="grid lg:grid-cols-2 gap-16">
-                    <!-- Contact Form -->
-                    <div class="card-3d glass-morphism rounded-3xl p-8 hover-lift" data-aos="fade-right">
-                        <h3 class="text-3xl font-bold mb-8 text-center">Send us a message</h3>
-                        <form action="https://formspree.io/f/mzzanwky" method="POST" class="space-y-6">
-                            <div>
-                                <label class="block text-gray-300 mb-3 font-semibold">Your email</label>
-                                <input type="email" name="email" required 
-                                       class="w-full p-4 rounded-2xl bg-white/5 text-white border border-white/10 focus:border-purple-500 focus:outline-none transition-all" 
-                                       placeholder="explorer@example.com" />
-                            </div>
-                            <div>
-                                <label class="block text-gray-300 mb-3 font-semibold">Subject</label>
-                                <select name="subject" 
-                                        class="w-full p-4 rounded-2xl bg-white/5 text-white border border-white/10 focus:border-purple-500 focus:outline-none transition-all">
-                                    <option value="">Select a topic</option>
-                                    <option value="general">General Question</option>
-                                    <option value="support">Technical Support</option>
-                                    <option value="partnership">Partnership Inquiry</option>
-                                    <option value="press">Media/Press</option>
-                                    <option value="beta">Beta Testing</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-gray-300 mb-3 font-semibold">Your message</label>
-                                <textarea name="message" rows="6" required 
-                                          class="w-full p-4 rounded-2xl bg-white/5 text-white border border-white/10 focus:border-purple-500 focus:outline-none transition-all resize-none" 
-                                          placeholder="Tell us how LockStone can help you..."></textarea>
-                            </div>
-                            <button type="submit" 
-                                    class="w-full animated-gradient text-white font-bold py-4 px-6 rounded-2xl hover-lift">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-
-                    <!-- Contact Info -->
-                    <div class="space-y-8" data-aos="fade-left">
-                        <div class="card-3d glass-morphism rounded-3xl p-8 hover-lift">
-                            <h3 class="text-3xl font-bold mb-8 text-center">Get in touch</h3>
-                            <div class="space-y-6">
-                                <div class="flex items-center space-x-6">
-                                    <div class="w-16 h-16 animated-gradient rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">
-                                        📧
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-lg">Email</div>
-                                        <div class="text-gray-300">hello@lockstone.co</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-center space-x-6">
-                                    <div class="w-16 h-16 animated-gradient rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">
-                                        💬
-                                    </div>
-                                    <div>
-                                        <div class="font-bold text-lg">Live Chat</div>
-                                        <div class="text-gray-300">Available 9am-6pm PST</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Newsletter -->
-                        <div class="card-3d neon-border rounded-3xl p-8 hover-lift">
-                            <h3 class="text-2xl font-bold mb-4 text-center">Stay Updated</h3>
-                            <p class="text-gray-300 mb-6 text-center">Get exclusive updates from the expedition</p>
-                            <div class="flex space-x-3">
-                                <input type="email" placeholder="Your email" 
-                                       class="flex-1 p-3 rounded-xl bg-white/5 text-white border border-white/10 focus:border-purple-500 focus:outline-none" />
-                                <button class="bg-white text-purple-900 px-6 py-3 rounded-xl font-bold hover:bg-gray-100 transition-colors">
-                                    Join
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-black/50 py-16">
-        <div class="container mx-auto px-6">
-            <div class="text-center">
-                <div class="text-3xl font-bold mb-6 shimmer-text">LockStone</div>
-                <p class="text-gray-400 mb-8 text-xl">Tap into the future of authentication</p>
-                <div class="text-gray-500">
-                    © 2025 LockStone Technologies. Built by explorers, for everyone.
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
-
-        // Three.js Scene
-        let scene, camera, renderer, particles = [];
-
-        function initThreeJS() {
-            const canvas = document.getElementById('three-canvas');
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-
-            // Create particles
-            const particleGeometry = new THREE.BufferGeometry();
-            const particleCount = 100;
-            const positions = new Float32Array(particleCount * 3);
-
-            for (let i = 0; i < particleCount * 3; i += 3) {
-                positions[i] = (Math.random() - 0.5) * 20;
-                positions[i + 1] = (Math.random() - 0.5) * 20;
-                positions[i + 2] = (Math.random() - 0.5) * 20;
-            }
-
-            particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-            const particleMaterial = new THREE.PointsMaterial({
-                color: 0x8b5cf6,
-                size: 0.1,
-                transparent: true,
-                opacity: 0.6
-            });
-
-            const particleSystem = new THREE.Points(particleGeometry, particleMaterial);
-            scene.add(particleSystem);
-
-            camera.position.z = 10;
-
-            function animate() {
-                requestAnimationFrame(animate);
-                particleSystem.rotation.x += 0.001;
-                particleSystem.rotation.y += 0.002;
-                renderer.render(scene, camera);
-            }
-            animate();
-        }
-
-        // Countdown Timer
-        function updateCountdown() {
-            const countdown = document.getElementById('countdown');
-            if (!countdown) return;
-
-            const now = new Date().getTime();
-            const target = now + (23 * 3600 + 14 * 60 + 7) * 1000;
-            const distance = target - now;
-            
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            countdown.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-        }
-
-        // Counter Animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const increment = target / 100;
-                let current = 0;
-
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    counter.textContent = Math.floor(current).toLocaleString();
-                }, 20);
-            });
-        }
-
-        // Particle System
-        function createParticles() {
-            const container = document.getElementById('particles-container');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (6 + Math.random() * 4) + 's';
-                container.appendChild(particle);
-            }
-        }
-
-        // Smooth scrolling
-        function initSmoothScroll() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        }
-
-        // Initialize everything
-        document.addEventListener('DOMContentLoaded', function() {
-            initThreeJS();
-            createParticles();
-            initSmoothScroll();
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
-            
-            // Trigger counter animation when in view
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            });
-
-            const heroStats = document.querySelector('#hero .grid');
-            if (heroStats) observer.observe(heroStats);
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            if (camera && renderer) {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            }
-        });
-    </script>
-</body>
-</html>
 
     <!-- Problem Section -->
-    <section id="problem" class="py-32 bg-gradient-to-b from-slate-900 to-red-950/20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-6xl font-black mb-6">The Password <span class="text-red-400">Crisis</span></h2>
-                <div class="w-32 h-2 bg-red-500 mx-auto mb-8 rounded-full"></div>
-                <p class="text-2xl text-gray-300 max-w-4xl mx-auto">
-                    Traditional authentication is broken. Here's the devastating reality.
-                </p>
-            </div>
-
-            <!-- Statistics Grid -->
-            <div class="grid md:grid-cols-3 gap-8 mb-20">
-                <div class="glass-morphism rounded-3xl p-8 text-center hover-lift" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-6xl font-black text-red-400 mb-4 counter" data-target="81">0%</div>
-                    <p class="text-xl">of data breaches involve weak passwords</p>
-                </div>
-                <div class="glass-morphism rounded-3xl p-8 text-center hover-lift" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-6xl font-black text-red-400 mb-4">2.9B</div>
-                    <p class="text-xl">passwords stolen in 2023 alone</p>
-                </div>
-                <div class="glass-morphism rounded-3xl p-8 text-center hover-lift" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-6xl font-black text-red-400 mb-4 counter" data-target="12">0</div>
-                    <p class="text-xl">minutes wasted daily on passwords</p>
-                </div>
-            </div>
-
-            <!-- Problem Stories -->
-            <div class="grid lg:grid-cols-3 gap-8">
-                <div class="card-3d glass-morphism rounded-3xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-6xl mb-6">👴</div>
-                    <h3 class="text-2xl font-bold mb-4 text-yellow-400">Elderly Struggle</h3>
-                    <p class="text-gray-300 mb-6">78-year-old users call family members weekly because password complexity makes technology inaccessible.</p>
-                    <div class="bg-red-900/30 p-4 rounded-xl">
-                        <strong class="text-red-400">Impact:</strong> 67% of seniors avoid online services
-                    </div>
-                </div>
-
-                <div class="card-3d glass-morphism rounded-3xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-6xl mb-6">🎮</div>
-                    <h3 class="text-2xl font-bold mb-4 text-green-400">Gamer Frustration</h3>
-                    <p class="text-gray-300 mb-6">Mid-raid authentication breaks immersion and disrupts team coordination in competitive gaming.</p>
-                    <div class="bg-red-900/30 p-4 rounded-xl">
-                        <strong class="text-red-400">Impact:</strong> 47 password entries per gaming session
-                    </div>
-                </div>
-
-                <div class="card-3d glass-morphism rounded-3xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-6xl mb-6">💼</div>
-                    <h3 class="text-2xl font-bold mb-4 text-blue-400">Business Chaos</h3>
-                    <p class="text-gray-300 mb-6">Shared credentials and constant resets create security vulnerabilities costing millions annually.</p>
-                    <div class="bg-red-900/30 p-4 rounded-xl">
-                        <strong class="text-red-400">Impact:</strong> $4.35M average breach cost
-                    </div>
-                </div>
-            </div>
+    <section id="problem" class="py-12 md:py-24 bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-bold mb-4">Passwords Are Broken</h2>
+          <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
+          <p class="mt-4 text-gray-300 max-w-xl mx-auto">
+            From gamers to the elderly, traditional passwords are cumbersome,
+            insecure, and obsolete.
+          </p>
         </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="text-purple-500 mb-4">
+              <i data-feather="user" class="w-12 h-12"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Elderly Struggle</h3>
+            <p class="text-gray-300">
+              Typing and remembering complex passwords is nearly impossible for
+              many seniors.
+            </p>
+          </div>
+          <div
+            class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="text-purple-500 mb-4">
+              <i data-feather="monitor" class="w-12 h-12"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Gamer Frustration</h3>
+            <p class="text-gray-300">
+              Typing passwords interrupts the gaming experience and breaks
+              immersion.
+            </p>
+          </div>
+          <div
+            class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="text-purple-500 mb-4">
+              <i data-feather="briefcase" class="w-12 h-12"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Business Headaches</h3>
+            <p class="text-gray-300">
+              Shared logins and password resets create security risks and
+              inefficiencies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video" class="py-12 md:py-24 bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div
+          class="max-w-4xl mx-auto bg-gray-800 rounded-xl overflow-hidden glow glow-rainbow"
+          data-aos="fade-up"
+        >
+          <div class="aspect-video relative">
+            <video
+              id="demo-video"
+              controls
+              poster="https://huggingface.co/spaces/bodhistone/my-site/resolve/main/images/lockstone-video-poster.jpg"
+              class="absolute inset-0 w-full h-full object-cover rounded-xl"
+            >
+              <source src="assets/video/lockstone-demo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <i
+              id="play-overlay"
+              data-feather="play"
+              class="w-20 h-20 text-purple-500 absolute inset-0 m-auto pointer-events-none"
+            ></i>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Solution Section -->
-    <section id="solution" class="py-32 bg-gradient-to-b from-red-950/20 to-purple-950/20">
-        <div class="container mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-                <div data-aos="fade-right">
-                    <div class="relative">
-                        <img src="https://huggingface.co/spaces/bodhistone/my-site/resolve/main/images/lockstone-internal.jpg" 
-                             alt="LockStone Device" 
-                             class="rounded-3xl w-full shadow-2xl hover-lift" />
-                        <div class="absolute -top-8 -right-8 glass-morphism rounded-2xl p-4 animate-pulse">
-                            <div class="text-center">
-                                <div class="text-3xl font-black text-green-400">256-bit</div>
-                                <div class="text-sm text-gray-400">AES Encrypted</div>
-                            </div>
-                        </div>
-                    </div>
+    <section id="solution" class="py-12 md:py-24 bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+            <img
+              src="https://huggingface.co/spaces/bodhistone/my-site/resolve/main/images/lockstone-internal.jpg"
+              alt="LockStone Device"
+              class="rounded-xl w-full"
+              loading="lazy"
+            />
+          </div>
+          <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+            <h2 class="text-4xl font-bold mb-6">How LockStone Works</h2>
+            <div class="space-y-8">
+              <div class="flex items-center space-x-4">
+                <div class="feature-icon usb-icon"></div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">1. Plug In</h3>
+                  <p class="text-gray-300">
+                    Plug LockStone into any USB-C port on your computer. Fast,
+                    universal, and secure.
+                  </p>
                 </div>
-                
-                <div data-aos="fade-left">
-                    <h2 class="text-6xl font-black mb-8">
-                        How LockStone <span class="holographic-text">Revolutionizes</span> Authentication
-                    </h2>
-                    <p class="text-2xl text-gray-300 mb-12">
-                        Born from National Geographic expeditions in the world's most extreme environments, where traditional passwords fail.
-                    </p>
-                    
-                    <div class="space-y-8">
-                        <div class="flex items-start space-x-6">
-                            <div class="w-16 h-16 animated-gradient rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">
-                                🔌
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-3 text-blue-400">Universal Connection</h3>
-                                <p class="text-gray-300 text-lg">USB-C compatibility across all modern devices. One solution, infinite possibilities.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-6">
-                            <div class="w-16 h-16 animated-gradient rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">
-                                📡
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-3 text-green-400">RFID Magic</h3>
-                                <p class="text-gray-300 text-lg">Military-grade RC522 technology with 10cm range. Works through wallets and clothing.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-6">
-                            <div class="w-16 h-16 animated-gradient rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">
-                                ⚡
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-3 text-purple-400">Instant Authentication</h3>
-                                <p class="text-gray-300 text-lg">0.3-second verification with enterprise-grade security. Faster than fingerprints.</p>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="feature-icon rfid-icon"></div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">2. Tap Your Card</h3>
+                  <p class="text-gray-300">
+                    Use your custom RFID card, bracelet, or pendant to
+                    authenticate instantly.
+                  </p>
                 </div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="feature-icon access-icon"></div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">3. Access Granted</h3>
+                  <p class="text-gray-300">
+                    No typing. No remembering. Just instant, secure access.
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="py-32 bg-gradient-to-b from-purple-950/20 to-blue-950/20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-6xl font-black mb-6">Why LockStone is <span class="shimmer-text">Revolutionary</span></h2>
-                <div class="w-32 h-2 bg-purple-500 mx-auto mb-8 rounded-full"></div>
-                <p class="text-2xl text-gray-300 max-w-4xl mx-auto">
-                    Engineered by explorers who needed unbreakable security in Earth's harshest conditions
-                </p>
-            </div>
-
-            <div class="masonry-grid">
-                <div class="card-3d glass-morphism rounded-3xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 animated-gradient rounded-2xl flex items-center justify-center text-3xl mb-6">
-                        🏗️
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Military-Grade Hardware</h3>
-                    <p class="text-gray-300 mb-6">RC522 chipset tested from Arctic expeditions to tropical caves. Operates in -40°C to +85°C.</p>
-                    <div class="space-y-2 text-sm">
-                        <div class="flex justify-between">
-                            <span>Range:</span>
-                            <span class="text-green-400">10cm through materials</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>Speed:</span>
-                            <span class="text-green-400">848 kbps data rate</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-3d glass-morphism rounded-3xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 animated-gradient rounded-2xl flex items-center justify-center text-3xl mb-6">
-                        🌐
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-blue-400">True Cross-Platform</h3>
-                    <p class="text-gray-300 mb-6">Native applications for every major operating system. No compromises, no limitations.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-blue-900/30 rounded-full text-xs">macOS</span>
-                        <span class="px-3 py-1 bg-blue-900/30 rounded-full text-xs">Windows</span>
-                        <span class="px-3 py-1 bg-blue-900/30 rounded-full text-xs">Linux</span>
-                        <span class="px-3 py-1 bg-blue-900/30 rounded-full text-xs">Android</span>
-                        <span class="px-3 py-1 bg-blue-900/30 rounded-full text-xs">iOS</span>
-                    </div>
-                </div>
-
-                <div class="card-3d glass-morphism rounded-3xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 animated-gradient rounded-2xl flex items-center justify-center text-3xl mb-6">
-                        🔐
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-green-400">Privacy by Design</h3>
-                    <p class="text-gray-300 mb-6">Zero cloud dependency. Your data never leaves your device. Ever.</p>
-                    <div class="space-y-3">
-                        <div class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                            <span class="text-sm">Local encryption only</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                            <span class="text-sm">No telemetry tracking</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                            <span class="text-sm">Open source auditable</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-3d glass-morphism rounded-3xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-16 h-16 animated-gradient rounded-2xl flex items-center justify-center text-3xl mb-6">
-                        ⚡
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-yellow-400">Lightning Performance</h3>
-                    <p class="text-gray-300 mb-6">Sub-second authentication faster than any biometric system available today.</p>
-                    <div class="text-center">
-                        <div class="text-4xl font-black text-yellow-400 mb-2">0.3s</div>
-                        <div class="text-sm text-gray-400">Average authentication time</div>
-                    </div>
-                </div>
-
-                <div class="card-3d glass-morphism rounded-3xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="500">
-                    <div class="w-16 h-16 animated-gradient rounded-2xl flex items-center justify-center text-3xl mb-6">
-                        👥
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-indigo-400">Multi-User Ready</h3>
-                    <p class="text-gray-300 mb-6">Perfect for families and businesses. Support for up to 50 unique RFID tags per device.</p>
-                    <div class="grid grid-cols-2 gap-4 text-sm">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-indigo-400">50+</div>
-                            <div class="text-gray-400">Unique tags</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-indigo-400">99.97%</div>
-                            <div class="text-gray-400">Success rate</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-3d glass-morphism rounded-3xl p-8 hover-lift" data-aos="fade-up" data-aos-delay="600">
-                    <div class="w-16 h-16 animated-gradient rounded-2xl flex items-center justify-center text-3xl mb-6">
-                        🎨
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-pink-400">Fully Customizable</h3>
-                    <p class="text-gray-300 mb-6">RGB LEDs, custom sounds, and personalized RFID cards that match your unique style.</p>
-                    <div class="flex justify-between text-sm">
-                        <span>LED patterns:</span>
-                        <span class="text-pink-400">12 modes</span>
-                    </div>
-                </div>
-            </div>
+    <section id="features" class="py-12 md:py-24 bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-bold mb-4">LockStone Features</h2>
+          <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
         </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-gray-800 p-8 rounded-xl card-hover glow glow-rainbow"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="text-purple-500 mb-4">
+              <i data-feather="cpu" class="w-12 h-12"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">RFID Reader</h3>
+            <p class="text-gray-300">
+              Secure RC522 reader that works with standard RFID tags and cards.
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 p-8 rounded-xl card-hover glow glow-rainbow"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="text-purple-500 mb-4">
+              <i data-feather="code" class="w-12 h-12"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Cross-Platform</h3>
+            <p class="text-gray-300">
+              Works on macOS, Windows, and Linux with easy-to-use software.
+            </p>
+          </div>
+          <div
+            class="bg-gray-800 p-8 rounded-xl card-hover glow glow-rainbow"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="text-purple-500 mb-4">
+              <i data-feather="shield" class="w-12 h-12"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Security First</h3>
+            <p class="text-gray-300">
+              256-bit encryption ensures your login data is never exposed.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- Rewards Section -->
+    <section id="rewards" class="py-12 md:py-24 bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-bold mb-4">Choose Your LockStone Pack</h2>
+          <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- $25 Tier -->
+          <div
+            class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h3 class="text-xl font-bold mb-2">$25 – Tap. Glow. Access.</h3>
+            <ul class="text-gray-300 list-disc list-inside space-y-2">
+              <li>Exclusive LockStone stickers + t-shirt</li>
+              <li>Show your support and spread the word</li>
+            </ul>
+          </div>
+
+          <!-- $79 Tier -->
+          <div
+            class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <h3 class="text-xl font-bold mb-2">
+              $79 – Early Access LockStone (Early Bird)
+            </h3>
+            <ul class="text-gray-300 list-disc list-inside space-y-2">
+              <li>1x RFID Reader + Software</li>
+              <li>1x Custom PVC RFID Card</li>
+            </ul>
+          </div>
+
+          <!-- $99 Tier -->
+          <div
+            class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <h3 class="text-xl font-bold mb-2">$99 – Gamer Pack</h3>
+            <ul class="text-gray-300 list-disc list-inside space-y-2">
+              <li>1x LockStone RFID Reader + Software</li>
+              <li>1x Custom Printed RFID Gamer ID Card</li>
+              <li>Bonus LED animation mode unlocked</li>
+            </ul>
+          </div>
+
+          <!-- $129 Tier -->
+          <div
+            class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <h3 class="text-xl font-bold mb-2">$129 – Pendant Pack</h3>
+            <ul class="text-gray-300 list-disc list-inside space-y-2">
+              <li>1x LockStone RFID Reader + Software</li>
+              <li>1x RFID Bracelet (pendant-style)</li>
+              <li>1x Custom Printed RFID Card</li>
+            </ul>
+          </div>
+
+          <!-- $149 Tier -->
+          <div
+            class="bg-gray-700 p-8 rounded-xl card-hover glow glow-rainbow"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <h3 class="text-xl font-bold mb-2">$149 – Business Starter Pack</h3>
+            <ul class="text-gray-300 list-disc list-inside space-y-2">
+              <li>2x LockStone Readers</li>
+              <li>4x Custom PVC ID Cards</li>
+              <li>Access to all future software updates</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-12 md:py-24 bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-bold mb-4">What Our Backers Say</h2>
+          <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="bg-gray-800 p-8 rounded-xl card-hover glow glow-rainbow"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <p class="text-gray-300 italic">
+              "LockStone changed the way I access my computer—finally no more
+              passwords!"
+            </p>
+            <p class="mt-4 font-bold">— Sarah P., Gamer</p>
+          </div>
+          <div
+            class="bg-gray-800 p-8 rounded-xl card-hover glow glow-rainbow"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <p class="text-gray-300 italic">
+              "As an elderly user, this is so easy and intuitive. I love it!"
+            </p>
+            <p class="mt-4 font-bold">— John K., Retired Teacher</p>
+          </div>
+          <div
+            class="bg-gray-800 p-8 rounded-xl card-hover glow glow-rainbow"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <p class="text-gray-300 italic">
+              "Our business loves the simplicity and security. No more shared
+              passwords!"
+            </p>
+            <p class="mt-4 font-bold">— Lisa M., Entrepreneur</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FAQ Section -->
+    <section id="faq" class="py-12 md:py-24 bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+          <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
+        </div>
+        <div class="max-w-4xl mx-auto space-y-6">
+          <div
+            class="bg-gray-700 p-6 rounded-xl card-hover glow"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <h3 class="font-bold mb-2">
+              Does LockStone work on Mac and Windows?
+            </h3>
+            <p class="text-gray-300">
+              Yes, LockStone is fully cross-platform for macOS, Windows, and
+              Linux.
+            </p>
+          </div>
+          <div
+            class="bg-gray-700 p-6 rounded-xl card-hover glow"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <h3 class="font-bold mb-2">Is my data secure?</h3>
+            <p class="text-gray-300">
+              Absolutely. All communications are encrypted with 256-bit AES
+              encryption.
+            </p>
+          </div>
+          <div
+            class="bg-gray-700 p-6 rounded-xl card-hover glow"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <h3 class="font-bold mb-2">Can I use multiple RFID cards?</h3>
+            <p class="text-gray-300">
+              Yes, you can assign multiple authorized cards, bracelets, or
+              pendants.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-12 md:py-24 bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-bold mb-4">Meet the Team</h2>
+          <div class="w-24 h-1 bg-purple-500 mx-auto"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="bg-gray-800 p-8 rounded-xl card-hover glow"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <img
+              src="https://ichef.bbci.co.uk/images/ic/1920xn/p07lnv4n.jpg.webp"
+              alt="Team Member"
+              class="rounded-full mb-4 mx-auto"
+            />
+            <h3 class="font-bold text-xl mb-1 text-center">Kent Stone</h3>
+            <p class="text-gray-300 text-center">Founder & Lead Developer</p>
+          </div>
+          <div
+            class="bg-gray-800 p-8 rounded-xl card-hover glow"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <img
+              src="https://ichef.bbci.co.uk/images/ic/1920xn/p07lnx25.jpg.webp"
+              alt="Team Member"
+              class="rounded-full mb-4 mx-auto"
+            />
+            <h3 class="font-bold text-xl mb-1 text-center">Adriana V.</h3>
+            <p class="text-gray-300 text-center">Product & Design Lead</p>
+          </div>
+          <div
+            class="bg-gray-800 p-8 rounded-xl card-hover glow"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <img
+              src="https://ichef.bbci.co.uk/images/ic/1920xn/p07lnwgc.jpg.webp"
+              alt="Team Member"
+              class="rounded-full mb-4 mx-auto"
+            />
+            <h3 class="font-bold text-xl mb-1 text-center">Mariela C.</h3>
+            <p class="text-gray-300 text-center">Product Manager</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form Section -->
+    <section id="contact" class="py-12 md:py-24 bg-gray-900">
+      <div class="container mx-auto px-6 max-w-xl">
+        <h2
+          class="text-4xl font-bold text-center mb-8"
+          data-i18n="contact_title"
+        >
+          Contact Us
+        </h2>
+        <form
+          action="https://formspree.io/f/mzzanwky"
+          method="POST"
+          class="space-y-6 bg-gray-800 p-8 rounded-xl shadow-lg"
+        >
+          <label class="block">
+            <span class="text-gray-300" data-i18n="form_email"
+              >Your email:</span
+            >
+            <input
+              type="email"
+              name="email"
+              required
+              class="mt-1 block w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:border-purple-500 focus:ring focus:ring-purple-400 focus:ring-opacity-50"
+            />
+          </label>
+          <label class="block">
+            <span class="text-gray-300" data-i18n="form_message"
+              >Your message:</span
+            >
+            <textarea
+              name="message"
+              rows="5"
+              required
+              class="mt-1 block w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:border-purple-500 focus:ring focus:ring-purple-400 focus:ring-opacity-50"
+            ></textarea>
+          </label>
+          <button
+            type="submit"
+            class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-3 px-6 rounded transition duration-300"
+            data-i18n="form_send"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        AOS.init();
+        feather.replace();
+
+        VANTA.GLOBE({
+          el: "#vanta-bg",
+          mouseControls: true,
+          touchControls: true,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          color: 0x8b5cf6,
+          color2: 0xec4899,
+          size: 1.2,
+        });
+
+        const particleContainer = document.getElementById("hero-particles");
+        const particleCount = 25;
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("hero-particle");
+          particle.style.top = Math.random() * 100 + "%";
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.width = 3 + Math.random() * 6 + "px";
+          particle.style.height = particle.style.width;
+          particle.style.animationDuration = 5 + Math.random() * 10 + "s";
+          particleContainer.appendChild(particle);
+        }
+      });
+    </script>
+  </body>
+</html>
