@@ -53,31 +53,24 @@
       .card-hover:hover {
         transform: translateY(-5px);
       }
-      @keyframes rgb-glow {
-        0% {
-          box-shadow: 0 0 10px #ff0000, 0 0 20px #00ff00, 0 0 30px #0000ff;
-        }
-        25% {
-          box-shadow: 0 0 10px #ff9900, 0 0 20px #33cc33, 0 0 30px #0099ff;
-        }
-        50% {
-          box-shadow: 0 0 10px #33cc33, 0 0 20px #0099ff, 0 0 30px #ff00ff;
-        }
-        75% {
-          box-shadow: 0 0 10px #0099ff, 0 0 20px #ff00ff, 0 0 30px #ff9900;
-        }
-        100% {
-          box-shadow: 0 0 10px #ff0000, 0 0 20px #00ff00, 0 0 30px #0000ff;
-        }
-      }
-      .glow-rainbow {
-        box-shadow: 0 0 10px #8b5cf6;
-        transition: all 0.3s ease;
-      }
-      .glow-rainbow:hover {
-        animation: rgb-glow 3s linear infinite;
-        transform: translateY(-5px) scale(1.02);
-      }
+    @keyframes smooth-rainbow {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.glow-rainbow {
+  box-shadow: 0 0 15px #8b5cf6, 0 0 30px #8b5cf6, 0 0 45px #8b5cf6;
+  transition: all 0.3s ease;
+}
+
+.glow-rainbow:hover {
+  animation: smooth-rainbow 5s linear infinite;
+}
+
       .feature-icon {
         width: 50px;
         height: 50px;
