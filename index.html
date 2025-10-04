@@ -1,199 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LockStone: Passwords are DEAD... Tap into the future.</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
-    <style>
-      @keyframes rainbow {
-        0% {
-          background-position: 0% 50%;
-        }
-        100% {
-          background-position: 100% 50%;
-        }
-      }
-      .animate-text {
-  position: relative;
-  color: #fff; /* solid core text */
-  font-weight: bold;
-}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LockStone: Passwords are DEAD... Tap into the future.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
-.animate-text::after {
-  content: attr(data-text); /* duplicate text for the glow */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    #ff0000,
-    #ff9900,
-    #33cc33,
-    #0099ff,
-    #6633cc,
-    #ff0000
-  );
-  background-size: 400% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: blur(6px);
-  animation: rainbow 6s linear infinite;
-  z-index: -1;
-}
+  <style>
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    .animate-text {
+      position: relative;
+      display: inline-block;
+      font-weight: bold;
+      color: #fff;
+    }
+    .animate-text::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff9900,
+        #33cc33,
+        #0099ff,
+        #6633cc,
+        #ff0000
+      );
+      background-size: 400% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: blur(6px);
+      animation: rainbow 6s linear infinite;
+      z-index: -1;
+    }
+    .glow { box-shadow: 0 0 12px rgba(139,92,246,0.5); }
+    .card-hover { transition: all .3s ease; }
+    .card-hover:hover { transform: translateY(-6px); }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
 
-@keyframes rainbow {
-  to {
-    background-position: 400% center;
-  }
-}
-      .hero-gradient {
-        background: linear-gradient(
-          135deg,
-          #3b82f6 0%,
-          #8b5cf6 50%,
-          #ec4899 100%
-        );
-      }
-      .glow {
-        box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
-        transition: all 0.3s ease;
-      }
-      .card-hover {
-        transition: all 0.3s ease;
-      }
-      .card-hover:hover {
-        transform: translateY(-5px);
-      }
-    @keyframes smooth-rainbow {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    filter: hue-rotate(360deg);
-  }
-}
-
-.glow-rainbow {
-  box-shadow: 0 0 15px #8b5cf6, 0 0 30px #8b5cf6, 0 0 45px #8b5cf6;
-  transition: all 0.3s ease;
-}
-
-.glow-rainbow:hover {
-  animation: smooth-rainbow 5s linear infinite;
-}
-
-      .feature-icon {
-        width: 50px;
-        height: 50px;
-      }
-      .usb-icon::before {
-        content: "🔌";
-        font-size: 2rem;
-      }
-      .rfid-icon::before {
-        content: "📶";
-        font-size: 2rem;
-      }
-      .access-icon::before {
-        content: "✅";
-        font-size: 2rem;
-        color: #34d399;
-      }
-      #hero-particles {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        overflow: hidden;
-      }
-      .hero-particle {
-        position: absolute;
-        width: 6px;
-        height: 6px;
-        background: rgba(255, 255, 255, 0.7);
-        border-radius: 50%;
-        pointer-events: none;
-        animation: float 10s linear infinite;
-        opacity: 0.8;
-      }
-      @keyframes float {
-        0% {
-          transform: translate(0, 0) scale(1);
-          opacity: 0.6;
-        }
-        50% {
-          transform: translate(30px, -60px) scale(1.3);
-          opacity: 1;
-        }
-        100% {
-          transform: translate(-20px, -120px) scale(0.8);
-          opacity: 0;
-        }
-      }
-    </style>
-  </head>
-  <body class="bg-gray-900 text-white">
-    <!-- Language & Currency Switcher -->
-    <div class="absolute top-4 right-4 flex space-x-2 z-20">
-      <select
-        id="language-selector"
-        class="bg-black/30 backdrop-blur-md text-white text-sm px-3 py-1 rounded-md border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500"
-      >
-        <option value="en">EN</option>
-        <option value="es">ES</option>
-        <option value="fr">FR</option>
-      </select>
-      <select
-        id="currency-selector"
-        class="bg-black/30 backdrop-blur-md text-white text-sm px-3 py-1 rounded-md border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500"
-      >
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-        <option value="PEN">PEN</option>
-      </select>
-    </div>
-
-    <!-- Hero Section -->
-    <section
-      id="hero"
-      class="relative overflow-hidden hero-gradient min-h-screen flex items-center"
-    >
-      <div id="vanta-bg" class="absolute inset-0"></div>
-      <div id="hero-particles"></div>
-      <div class="container mx-auto px-6 relative z-10 py-24">
-        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-          <h1 class="text-5xl md:text-6xl font-bold mb-6">
-            <span>Tap.</span>
-            <h1 class="animate-text" data-text="Glow">Glow</h1>
-            <span>Access.</span>
-          </h1>
-          <p class="text-2xl md:text-3xl font-light mb-12">
-            Passwords are DEAD... Tap into the future.
-          </p>
-          <div
-            class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4"
-          >
-            <a
-              href="https://www.kickstarter.com"
-              target="_blank"
-              class="bg-white text-gray-900 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition duration-300 glow glow-rainbow"
-              >Back Now</a
-            >
-            <a
-              href="#video"
-              class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-gray-900 transition duration-300 glow glow-rainbow"
-              >Watch Video</a
-            >
-          </div>
-        </div>
+  <!-- Hero -->
+  <section id="hero" class="relative min-h-screen flex items-center bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+    <div class="container mx-auto px-6 text-center relative z-10 py-24">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6">
+        <span>Tap.</span>
+        <span class="animate-text mx-2" data-text="Glow">Glow</span>
+        <span>Access.</span>
+      </h1>
+      <p class="text-2xl md:text-3xl mb-12">Passwords are DEAD... Tap into the future.</p>
+      <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+        <a href="#" class="bg-white text-gray-900 px-8 py-3 rounded-full font-bold hover:bg-gray-100 glow">Back Now</a>
+        <a href="#video" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-gray-900 glow">Watch Video</a>
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- Problem Section -->
     <section id="problem" class="py-12 md:py-24 bg-gray-800">
@@ -253,32 +130,88 @@
       </div>
     </section>
 
-    <!-- Video Section -->
-    <section id="video" class="py-12 md:py-24 bg-gray-900">
-      <div class="container mx-auto px-6">
-        <div
-          class="max-w-4xl mx-auto bg-gray-800 rounded-xl overflow-hidden glow glow-rainbow"
-          data-aos="fade-up"
-        >
-          <div class="aspect-video relative">
-            <video
-              id="demo-video"
-              controls
-              poster="https://huggingface.co/spaces/bodhistone/my-site/resolve/main/images/lockstone-video-poster.jpg"
-              class="absolute inset-0 w-full h-full object-cover rounded-xl"
-            >
-              <source src="assets/video/lockstone-demo.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <i
-              id="play-overlay"
-              data-feather="play"
-              class="w-20 h-20 text-purple-500 absolute inset-0 m-auto pointer-events-none"
-            ></i>
-          </div>
+     <!-- Investor Snapshot -->
+  <section id="investors" class="py-16 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-10">Investor Snapshot</h2>
+      <div class="flex space-x-6 overflow-x-auto pb-4 scrollbar-hide">
+        <div class="min-w-[300px] bg-gray-800 p-6 rounded-2xl card-hover glow">
+          <h3 class="text-xl font-bold mb-3">Market</h3>
+          <p class="text-gray-300">$12B+ Passwordless Authentication Market (18% CAGR)</p>
+        </div>
+        <div class="min-w-[300px] bg-gray-800 p-6 rounded-2xl card-hover glow">
+          <h3 class="text-xl font-bold mb-3">Competitive Edge</h3>
+          <p class="text-gray-300">Unlike YubiKey, LockStone is RFID, customizable, lifestyle-driven.</p>
+        </div>
+        <div class="min-w-[300px] bg-gray-800 p-6 rounded-2xl card-hover glow">
+          <h3 class="text-xl font-bold mb-3">Revenue Model</h3>
+          <p class="text-gray-300">Hardware margin + SaaS for enterprise users.</p>
+        </div>
+        <div class="min-w-[300px] bg-gray-800 p-6 rounded-2xl card-hover glow">
+          <h3 class="text-xl font-bold mb-3">Team Credibility</h3>
+          <p class="text-gray-300">Veteran-led. Proven track record in hardware + AI.</p>
+        </div>
+        <div class="min-w-[300px] bg-gray-800 p-6 rounded-2xl card-hover glow">
+          <h3 class="text-xl font-bold mb-3">Roadmap</h3>
+          <p class="text-gray-300">Kickstarter → Beta Units → Mass Production → Enterprise Partnerships</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <!-- Pricing Grid -->
+  <section id="pricing" class="py-20 bg-gray-800">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Choose Your LockStone</h2>
+      <div class="grid gap-8 md:grid-cols-3">
+        <div class="bg-gray-700 p-8 rounded-2xl glow card-hover relative">
+          <span class="absolute top-0 right-0 bg-pink-500 text-white px-3 py-1 rounded-bl-lg text-sm font-bold">Most Popular</span>
+          <h3 class="text-2xl font-bold mb-4">Early Bird</h3>
+          <p class="text-gray-300 mb-6">Get LockStone before anyone else.</p>
+          <p class="text-3xl font-bold mb-6">$49</p>
+          <a href="#" class="block bg-white text-gray-900 px-6 py-3 rounded-full font-bold hover:bg-gray-100 text-center">Back This Tier</a>
+        </div>
+        <div class="bg-gray-700 p-8 rounded-2xl glow card-hover relative">
+          <span class="absolute top-0 right-0 bg-indigo-500 text-white px-3 py-1 rounded-bl-lg text-sm font-bold">Best Value</span>
+          <h3 class="text-2xl font-bold mb-4">Duo Pack</h3>
+          <p class="text-gray-300 mb-6">One for you, one for a friend.</p>
+          <p class="text-3xl font-bold mb-6">$89</p>
+          <a href="#" class="block bg-white text-gray-900 px-6 py-3 rounded-full font-bold hover:bg-gray-100 text-center">Back This Tier</a>
+        </div>
+        <div class="bg-gray-700 p-8 rounded-2xl glow card-hover">
+          <h3 class="text-2xl font-bold mb-4">Enterprise Pack</h3>
+          <p class="text-gray-300 mb-6">Bulk units for your team.</p>
+          <p class="text-3xl font-bold mb-6">Contact Us</p>
+          <a href="#" class="block bg-white text-gray-900 px-6 py-3 rounded-full font-bold hover:bg-gray-100 text-center">Talk to Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Signals -->
+  <section class="py-12 bg-gray-900">
+    <div class="container mx-auto px-6 flex flex-wrap justify-center items-center gap-8 text-gray-400">
+      <div class="text-center">
+        <p class="font-bold text-white">Compatible With</p>
+        <p>Windows / macOS / Linux</p>
+      </div>
+      <div class="text-center">
+        <p class="font-bold text-white">Story</p>
+        <p>Built in Peru · Backed by Veterans</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section id="video" class="py-20 bg-gray-800 text-center">
+    <h2 class="text-4xl font-bold mb-8">See LockStone in Action</h2>
+    <div class="relative flex justify-center">
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="relative w-24 h-24 rounded-full bg-pink-500 flex items-center justify-center pulse glow">
+        <i data-feather="play" class="w-10 h-10 text-white"></i>
+      </a>
+    </div>
+  </section>
+
 
     <!-- Solution Section -->
     <section id="solution" class="py-12 md:py-24 bg-gray-800">
