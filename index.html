@@ -19,22 +19,40 @@
         }
       }
       .animate-text {
-        background-size: 400% auto;
-        background-image: linear-gradient(
-          to right,
-          #ff0000,
-          #ff9900,
-          #33cc33,
-          #0099ff,
-          #6633cc
-        );
-        animation: rainbow 3s linear infinite;
-        display: inline-block;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-      }
+  position: relative;
+  color: #fff; /* solid core text */
+  font-weight: bold;
+}
+
+.animate-text::after {
+  content: attr(data-text); /* duplicate text for the glow */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #ff0000,
+    #ff9900,
+    #33cc33,
+    #0099ff,
+    #6633cc,
+    #ff0000
+  );
+  background-size: 400% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: blur(6px);
+  animation: rainbow 6s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rainbow {
+  to {
+    background-position: 400% center;
+  }
+}
       .hero-gradient {
         background: linear-gradient(
           135deg,
@@ -152,7 +170,7 @@
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
           <h1 class="text-5xl md:text-6xl font-bold mb-6">
             <span>Tap.</span>
-            <span class="animate-text">Glow.</span>
+            <h1 class="animate-text" data-text="Glow">Glow</h1>
             <span>Access.</span>
           </h1>
           <p class="text-2xl md:text-3xl font-light mb-12">
