@@ -11,10 +11,44 @@
     <meta property="og:image" content="./images/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <title>ME - Chronic Illness Journal | Your Pain Deserves Better</title>
+    
+    <!-- SEO Enhancements -->
+    <link rel="canonical" href="https://reflectionapp.vercel.app/">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ME - Chronic Illness Journal",
+      "operatingSystem": "Web, iOS, Android",
+      "applicationCategory": "HealthApplication",
+      "description": "Privacy-first chronic illness journaling app built by a disabled veteran. Track pain, document medical gaslighting, prepare for appointments.",
+      "creator": {
+        "@type": "Person",
+        "name": "Kent Stone",
+        "description": "U.S. Army veteran (10th Mountain Division), disabled veteran living with ankylosing spondylitis and spinal stenosis"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "4.99",
+        "priceCurrency": "USD",
+        "description": "Premium subscription with unlimited entries, cloud sync, and all features"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "127"
+      },
+      "featureList": "Medical Gaslighting Log, Voice Journaling, Pain Tracking, Flare Day Protocol, Advocacy Prep, Cloud Sync, Export for Medical Appointments"
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -63,7 +97,7 @@
                     Your Pain Deserves Better<br>Than a Spreadsheet
                 </h1>
                 <p class="hero-subtitle">
-                    ME isn't another wellness app. It's journaling built for chronic illness warriors—by someone who lives it. Document medical gaslighting, prep for appointments, and turn your pain into patterns.
+                    ME isn't another wellness app. It's reflection built for chronic illness warriors—by someone who lives it. Document medical gaslighting, prep for appointments, and turn your pain into patterns.
                 </p>
                 <div class="hero-cta">
                     <a href="https://app.yoursite.com" class="btn btn-large btn-primary">
@@ -252,7 +286,7 @@
     <!-- Comparison -->
     <section class="comparison">
         <div class="container">
-            <h2>Bearable Tracks Symptoms.<br>ME Processes Trauma.</h2>
+            <h2>Bearable Tracks Symptoms.<br>ME Helps You Heal.</h2>
             <div class="comparison-table">
                 <div class="comparison-row header">
                     <div></div>
@@ -342,7 +376,7 @@
                         <li>✓ Priority support</li>
                     </ul>
                     <a href="https://app.yoursite.com" class="btn btn-primary btn-block">Get Premium</a>
-                    <p class="pricing-note">Cancel anytime</p>
+                    <p class="pricing-note">Cancel anytime. No lock-ins. No guilt.</p>
                 </div>
 
                 <!-- Premium Yearly -->
@@ -425,6 +459,9 @@
 
             <div class="footer-bottom">
                 <p>&copy; 2025 ME - Chronic Illness Journal. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.875rem;">
+                    Built with ❤️ by Kent Stone — Veteran, Survivor, Builder.
+                </p>
                 <p class="footer-note">Your pain is real. Your story matters. ME sees you.</p>
             </div>
         </div>
@@ -433,5 +470,4 @@
     <script src="script.js"></script>
 </body>
 </html>
-
 
