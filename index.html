@@ -1,474 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ME - Privacy-first journaling for chronic illness warriors. Built by a disabled veteran who gets it. Track pain, document medical gaslighting, prepare for appointments.">
-    <meta name="keywords" content="chronic illness, pain tracker, medical gaslighting, journaling app, PTSD, veteran, fibromyalgia, chronic pain">
-    <meta property="og:title" content="ME - Chronic Illness Journal">
-    <meta property="og:description" content="Your pain deserves better than a spreadsheet. Built by a disabled veteran for chronic illness warriors.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="./images/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <title>ME - Chronic Illness Journal | Your Pain Deserves Better</title>
-    
-    <!-- SEO Enhancements -->
-    <link rel="canonical" href="https://reflectionapp.vercel.app/">
-    <link rel="icon" type="image/png" href="./images/favicon.png">
-    
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Schema.org structured data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "ME - Chronic Illness Journal",
-      "operatingSystem": "Web, iOS, Android",
-      "applicationCategory": "HealthApplication",
-      "description": "Privacy-first chronic illness journaling app built by a disabled veteran. Track pain, document medical gaslighting, prepare for appointments.",
-      "creator": {
-        "@type": "Person",
-        "name": "Kent Stone",
-        "description": "U.S. Army veteran (10th Mountain Division), disabled veteran living with ankylosing spondylitis and spinal stenosis"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "4.99",
-        "priceCurrency": "USD",
-        "description": "Premium subscription with unlimited entries, cloud sync, and all features"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "127"
-      },
-      "featureList": "Medical Gaslighting Log, Voice Journaling, Pain Tracking, Flare Day Protocol, Advocacy Prep, Cloud Sync, Export for Medical Appointments"
-    }
-    </script>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container nav-container">
-            <div class="nav-brand">
-                <svg class="nav-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 2L4 9V23L16 30L28 23V9L16 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                    <path d="M16 14L12 16V20L16 22L20 20V16L16 14Z" fill="currentColor"/>
-                </svg>
-                <span class="nav-title">ME</span>
-            </div>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#story">Our Story</a>
-                <a href="#pricing">Pricing</a>
-                <a href="https://reflectionapp-three.vercel.app/" class="btn btn-primary">Launch App</a>
-            </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ME – Chronic Illness Journal | Privacy-First Reflection</title>
+  <meta name="description" content="A privacy-first journal for chronic illness warriors. Built by a disabled veteran. Track symptoms, speak when you can’t type, and export patterns for your doctor. Your pain deserves better than a spreadsheet." />
+  <meta name="keywords" content="chronic illness journal, pain tracker, voice journaling, medical gaslighting, ankylosing spondylitis, spinal stenosis, PTSD, veteran" />
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
+  <!-- Canonical + Icons -->
+  <link rel="canonical" href="https://mereflection.com/" />
+  <link rel="icon" type="image/png" href="https://mereflection.com/images/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ME – Chronic Illness Journal" />
+  <meta property="og:description" content="Your pain deserves better than a spreadsheet. Built by a disabled veteran for chronic illness warriors." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mereflection.com/" />
+  <meta property="og:image" content="https://mereflection.com/images/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ME – Chronic Illness Journal" />
+  <meta name="twitter:description" content="A quiet place that listens. Privacy-first journaling built by a disabled veteran." />
+  <meta name="twitter:image" content="https://mereflection.com/images/og-image.png" />
+
+  <!-- Fonts & CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ME – Chronic Illness Journal",
+    "operatingSystem": "Web, iOS, Android",
+    "applicationCategory": "HealthApplication",
+    "description": "Privacy-first journaling for chronic illness built by a disabled veteran. Local by default; optional sync. Voice journaling, pain tracking, and medical-visit exports.",
+    "creator": {
+      "@type": "Person",
+      "name": "Kent Stone",
+      "description": "U.S. Army veteran (10th Mountain Division), disabled veteran living with ankylosing spondylitis and spinal stenosis."
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "4.99",
+      "priceCurrency": "USD",
+      "description": "Monthly premium subscription with unlimited entries and voice journaling. Free tier available. Veterans program included."
+    },
+    "featureList": [
+      "Local-first storage",
+      "Voice journaling",
+      "Symptom & context logging",
+      "Medical advocacy export",
+      "Optional cloud sync (off by default)"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-container">
+      <div class="nav-brand" aria-label="ME – Chronic Illness Journal">
+        <svg class="nav-icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L4 9V23L16 30L28 23V9L16 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <span class="nav-title">ME</span>
+      </div>
+      <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#story">Our Story</a>
         <a href="#pricing">Pricing</a>
-        <a href="https://reflectionapp-three.vercel.app/" class="btn btn-primary">Launch App</a>
+        <a href="https://mereflection.com/app" class="btn btn-primary">Launch App</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M10 1L3 5.5V14.5L10 19L17 14.5V5.5L10 1Z" stroke="currentColor" stroke-width="1.5"/>
-                    </svg>
-                    <span>Built by a U.S. Army Veteran (10th Mountain Division)</span>
-                </div>
-                <h1 class="hero-title">
-                    Your Pain Deserves Better<br>Than a Spreadsheet
-                </h1>
-                <p class="hero-subtitle">
-                    ME isn't another wellness app. It's reflection built for chronic illness warriors—by someone who lives it. Document medical gaslighting, prep for appointments, and turn your pain into patterns.
-                </p>
-                <div class="hero-cta">
-                    <a href="https://app.yoursite.com" class="btn btn-large btn-primary">
-                        Start Journaling Free
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M7 3L14 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                    <a href="#story" class="btn btn-large btn-secondary">Learn Our Story</a>
-                </div>
-                <div class="hero-platforms">
-                    <span class="platforms-label">Available on</span>
-                    <div class="platforms-icons">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <title>Web</title>
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                        </svg>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <title>iOS</title>
-                            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                        </svg>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <title>Android</title>
-                            <path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.28-.55-.37-.83-.22-.3.16-.42.54-.26.85l1.84 3.18C2.92 12.13 1.11 16.23 1 20h22c-.11-3.77-1.92-7.87-5.4-10.52zM7 17.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="app-screenshot">
-                    <img src="./images/app-screenshot.png" alt="ME App Interface" id="heroScreenshot">
-                </div>
-            </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features">Features</a>
+    <a href="#story">Our Story</a>
+    <a href="#pricing">Pricing</a>
+    <a href="https://mereflection.com/app" class="btn btn-primary">Launch App</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 1L3 5.5V14.5L10 19L17 14.5V5.5L10 1Z" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <span>Built by a U.S. Army Veteran (10th Mountain Division)</span>
         </div>
-    </section>
-
-    <!-- Social Proof -->
-    <section class="social-proof">
-        <div class="container">
-            <p class="social-proof-text">
-                <strong>50M+ Americans</strong> live with chronic illness. Most apps weren't built for them.
-            </p>
+        <h1 class="hero-title">Your pain deserves better than a spreadsheet.</h1>
+        <p class="hero-subtitle">
+          ME isn’t another wellness app. It’s reflection built for chronic illness warriors — by someone who lives it. Track pain, document medical gaslighting, and export your story when words fail.
+        </p>
+        <div class="hero-cta">
+          <a href="https://mereflection.com/app" class="btn btn-large btn-primary">
+            Start Journaling Free
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M7 3L14 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#story" class="btn btn-large btn-secondary">Learn Our Story</a>
         </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Not Another Symptom Tracker</h2>
-                <p>ME understands what it's like to live with invisible illness</p>
-            </div>
-
-            <div class="features-grid">
-                <!-- Medical Gaslighting Log -->
-                <div class="feature-card featured">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #dc2626, #ef4444);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
-                    </div>
-                    <h3>Medical Gaslighting Log</h3>
-                    <p>Document dismissive doctors. Track what was minimized. Build your evidence. <strong>No other app has this.</strong></p>
-                </div>
-
-                <!-- Flare Day Protocol -->
-                <div class="feature-card">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 5v5l3 3"/>
-                        </svg>
-                    </div>
-                    <h3>Flare Day Protocol</h3>
-                    <p>Brain fog? Pain spike? Structured prompts help you make decisions when thinking is hard.</p>
-                </div>
-
-                <!-- Advocacy Prep -->
-                <div class="feature-card">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #7ec9a3, #10b981);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                        </svg>
-                    </div>
-                    <h3>Advocacy Prep</h3>
-                    <p>Walk into medical appointments prepared. Remember patterns. Ask the hard questions.</p>
-                </div>
-
-                <!-- Voice Journaling -->
-                <div class="feature-card">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #8338ec, #a855f7);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/>
-                            <path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4m-4 0h8"/>
-                        </svg>
-                    </div>
-                    <h3>Voice Journaling</h3>
-                    <p>Too tired to type? Use voice-to-text. Journal when writing is too much energy.</p>
-                </div>
-
-                <!-- Good Enough Today -->
-                <div class="feature-card">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #22c55e, #10b981);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h3>"Good Enough Today"</h3>
-                    <p>Combat productivity guilt. Celebrate survival. Showering counts. Breathing counts.</p>
-                </div>
-
-                <!-- Privacy First -->
-                <div class="feature-card">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                        </svg>
-                    </div>
-                    <h3>Your Data, Your Control</h3>
-                    <p>Local storage by default. Optional cloud sync. No data selling. Export everything.</p>
-                </div>
-            </div>
+        <div class="hero-platforms">
+          <span class="platforms-label">Available on</span>
+          <div class="platforms-icons">
+            <svg width="24" height="24" fill="currentColor"><title>Web</title><circle cx="12" cy="12" r="10"/></svg>
+            <svg width="24" height="24" fill="currentColor"><title>iOS</title><path d="M12 2a10 10 0 000 20"/></svg>
+            <svg width="24" height="24" fill="currentColor"><title>Android</title><rect x="4" y="4" width="16" height="16" rx="3"/></svg>
+          </div>
         </div>
-    </section>
+      </div>
+      <div class="hero-visual">
+        <img src="https://mereflection.com/images/app-screenshot.png" alt="ME App Interface showing journaling and symptom tracking" id="heroScreenshot" />
+      </div>
+    </div>
+  </section>
 
-    <!-- Founder Story -->
-    <section class="founder-story" id="story">
-        <div class="container">
-            <div class="story-content">
-                <div class="story-badge">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2l-8 7v13l8 4 8-4V9l-8-7z"/>
-                    </svg>
-                    <span>Built by Someone Who Gets It</span>
-                </div>
-                <h2>Why I Built ME</h2>
-                <div class="story-text">
-                    <p>
-                        My name is <strong>Kent Stone</strong>. I'm a U.S. Army veteran who served with the <strong>10th Mountain Division in Iraq</strong>. When I came home, I didn't bring back medals or clarity—I brought back trauma, chronic illness, and questions no one could answer.
-                    </p>
-                    <p>
-                        Years later, after being diagnosed with <strong>ankylosing spondylitis and spinal stenosis</strong>, my world shrank to pain management and persistence. I tracked symptoms, doctors' dismissals, medications, flare-ups—but the tools out there weren't made for people like me. <strong>They were made for wellness influencers, not warriors managing pain.</strong>
-                    </p>
-                    <p>
-                        I didn't need affirmations. I needed accountability, pattern recognition, and evidence—something that could help me advocate for myself when my body and doctors stopped listening.
-                    </p>
-                    <blockquote class="story-quote">
-                        "So I started coding. What began as a late-night side project on a broken laptop in Peru evolved into ME—a first-of-its-kind journaling platform designed for chronic illness survivors, veterans, and trauma fighters."
-                    </blockquote>
-                    <p>
-                        <strong>Not just another "mindfulness" app</strong>—but a data-driven healing companion that helps people document, understand, and reclaim their lives. Where most apps treat reflection like a habit, I treat it like a vital sign.
-                    </p>
-                    <p>
-                        I built this because <strong>I was tired of being invisible</strong>. Because thousands of people—veterans, patients, caregivers—are living in the quiet corners of pain, tracking symptoms in notebooks and screenshots, unheard.
-                    </p>
-                    <p class="story-emphasis">
-                        ME exists so they don't have to. Because reflection isn't selfish—<strong>it's survival</strong>.
-                    </p>
-                </div>
+  <!-- SOCIAL PROOF -->
+  <section class="social-proof">
+    <div class="container">
+      <p class="social-proof-text"><strong>50M+ Americans</strong> live with chronic illness. Most apps weren’t built for us.</p>
+    </div>
+  </section>
 
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="value-icon">🛡️</div>
-                        <h4>Veteran-Built</h4>
-                        <p>Service taught me resilience. Chronic illness taught me empathy.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">❤️</div>
-                        <h4>Lived Experience</h4>
-                        <p>Not theory. Real life, real pain, real solutions.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">👥</div>
-                        <h4>Community-Driven</h4>
-                        <p>Built for chronic illness warriors, by someone in the trenches.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">✨</div>
-                        <h4>Privacy-First</h4>
-                        <p>Your data, your device, your control. Always.</p>
-                    </div>
-                </div>
-            </div>
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2>Not Another Symptom Tracker</h2>
+      <p>ME understands what it’s like to live with invisible illness.</p>
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <h3>Medical Gaslighting Log</h3>
+          <p>Document dismissive encounters. Record what was said and when. Build your evidence with clarity.</p>
         </div>
-    </section>
 
-    <!-- Comparison -->
-    <section class="comparison">
-        <div class="container">
-            <h2>Bearable Tracks Symptoms.<br>ME Helps You Heal.</h2>
-            <div class="comparison-table">
-                <div class="comparison-row header">
-                    <div></div>
-                    <div>Generic Trackers</div>
-                    <div class="highlight">ME</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="label">Built By</div>
-                    <div>Tech entrepreneurs</div>
-                    <div class="highlight"><strong>Disabled veteran with chronic illness</strong></div>
-                </div>
-                <div class="comparison-row">
-                    <div class="label">Target Audience</div>
-                    <div>General wellness</div>
-                    <div class="highlight"><strong>Chronic illness warriors</strong></div>
-                </div>
-                <div class="comparison-row">
-                    <div class="label">Tone</div>
-                    <div>"Track, Save, Report"</div>
-                    <div class="highlight"><strong>"Release, Reflect, Share"</strong></div>
-                </div>
-                <div class="comparison-row">
-                    <div class="label">Medical Gaslighting Log</div>
-                    <div>❌</div>
-                    <div class="highlight"><strong>✅</strong></div>
-                </div>
-                <div class="comparison-row">
-                    <div class="label">Brain Fog-Friendly</div>
-                    <div>❌</div>
-                    <div class="highlight"><strong>✅</strong></div>
-                </div>
-                <div class="comparison-row">
-                    <div class="label">Productivity Guilt Support</div>
-                    <div>❌</div>
-                    <div class="highlight"><strong>✅</strong></div>
-                </div>
-            </div>
+        <div class="feature-card">
+          <h3>Flare Day Protocol</h3>
+          <p>When your brain fog hits, ME helps you remember what matters and what to do next.</p>
         </div>
-    </section>
 
-    <!-- Pricing -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-header">
-                <h2>Start Free. Upgrade When You're Ready.</h2>
-                <p>No credit card required</p>
-            </div>
-
-            <div class="pricing-cards">
-                <!-- Free -->
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Free</h3>
-                        <div class="price">
-                            <span class="amount">$0</span>
-                            <span class="period">forever</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>✓ 10 journal entries</li>
-                        <li>✓ 3 core templates</li>
-                        <li>✓ Local storage</li>
-                        <li>✓ Mood tracking</li>
-                        <li>✓ CSV export</li>
-                    </ul>
-                    <a href="https://reflectionapp-three.vercel.app/" class="btn btn-secondary btn-block">Start Free</a>
-                </div>
-
-                <!-- Premium Monthly -->
-                <div class="pricing-card recommended">
-                    <div class="pricing-badge">Most Popular</div>
-                    <div class="pricing-header">
-                        <h3>Premium</h3>
-                        <div class="price">
-                            <span class="amount">$4.99</span>
-                            <span class="period">/month</span>
-                        </div>
-                        <p class="price-detail">$0.16/day • Less than a latte</p>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>✓ <strong>Unlimited</strong> entries</li>
-                        <li>✓ <strong>All 13 templates</strong></li>
-                        <li>✓ Voice journaling</li>
-                        <li>✓ Cloud sync</li>
-                        <li>✓ Advanced analytics</li>
-                        <li>✓ All export formats</li>
-                        <li>✓ Priority support</li>
-                    </ul>
-                    <a href="https://reflectionapp-three.vercel.app/" class="btn btn-primary btn-block">Get Premium</a>
-                    <p class="pricing-note">Cancel anytime. No lock-ins. No guilt.</p>
-                </div>
-
-                <!-- Premium Yearly -->
-                <div class="pricing-card">
-                    <div class="pricing-badge savings">Save 17%</div>
-                    <div class="pricing-header">
-                        <h3>Premium Annual</h3>
-                        <div class="price">
-                            <span class="amount">$49.99</span>
-                            <span class="period">/year</span>
-                        </div>
-                        <p class="price-detail">$4.17/month • 2 months free</p>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>✓ Everything in Premium</li>
-                        <li>✓ <strong>Save $10/year</strong></li>
-                        <li>✓ Best value</li>
-                    </ul>
-                    <a href="https://reflectionapp-three.vercel.app/m" class="btn btn-secondary btn-block">Get Annual</a>
-                </div>
-            </div>
-
-            <div class="pricing-comparison">
-                <p><strong>Why only $4.99/month?</strong> Because I'm a disabled veteran on VA disability. I built this to help people, not get rich. Therapy costs $100-300/session. ME costs <strong>$0.16/day</strong>—less than a latte—for transformation, not just tracking.</p>
-                <p style="margin-top: 1rem; font-style: italic; color: var(--accent);">💚 Free for all verified veterans. Forever. Email for code.</p>
-            </div>
+        <div class="feature-card">
+          <h3>Advocacy Prep</h3>
+          <p>Walk into appointments prepared — no more blanking out under pressure.</p>
         </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>You're Not Lazy. You're Not "Just Stressed."</h2>
-                <p>Your pain is real. ME sees you. 💚</p>
-                <a href="https://reflectionapp-three.vercel.app/" class="btn btn-large btn-primary">
-                    Start Your Journey
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M7 3L14 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-                <p class="cta-note">Free to start. 10 entries. No credit card.</p>
-            </div>
+        <div class="feature-card">
+          <h3>Voice Journaling</h3>
+          <p>Too tired to type? Just speak. ME listens and transcribes safely to your device.</p>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <path d="M16 2L4 9V23L16 30L28 23V9L16 2Z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        <span>ME</span>
-                    </div>
-                    <p>Built by someone who gets it,<br>for people who need it.</p>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Product</h4>
-                    <a href="#features">Features</a>
-                    <a href="#pricing">Pricing</a>
-                    <a href="https://reflectionapp-three.vercel.app/">Launch App</a>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Company</h4>
-                    <a href="#story">Our Story</a>
-                    <a href="mailto:support@yoursite.com">Support</a>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Legal</h4>
-                    <a href="./privacy.html">Privacy Policy</a>
-                    <a href="./terms.html">Terms of Service</a>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 ME - Chronic Illness Journal. All rights reserved.</p>
-                <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.875rem;">
-                    Built with ❤️ by Kent Stone — Veteran, Survivor, Builder.
-                </p>
-                <p class="footer-note">Your pain is real. Your story matters. ME sees you.</p>
-            </div>
+        <div class="feature-card">
+          <h3>Good Enough Today</h3>
+          <p>Because survival counts. Showering counts. Breathing counts.</p>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="feature-card">
+          <h3>Your Data, Your Control</h3>
+          <p>Local-first by default. Optional encrypted sync. Nothing sold. Nothing mined.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER STORY -->
+  <section class="founder-story" id="story">
+    <div class="container">
+      <h2>Why I Built ME</h2>
+      <p>I’m <strong>Kent Stone</strong>, a U.S. Army veteran (10th Mountain Division). I live with ankylosing spondylitis and spinal stenosis. My world shrank to pain management and persistence.</p>
+      <p>I needed a tool that didn’t analyze me — it just had my back. So I built ME: a privacy-first journal that helps you catch patterns, remember the facts, and advocate for yourself when it matters most.</p>
+      <blockquote>"I started coding on a broken laptop in Peru. ME became more than an app — it became a survival system for people like us."</blockquote>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2>Start Free. Upgrade When You're Ready.</h2>
+      <p>No credit card required.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Free</h3>
+          <p>$0 forever</p>
+          <ul>
+            <li>10 journal entries</li>
+            <li>3 core templates</li>
+            <li>Local storage only</li>
+            <li>CSV export</li>
+          </ul>
+          <a href="https://mereflection.com/app" class="btn btn-secondary">Start Free</a>
+        </div>
+        <div class="pricing-card highlight">
+          <h3>Premium</h3>
+          <p>$4.99 / month</p>
+          <ul>
+            <li>Unlimited entries</li>
+            <li>Voice journaling</li>
+            <li>Encrypted cloud sync (optional)</li>
+            <li>Full export formats</li>
+          </ul>
+          <a href="https://mereflection.com/app" class="btn btn-primary">Get Premium</a>
+          <p class="pricing-note">💚 Free for verified veterans — email support@mereflection.com.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>You’re Not Lazy. You’re Not “Just Stressed.”</h2>
+      <p>Your pain is real. ME sees you. 💚</p>
+      <a href="https://mereflection.com/app" class="btn btn-large btn-primary">Start Your Journey</a>
+      <p class="cta-note">Free to start. 10 entries. No card needed.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong>ME</strong><br/>
+          Built by someone who gets it, for people who need it.
+        </div>
+        <div>
+          <a href="#features">Features</a><br/>
+          <a href="#pricing">Pricing</a><br/>
+          <a href="#story">Our Story</a>
+        </div>
+        <div>
+          <a href="mailto:support@mereflection.com">Support</a><br/>
+          <a href="https://mereflection.com/privacy.html">Privacy</a><br/>
+          <a href="https://mereflection.com/terms.html">Terms</a>
+        </div>
+      </div>
+      <p>&copy; 2025 ME – Chronic Illness Journal. All rights reserved.</p>
+      <p class="footer-note">Built with ❤️ by Kent Stone — Veteran, Survivor, Builder.</p>
+      <p class="footer-note">Your pain is real. Your story matters. ME sees you.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
 
 
