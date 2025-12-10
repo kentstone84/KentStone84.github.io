@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stone Cognition System | Breakthrough Artificial Intelligence Systems</title>
+    <title>JARVIS Cognitive AI | Breakthrough Artificial Intelligence Systems</title>
     <meta name="description" content="JARVIS Cognitive AI develops breakthrough cognitive architectures for defense, intelligence, and enterprise applications. Creator of Stone Retrieval Function (SRF) and 11+ integrated AI subsystems.">
     <meta name="keywords" content="artificial intelligence, cognitive architecture, defense technology, SRF, Stone Retrieval Function, swarm intelligence, temporal forecasting">
     <meta name="author" content="Kent Stone">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Stone Cognitive AI">
+    <meta property="og:title" content="JARVIS Cognitive AI">
     <meta property="og:description" content="Breakthrough cognitive architectures for defense and intelligence applications">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kentstone84.github.io">
@@ -181,16 +181,27 @@
             font-weight: 800;
             letter-spacing: 4px;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--text) 50%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 3s ease-in-out infinite;
+            color: var(--primary);
+            text-shadow: 
+                0 0 10px rgba(0, 240, 255, 0.5),
+                0 0 20px rgba(0, 240, 255, 0.3),
+                0 0 40px rgba(0, 240, 255, 0.2);
+            animation: glow 3s ease-in-out infinite;
         }
         
-        @keyframes shimmer {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(1.2); }
+        @keyframes glow {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 10px rgba(0, 240, 255, 0.5),
+                    0 0 20px rgba(0, 240, 255, 0.3),
+                    0 0 40px rgba(0, 240, 255, 0.2);
+            }
+            50% { 
+                text-shadow: 
+                    0 0 15px rgba(0, 240, 255, 0.7),
+                    0 0 30px rgba(0, 240, 255, 0.5),
+                    0 0 60px rgba(0, 240, 255, 0.3);
+            }
         }
         
         .hero-subtitle {
