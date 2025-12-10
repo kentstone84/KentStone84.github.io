@@ -1,262 +1,825 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ME – Chronic Illness Journal | Privacy-First Reflection</title>
-  <meta name="description" content="A privacy-first journal for chronic illness warriors. Built by a disabled veteran. Track symptoms, speak when you can’t type, and export patterns for your doctor. Your pain deserves better than a spreadsheet." />
-  <meta name="keywords" content="chronic illness journal, pain tracker, voice journaling, medical gaslighting, ankylosing spondylitis, spinal stenosis, PTSD, veteran" />
-
-  <!-- Canonical + Icons -->
-  <link rel="canonical" href="https://mereflection.com/" />
-  <link rel="icon" type="image/png" href="https://mereflection.com/images/favicon.png" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="ME – Chronic Illness Journal" />
-  <meta property="og:description" content="Your pain deserves better than a spreadsheet. Built by a disabled veteran for chronic illness warriors." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://mereflection.com/" />
-  <meta property="og:image" content="https://mereflection.com/images/og-image.png" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ME – Chronic Illness Journal" />
-  <meta name="twitter:description" content="A quiet place that listens. Privacy-first journaling built by a disabled veteran." />
-  <meta name="twitter:image" content="https://mereflection.com/images/og-image.png" />
-
-  <!-- Fonts & CSS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "ME – Chronic Illness Journal",
-    "operatingSystem": "Web, iOS, Android",
-    "applicationCategory": "HealthApplication",
-    "description": "Privacy-first journaling for chronic illness built by a disabled veteran. Local by default; optional sync. Voice journaling, pain tracking, and medical-visit exports.",
-    "creator": {
-      "@type": "Person",
-      "name": "Kent Stone",
-      "description": "U.S. Army veteran (10th Mountain Division), disabled veteran living with ankylosing spondylitis and spinal stenosis."
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "4.99",
-      "priceCurrency": "USD",
-      "description": "Monthly premium subscription with unlimited entries and voice journaling. Free tier available. Veterans program included."
-    },
-    "featureList": [
-      "Local-first storage",
-      "Voice journaling",
-      "Symptom & context logging",
-      "Medical advocacy export",
-      "Optional cloud sync (off by default)"
-    ]
-  }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone Cognition System | Breakthrough Artificial Intelligence Systems</title>
+    <meta name="description" content="JARVIS Cognitive AI develops breakthrough cognitive architectures for defense, intelligence, and enterprise applications. Creator of Stone Retrieval Function (SRF) and 11+ integrated AI subsystems.">
+    <meta name="keywords" content="artificial intelligence, cognitive architecture, defense technology, SRF, Stone Retrieval Function, swarm intelligence, temporal forecasting">
+    <meta name="author" content="Kent Stone">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Stone Cognitive AI">
+    <meta property="og:description" content="Breakthrough cognitive architectures for defense and intelligence applications">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kentstone84.github.io">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #00f0ff;
+            --primary-dim: #00a0aa;
+            --secondary: #ff3366;
+            --accent: #7b2cff;
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a25;
+            --text: #e8e8f0;
+            --text-dim: #8888a0;
+            --border: #2a2a3a;
+            --glow: 0 0 20px rgba(0, 240, 255, 0.3);
+            --glow-strong: 0 0 40px rgba(0, 240, 255, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .bg-radial {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 50% 0%, rgba(0, 240, 255, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-shadow: var(--glow);
+        }
+        
+        .logo span {
+            color: var(--text);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+            text-shadow: var(--glow);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid var(--primary-dim);
+            border-radius: 50px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: blink 1s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.2); }
+            50% { box-shadow: 0 0 0 10px rgba(0, 240, 255, 0); }
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--text) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.2); }
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: var(--text-dim);
+            max-width: 700px;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg-dark);
+            border: 2px solid var(--primary);
+            box-shadow: var(--glow);
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--primary);
+            box-shadow: var(--glow-strong);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            padding-top: 4rem;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: var(--glow);
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-tag {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--primary);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        /* Technology Cards */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .tech-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--primary-dim);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 240, 255, 0.1);
+        }
+        
+        .tech-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .tech-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 240, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .tech-card .acronym {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
+        
+        .tech-card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .tech-card .tech-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .tech-stat {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+        }
+        
+        .tech-stat span {
+            color: var(--primary);
+        }
+        
+        /* Defense Solutions */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .solution-card {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(123, 44, 255, 0.05) 100%);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .solution-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(123, 44, 255, 0.2);
+        }
+        
+        .solution-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .solution-card .tagline {
+            color: var(--accent);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .solution-card p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 900px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .about-text h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .about-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .credential {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        
+        .credential::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .about-visual {
+            position: relative;
+        }
+        
+        .code-block {
+            background: #0d0d12;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+        
+        .code-block .comment { color: #4a5568; }
+        .code-block .keyword { color: var(--accent); }
+        .code-block .function { color: var(--primary); }
+        .code-block .string { color: #68d391; }
+        .code-block .number { color: var(--secondary); }
+        
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 240, 255, 0.03) 100%);
+            border-top: 1px solid var(--border);
+        }
+        
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-content p {
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .contact-email {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-email:hover {
+            background: var(--primary);
+            color: var(--bg-dark);
+            box-shadow: var(--glow-strong);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+        
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .stats-bar {
+                gap: 2rem;
+            }
+            
+            .stat-value {
+                font-size: 2rem;
+            }
+            
+            .tech-grid, .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-
 <body>
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="container nav-container">
-      <div class="nav-brand" aria-label="ME – Chronic Illness Journal">
-        <svg class="nav-icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
-          <path d="M16 2L4 9V23L16 30L28 23V9L16 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-        </svg>
-        <span class="nav-title">ME</span>
-      </div>
-      <div class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#story">Our Story</a>
-        <a href="#pricing">Pricing</a>
-        <a href="https://mereflection.com/app" class="btn btn-primary">Launch App</a>
-      </div>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#features">Features</a>
-    <a href="#story">Our Story</a>
-    <a href="#pricing">Pricing</a>
-    <a href="https://mereflection.com/app" class="btn btn-primary">Launch App</a>
-  </div>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M10 1L3 5.5V14.5L10 19L17 14.5V5.5L10 1Z" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-          <span>Built by a U.S. Army Veteran (10th Mountain Division)</span>
-        </div>
-        <h1 class="hero-title">Your pain deserves better than a spreadsheet.</h1>
+    <div class="bg-grid"></div>
+    <div class="bg-radial"></div>
+    
+    <nav>
+        <a href="#" class="logo">JARVIS<span>.AI</span></a>
+        <ul class="nav-links">
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-badge">SYSTEMS OPERATIONAL</div>
+        <h1>JARVIS COGNITIVE AI</h1>
         <p class="hero-subtitle">
-          ME isn’t another wellness app. It’s reflection built for chronic illness warriors — by someone who lives it. Track pain, document medical gaslighting, and export your story when words fail.
+            Breakthrough cognitive architectures for defense, intelligence, and enterprise applications. 
+            Creator of Stone Retrieval Function (SRF) and 11+ integrated AI subsystems.
         </p>
         <div class="hero-cta">
-          <a href="https://mereflection.com/app" class="btn btn-large btn-primary">
-            Start Journaling Free
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M7 3L14 10L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a href="#story" class="btn btn-large btn-secondary">Learn Our Story</a>
+            <a href="#technology" class="btn btn-primary">Explore Technology</a>
+            <a href="#contact" class="btn btn-secondary">Partner With Us</a>
         </div>
-        <div class="hero-platforms">
-          <span class="platforms-label">Available on</span>
-          <div class="platforms-icons">
-            <svg width="24" height="24" fill="currentColor"><title>Web</title><circle cx="12" cy="12" r="10"/></svg>
-            <svg width="24" height="24" fill="currentColor"><title>iOS</title><path d="M12 2a10 10 0 000 20"/></svg>
-            <svg width="24" height="24" fill="currentColor"><title>Android</title><rect x="4" y="4" width="16" height="16" rx="3"/></svg>
-          </div>
+        
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-value">11+</div>
+                <div class="stat-label">Cognitive Systems</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">0.02</div>
+                <div class="stat-label">Brier Score</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">7</div>
+                <div class="stat-label">Months Development</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">$95M+</div>
+                <div class="stat-label">Portfolio Value</div>
+            </div>
         </div>
-      </div>
-      <div class="hero-visual">
-        <img src="https://mereflection.com/images/app-screenshot.png" alt="ME App Interface showing journaling and symptom tracking" id="heroScreenshot" />
-      </div>
-    </div>
-  </section>
-
-  <!-- SOCIAL PROOF -->
-  <section class="social-proof">
-    <div class="container">
-      <p class="social-proof-text"><strong>50M+ Americans</strong> live with chronic illness. Most apps weren’t built for us.</p>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="features" id="features">
-    <div class="container">
-      <h2>Not Another Symptom Tracker</h2>
-      <p>ME understands what it’s like to live with invisible illness.</p>
-      <div class="features-grid">
-
-        <div class="feature-card">
-          <h3>Medical Gaslighting Log</h3>
-          <p>Document dismissive encounters. Record what was said and when. Build your evidence with clarity.</p>
+    </section>
+    
+    <section id="technology">
+        <div class="section-header">
+            <div class="section-tag">// Core Technology</div>
+            <h2 class="section-title">Breakthrough Systems</h2>
         </div>
-
-        <div class="feature-card">
-          <h3>Flare Day Protocol</h3>
-          <p>When your brain fog hits, ME helps you remember what matters and what to do next.</p>
+        
+        <div class="tech-grid">
+            <div class="tech-card fade-in">
+                <div class="tech-icon">🧠</div>
+                <h3>Stone Retrieval Function</h3>
+                <div class="acronym">SRF — Patent Pending</div>
+                <p>Revolutionary memory architecture using emotional weighting instead of pure semantic similarity. High-significance events persist indefinitely while routine information naturally decays—mimicking human cognitive patterns.</p>
+                <div class="tech-stats">
+                    <div class="tech-stat">Weight: <span>0.95+</span></div>
+                    <div class="tech-stat">Decay: <span>Adaptive</span></div>
+                </div>
+            </div>
+            
+            <div class="tech-card fade-in">
+                <div class="tech-icon">🔮</div>
+                <h3>Temporal Forecasting Engine</h3>
+                <div class="acronym">TFE — Production Validated</div>
+                <p>Multi-step temporal simulation with causal reasoning. Validated through earthquake prediction achieving exceptional Brier scores, demonstrating real-world pattern recognition capability.</p>
+                <div class="tech-stats">
+                    <div class="tech-stat">Brier: <span>0.0177-0.027</span></div>
+                    <div class="tech-stat">Steps: <span>3-5 ahead</span></div>
+                </div>
+            </div>
+            
+            <div class="tech-card fade-in">
+                <div class="tech-icon">🐝</div>
+                <h3>Swarm Intelligence System</h3>
+                <div class="acronym">SIS — Emergent Consensus</div>
+                <p>Distributed multi-agent architecture achieving emergent intelligence through collective problem-solving. Agents specialize, collaborate, and reach consensus without central coordination.</p>
+                <div class="tech-stats">
+                    <div class="tech-stat">Agents: <span>2-50</span></div>
+                    <div class="tech-stat">Consensus: <span>&lt;500ms</span></div>
+                </div>
+            </div>
+            
+            <div class="tech-card fade-in">
+                <div class="tech-icon">🛡️</div>
+                <h3>Cognitive Immune System</h3>
+                <div class="acronym">CIS — Adversarial Defense</div>
+                <p>Biological-inspired defense treating adversarial inputs as pathogens. Detects manipulation, generates antibodies to neutralize threats, and develops immunity through exposure.</p>
+                <div class="tech-stats">
+                    <div class="tech-stat">Detection: <span>Real-time</span></div>
+                    <div class="tech-stat">Adaptation: <span>Continuous</span></div>
+                </div>
+            </div>
+            
+            <div class="tech-card fade-in">
+                <div class="tech-icon">🔄</div>
+                <h3>Self-Improving Architecture</h3>
+                <div class="acronym">SIA — Genetic Evolution</div>
+                <p>Algorithms that evolve and optimize themselves through genetic programming. Automatic refinement without human intervention, with full rollback capability for safety.</p>
+                <div class="tech-stats">
+                    <div class="tech-stat">Generations: <span>100+</span></div>
+                    <div class="tech-stat">Rollback: <span>Instant</span></div>
+                </div>
+            </div>
+            
+            <div class="tech-card fade-in">
+                <div class="tech-icon">🎯</div>
+                <h3>Metacognitive Monitor</h3>
+                <div class="acronym">MCM — Self-Awareness</div>
+                <p>System that monitors its own cognitive state, detecting uncertainty, stuck loops, and overconfidence. Enables appropriate help-seeking behavior and strategy adaptation.</p>
+                <div class="tech-stats">
+                    <div class="tech-stat">Diagnosis: <span>Real-time</span></div>
+                    <div class="tech-stat">States: <span>12+</span></div>
+                </div>
+            </div>
         </div>
-
-        <div class="feature-card">
-          <h3>Advocacy Prep</h3>
-          <p>Walk into appointments prepared — no more blanking out under pressure.</p>
+    </section>
+    
+    <section id="solutions">
+        <div class="section-header">
+            <div class="section-tag">// Defense Applications</div>
+            <h2 class="section-title">Mission-Ready Solutions</h2>
         </div>
-
-        <div class="feature-card">
-          <h3>Voice Journaling</h3>
-          <p>Too tired to type? Just speak. ME listens and transcribes safely to your device.</p>
+        
+        <div class="solutions-grid">
+            <div class="solution-card fade-in">
+                <h3>COGNIS</h3>
+                <div class="tagline">Cognitive Battlefield Immune System</div>
+                <p>Distributed AI architecture for detecting and neutralizing adversarial deception across multi-domain operations. Real-time threat recognition with emergent swarm coordination.</p>
+            </div>
+            
+            <div class="solution-card fade-in">
+                <h3>FENRIR</h3>
+                <div class="tagline">Jam-Proof Drone Swarm</div>
+                <p>Wolf pack coordination through visual behavior patterns with zero RF emissions. Complete immunity to electronic warfare through stigmergic communication protocols.</p>
+            </div>
+            
+            <div class="solution-card fade-in">
+                <h3>SPECTER</h3>
+                <div class="tagline">Behavioral Biometric Intelligence</div>
+                <p>Identify individuals through behavioral patterns across anonymized communications—without breaking encryption. Build persistent fingerprints from timing, rhythm, and metadata.</p>
+            </div>
+            
+            <div class="solution-card fade-in">
+                <h3>GSIN</h3>
+                <div class="tagline">Seismic Intelligence Network</div>
+                <p>Production-validated earthquake forecasting achieving exceptional 0.02 Brier scores. Demonstrates temporal prediction capabilities with real-world validation.</p>
+            </div>
         </div>
+    </section>
+    
+    <section id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <div class="section-tag">// Founder</div>
+                <h3>Kent Stone</h3>
+                <p>Independent AI researcher and disabled veteran developing breakthrough cognitive systems from Lima, Peru. Seven months of intensive development producing 11+ integrated subsystems, multiple provisional patents, and production-validated applications.</p>
+                <p>Mission-driven focus on advancing AI capabilities for defense and intelligence applications while funding technology education in underserved communities.</p>
+                
+                <div class="about-credentials">
+                    <div class="credential">Disabled Veteran</div>
+                    <div class="credential">Independent Researcher</div>
+                    <div class="credential">Patent Portfolio</div>
+                    <div class="credential">Production Systems</div>
+                </div>
+            </div>
+            
+            <div class="about-visual">
+                <div class="code-block">
+<span class="comment"># Stone Retrieval Function (SRF)</span>
+<span class="comment"># Patent-pending emotional memory weighting</span>
 
-        <div class="feature-card">
-          <h3>Good Enough Today</h3>
-          <p>Because survival counts. Showering counts. Breathing counts.</p>
+<span class="keyword">class</span> <span class="function">StoneRetrieval</span>:
+    <span class="keyword">def</span> <span class="function">retrieve</span>(self, query, context):
+        <span class="comment"># Multi-factor scoring</span>
+        semantic = self.<span class="function">semantic_match</span>(query)
+        emotional = self.<span class="function">emotional_weight</span>(context)
+        temporal = self.<span class="function">recency_decay</span>()
+        
+        <span class="comment"># High-lethality events: weight 0.95+</span>
+        <span class="comment"># Routine signals: natural decay</span>
+        score = semantic * emotional * temporal
+        
+        <span class="keyword">return</span> self.<span class="function">rank_memories</span>(score)
+                </div>
+            </div>
         </div>
-
-        <div class="feature-card">
-          <h3>Your Data, Your Control</h3>
-          <p>Local-first by default. Optional encrypted sync. Nothing sold. Nothing mined.</p>
+    </section>
+    
+    <section id="contact" class="contact-section">
+        <div class="contact-content">
+            <div class="section-tag">// Connect</div>
+            <h2 class="section-title">Partner With Us</h2>
+            <p>Seeking strategic partnerships with defense agencies, intelligence community, and enterprise organizations requiring breakthrough cognitive capabilities.</p>
+            <a href="mailto:kentstone84@gmail.com" class="contact-email">kentstone84@gmail.com</a>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FOUNDER STORY -->
-  <section class="founder-story" id="story">
-    <div class="container">
-      <h2>Why I Built ME</h2>
-      <p>I’m <strong>Kent Stone</strong>, a U.S. Army veteran (10th Mountain Division). I live with ankylosing spondylitis and spinal stenosis. My world shrank to pain management and persistence.</p>
-      <p>I needed a tool that didn’t analyze me — it just had my back. So I built ME: a privacy-first journal that helps you catch patterns, remember the facts, and advocate for yourself when it matters most.</p>
-      <blockquote>"I started coding on a broken laptop in Peru. ME became more than an app — it became a survival system for people like us."</blockquote>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section class="pricing" id="pricing">
-    <div class="container">
-      <h2>Start Free. Upgrade When You're Ready.</h2>
-      <p>No credit card required.</p>
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <h3>Free</h3>
-          <p>$0 forever</p>
-          <ul>
-            <li>10 journal entries</li>
-            <li>3 core templates</li>
-            <li>Local storage only</li>
-            <li>CSV export</li>
-          </ul>
-          <a href="https://mereflection.com/app" class="btn btn-secondary">Start Free</a>
-        </div>
-        <div class="pricing-card highlight">
-          <h3>Premium</h3>
-          <p>$4.99 / month</p>
-          <ul>
-            <li>Unlimited entries</li>
-            <li>Voice journaling</li>
-            <li>Encrypted cloud sync (optional)</li>
-            <li>Full export formats</li>
-          </ul>
-          <a href="https://mereflection.com/app" class="btn btn-primary">Get Premium</a>
-          <p class="pricing-note">💚 Free for verified veterans — email support@mereflection.com.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>You’re Not Lazy. You’re Not “Just Stressed.”</h2>
-      <p>Your pain is real. ME sees you. 💚</p>
-      <a href="https://mereflection.com/app" class="btn btn-large btn-primary">Start Your Journey</a>
-      <p class="cta-note">Free to start. 10 entries. No card needed.</p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <strong>ME</strong><br/>
-          Built by someone who gets it, for people who need it.
-        </div>
-        <div>
-          <a href="#features">Features</a><br/>
-          <a href="#pricing">Pricing</a><br/>
-          <a href="#story">Our Story</a>
-        </div>
-        <div>
-          <a href="mailto:support@mereflection.com">Support</a><br/>
-          <a href="https://mereflection.com/privacy.html">Privacy</a><br/>
-          <a href="https://mereflection.com/terms.html">Terms</a>
-        </div>
-      </div>
-      <p>&copy; 2025 ME – Chronic Illness Journal. All rights reserved.</p>
-      <p class="footer-note">Built with ❤️ by Kent Stone — Veteran, Survivor, Builder.</p>
-      <p class="footer-note">Your pain is real. Your story matters. ME sees you.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+    </section>
+    
+    <footer>
+        <p>© 2025 JARVIS Cognitive AI. All rights reserved. | <a href="#">Privacy</a> | <a href="#">Terms</a></p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem;">Lima, Peru • Veteran-Owned</p>
+    </footer>
+    
+    <script>
+        // Scroll animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
