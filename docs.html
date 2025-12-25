@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMC Documentation | Getting Started</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+        
+        .note {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+        }
+        
+        a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html">← Back to Home</a>
+            <a href="https://github.com/kentstonedev">GitHub</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>📚 TMC Documentation</h1>
+        <p>Complete guide to integrating and using Temporal Memory Crystallization.</p>
+
+        <h2>Quick Start</h2>
+        
+        <h3>1. Installation</h3>
+        <div class="code-block">
+# Download TMC
+curl -O https://releases.tmc.ai/tmc-v1.0.0.tar.gz
+tar -xzf tmc-v1.0.0.tar.gz
+cd tmc-v1.0.0
+
+# Build (Rust required)
+./build.sh
+
+# Or download pre-built binary
+curl -O https://releases.tmc.ai/tmc-server-linux-x64
+chmod +x tmc-server-linux-x64
+        </div>
+
+        <h3>2. Get Your License Key</h3>
+        <p>Purchase a license at <a href="index.html#pricing">tmc.ai</a> and you'll receive:</p>
+        <div class="code-block">
+TMC-A7F3-9B2C-4D8E-1F6A
+        </div>
+
+        <h3>3. Start the Server</h3>
+        <div class="code-block">
+TMC_LICENSE_KEY="TMC-XXXX-XXXX-XXXX-XXXX" ./tmc-server
+
+# Output:
+# 🚀 TMC Server v1.0.0
+# 🔐 Validating license...
+# ✅ License valid (Your Company, expires 2026-12-25)
+# 🔓 Activating license...
+# ✅ Activation successful (1/3 used)
+# ✅ TMC Server ready on http://127.0.0.1:8000
+        </div>
+
+        <h2>API Reference</h2>
+
+        <h3>Crystallize Memory</h3>
+        <p>Store knowledge in geometric crystal structure.</p>
+        <div class="code-block">
+POST /crystallize
+Content-Type: application/json
+
+{
+  "text": "Kent Stone created TMC in 2025",
+  "importance": 0.9
+}
+
+Response:
+{
+  "node_id": "12abc...",
+  "success": true
+}
+        </div>
+
+        <h3>Retrieve Memories</h3>
+        <p>Query the crystal lattice for relevant memories.</p>
+        <div class="code-block">
+POST /retrieve
+Content-Type: application/json
+
+{
+  "query": "Who created TMC?",
+  "k": 5
+}
+
+Response:
+{
+  "results": [
+    {
+      "node_id": "12abc...",
+      "content": "Kent Stone created TMC in 2025",
+      "score": 0.94,
+      "importance": 0.9
+    }
+  ],
+  "count": 1
+}
+        </div>
+
+        <h3>Get Statistics</h3>
+        <div class="code-block">
+GET /stats
+
+Response:
+{
+  "stats": {
+    "total_nodes": 15234
+  }
+}
+        </div>
+
+        <h2>Integration Examples</h2>
+
+        <h3>Python</h3>
+        <div class="code-block">
+<span style="color: #569cd6;">import</span> requests
+
+<span style="color: #6a9955;"># Store memory</span>
+response = requests.post(<span style="color: #ce9178;">"http://localhost:8000/crystallize"</span>, 
+    json={
+        <span style="color: #ce9178;">"text"</span>: <span style="color: #ce9178;">"User prefers dark mode"</span>,
+        <span style="color: #ce9178;">"importance"</span>: 0.7
+    })
+
+<span style="color: #6a9955;"># Retrieve memory</span>
+response = requests.post(<span style="color: #ce9178;">"http://localhost:8000/retrieve"</span>,
+    json={
+        <span style="color: #ce9178;">"query"</span>: <span style="color: #ce9178;">"user interface preferences"</span>,
+        <span style="color: #ce9178;">"k"</span>: 5
+    })
+
+memories = response.json()[<span style="color: #ce9178;">"results"</span>]
+        </div>
+
+        <h3>JavaScript</h3>
+        <div class="code-block">
+<span style="color: #6a9955;">// Store memory</span>
+<span style="color: #569cd6;">const</span> response = <span style="color: #569cd6;">await</span> fetch(<span style="color: #ce9178;">'http://localhost:8000/crystallize'</span>, {
+  method: <span style="color: #ce9178;">'POST'</span>,
+  headers: { <span style="color: #ce9178;">'Content-Type'</span>: <span style="color: #ce9178;">'application/json'</span> },
+  body: JSON.stringify({
+    text: <span style="color: #ce9178;">'User speaks English and Spanish'</span>,
+    importance: 0.8
+  })
+});
+
+<span style="color: #6a9955;">// Retrieve memory</span>
+<span style="color: #569cd6;">const</span> results = <span style="color: #569cd6;">await</span> fetch(<span style="color: #ce9178;">'http://localhost:8000/retrieve'</span>, {
+  method: <span style="color: #ce9178;">'POST'</span>,
+  headers: { <span style="color: #ce9178;">'Content-Type'</span>: <span style="color: #ce9178;">'application/json'</span> },
+  body: JSON.stringify({
+    query: <span style="color: #ce9178;">'language preferences'</span>,
+    k: 3
+  })
+}).then(r => r.json());
+        </div>
+
+        <h3>cURL</h3>
+        <div class="code-block">
+<span style="color: #6a9955;"># Store</span>
+curl -X POST http://localhost:8000/crystallize \
+  -H <span style="color: #ce9178;">"Content-Type: application/json"</span> \
+  -d <span style="color: #ce9178;">'{"text": "Meeting at 3pm tomorrow", "importance": 0.95}'</span>
+
+<span style="color: #6a9955;"># Retrieve</span>
+curl -X POST http://localhost:8000/retrieve \
+  -H <span style="color: #ce9178;">"Content-Type: application/json"</span> \
+  -d <span style="color: #ce9178;">'{"query": "upcoming meetings", "k": 5}'</span>
+        </div>
+
+        <h2>Advanced Configuration</h2>
+
+        <h3>Environment Variables</h3>
+        <table>
+            <tr>
+                <th>Variable</th>
+                <th>Description</th>
+                <th>Default</th>
+            </tr>
+            <tr>
+                <td>TMC_LICENSE_KEY</td>
+                <td>Your license key (required)</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>TMC_PORT</td>
+                <td>Server port</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td>TMC_HOST</td>
+                <td>Bind address</td>
+                <td>127.0.0.1</td>
+            </tr>
+            <tr>
+                <td>TMC_DIMENSION</td>
+                <td>Embedding dimension</td>
+                <td>384</td>
+            </tr>
+        </table>
+
+        <h3>Production Deployment</h3>
+        <div class="code-block">
+<span style="color: #6a9955;"># Run as systemd service</span>
+sudo cat > /etc/systemd/system/tmc.service << 'EOF'
+[Unit]
+Description=TMC Server
+After=network.target
+
+[Service]
+Type=simple
+User=tmc
+Environment="TMC_LICENSE_KEY=TMC-XXXX-XXXX-XXXX-XXXX"
+Environment="TMC_HOST=0.0.0.0"
+Environment="TMC_PORT=8000"
+ExecStart=/opt/tmc/tmc-server
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl enable tmc
+sudo systemctl start tmc
+        </div>
+
+        <h2>Performance Tips</h2>
+
+        <div class="note">
+            <strong>💡 Tip:</strong> TMC is already optimized for maximum performance (100-200µs latency), but you can:
+            <ul style="margin-top: 10px;">
+                <li>Use higher importance values (0.7-1.0) for critical memories</li>
+                <li>Keep queries specific for best retrieval accuracy</li>
+                <li>Batch crystallize operations when storing multiple memories</li>
+            </ul>
+        </div>
+
+        <h2>License Management</h2>
+
+        <h3>Activation Limits</h3>
+        <p>Your license tier determines how many servers can run simultaneously:</p>
+        <ul>
+            <li><strong>Starter:</strong> 1 activation</li>
+            <li><strong>Pro:</strong> 3 activations</li>
+            <li><strong>Enterprise:</strong> Unlimited</li>
+        </ul>
+
+        <h3>Deactivating a Server</h3>
+        <div class="code-block">
+<span style="color: #6a9955;"># Free up an activation slot</span>
+TMC_LICENSE_KEY="TMC-XXXX-XXXX-XXXX-XXXX" ./tmc-server --deactivate
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Important:</strong> Each server activation is machine-locked via hardware fingerprint. Moving to a new server requires deactivating the old one first (unless you have spare activation slots).
+        </div>
+
+        <h2>Troubleshooting</h2>
+
+        <h3>License Issues</h3>
+        <div class="code-block">
+<span style="color: #6a9955;"># Error: "Invalid signature"</span>
+→ Your license key is corrupted. Re-copy from email.
+
+<span style="color: #6a9955;"># Error: "License expired"</span>
+→ Renew your subscription at tmc.ai
+
+<span style="color: #6a9955;"># Error: "Max activations reached"</span>
+→ Deactivate unused servers or upgrade your tier
+        </div>
+
+        <h3>Connection Issues</h3>
+        <div class="code-block">
+<span style="color: #6a9955;"># Check if server is running</span>
+curl http://localhost:8000/health
+
+<span style="color: #6a9955;"># Check activation status</span>
+cat ~/.config/tmc/activation.json
+        </div>
+
+        <h2>Support</h2>
+        <p>Need help? We're here for you:</p>
+        <ul>
+            <li>Email: <a href="mailto:support@tmc.ai">support@tmc.ai</a></li>
+            <li>GitHub Issues: <a href="https://github.com/kentstonedev/tmc/issues">github.com/kentstonedev/tmc/issues</a></li>
+            <li>Documentation: <a href="https://docs.tmc.ai">docs.tmc.ai</a></li>
+        </ul>
+
+        <div style="margin-top: 80px; padding-top: 40px; border-top: 2px solid #eee; text-align: center; color: #666;">
+            <p>© 2025 TMC - Temporal Memory Crystallization</p>
+            <p style="margin-top: 10px;"><a href="index.html">Home</a> | <a href="docs.html">Documentation</a> | <a href="https://github.com/kentstonedev">GitHub</a></p>
+        </div>
+    </div>
+</body>
+</html>
