@@ -3,448 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TMC - Temporal Memory Crystallization: The world's first O(log n) memory system with unbounded streaming, no batch limits, and zero hallucinations.">
+    <meta name="keywords" content="memory system, AI, machine learning, crystallization, O(log n), vector database alternative">
+    <meta name="author" content="Kent Stone">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="TMC - Temporal Memory Crystallization">
+    <meta property="og:description" content="Memory as a flow, not a dataset. No batch limits. No chunking. Infinite scale.">
+    <meta property="og:type" content="website">
+    
     <title>TMC - Temporal Memory Crystallization | Revolutionary AI Memory System</title>
-    <meta name="description" content="TMC: The world's first O(log n) memory retrieval system using geometric crystallization. 100-200µs latency, infinite scale.">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 100px 20px;
-        }
-        
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .hero .subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        .hero .tagline {
-            font-size: 1.2rem;
-            margin-bottom: 50px;
-            opacity: 0.8;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn-primary {
-            background: white;
-            color: #667eea;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .btn-secondary:hover {
-            background: white;
-            color: #667eea;
-        }
-        
-        /* Features Section */
-        .features {
-            background: white;
-            padding: 100px 20px;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            color: #333;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .feature-card {
-            padding: 30px;
-            border-radius: 10px;
-            background: #f8f9fa;
-            transition: transform 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #667eea;
-        }
-        
-        /* Benchmark Section */
-        .benchmark {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 20px;
-        }
-        
-        .benchmark-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .benchmark-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        
-        .benchmark-number {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-        
-        .benchmark-label {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        /* Pricing Section */
-        .pricing {
-            background: white;
-            padding: 100px 20px;
-        }
-        
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .pricing-card {
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .pricing-card:hover {
-            border-color: #667eea;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .pricing-card.featured {
-            border-color: #667eea;
-            border-width: 3px;
-            transform: scale(1.05);
-        }
-        
-        .pricing-tier {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #667eea;
-        }
-        
-        .pricing-price {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-        
-        .pricing-period {
-            color: #666;
-            margin-bottom: 30px;
-        }
-        
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-        
-        .pricing-features li {
-            padding: 10px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .pricing-features li:before {
-            content: "✓ ";
-            color: #667eea;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        
-        /* Contact Section */
-        .contact {
-            background: #f8f9fa;
-            padding: 100px 20px;
-            text-align: center;
-        }
-        
-        .contact-info {
-            margin-top: 40px;
-            font-size: 1.2rem;
-        }
-        
-        .contact-info a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        
-        footer a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        
-        /* Code Block */
-        .code-example {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 30px;
-            border-radius: 10px;
-            margin: 40px 0;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero .subtitle { font-size: 1.3rem; }
-            .pricing-card.featured { transform: scale(1); }
-        }
-    </style>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Navigation -->
+    <nav class="navbar">
         <div class="container">
-            <h1>TMC</h1>
+            <a href="#" class="navbar-brand">TMC</a>
+            <button class="mobile-toggle">☰</button>
+            <ul class="navbar-menu">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#comparison">Architecture</a></li>
+                <li><a href="#benchmarks">Benchmarks</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="docs.html">Docs</a></li>
+                <li><a href="#contact" class="navbar-cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <canvas id="particles-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+        <div class="hero-content">
+            <h1 class="float-animation">TMC</h1>
             <div class="subtitle">Temporal Memory Crystallization</div>
-            <div class="tagline">The world's first O(log n) memory retrieval system.<br>100-200µs latency. Infinite scale. Zero hallucinations.</div>
+            <div class="tagline">
+                Memory as a flow, not a dataset. No batch limits. No chunking. No graph rebuilds.<br>
+                Architecturally capable of continuous, large-scale memory crystallization.
+            </div>
             <div class="cta-buttons">
                 <a href="#pricing" class="btn btn-primary">Get Started</a>
-                <a href="https://github.com/kentstone84/Memory" class="btn btn-secondary">View on GitHub</a>
+                <a href="docs.html" class="btn btn-secondary">Documentation</a>
+                <a href="https://github.com/kentstonedev" class="btn btn-secondary">GitHub</a>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features">
+    <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Why TMC Changes Everything</h2>
+            <h2 class="section-title scroll-reveal">Why TMC Changes Everything</h2>
+            <p class="section-subtitle scroll-reveal">The first memory system designed for continuous streaming, not batch processing</p>
+            
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
+                <div class="feature-card scroll-reveal">
+                    <span class="feature-icon">🌊</span>
+                    <h3>Unbounded Streaming</h3>
+                    <p>No batch size limits. No chunking. Accepts continuous memory streams without architectural failure. Vector DBs cap at ~5K items. TMC doesn't.</p>
+                </div>
+                
+                <div class="feature-card scroll-reveal">
+                    <span class="feature-icon">⚡</span>
                     <h3>Lightning Fast</h3>
                     <p>100-200µs retrieval latency. O(log n) complexity beats O(n²) attention mechanisms by orders of magnitude.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">💎</div>
+                <div class="feature-card scroll-reveal">
+                    <span class="feature-icon">💎</span>
                     <h3>Geometric Crystallization</h3>
                     <p>Knowledge crystallizes into permanent geometric structures. No retraining required - memories are forever.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
+                <div class="feature-card scroll-reveal">
+                    <span class="feature-icon">🎯</span>
                     <h3>Emotional Weighting</h3>
                     <p>Retrieves based on emotional resonance, not just semantic similarity. Remembers what matters.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
+                <div class="feature-card scroll-reveal">
+                    <span class="feature-icon">🔒</span>
                     <h3>Zero Hallucinations</h3>
                     <p>Provable retrieval from crystallized knowledge. If TMC says it, it's real.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">♾️</div>
-                    <h3>Infinite Scale</h3>
-                    <p>Scales to billions of memories. Logarithmic complexity means linear cost growth.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🧬</div>
+                <div class="feature-card scroll-reveal">
+                    <span class="feature-icon">🧬</span>
                     <h3>Self-Healing</h3>
                     <p>Detects and repairs structural defects without retraining. Surgical error correction.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="comparison" class="comparison">
+        <div class="container-wide">
+            <h2 class="section-title scroll-reveal">Not a Vector Database</h2>
+            <p class="section-subtitle scroll-reveal" style="color: rgba(255,255,255,0.95);">
+                TMC exhibits fundamentally different scaling behavior than vector databases
+            </p>
             
-            <div class="code-example">
-<span style="color: #569cd6;">curl</span> -X POST https://api.tmc.ai/crystallize \
-  -H <span style="color: #ce9178;">"Content-Type: application/json"</span> \
-  -d <span style="color: #ce9178;">'{"text": "Kent created SRF in April 2025", "importance": 0.9}'</span>
-
-<span style="color: #6a9955;"># 100µs later...</span>
-<span style="color: #569cd6;">curl</span> -X POST https://api.tmc.ai/retrieve \
-  -d <span style="color: #ce9178;">'{"query": "Who created SRF?", "k": 5}'</span>
-
-<span style="color: #6a9955;"># Response: "Kent created SRF in April 2025" (score: 0.94)</span>
+            <div class="comparison-grid">
+                <div class="comparison-card scroll-reveal">
+                    <h3 style="color: #ff6b6b;">❌ Vector Databases</h3>
+                    <ul>
+                        <li>Hard batch limits (5,461)</li>
+                        <li>Client-side chunking required</li>
+                        <li>ANN graph rebuilds</li>
+                        <li>Embedding bottlenecks</li>
+                        <li>Scales by fragmentation</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card scroll-reveal">
+                    <h3 style="color: #51cf66;">✅ TMC</h3>
+                    <ul>
+                        <li>Unbounded streaming</li>
+                        <li>No batch size limits</li>
+                        <li>No graph rebuilds</li>
+                        <li>No embedding pipeline</li>
+                        <li>Scales by coherence</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Benchmark Section -->
-    <section class="benchmark">
+    <!-- Benchmarks -->
+    <section id="benchmarks" class="comparison">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Performance Benchmarks</h2>
+            <h2 class="section-title scroll-reveal">Real Benchmark</h2>
             <div class="benchmark-grid">
-                <div class="benchmark-card">
-                    <div class="benchmark-number">100µs</div>
-                    <div class="benchmark-label">Retrieval Latency</div>
+                <div class="benchmark-card scroll-reveal">
+                    <div class="benchmark-number">100K</div>
+                    <div class="benchmark-label">TMC: Success</div>
                 </div>
-                
-                <div class="benchmark-card">
-                    <div class="benchmark-number">O(log n)</div>
-                    <div class="benchmark-label">Complexity</div>
+                <div class="benchmark-card scroll-reveal">
+                    <div class="benchmark-number">5,461</div>
+                    <div class="benchmark-label">ChromaDB: Failed</div>
                 </div>
-                
-                <div class="benchmark-card">
-                    <div class="benchmark-number">1000x</div>
-                    <div class="benchmark-label">Faster than Transformers</div>
+                <div class="benchmark-card scroll-reveal">
+                    <div class="benchmark-number">2,322</div>
+                    <div class="benchmark-label">ops/sec</div>
                 </div>
-                
-                <div class="benchmark-card">
-                    <div class="benchmark-number">0%</div>
-                    <div class="benchmark-label">Hallucination Rate</div>
+                <div class="benchmark-card scroll-reveal">
+                    <div class="benchmark-number">∞</div>
+                    <div class="benchmark-label">Batch Limit</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
+    <!-- Pricing -->
+    <section id="pricing" class="pricing">
         <div class="container">
-            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <h2 class="section-title scroll-reveal">Pricing</h2>
             <div class="pricing-grid">
-                <div class="pricing-card">
+                <div class="pricing-card scroll-reveal">
                     <div class="pricing-tier">Starter</div>
                     <div class="pricing-price">$49</div>
                     <div class="pricing-period">per month</div>
                     <ul class="pricing-features">
                         <li>1M memories</li>
-                        <li>1 server activation</li>
-                        <li>Basic API access</li>
+                        <li>1 server</li>
                         <li>Email support</li>
-                        <li>100-200µs latency</li>
                     </ul>
-                    <a href="mailto:kent.stone@gmail.com?subject=TMC Starter License" class="btn btn-primary">Get Started</a>
+                    <a href="mailto:kent.stone@gmail.com?subject=TMC Starter" class="btn btn-gradient">Get Started</a>
                 </div>
                 
-                <div class="pricing-card featured">
+                <div class="pricing-card featured scroll-reveal">
+                    <span class="pricing-badge">POPULAR</span>
                     <div class="pricing-tier">Pro</div>
                     <div class="pricing-price">$199</div>
                     <div class="pricing-period">per month</div>
                     <ul class="pricing-features">
                         <li>100M memories</li>
-                        <li>3 server activations</li>
-                        <li>Full API access</li>
+                        <li>3 servers</li>
                         <li>Priority support</li>
-                        <li>Batch processing</li>
-                        <li>Analytics dashboard</li>
                     </ul>
-                    <a href="mailto:kent.stone@gmail.com?subject=TMC Pro License" class="btn btn-primary">Get Started</a>
+                    <a href="mailto:kent.stone@gmail.com?subject=TMC Pro" class="btn btn-gradient">Get Started</a>
                 </div>
                 
-                <div class="pricing-card">
+                <div class="pricing-card scroll-reveal">
                     <div class="pricing-tier">Enterprise</div>
                     <div class="pricing-price">$999</div>
                     <div class="pricing-period">per month</div>
                     <ul class="pricing-features">
-                        <li>Unlimited memories</li>
-                        <li>Unlimited activations</li>
-                        <li>Full API access</li>
+                        <li>Unlimited</li>
                         <li>24/7 support</li>
-                        <li>Custom deployment</li>
-                        <li>Source code access</li>
-                        <li>White-label option</li>
+                        <li>Source access</li>
                     </ul>
-                    <a href="mailto:kent.stone@gmail.com?subject=TMC Enterprise License" class="btn btn-primary">Contact Sales</a>
+                    <a href="mailto:kent.stone@gmail.com?subject=TMC Enterprise" class="btn btn-gradient">Contact Sales</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact">
+    <!-- Contact -->
+    <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 30px;">
-                Ready to revolutionize your AI memory architecture?
-            </p>
-            <div class="contact-info">
-                <p>Email: <a href="mailto:kent.stone@gmail.com">Kent@Jarvis.AI</a></p>
-                <p>GitHub: <a href="https://github.com/kentstone84/Memory">@kentstone84</a></p>
+            <h2 class="section-title scroll-reveal">Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-card scroll-reveal">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <a href="mailto:kent.stone@gmail.com">kent.stone@gmail.com</a>
+                </div>
+                <div class="contact-card scroll-reveal">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <a href="tel:+51945012953">+51 945 012 953</a>
+                </div>
+                <div class="contact-card scroll-reveal">
+                    <div class="contact-icon">💻</div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/kentstonedev">@kentstonedev</a>
+                </div>
             </div>
         </div>
     </section>
@@ -452,17 +229,10 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 TMC - Temporal Memory Crystallization. Created by Kent Stone.</p>
-            <p style="margin-top: 10px;">
-                <a href="https://github.com/kentstone84/Memory">GitHub</a> | 
-                Patent Pending | 
-                Licensed under MIT (SDK) / Commercial (Binary)
-            </p>
+            <p>&copy; <span id="current-year">2025</span> TMC by Kent Stone</p>
         </div>
     </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
-
