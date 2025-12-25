@@ -3,836 +3,465 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stone Cognition System| Breakthrough Artificial Intelligence Systems</title>
-    <meta name="description" content="Stone Cognitive AI develops breakthrough cognitive architectures for defense, intelligence, and enterprise applications. Creator of Stone Retrieval Function (SRF) and 11+ integrated AI subsystems.">
-    <meta name="keywords" content="artificial intelligence, cognitive architecture, defense technology, SRF, Stone Retrieval Function, swarm intelligence, temporal forecasting">
-    <meta name="author" content="Kent Stone">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Stone Cognitive AI">
-    <meta property="og:description" content="Breakthrough cognitive architectures for defense and intelligence applications">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kentstone84.github.io">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    
+    <title>TMC - Temporal Memory Crystallization | Revolutionary AI Memory System</title>
+    <meta name="description" content="TMC: The world's first O(log n) memory retrieval system using geometric crystallization. 100-200µs latency, infinite scale.">
     <style>
-        :root {
-            --primary: #00f0ff;
-            --primary-dim: #00a0aa;
-            --secondary: #ff3366;
-            --accent: #7b2cff;
-            --bg-dark: #0a0a0f;
-            --bg-card: #12121a;
-            --bg-card-hover: #1a1a25;
-            --text: #e8e8f0;
-            --text-dim: #8888a0;
-            --border: #2a2a3a;
-            --glow: 0 0 20px rgba(0, 240, 255, 0.3);
-            --glow-strong: 0 0 40px rgba(0, 240, 255, 0.5);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Rajdhani', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
-        /* Animated Background */
-        .bg-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .bg-radial {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at 50% 0%, rgba(0, 240, 255, 0.08) 0%, transparent 60%);
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(10, 10, 15, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-        
-        .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: 2px;
-            text-shadow: var(--glow);
-        }
-        
-        .logo span {
-            color: var(--text);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: var(--text-dim);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-            text-shadow: var(--glow);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            align-items: center;
             text-align: center;
-            padding: 6rem 2rem 4rem;
-            position: relative;
-        }
-        
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(0, 240, 255, 0.1);
-            border: 1px solid var(--primary-dim);
-            border-radius: 50px;
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--primary);
-            margin-bottom: 2rem;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        .hero-badge::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--primary);
-            border-radius: 50%;
-            animation: blink 1s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.2); }
-            50% { box-shadow: 0 0 0 10px rgba(0, 240, 255, 0); }
-        }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+            color: white;
+            padding: 100px 20px;
         }
         
         .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: 4rem;
             font-weight: 800;
-            letter-spacing: 4px;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            text-shadow: 
-                0 0 10px rgba(0, 240, 255, 0.5),
-                0 0 20px rgba(0, 240, 255, 0.3),
-                0 0 40px rgba(0, 240, 255, 0.2);
-            animation: glow 3s ease-in-out infinite;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
-        @keyframes glow {
-            0%, 100% { 
-                text-shadow: 
-                    0 0 10px rgba(0, 240, 255, 0.5),
-                    0 0 20px rgba(0, 240, 255, 0.3),
-                    0 0 40px rgba(0, 240, 255, 0.2);
-            }
-            50% { 
-                text-shadow: 
-                    0 0 15px rgba(0, 240, 255, 0.7),
-                    0 0 30px rgba(0, 240, 255, 0.5),
-                    0 0 60px rgba(0, 240, 255, 0.3);
-            }
+        .hero .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
         
-        .hero-subtitle {
-            font-size: clamp(1rem, 3vw, 1.4rem);
-            color: var(--text-dim);
-            max-width: 700px;
-            margin-bottom: 3rem;
-            font-weight: 400;
+        .hero .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            opacity: 0.8;
         }
         
-        .hero-cta {
+        .cta-buttons {
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+            gap: 20px;
             justify-content: center;
+            flex-wrap: wrap;
         }
         
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1rem;
+            padding: 15px 40px;
+            font-size: 1.1rem;
             font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s ease;
+            border: none;
+            border-radius: 50px;
             cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
         
         .btn-primary {
-            background: var(--primary);
-            color: var(--bg-dark);
-            border: 2px solid var(--primary);
-            box-shadow: var(--glow);
+            background: white;
+            color: #667eea;
         }
         
         .btn-primary:hover {
-            background: transparent;
-            color: var(--primary);
-            box-shadow: var(--glow-strong);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         
         .btn-secondary {
             background: transparent;
-            color: var(--text);
-            border: 2px solid var(--border);
+            color: white;
+            border: 2px solid white;
         }
         
         .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
+            background: white;
+            color: #667eea;
         }
         
-        /* Stats Bar */
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            margin-top: 4rem;
-            padding-top: 4rem;
-            border-top: 1px solid var(--border);
-            flex-wrap: wrap;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-value {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-shadow: var(--glow);
-        }
-        
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        /* Section Styling */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-tag {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--primary);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 100px 20px;
         }
         
         .section-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            font-weight: 700;
-            letter-spacing: 2px;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #333;
         }
         
-        /* Technology Cards */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .tech-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .tech-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-        
-        .tech-card:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--primary-dim);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 240, 255, 0.1);
-        }
-        
-        .tech-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .tech-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 240, 255, 0.1);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .tech-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .tech-card .acronym {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-dim);
-            margin-bottom: 1rem;
-        }
-        
-        .tech-card p {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-        
-        .tech-card .tech-stats {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
-        }
-        
-        .tech-stat {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.8rem;
-        }
-        
-        .tech-stat span {
-            color: var(--primary);
-        }
-        
-        /* Defense Solutions */
-        .solutions-grid {
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 40px;
         }
         
-        .solution-card {
-            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(123, 44, 255, 0.05) 100%);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
+        .feature-card {
+            padding: 30px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            transition: transform 0.3s;
         }
         
-        .solution-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 30px rgba(123, 44, 255, 0.2);
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
-        .solution-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
         }
         
-        .solution-card .tagline {
-            color: var(--accent);
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #667eea;
         }
         
-        .solution-card p {
-            color: var(--text-dim);
-            font-size: 0.9rem;
+        /* Benchmark Section */
+        .benchmark {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 20px;
         }
         
-        /* About Section */
-        .about-content {
+        .benchmark-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
         
-        @media (max-width: 900px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
+        .benchmark-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
         }
         
-        .about-text h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+        .benchmark-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
         }
         
-        .about-text p {
-            color: var(--text-dim);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
+        .benchmark-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
         
-        .about-credentials {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
+        /* Pricing Section */
+        .pricing {
+            background: white;
+            padding: 100px 20px;
         }
         
-        .credential {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(0, 240, 255, 0.05);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-size: 0.85rem;
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
         
-        .credential::before {
-            content: '✓';
-            color: var(--primary);
+        .pricing-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-card.featured {
+            border-color: #667eea;
+            border-width: 3px;
+            transform: scale(1.05);
+        }
+        
+        .pricing-tier {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .pricing-period {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .pricing-features li:before {
+            content: "✓ ";
+            color: #667eea;
             font-weight: bold;
+            margin-right: 10px;
         }
-        
-        .about-visual {
-            position: relative;
-        }
-        
-        .code-block {
-            background: #0d0d12;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.85rem;
-            overflow-x: auto;
-        }
-        
-        .code-block .comment { color: #4a5568; }
-        .code-block .keyword { color: var(--accent); }
-        .code-block .function { color: var(--primary); }
-        .code-block .string { color: #68d391; }
-        .code-block .number { color: var(--secondary); }
         
         /* Contact Section */
-        .contact-section {
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 240, 255, 0.03) 100%);
-            border-top: 1px solid var(--border);
-        }
-        
-        .contact-content {
+        .contact {
+            background: #f8f9fa;
+            padding: 100px 20px;
             text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
         }
         
-        .contact-content p {
-            color: var(--text-dim);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-        
-        .contact-email {
-            font-family: 'Share Tech Mono', monospace;
+        .contact-info {
+            margin-top: 40px;
             font-size: 1.2rem;
-            color: var(--primary);
-            text-decoration: none;
-            padding: 1rem 2rem;
-            border: 2px solid var(--primary);
-            border-radius: 4px;
-            display: inline-block;
-            transition: all 0.3s ease;
         }
         
-        .contact-email:hover {
-            background: var(--primary);
-            color: var(--bg-dark);
-            box-shadow: var(--glow-strong);
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
         }
         
         /* Footer */
         footer {
-            padding: 2rem;
+            background: #333;
+            color: white;
+            padding: 40px 20px;
             text-align: center;
-            border-top: 1px solid var(--border);
-            font-size: 0.85rem;
-            color: var(--text-dim);
         }
         
         footer a {
-            color: var(--primary);
+            color: #667eea;
             text-decoration: none;
         }
         
-        /* Mobile Responsiveness */
+        /* Code Block */
+        .code-example {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        
         @media (max-width: 768px) {
-            nav {
-                padding: 1rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .stats-bar {
-                gap: 2rem;
-            }
-            
-            .stat-value {
-                font-size: 2rem;
-            }
-            
-            .tech-grid, .solutions-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+            .hero h1 { font-size: 2.5rem; }
+            .hero .subtitle { font-size: 1.3rem; }
+            .pricing-card.featured { transform: scale(1); }
         }
     </style>
 </head>
 <body>
-    <div class="bg-grid"></div>
-    <div class="bg-radial"></div>
-    
-    <nav>
-        <a href="#" class="logo">SCS<span>.AI</span></a>
-        <ul class="nav-links">
-            <li><a href="#technology">Technology</a></li>
-            <li><a href="#solutions">Solutions</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-badge">SYSTEMS OPERATIONAL</div>
-        <h1>STONE COGNITIVE AI</h1>
-        <p class="hero-subtitle">
-            Breakthrough cognitive architectures for defense, intelligence, and enterprise applications. 
-            Creator of Stone Retrieval Function (SRF) and 11+ integrated AI subsystems.
-        </p>
-        <div class="hero-cta">
-            <a href="#technology" class="btn btn-primary">Explore Technology</a>
-            <a href="#contact" class="btn btn-secondary">Partner With Us</a>
-        </div>
-        
-        <div class="stats-bar">
-            <div class="stat">
-                <div class="stat-value">11+</div>
-                <div class="stat-label">Cognitive Systems</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">0.02</div>
-                <div class="stat-label">Brier Score</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">7</div>
-                <div class="stat-label">Months Development</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">$95M+</div>
-                <div class="stat-label">Portfolio Value</div>
+        <div class="container">
+            <h1>TMC</h1>
+            <div class="subtitle">Temporal Memory Crystallization</div>
+            <div class="tagline">The world's first O(log n) memory retrieval system.<br>100-200µs latency. Infinite scale. Zero hallucinations.</div>
+            <div class="cta-buttons">
+                <a href="#pricing" class="btn btn-primary">Get Started</a>
+                <a href="https://github.com/kentstonedev" class="btn btn-secondary">View on GitHub</a>
             </div>
         </div>
     </section>
-    
-    <section id="technology">
-        <div class="section-header">
-            <div class="section-tag">// Core Technology</div>
-            <h2 class="section-title">Breakthrough Systems</h2>
-        </div>
-        
-        <div class="tech-grid">
-            <div class="tech-card fade-in">
-                <div class="tech-icon">🧠</div>
-                <h3>Stone Retrieval Function</h3>
-                <div class="acronym">SRF — Patent Pending</div>
-                <p>Revolutionary memory architecture using emotional weighting instead of pure semantic similarity. High-significance events persist indefinitely while routine information naturally decays—mimicking human cognitive patterns.</p>
-                <div class="tech-stats">
-                    <div class="tech-stat">Weight: <span>0.95+</span></div>
-                    <div class="tech-stat">Decay: <span>Adaptive</span></div>
-                </div>
-            </div>
-            
-            <div class="tech-card fade-in">
-                <div class="tech-icon">🔮</div>
-                <h3>Temporal Forecasting Engine</h3>
-                <div class="acronym">TFE — Production Validated</div>
-                <p>Multi-step temporal simulation with causal reasoning. Validated through earthquake prediction achieving exceptional Brier scores, demonstrating real-world pattern recognition capability.</p>
-                <div class="tech-stats">
-                    <div class="tech-stat">Brier: <span>0.0177-0.027</span></div>
-                    <div class="tech-stat">Steps: <span>3-5 ahead</span></div>
-                </div>
-            </div>
-            
-            <div class="tech-card fade-in">
-                <div class="tech-icon">🐝</div>
-                <h3>Swarm Intelligence System</h3>
-                <div class="acronym">SIS — Emergent Consensus</div>
-                <p>Distributed multi-agent architecture achieving emergent intelligence through collective problem-solving. Agents specialize, collaborate, and reach consensus without central coordination.</p>
-                <div class="tech-stats">
-                    <div class="tech-stat">Agents: <span>2-50</span></div>
-                    <div class="tech-stat">Consensus: <span>&lt;500ms</span></div>
-                </div>
-            </div>
-            
-            <div class="tech-card fade-in">
-                <div class="tech-icon">🛡️</div>
-                <h3>Cognitive Immune System</h3>
-                <div class="acronym">CIS — Adversarial Defense</div>
-                <p>Biological-inspired defense treating adversarial inputs as pathogens. Detects manipulation, generates antibodies to neutralize threats, and develops immunity through exposure.</p>
-                <div class="tech-stats">
-                    <div class="tech-stat">Detection: <span>Real-time</span></div>
-                    <div class="tech-stat">Adaptation: <span>Continuous</span></div>
-                </div>
-            </div>
-            
-            <div class="tech-card fade-in">
-                <div class="tech-icon">🔄</div>
-                <h3>Self-Improving Architecture</h3>
-                <div class="acronym">SIA — Genetic Evolution</div>
-                <p>Algorithms that evolve and optimize themselves through genetic programming. Automatic refinement without human intervention, with full rollback capability for safety.</p>
-                <div class="tech-stats">
-                    <div class="tech-stat">Generations: <span>100+</span></div>
-                    <div class="tech-stat">Rollback: <span>Instant</span></div>
-                </div>
-            </div>
-            
-            <div class="tech-card fade-in">
-                <div class="tech-icon">🎯</div>
-                <h3>Metacognitive Monitor</h3>
-                <div class="acronym">MCM — Self-Awareness</div>
-                <p>System that monitors its own cognitive state, detecting uncertainty, stuck loops, and overconfidence. Enables appropriate help-seeking behavior and strategy adaptation.</p>
-                <div class="tech-stats">
-                    <div class="tech-stat">Diagnosis: <span>Real-time</span></div>
-                    <div class="tech-stat">States: <span>12+</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="solutions">
-        <div class="section-header">
-            <div class="section-tag">// Defense Applications</div>
-            <h2 class="section-title">Mission-Ready Solutions</h2>
-        </div>
-        
-        <div class="solutions-grid">
-            <div class="solution-card fade-in">
-                <h3>COGNIS</h3>
-                <div class="tagline">Cognitive Battlefield Immune System</div>
-                <p>Distributed AI architecture for detecting and neutralizing adversarial deception across multi-domain operations. Real-time threat recognition with emergent swarm coordination.</p>
-            </div>
-            
-            <div class="solution-card fade-in">
-                <h3>FENRIR</h3>
-                <div class="tagline">Jam-Proof Drone Swarm</div>
-                <p>Wolf pack coordination through visual behavior patterns with zero RF emissions. Complete immunity to electronic warfare through stigmergic communication protocols.</p>
-            </div>
-            
-            <div class="solution-card fade-in">
-                <h3>SPECTER</h3>
-                <div class="tagline">Behavioral Biometric Intelligence</div>
-                <p>Identify individuals through behavioral patterns across anonymized communications—without breaking encryption. Build persistent fingerprints from timing, rhythm, and metadata.</p>
-            </div>
-            
-            <div class="solution-card fade-in">
-                <h3>GSIN</h3>
-                <div class="tagline">Seismic Intelligence Network</div>
-                <p>Production-validated earthquake forecasting achieving exceptional 0.02 Brier scores. Demonstrates temporal prediction capabilities with real-world validation.</p>
-            </div>
-        </div>
-    </section>
-    
-    <section id="about">
-        <div class="about-content">
-            <div class="about-text">
-                <div class="section-tag">// Founder</div>
-                <h3>Kent Stone</h3>
-                <p>Independent AI researcher and disabled veteran developing breakthrough cognitive systems from Lima, Peru. Two years of intensive development producing 11+ integrated subsystems, multiple provisional patents, and production-validated applications.</p>
-                <p>Mission-driven focus on advancing AI capabilities for defense and intelligence applications while funding technology education in underserved communities.</p>
-                
-                <div class="about-credentials">
-                    <div class="credential">Disabled Veteran</div>
-                    <div class="credential">Independent Researcher</div>
-                    <div class="credential">Patent Portfolio</div>
-                    <div class="credential">Production Systems</div>
-                </div>
-            </div>
-            
-            <div class="about-visual">
-                <div class="code-block">
-<span class="comment"># Stone Retrieval Function (SRF)</span>
-<span class="comment"># Patent-pending emotional memory weighting</span>
 
-<span class="keyword">class</span> <span class="function">StoneRetrieval</span>:
-    <span class="keyword">def</span> <span class="function">retrieve</span>(self, query, context):
-        <span class="comment"># Multi-factor scoring</span>
-        semantic = self.<span class="function">semantic_match</span>(query)
-        emotional = self.<span class="function">emotional_weight</span>(context)
-        temporal = self.<span class="function">recency_decay</span>()
-        
-        <span class="comment"># High-lethality events: weight 0.95+</span>
-        <span class="comment"># Routine signals: natural decay</span>
-        score = semantic * emotional * temporal
-        
-        <span class="keyword">return</span> self.<span class="function">rank_memories</span>(score)
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why TMC Changes Everything</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>100-200µs retrieval latency. O(log n) complexity beats O(n²) attention mechanisms by orders of magnitude.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3>Geometric Crystallization</h3>
+                    <p>Knowledge crystallizes into permanent geometric structures. No retraining required - memories are forever.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Emotional Weighting</h3>
+                    <p>Retrieves based on emotional resonance, not just semantic similarity. Remembers what matters.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Zero Hallucinations</h3>
+                    <p>Provable retrieval from crystallized knowledge. If TMC says it, it's real.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">♾️</div>
+                    <h3>Infinite Scale</h3>
+                    <p>Scales to billions of memories. Logarithmic complexity means linear cost growth.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🧬</div>
+                    <h3>Self-Healing</h3>
+                    <p>Detects and repairs structural defects without retraining. Surgical error correction.</p>
+                </div>
+            </div>
+            
+            <div class="code-example">
+<span style="color: #569cd6;">curl</span> -X POST https://api.tmc.ai/crystallize \
+  -H <span style="color: #ce9178;">"Content-Type: application/json"</span> \
+  -d <span style="color: #ce9178;">'{"text": "Kent created SRF in April 2025", "importance": 0.9}'</span>
+
+<span style="color: #6a9955;"># 100µs later...</span>
+<span style="color: #569cd6;">curl</span> -X POST https://api.tmc.ai/retrieve \
+  -d <span style="color: #ce9178;">'{"query": "Who created SRF?", "k": 5}'</span>
+
+<span style="color: #6a9955;"># Response: "Kent created SRF in April 2025" (score: 0.94)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benchmark Section -->
+    <section class="benchmark">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Performance Benchmarks</h2>
+            <div class="benchmark-grid">
+                <div class="benchmark-card">
+                    <div class="benchmark-number">100µs</div>
+                    <div class="benchmark-label">Retrieval Latency</div>
+                </div>
+                
+                <div class="benchmark-card">
+                    <div class="benchmark-number">O(log n)</div>
+                    <div class="benchmark-label">Complexity</div>
+                </div>
+                
+                <div class="benchmark-card">
+                    <div class="benchmark-number">1000x</div>
+                    <div class="benchmark-label">Faster than Transformers</div>
+                </div>
+                
+                <div class="benchmark-card">
+                    <div class="benchmark-number">0%</div>
+                    <div class="benchmark-label">Hallucination Rate</div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section id="contact" class="contact-section">
-        <div class="contact-content">
-            <div class="section-tag">// Connect</div>
-            <h2 class="section-title">Partner With Us</h2>
-            <p>Seeking strategic partnerships with defense agencies, intelligence community, and enterprise organizations requiring breakthrough cognitive capabilities.</p>
-            <a href="mailto:architect@gsin.dev" class="contact-email">Kent Stone</a>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-tier">Starter</div>
+                    <div class="pricing-price">$49</div>
+                    <div class="pricing-period">per month</div>
+                    <ul class="pricing-features">
+                        <li>1M memories</li>
+                        <li>1 server activation</li>
+                        <li>Basic API access</li>
+                        <li>Email support</li>
+                        <li>100-200µs latency</li>
+                    </ul>
+                    <a href="mailto:kent@tmc.ai?subject=TMC Starter License" class="btn btn-primary">Get Started</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-tier">Pro</div>
+                    <div class="pricing-price">$199</div>
+                    <div class="pricing-period">per month</div>
+                    <ul class="pricing-features">
+                        <li>100M memories</li>
+                        <li>3 server activations</li>
+                        <li>Full API access</li>
+                        <li>Priority support</li>
+                        <li>Batch processing</li>
+                        <li>Analytics dashboard</li>
+                    </ul>
+                    <a href="mailto:kent@tmc.ai?subject=TMC Pro License" class="btn btn-primary">Get Started</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-tier">Enterprise</div>
+                    <div class="pricing-price">$999</div>
+                    <div class="pricing-period">per month</div>
+                    <ul class="pricing-features">
+                        <li>Unlimited memories</li>
+                        <li>Unlimited activations</li>
+                        <li>Full API access</li>
+                        <li>24/7 support</li>
+                        <li>Custom deployment</li>
+                        <li>Source code access</li>
+                        <li>White-label option</li>
+                    </ul>
+                    <a href="mailto:kent@tmc.ai?subject=TMC Enterprise License" class="btn btn-primary">Contact Sales</a>
+                </div>
+            </div>
         </div>
     </section>
-    
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">
+                Ready to revolutionize your AI memory architecture?
+            </p>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:kent@tmc.ai">kent@tmc.ai</a></p>
+                <p>GitHub: <a href="https://github.com/kentstonedev">@kentstonedev</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>© 2025 Stone Cognitive AI. All rights reserved. | <a href="#">Privacy</a> | <a href="#">Terms</a></p>
-        <p style="margin-top: 0.5rem; font-size: 0.75rem;">Lima, Peru • Veteran-Owned</p>
+        <div class="container">
+            <p>&copy; 2025 TMC - Temporal Memory Crystallization. Created by Kent Stone.</p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/kentstonedev">GitHub</a> | 
+                Patent Pending | 
+                Licensed under MIT (SDK) / Commercial (Binary)
+            </p>
+        </div>
     </footer>
-    
-    <script>
-        // Scroll animation observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
+
 
 
