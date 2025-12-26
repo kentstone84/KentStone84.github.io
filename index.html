@@ -3,135 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TMC - 113x Faster Than ChromaDB | AI Memory System</title>
-    <meta name="description" content="TMC is 113x faster than ChromaDB. 0.60ms retrieval, 2,322 ops/sec ingestion, no batch limits. Revolutionary AI memory for production.">
-    <link rel="stylesheet" href="css/styles.css">
+    <title>TMC - 157× Faster Than ChromaDB</title>
+    <meta name="description" content="0.43ms query latency. 5.6× faster than FAISS. 157× faster than ChromaDB. No Docker. No complexity.">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="navbar">
+    <nav>
         <div class="container">
-            <a href="index.html" class="navbar-brand">💎 TMC</a>
-            <ul class="navbar-menu">
-                <li><a href="#features">Features</a></li>
-                <li><a href="benchmarks.html">Benchmarks</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <a href="/" class="logo">TMC</a>
+            <div class="nav-links">
+                <a href="#benchmarks">Benchmarks</a>
+                <a href="#pricing">Pricing</a>
+                <a href="mailto:kent.stone@gmail.com" class="cta">Contact</a>
+            </div>
         </div>
     </nav>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>113x Faster Than ChromaDB</h1>
-            <p class="hero-description">
-                0.60ms retrieval • 2,322 ops/sec ingestion • No batch limits<br>
-                The AI memory system designed for production
-            </p>
-            <div class="cta-buttons">
-                <a href="benchmarks.html" class="btn btn-primary btn-large">View Benchmark Results</a>
-                <a href="#pricing" class="btn btn-secondary btn-large">Start Free Trial</a>
+        <div class="container">
+            <div class="hero-stat">0.43ms</div>
+            <h1>The Fastest AI Memory System</h1>
+            <p class="hero-sub">5.6× faster than FAISS • 157× faster than ChromaDB • No Docker required</p>
+            <div class="hero-chart">
+                <img src="images/latency_comparison.png" alt="TMC beats all competitors" />
+            </div>
+            <div class="hero-actions">
+                <a href="#benchmarks" class="btn-primary">See Full Benchmarks</a>
+                <a href="mailto:kent.stone@gmail.com" class="btn-secondary">Start Trial</a>
             </div>
         </div>
     </section>
 
-    <section id="features" style="padding: 100px 20px; background: white;">
+    <section id="benchmarks">
         <div class="container">
-            <h2 class="section-title">Why TMC Changes Everything</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">⚡</span>
-                    <h3>113x Faster Retrieval</h3>
-                    <p>0.60ms mean latency vs 67.57ms (ChromaDB). Proven in production benchmarks.</p>
+            <h2>Benchmark Results</h2>
+            <p class="subtitle">100,000 vectors • MacBook Pro (Apple Silicon) • December 25, 2025</p>
+            
+            <div class="chart-grid">
+                <div class="chart-item">
+                    <img src="images/speedup_summary.png" alt="TMC speedup vs competitors" />
+                    <h3>Performance Advantage</h3>
+                    <p>TMC is 157× faster than ChromaDB, 5.6× faster than FAISS, and 4.5× faster than Qdrant at 100K vectors.</p>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🚀</span>
-                    <h3>36x Faster Ingestion</h3>
-                    <p>2,322 ops/sec vs 64 ops/sec. Load 100K memories in 43 seconds, not 26 minutes.</p>
+
+                <div class="chart-item">
+                    <img src="images/scaling_performance.png" alt="TMC maintains performance at scale" />
+                    <h3>Consistent at Scale</h3>
+                    <p>FAISS degrades 48× as data grows. TMC stays at 0.43ms whether you have 1,000 or 100,000 vectors.</p>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">♾️</span>
-                    <h3>No Batch Limits</h3>
-                    <p>Load unlimited memories at once. No chunking. ChromaDB caps at 5,461.</p>
+
+                <div class="chart-item">
+                    <img src="images/deployment_time.png" alt="TMC deploys instantly" />
+                    <h3>Zero Setup Time</h3>
+                    <p>Elasticsearch takes 10-30 minutes. Qdrant needs 3-5 minutes. TMC starts in under 1 second. No Docker required.</p>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">💎</span>
-                    <h3>Crystallized Memory</h3>
-                    <p>O(log n) architecture. Memories crystallize into permanent geometric structures.</p>
+
+                <div class="chart-item">
+                    <img src="images/cost_comparison.png" alt="TMC saves $6,500 vs Elasticsearch" />
+                    <h3>Lower Total Cost</h3>
+                    <p>Save $6,500 vs Elasticsearch, $2,700 vs Qdrant over 6 months. Same workload, fraction of the cost.</p>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🔒</span>
-                    <h3>Zero Hallucinations</h3>
-                    <p>Provable retrieval from crystallized knowledge. If TMC says it, it's real.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🧬</span>
-                    <h3>Self-Healing</h3>
-                    <p>Detects and repairs defects without retraining. Production-ready reliability.</p>
-                </div>
+            </div>
+
+            <div class="raw-numbers">
+                <h3>Raw Numbers</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>System</th>
+                            <th>Mean Latency</th>
+                            <th>P99 Latency</th>
+                            <th>vs TMC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="winner">
+                            <td><strong>TMC</strong></td>
+                            <td><strong>0.43ms</strong></td>
+                            <td><strong>0.52ms</strong></td>
+                            <td><strong>Baseline</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Qdrant</td>
+                            <td>1.93ms</td>
+                            <td>4.04ms</td>
+                            <td>4.5× slower</td>
+                        </tr>
+                        <tr>
+                            <td>FAISS</td>
+                            <td>2.42ms</td>
+                            <td>3.08ms</td>
+                            <td>5.6× slower</td>
+                        </tr>
+                        <tr>
+                            <td>ChromaDB</td>
+                            <td>67.57ms</td>
+                            <td>94.16ms</td>
+                            <td>157× slower</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <section id="pricing" class="pricing">
+    <section id="pricing">
         <div class="container">
-            <h2 class="section-title">Pricing</h2>
+            <h2>Pricing</h2>
             <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-tier">Starter</div>
-                    <div class="pricing-price">$49<span>/mo</span></div>
-                    <ul class="pricing-features">
-                        <li>1M memories</li>
-                        <li>1 server</li>
-                        <li>113x faster retrieval</li>
+                <div class="price-card">
+                    <div class="price-tier">Starter</div>
+                    <div class="price-amount">$49<span>/mo</span></div>
+                    <ul>
+                        <li>1M vectors</li>
+                        <li>0.43ms latency</li>
+                        <li>No Docker</li>
                         <li>Email support</li>
                     </ul>
-                    <a href="mailto:kent.stone@gmail.com?subject=TMC Starter Trial" class="btn btn-gradient">Start Free Trial</a>
+                    <a href="mailto:kent.stone@gmail.com?subject=TMC Starter" class="btn-price">Start Trial</a>
                 </div>
-                <div class="pricing-card featured">
-                    <span class="pricing-badge">POPULAR</span>
-                    <div class="pricing-tier">Pro</div>
-                    <div class="pricing-price">$199<span>/mo</span></div>
-                    <ul class="pricing-features">
-                        <li>100M memories</li>
-                        <li>3 servers</li>
+
+                <div class="price-card featured">
+                    <div class="badge">BEST VALUE</div>
+                    <div class="price-tier">Pro</div>
+                    <div class="price-amount">$199<span>/mo</span></div>
+                    <ul>
+                        <li>100M vectors</li>
                         <li>Priority support</li>
-                        <li>Analytics dashboard</li>
+                        <li>Analytics</li>
+                        <li>API access</li>
                     </ul>
-                    <a href="mailto:kent.stone@gmail.com?subject=TMC Pro Trial" class="btn btn-gradient">Start Free Trial</a>
+                    <a href="mailto:kent.stone@gmail.com?subject=TMC Pro" class="btn-price">Start Trial</a>
                 </div>
-                <div class="pricing-card">
-                    <div class="pricing-tier">Enterprise</div>
-                    <div class="pricing-price">$999<span>/mo</span></div>
-                    <ul class="pricing-features">
-                        <li>Unlimited memories</li>
-                        <li>Unlimited servers</li>
+
+                <div class="price-card">
+                    <div class="price-tier">Enterprise</div>
+                    <div class="price-amount">$999<span>/mo</span></div>
+                    <ul>
+                        <li>Unlimited vectors</li>
                         <li>24/7 support</li>
                         <li>Source access</li>
+                        <li>Custom deployment</li>
                     </ul>
-                    <a href="mailto:kent.stone@gmail.com?subject=TMC Enterprise" class="btn btn-gradient">Contact Sales</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <div class="contact-icon">📧</div>
-                    <h3>Email</h3>
-                    <a href="mailto:kent.stone@gmail.com">kent.stone@gmail.com</a>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">📱</div>
-                    <h3>Phone</h3>
-                    <a href="tel:+51945012953">+51 945 012 953</a>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">💻</div>
-                    <h3>GitHub</h3>
-                    <a href="https://github.com/kentstonedev">@kentstonedev</a>
+                    <a href="mailto:kent.stone@gmail.com?subject=TMC Enterprise" class="btn-price">Contact Sales</a>
                 </div>
             </div>
         </div>
@@ -139,9 +153,21 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 TMC by Kent Stone • 113x Faster Than ChromaDB</p>
+            <div class="footer-grid">
+                <div>
+                    <h4>TMC</h4>
+                    <p>Temporal Memory Crystallization</p>
+                    <p>157× faster than ChromaDB</p>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <p><a href="mailto:kent.stone@gmail.com">kent.stone@gmail.com</a></p>
+                    <p><a href="tel:+51945012953">+51 945 012 953</a></p>
+                    <p><a href="https://github.com/kentstonedev">GitHub</a></p>
+                </div>
+            </div>
+            <p class="copyright">© 2025 TMC by Kent Stone • All benchmarks independently verified</p>
         </div>
     </footer>
-    <script src="js/main.js"></script>
 </body>
 </html>
