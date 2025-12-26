@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benchmark Results | TMC vs ChromaDB - 113x Faster</title>
+    <meta name="description" content="Complete benchmark results: TMC vs ChromaDB on 100,000 memories. 113x faster retrieval, 36x faster ingestion.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">💎 TMC</a>
+            <ul class="navbar-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="benchmarks.html">Benchmarks</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 120px 20px 80px; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 3.5rem; margin-bottom: 1.5rem;">TMC vs ChromaDB Benchmark</h1>
+            <p style="font-size: 1.5rem;">100,000 Memories • December 25, 2025 • Production Hardware</p>
+        </div>
+    </section>
+
+    <section style="padding: 80px 20px; background: white;">
+        <div class="container">
+            <h2 class="section-title">Results</h2>
+            <div style="background: linear-gradient(135deg, #51cf66 0%, #4ade80 100%); color: white; padding: 3rem; border-radius: 15px; text-align: center; margin: 3rem 0;">
+                <h3 style="font-size: 2.5rem; margin-bottom: 1rem;">TMC is 113x Faster</h3>
+                <p style="font-size: 1.3rem;">0.60ms vs 67.57ms retrieval • 2,322 vs 64 ops/sec ingestion</p>
+            </div>
+
+            <h3>Ingestion Performance</h3>
+            <table style="width: 100%; margin: 2rem 0; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                        <th style="padding: 1rem; text-align: left;">Metric</th>
+                        <th style="padding: 1rem; text-align: left;">TMC</th>
+                        <th style="padding: 1rem; text-align: left;">ChromaDB</th>
+                        <th style="padding: 1rem; text-align: left;">Speedup</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: rgba(81, 207, 102, 0.1);">
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;">Total Time</td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;"><strong>43.06 seconds</strong></td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;">1,559 seconds</td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;"><strong>36x faster</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;">Throughput</td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;"><strong>2,322 ops/sec</strong></td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;">64 ops/sec</td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;"><strong>36x higher</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Retrieval Performance (200 iterations)</h3>
+            <table style="width: 100%; margin: 2rem 0; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                        <th style="padding: 1rem; text-align: left;">Metric</th>
+                        <th style="padding: 1rem; text-align: left;">TMC</th>
+                        <th style="padding: 1rem; text-align: left;">ChromaDB</th>
+                        <th style="padding: 1rem; text-align: left;">Improvement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: rgba(81, 207, 102, 0.1);">
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;">Mean Latency</td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;"><strong>0.60 ms</strong></td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;">67.57 ms</td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;"><strong>113x faster</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;">Median Latency</td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;"><strong>0.51 ms</strong></td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;">67.02 ms</td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;"><strong>131x faster</strong></td>
+                    </tr>
+                    <tr style="background: rgba(81, 207, 102, 0.1);">
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;">P95 Latency</td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;"><strong>0.97 ms</strong></td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;">78.70 ms</td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;"><strong>81x faster</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;">P99 Latency</td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;"><strong>1.69 ms</strong></td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;">94.16 ms</td>
+                        <td style="padding: 1rem; border-bottom: 1px solid #eee;"><strong>56x faster</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Raw Terminal Output</h3>
+            <div style="background: #1e1e1e; color: #d4d4d4; padding: 2rem; border-radius: 10px; overflow-x: auto; font-family: monospace; margin: 2rem 0;">
+<pre style="margin: 0;">╔══════════════════════════════════════════════════════════════╗
+║        TMC vs ChromaDB — STRESS BENCHMARK                    ║
+╚══════════════════════════════════════════════════════════════╝
+
+📝 Loading 100000 memories into TMC...
+✅ Loaded in 43.06s (2322 ops/s)
+
+📝 Loading 100000 memories into ChromaDB...
+✅ Loaded in 1559.35s (64 ops/s)
+
+========================================================================
+📊 STRESS BENCHMARK RESULTS (100k memories)
+========================================================================
+System       Mean(ms)     Median       P95          P99         
+------------------------------------------------------------------------
+TMC          0.60         0.51         0.97         1.69        
+ChromaDB     67.57        67.02        78.70        94.16       
+
+🚀 TMC is **113.5x faster** than ChromaDB (mean latency)
+
+✅ BENCHMARK COMPLETE</pre>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="index.html#pricing" class="btn btn-primary btn-large">Start Free Trial</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TMC by Kent Stone • Benchmark results independently verified</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
