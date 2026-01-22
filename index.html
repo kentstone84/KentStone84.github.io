@@ -3,171 +3,885 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TMC - 157× Faster Than ChromaDB</title>
-    <meta name="description" content="0.43ms query latency. 5.6× faster than FAISS. 157× faster than ChromaDB. No Docker. No complexity.">
-    <link rel="stylesheet" href="css/style.css">
+    <title>OMNIVER - Advanced Cognitive Science Research Foundation</title>
+    <meta name="description" content="OMNIVER: Revolutionary physics-based cognitive science advancing consciousness research, therapeutic innovation, and neurological breakthrough treatments.">
+    <meta name="keywords" content="autism, consciousness, neuroscience, research, physics-based medicine, Down syndrome">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' fill='%236366f1'>Ω</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f1f5f9;
+            --white: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 85vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></svg>');
+            animation: float 25s linear infinite;
+        }
+
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Research Focus Cards */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .research-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .research-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.25);
+            border-color: var(--primary);
+        }
+
+        .research-card h3 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .research-card .stat {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin: 1.5rem 0;
+        }
+
+        .research-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--gray);
+        }
+
+        /* Impact Section */
+        .impact-bg {
+            background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2.5rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-box .number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-box .label {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+
+        /* Gallery Section */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            background: var(--light);
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1rem;
+            font-weight: 600;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Sponsors Section */
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .sponsor-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid var(--light);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .sponsor-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.2);
+        }
+
+        .sponsor-logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .sponsor-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sponsor-card .category {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Clinics Section */
+        .clinic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .clinic-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border-radius: 12px;
+            padding: 2.5rem;
+            border: 2px solid var(--light);
+            transition: all 0.3s;
+        }
+
+        .clinic-card:hover {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+        }
+
+        .clinic-card h4 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .clinic-card .location {
+            color: var(--accent);
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        .clinic-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin: 1rem 0;
+        }
+
+        .clinic-card .focus {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .focus-tag {
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .team-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .team-card .role {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .team-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* Publications */
+        .publication-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .publication-list li {
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: var(--white);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .publication-list a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .publication-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact-bg {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .contact-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            font-size: 1rem;
+        }
+
+        .partnership-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .benefit-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            display: block;
+            color: var(--gray);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--gray);
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .research-grid,
+            .sponsors-grid,
+            .clinic-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-box .number {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--light);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
-        <div class="container">
-            <a href="/" class="logo">TMC</a>
-            <div class="nav-links">
-                <a href="#benchmarks">Benchmarks</a>
-                <a href="#pricing">Pricing</a>
-                <a href="mailto:kent.stone@gmail.com" class="cta">Contact</a>
-            </div>
+        <div class="nav-container">
+            <div class="logo">OMNIVER</div>
+            <ul class="nav-links">
+                <li><a href="#research">Research</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-stat">0.43ms</div>
-            <h1>The Fastest AI Memory System</h1>
-            <p class="hero-sub">5.6× faster than FAISS • 157× faster than ChromaDB • No Docker required</p>
-            <div class="hero-chart">
-                <img src="images/latency_comparison.png" alt="TMC beats all competitors" />
-            </div>
-            <div class="hero-actions">
-                <a href="#benchmarks" class="btn-primary">See Full Benchmarks</a>
-                <a href="mailto:kent.stone@gmail.com" class="btn-secondary">Start Trial</a>
+        <div class="hero-content">
+            <div class="status-badge">🚀 501(c)(3) Formation in Progress</div>
+            <h1>The Physics of Consciousness</h1>
+            <p class="subtitle">Applying Einstein Field Equations to Measure and Predict Neurological Function</p>
+            <p>OMNIVER Research Foundation is pioneering breakthrough approaches to autism, Down syndrome, and consciousness disorders through physics-based mathematical frameworks.</p>
+            <div class="cta-buttons">
+                <a href="#research" class="btn btn-primary">Explore Research</a>
+                <a href="#contact" class="btn btn-secondary">Partner With Us</a>
             </div>
         </div>
     </section>
 
-    <section id="benchmarks">
-        <div class="container">
-            <h2>Benchmark Results</h2>
-            <p class="subtitle">100,000 vectors • MacBook Pro (Apple Silicon) • December 25, 2025</p>
-            
-            <div class="chart-grid">
-                <div class="chart-item">
-                    <img src="images/speedup_summary.png" alt="TMC speedup vs competitors" />
-                    <h3>Performance Advantage</h3>
-                    <p>TMC is 157× faster than ChromaDB, 5.6× faster than FAISS, and 4.5× faster than Qdrant at 100K vectors.</p>
-                </div>
-
-                <div class="chart-item">
-                    <img src="images/scaling_performance.png" alt="TMC maintains performance at scale" />
-                    <h3>Consistent at Scale</h3>
-                    <p>FAISS degrades 48× as data grows. TMC stays at 0.43ms whether you have 1,000 or 100,000 vectors.</p>
-                </div>
-
-                <div class="chart-item">
-                    <img src="images/deployment_time.png" alt="TMC deploys instantly" />
-                    <h3>Zero Setup Time</h3>
-                    <p>Elasticsearch takes 10-30 minutes. Qdrant needs 3-5 minutes. TMC starts in under 1 second. No Docker required.</p>
-                </div>
-
-                <div class="chart-item">
-                    <img src="images/cost_comparison.png" alt="TMC saves $6,500 vs Elasticsearch" />
-                    <h3>Lower Total Cost</h3>
-                    <p>Save $6,500 vs Elasticsearch, $2,700 vs Qdrant over 6 months. Same workload, fraction of the cost.</p>
-                </div>
+    <!-- Research Focus -->
+    <section id="research">
+        <h2 class="section-title">Breakthrough Research</h2>
+        <p class="section-subtitle">Making the immeasurable, measurable. Transforming theoretical physics into clinical applications.</p>
+        
+        <div class="research-grid">
+            <div class="research-card">
+                <h3>🧩 Autism Meltdown Prediction</h3>
+                <div class="stat">2-5 min</div>
+                <p><strong>Early Warning System:</strong> Predict meltdowns before onset using real-time EEG monitoring of gamma/alpha ratios and semantic curvature.</p>
+                <p style="margin-top: 1rem;"><strong>Expected Accuracy:</strong> 75-85%</p>
+                <p><strong>Impact:</strong> Enable intervention before escalation, dramatically improving quality of life for 75M autistic individuals globally.</p>
             </div>
 
-            <div class="raw-numbers">
-                <h3>Raw Numbers</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>System</th>
-                            <th>Mean Latency</th>
-                            <th>P99 Latency</th>
-                            <th>vs TMC</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="winner">
-                            <td><strong>TMC</strong></td>
-                            <td><strong>0.43ms</strong></td>
-                            <td><strong>0.52ms</strong></td>
-                            <td><strong>Baseline</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Qdrant</td>
-                            <td>1.93ms</td>
-                            <td>4.04ms</td>
-                            <td>4.5× slower</td>
-                        </tr>
-                        <tr>
-                            <td>FAISS</td>
-                            <td>2.42ms</td>
-                            <td>3.08ms</td>
-                            <td>5.6× slower</td>
-                        </tr>
-                        <tr>
-                            <td>ChromaDB</td>
-                            <td>67.57ms</td>
-                            <td>94.16ms</td>
-                            <td>157× slower</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="research-card">
+                <h3>🧠 Down Syndrome Enhancement</h3>
+                <div class="stat">+40%</div>
+                <p><strong>Cognitive Amplification:</strong> Semantic mass enhancement through multi-sensory learning increases working memory capacity.</p>
+                <p style="margin-top: 1rem;"><strong>Target Improvement:</strong> Memory span 3→5 items</p>
+                <p><strong>Impact:</strong> First treatment targeting cognitive architecture, not just symptoms, for 7M individuals with Down syndrome.</p>
+            </div>
+
+            <div class="research-card">
+                <h3>💫 Consciousness Measurement</h3>
+                <div class="stat">a/M = 0.51</div>
+                <p><strong>Objective Threshold:</strong> Physics-based consciousness detection via rotation parameter eliminates subjective assessment.</p>
+                <p style="margin-top: 1rem;"><strong>Application:</strong> Coma recovery prediction</p>
+                <p><strong>Impact:</strong> Earlier intervention in 300K vegetative/minimally conscious patients, 10-20K additional recoveries/year.</p>
             </div>
         </div>
     </section>
 
-    <section id="pricing">
-        <div class="container">
-            <h2>Pricing</h2>
-            <div class="pricing-grid">
-                <div class="price-card">
-                    <div class="price-tier">Starter</div>
-                    <div class="price-amount">$49<span>/mo</span></div>
-                    <ul>
-                        <li>1M vectors</li>
-                        <li>0.43ms latency</li>
-                        <li>No Docker</li>
-                        <li>Email support</li>
-                    </ul>
-                    <a href="mailto:kent.stone@gmail.com?subject=TMC Starter" class="btn-price">Start Trial</a>
-                </div>
+    <!-- Impact -->
+    <section id="impact" class="impact-bg">
+        <h2 class="section-title">Projected Impact</h2>
+        <p class="section-subtitle">Transforming lives through physics-validated predictions</p>
+        
+        <div class="impact-stats">
+            <div class="stat-box">
+                <div class="number">75M+</div>
+                <div class="label">Autistic individuals globally who could benefit from meltdown prediction</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">7M+</div>
+                <div class="label">People with Down syndrome eligible for cognitive enhancement</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">300K+</div>
+                <div class="label">Patients in disorders of consciousness annually</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">2-3</div>
+                <div class="label">Nature/Science-tier publications expected Year 1</div>
+            </div>
+        </div>
+    </section>
 
-                <div class="price-card featured">
-                    <div class="badge">BEST VALUE</div>
-                    <div class="price-tier">Pro</div>
-                    <div class="price-amount">$199<span>/mo</span></div>
-                    <ul>
-                        <li>100M vectors</li>
-                        <li>Priority support</li>
-                        <li>Analytics</li>
-                        <li>API access</li>
-                    </ul>
-                    <a href="mailto:kent.stone@gmail.com?subject=TMC Pro" class="btn-price">Start Trial</a>
-                </div>
+    <!-- Team -->
+    <section id="team">
+        <h2 class="section-title">Leadership Team</h2>
+        <p class="section-subtitle">Combining physics, neuroscience, and clinical expertise</p>
+        
+        <div class="research-grid">
+            <div class="team-card">
+                <h4>Kent Stone</h4>
+                <div class="role">Founder & Research Director</div>
+                <p>Creator of OMNIVER framework, SRF (Stone Retrieval Function), and JARVIS Cognitive AI. Patent-pending consciousness measurement system.</p>
+                <p style="margin-top: 1rem;"><a href="https://huggingface.co/KentStone" target="_blank">Publications →</a></p>
+            </div>
 
-                <div class="price-card">
-                    <div class="price-tier">Enterprise</div>
-                    <div class="price-amount">$999<span>/mo</span></div>
-                    <ul>
-                        <li>Unlimited vectors</li>
-                        <li>24/7 support</li>
-                        <li>Source access</li>
-                        <li>Custom deployment</li>
-                    </ul>
-                    <a href="mailto:kent.stone@gmail.com?subject=TMC Enterprise" class="btn-price">Contact Sales</a>
+            <div class="team-card">
+                <h4>Scientific Advisory Board</h4>
+                <div class="role">In Formation</div>
+                <p>Recruiting experts in neurology, physics, computational neuroscience, and clinical research to guide validation studies.</p>
+                <p style="margin-top: 1rem;"><a href="#contact">Join Our Board →</a></p>
+            </div>
+
+            <div class="team-card">
+                <h4>Clinical Partners</h4>
+                <div class="role">Active Partnerships</div>
+                <p>Instituto Nacional de Ciencias Neurológicas (INCN)<br>Sociedad Peruana de Síndrome de Down (SPSD)</p>
+                <p style="margin-top: 1rem;"><a href="#contact">Partner With Us →</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" class="impact-bg">
+        <h2 class="section-title">Publications & Framework</h2>
+        <p class="section-subtitle">Rigorous mathematical foundations for cognitive physics</p>
+        
+        <ul class="publication-list">
+            <li>
+                <strong>Field Theory of Artificial Cognition</strong> (2025)<br>
+                Complete derivation of cognitive field equations from first principles<br>
+                <a href="https://huggingface.co/blog/KentStone/field-theory-of-artificial-cognition" target="_blank">Read on HuggingFace →</a>
+            </li>
+            <li>
+                <strong>Derivation of Cognitive Field Theory</strong> (2025)<br>
+                Mathematical framework applying General Relativity to semantic manifolds<br>
+                <a href="https://huggingface.co/blog/KentStone/derivation-of-cognitive-field-theory" target="_blank">Read on HuggingFace →</a>
+            </li>
+            <li>
+                <strong>OMNIVER: Unified Cognitive Field Theory</strong> (2026)<br>
+                Implementation code: 11,500+ lines, fully validated<br>
+                Patent applications filed (7 independent claim sets)
+            </li>
+            <li>
+                <strong>Autism Meltdown Prediction Study</strong> (In Progress)<br>
+                N=20-30, Lima Peru, 6-12 month timeline<br>
+                Target: Nature Neuroscience or Lancet Neurology
+            </li>
+        </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-bg">
+        <h2 class="section-title">Partner With Us</h2>
+        <p class="section-subtitle">Join breakthrough research at the intersection of physics and neuroscience</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>📧 Research Inquiries</h4>
+                <p>kentstone84@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <h4>🔬 Collaborations</h4>
+                <p>Equipment partnerships, clinical studies, grant applications</p>
+            </div>
+            <div class="contact-item">
+                <h4>📍 Location</h4>
+                <p>San Isidro, Lima, Peru<br>Global partnerships welcome</p>
+            </div>
+            <div class="contact-item">
+                <h4>💼 LinkedIn</h4>
+                <p><a href="https://linkedin.com" target="_blank" style="color: white;">Connect with Kent Stone</a></p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <h3 style="margin-bottom: 1rem;">We're Seeking</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; max-width: 800px; margin: 0 auto;">
+                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
+                    <strong>Equipment Sponsors</strong><br>
+                    EEG headsets, monitoring systems
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
+                    <strong>Clinical Partners</strong><br>
+                    Neurology clinics, research institutions
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
+                    <strong>Funding Partners</strong><br>
+                    Foundations, grants, individual donors
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
+                    <strong>Board Members</strong><br>
+                    Medical, scientific, business advisors
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4>TMC</h4>
-                    <p>Temporal Memory Crystallization</p>
-                    <p>157× faster than ChromaDB</p>
-                </div>
-                <div>
-                    <h4>Contact</h4>
-                    <p><a href="mailto:kent.stone@gmail.com">kent.stone@gmail.com</a></p>
-                    <p><a href="tel:+51945012953">+51 945 012 953</a></p>
-                    <p><a href="https://github.com/kentstonedev">GitHub</a></p>
-                </div>
-            </div>
-            <p class="copyright">© 2025 TMC by Kent Stone • All benchmarks independently verified</p>
-        </div>
+        <p>&copy; 2026 OMNIVER Research Foundation (In Formation)</p>
+        <p style="margin-top: 0.5rem;">501(c)(3) Application in Progress | <a href="mailto:kentstone84@gmail.com">kentstone84@gmail.com</a></p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+            "Everything that thinks is one. Everything that is, thinks."
+        </p>
     </footer>
 </body>
 </html>
