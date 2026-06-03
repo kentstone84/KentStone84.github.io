@@ -1,134 +1,150 @@
 /*
-=================================
-STONE LEATHERWORKS
-MAIN SITE SCRIPT
-=================================
+==========================================
+South American LEATHERWORKS
+MAIN.JS
+==========================================
 */
-
-// Current Year
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const yearElement =
-        document.querySelector("#year");
+    const year = document.getElementById("year");
 
-    if(yearElement){
-
-        yearElement.textContent =
-            new Date().getFullYear();
+    if(year){
+        year.textContent = new Date().getFullYear();
     }
+
 });
 
 
 /*
-=================================
-SMOOTH SCROLL
-=================================
-*/
-
-document
-.querySelectorAll('a[href^="#"]')
-.forEach(anchor => {
-
-    anchor.addEventListener(
-        "click",
-        function(e){
-
-            e.preventDefault();
-
-            document
-            .querySelector(
-                this.getAttribute("href")
-            )
-            .scrollIntoView({
-
-                behavior:"smooth"
-            });
-        }
-    );
-});
-
-
-/*
-=================================
-NAVBAR SHADOW
-=================================
+==========================================
+HEADER SHADOW
+==========================================
 */
 
 window.addEventListener("scroll", () => {
 
-    const header =
-        document.querySelector("header");
+    const header = document.querySelector("header");
 
     if(!header) return;
 
-    if(window.scrollY > 20){
+    if(window.scrollY > 25){
 
         header.style.boxShadow =
-            "0 5px 20px rgba(0,0,0,.4)";
+            "0 8px 25px rgba(0,0,0,.4)";
     }
     else{
 
         header.style.boxShadow =
             "none";
     }
+
 });
 
 
 /*
-=================================
+==========================================
 FADE IN ELEMENTS
-=================================
+==========================================
 */
 
-const observer =
-new IntersectionObserver(entries => {
+const observer = new IntersectionObserver(
 
-    entries.forEach(entry => {
+    entries => {
 
-        if(entry.isIntersecting){
+        entries.forEach(entry => {
 
-            entry.target.classList.add("show");
-        }
-    });
+            if(entry.isIntersecting){
 
-},{
-    threshold:.15
-});
+                entry.target.classList.add("show");
+            }
 
-document
-.querySelectorAll(
+        });
+
+    },
+
+    {
+        threshold:0.15
+    }
+
+);
+
+document.querySelectorAll(
     ".card,.product-card,.gallery-item"
 )
-.forEach(el => {
+.forEach(item => {
 
-    el.classList.add("hidden");
+    item.classList.add("hidden");
 
-    observer.observe(el);
+    observer.observe(item);
+
 });
 
 
 /*
-=================================
-MOBILE MENU TOGGLE
-=================================
+==========================================
+MOBILE MENU
+==========================================
 */
 
-const menuButton =
+const mobileMenu =
 document.querySelector(".mobile-menu");
 
 const navLinks =
 document.querySelector(".nav-links");
 
-if(menuButton){
+if(mobileMenu){
 
-    menuButton.addEventListener(
+    mobileMenu.addEventListener(
         "click",
         () => {
 
             navLinks.classList.toggle(
                 "mobile-open"
             );
+
+        }
+    );
+}
+
+
+/*
+==========================================
+SCROLL TO TOP
+==========================================
+*/
+
+const scrollButton =
+document.getElementById("scrollTop");
+
+if(scrollButton){
+
+    window.addEventListener("scroll", () => {
+
+        if(window.scrollY > 500){
+
+            scrollButton.style.display =
+                "block";
+        }
+        else{
+
+            scrollButton.style.display =
+                "none";
+        }
+
+    });
+
+    scrollButton.addEventListener(
+        "click",
+        () => {
+
+            window.scrollTo({
+
+                top:0,
+                behavior:"smooth"
+
+            });
+
         }
     );
 }
