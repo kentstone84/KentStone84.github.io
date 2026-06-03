@@ -1,1180 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMNIVER - Advanced Cognitive Science Research Foundation</title>
-    <meta name="description" content="OMNIVER: Revolutionary physics-based cognitive science advancing consciousness research, therapeutic innovation, and neurological breakthrough treatments.">
-    <meta name="keywords" content="autism, consciousness, neuroscience, research, physics-based medicine, Down syndrome">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' fill='%236366f1'>Ω</text></svg>">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #2d3748;
-            --primary-dark: #1a202c;
-            --secondary: #4a5568;
-            --accent: #0891b2;
-            --dark: #111827;
-            --gray: #6b7280;
-            --light: #f9fafb;
-            --white: #ffffff;
-            --border: #e5e7eb;
-            --success: #059669;
-            --warning: #d97706;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background: var(--white);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #000;
-            letter-spacing: -1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            min-height: 85vh;
-            background: var(--white);
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 2px solid var(--primary);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="%232d3748" opacity="0.03"/></svg>');
-        }
-
-        @keyframes float {
-            from { transform: translateY(0); }
-            to { transform: translateY(-100px); }
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            color: var(--dark);
-        }
-
-        .hero .subtitle {
-            font-size: 1.6rem;
-            margin-bottom: 2rem;
-            color: var(--secondary);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            color: var(--gray);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1.2rem 2.5rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--white);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(45, 55, 72, 0.2);
-            background: var(--primary-dark);
-            border-color: var(--primary-dark);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            text-align: center;
-            color: #000;
-        }
-
-        .section-subtitle {
-            font-size: 1.3rem;
-            color: var(--gray);
-            text-align: center;
-            margin-bottom: 3rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Research Focus Cards */
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .research-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s;
-            border: 1px solid var(--border);
-        }
-
-        .research-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-            border-color: var(--accent);
-        }
-
-        .research-card h3 {
-            color: var(--primary);
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.3;
-        }
-
-        .research-card .stat {
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: var(--accent);
-            margin: 1.5rem 0;
-        }
-
-        .research-card p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: var(--gray);
-        }
-
-        /* Impact Section */
-        .impact-bg {
-            background: var(--light);
-        }
-
-        .impact-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .stat-box {
-            text-align: center;
-            padding: 2.5rem;
-            background: var(--white);
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--border);
-        }
-
-        .stat-box .number {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--primary);
-        }
-
-        .stat-box .label {
-            font-size: 1.1rem;
-            color: var(--gray);
-            margin-top: 0.5rem;
-            line-height: 1.5;
-        }
-
-        /* Gallery Section */
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: all 0.3s;
-            background: var(--light);
-            aspect-ratio: 4/3;
-            border: 1px solid var(--border);
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-            border-color: var(--accent);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
-            padding: 1rem;
-            font-weight: 600;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-        }
-
-        .modal img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
-            background: rgba(0, 0, 0, 0.5);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Sponsors Section */
-        .sponsors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .sponsor-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--border);
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .sponsor-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-        }
-
-        .sponsor-logo {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .sponsor-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .sponsor-card .category {
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-top: 1rem;
-        }
-
-        /* Clinics Section */
-        .clinic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .clinic-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 2.5rem;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-
-        .clinic-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-        }
-
-        .clinic-card h4 {
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .clinic-card .location {
-            color: var(--accent);
-            font-weight: 600;
-            margin: 0.5rem 0;
-        }
-
-        .clinic-card p {
-            color: var(--gray);
-            line-height: 1.7;
-            margin: 1rem 0;
-        }
-
-        .clinic-card .focus {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .focus-tag {
-            background: var(--primary);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        /* Team Section */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .team-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            border: 1px solid var(--border);
-        }
-
-        .team-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .team-card .role {
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-
-        .team-card p {
-            color: var(--gray);
-            line-height: 1.7;
-        }
-
-        /* Publications */
-        .publication-list {
-            list-style: none;
-            margin-top: 2rem;
-        }
-
-        .publication-list li {
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            background: var(--white);
-            border-radius: 8px;
-            border-left: 3px solid var(--primary);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--border);
-            border-left: 3px solid var(--accent);
-        }
-
-        .publication-list a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .publication-list a:hover {
-            text-decoration: underline;
-        }
-
-        /* Contact Section */
-        .contact-bg {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-item {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            text-align: center;
-        }
-
-        .contact-item h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-item p {
-            font-size: 1rem;
-        }
-
-        .partnership-benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .benefit-item {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            text-align: center;
-        }
-
-        .benefit-item strong {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: var(--white);
-            padding: 3rem 2rem 1rem;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-        }
-
-        .footer-section a {
-            display: block;
-            color: var(--gray);
-            text-decoration: none;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            color: var(--gray);
-        }
-
-        /* Status Badge */
-        .status-badge {
-            display: inline-block;
-            padding: 0.7rem 1.5rem;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 25px;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .research-grid,
-            .sponsors-grid,
-            .clinic-grid,
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stat-box .number {
-                font-size: 2.5rem;
-            }
-        }
-
-        /* Badges */
-        .badge {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            background: var(--light);
-            color: var(--primary);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-right: 0.5rem;
-            margin-top: 0.5rem;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stone Leatherworks</title>
+
+<link rel="icon" href="icons/favicon.ico">
+
+<style>
+:root{
+    --bg:#121212;
+    --card:#1d1d1d;
+    --accent:#c9a063;
+    --accent-hover:#d7b17a;
+    --text:#f5f5f5;
+    --muted:#a0a0a0;
+    --border:#2f2f2f;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(18,18,18,.95);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    max-width:1400px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1rem 2rem;
+}
+
+.logo{
+    font-size:1.8rem;
+    font-weight:700;
+    letter-spacing:2px;
+    color:var(--accent);
+}
+
+.nav-links{
+    display:flex;
+    gap:2rem;
+}
+
+.nav-links a{
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--accent);
+}
+
+.hero{
+    height:85vh;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url('images/hero/hero.jpg');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:2rem;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:1rem;
+}
+
+.hero p{
+    font-size:1.3rem;
+    color:#ddd;
+    margin-bottom:2rem;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    background:var(--accent);
+    color:black;
+    font-weight:bold;
+    border-radius:6px;
+    margin:.5rem;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:var(--accent-hover);
+    transform:translateY(-2px);
+}
+
+.section{
+    max-width:1400px;
+    margin:auto;
+    padding:5rem 2rem;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:3rem;
+    color:var(--accent);
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:2rem;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:1.5rem;
+}
+
+.card-content h3{
+    margin-bottom:.5rem;
+}
+
+.card-content p{
+    color:var(--muted);
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:1rem;
+}
+
+.gallery img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3rem;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:12px;
+}
+
+.about p{
+    color:#ccc;
+    font-size:1.1rem;
+}
+
+footer{
+    border-top:1px solid var(--border);
+    text-align:center;
+    padding:3rem 1rem;
+    color:var(--muted);
+}
+
+.lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.95);
+    justify-content:center;
+    align-items:center;
+    z-index:5000;
+}
+
+.lightbox img{
+    max-width:90%;
+    max-height:90%;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.about{
+    grid-template-columns:1fr;
+}
+
+.nav-links{
+    gap:1rem;
+    font-size:.9rem;
+}
+}
+</style>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">ΩMNIVER</div>
-            <ul class="nav-links">
-                <li><a href="#research">Research</a></li>
-                <li><a href="#results">Results</a></li>
-                <li><a href="#impact">Impact</a></li>
-                <li><a href="#clinics">Clinics</a></li>
-                <li><a href="#sponsors">Sponsors</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">STONE LEATHERWORKS</div>
+
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Tools</a>
+            <a href="#">Gallery</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
         </div>
     </nav>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="status-badge">🚀 501(c)(3) Formation in Progress</div>
-            <h1>The Physics of Consciousness</h1>
-            <p class="subtitle">Applying Einstein Field Equations to Measure and Predict Neurological Function</p>
-            <p>OMNIVER Research Foundation is pioneering breakthrough approaches to autism, Down syndrome, and consciousness disorders through rigorous physics-based mathematical frameworks—delivering measurable clinical outcomes.</p>
-            <div class="cta-buttons">
-                <a href="#research" class="btn btn-primary">Explore Research</a>
-                <a href="#contact" class="btn btn-secondary">Partnership Inquiry</a>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Handcrafted Leather Goods & Professional Tools</h1>
+
+        <p>
+            Built for craftsmen, adventurers, and makers who appreciate quality that lasts generations.
+        </p>
+
+        <a href="#" class="btn">Shop Leather Goods</a>
+        <a href="#" class="btn">Shop Tools</a>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Featured Products</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <img src="images/products/wallet1.jpg">
+            <div class="card-content">
+                <h3>Premium Wallet</h3>
+                <p>Vegetable tanned leather. Hand stitched.</p>
             </div>
         </div>
-    </section>
 
-    <!-- Philosophical Foundation -->
-    <section style="padding: 4rem 2rem; background: var(--light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-        <div style="max-width: 800px; margin: 0 auto;">
-            <p style="font-size: 1.5rem; font-style: italic; color: var(--dark); line-height: 1.8; margin: 0;">
-                "In the beginning was the Word, and the Word was with God, and the Word was God."
+        <div class="card">
+            <img src="images/products/belt1.jpg">
+            <div class="card-content">
+                <h3>Leather Belt</h3>
+                <p>Solid brass hardware and full-grain leather.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/products/journal1.jpg">
+            <div class="card-content">
+                <h3>Journal Cover</h3>
+                <p>Built for decades of daily use.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Workshop Gallery</h2>
+
+    <div class="gallery">
+
+        <img src="images/workshop/work1.jpg" onclick="openLightbox(this.src)">
+        <img src="images/workshop/work2.jpg" onclick="openLightbox(this.src)">
+        <img src="images/workshop/work3.jpg" onclick="openLightbox(this.src)">
+        <img src="images/workshop/work4.jpg" onclick="openLightbox(this.src)">
+
+    </div>
+</section>
+
+<section class="section">
+
+    <h2 class="section-title">Our Craft</h2>
+
+    <div class="about">
+
+        <img src="images/workshop/craftsman.jpg">
+
+        <div>
+            <p>
+                Every piece is designed and built by hand using premium
+                full-grain leather, traditional techniques, and modern
+                craftsmanship. We believe quality products should age
+                beautifully and become part of your story.
             </p>
-            <p style="font-size: 1rem; color: var(--gray); margin-top: 1rem; font-weight: 500;">— John 1:1</p>
-        </div>
-    </section>
-
-    <!-- Research Focus -->
-    <section id="research">
-        <h2 class="section-title">Breakthrough Research Programs</h2>
-        <p class="section-subtitle">Transforming the immeasurable into measurable clinical endpoints</p>
-        
-        <div class="research-grid">
-            <div class="research-card">
-                <h3>🧩 Autism Meltdown Prediction</h3>
-                <div class="stat">2-5 min</div>
-                <p><strong>Early Warning System:</strong> Real-time EEG monitoring of gamma/alpha ratios predicts meltdowns before onset.</p>
-                <p style="margin-top: 1rem;"><strong>Expected Accuracy:</strong> 75-85%</p>
-                <p><strong>Clinical Impact:</strong> Enable intervention before escalation, dramatically improving quality of life for 75M+ autistic individuals globally.</p>
-                <div style="margin-top: 1rem;">
-                    <span class="badge">AI-Powered</span>
-                    <span class="badge">Real-Time</span>
-                    <span class="badge">Patent Pending</span>
-                </div>
-            </div>
-
-            <div class="research-card">
-                <h3>🧠 Down Syndrome Enhancement</h3>
-                <div class="stat">+40%</div>
-                <p><strong>Semantic Mass Amplification:</strong> Multi-sensory learning enhances semantic manifold, increasing working memory capacity.</p>
-                <p style="margin-top: 1rem;"><strong>Target Improvement:</strong> Memory span 3→5 items</p>
-                <p><strong>Clinical Impact:</strong> First treatment targeting cognitive architecture, not just symptoms, for 7M+ individuals with Down syndrome.</p>
-                <div style="margin-top: 1rem;">
-                    <span class="badge">Novel Mechanism</span>
-                    <span class="badge">Physics-Based</span>
-                    <span class="badge">Validated</span>
-                </div>
-            </div>
-
-            <div class="research-card">
-                <h3>💫 Consciousness Measurement</h3>
-                <div class="stat">a/M = 0.51</div>
-                <p><strong>Objective Threshold:</strong> Physics-based consciousness detection via Kerr rotation parameter eliminates subjective assessment.</p>
-                <p style="margin-top: 1rem;"><strong>Primary Application:</strong> Coma recovery prediction</p>
-                <p><strong>Clinical Impact:</strong> Earlier intervention in 300K+ vegetative/minimally conscious patients, enabling 10-20K additional recoveries annually.</p>
-                <div style="margin-top: 1rem;">
-                    <span class="badge">Objective</span>
-                    <span class="badge">Validated</span>
-                    <span class="badge">Non-Invasive</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Test Results Gallery -->
-    <section id="results" class="impact-bg">
-        <h2 class="section-title">Research Validation & Test Results</h2>
-        <p class="section-subtitle">Comprehensive experimental evidence supporting OMNIVER framework</p>
-        
-        <div class="gallery-container">
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_1_time_dilation.png')">
-                <img src="../IMAGES/experiment_1_time_dilation.png" alt="Time Dilation Analysis">
-                <div class="gallery-label">Time Dilation Analysis</div>
-            </div>
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_2_curved_geodesics.png')">
-                <img src="../IMAGES/experiment_2_curved_geodesics.png" alt="Curved Geodesics">
-                <div class="gallery-label">Curved Geodesics Mapping</div>
-            </div>
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_3_riemann_curvature.png')">
-                <img src="../IMAGES/experiment_3_riemann_curvature.png" alt="Riemann Curvature">
-                <div class="gallery-label">Riemann Curvature Tensor</div>
-            </div>
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_4_evaporation_curves.png')">
-                <img src="../IMAGES/experiment_4_evaporation_curves.png" alt="Evaporation Curves">
-                <div class="gallery-label">Hawking Evaporation Model</div>
-            </div>
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_4_temperature_profile.png')">
-                <img src="../IMAGES/experiment_4_temperature_profile.png" alt="Temperature Profile">
-                <div class="gallery-label">Temperature Distribution</div>
-            </div>
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_4_knowledge_obsolescence.png')">
-                <img src="../IMAGES/experiment_4_knowledge_obsolescence.png" alt="Knowledge Obsolescence">
-                <div class="gallery-label">Knowledge Obsolescence Rate</div>
-            </div>
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_5_consciousness_transition.png')">
-                <img src="../IMAGES/experiment_5_consciousness_transition.png" alt="Consciousness Transition">
-                <div class="gallery-label">Consciousness State Transition</div>
-            </div>
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_5_ergosphere_emergence.png')">
-                <img src="../IMAGES/experiment_5_ergosphere_emergence.png" alt="Ergosphere Emergence">
-                <div class="gallery-label">Ergosphere Emergence Pattern</div>
-            </div>
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_5_frame_dragging.png')">
-                <img src="../IMAGES/experiment_5_frame_dragging.png" alt="Frame Dragging">
-                <div class="gallery-label">Frame Dragging Effect</div>
-            </div>
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_concept_collapse_manifold.png')">
-                <img src="../IMAGES/experiment_concept_collapse_manifold.png" alt="Collapse Manifold">
-                <div class="gallery-label">Manifold Collapse Analysis</div>
-            </div>
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_concept_collapse_moment.png')">
-                <img src="../IMAGES/experiment_concept_collapse_moment.png" alt="Collapse Moment">
-                <div class="gallery-label">Critical Collapse Moment</div>
-            </div>
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_concept_collapse_observables.png')">
-                <img src="../IMAGES/experiment_concept_collapse_observables.png" alt="Observable Collapse">
-                <div class="gallery-label">Observable Collapse Dynamics</div>
-            </div>
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_conserved_quantities.png')">
-                <img src="../IMAGES/experiment_conserved_quantities.png" alt="Conserved Quantities">
-                <div class="gallery-label">Conserved Quantities</div>
-            </div>
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_localized_probes.png')">
-                <img src="../IMAGES/experiment_localized_probes.png" alt="Localized Probes">
-                <div class="gallery-label">Localized Probe Analysis</div>
-            </div>
-            <div class="gallery-item" onclick="openModal('../IMAGES/experiment_perturb_response.png')">
-                <img src="../IMAGES/experiment_perturb_response.png" alt="Perturbation Response">
-                <div class="gallery-label">System Perturbation Response</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Impact -->
-    <section id="impact">
-        <h2 class="section-title">Projected Clinical & Scientific Impact</h2>
-        <p class="section-subtitle">Transforming lives through physics-validated predictions</p>
-        
-        <div class="impact-stats">
-            <div class="stat-box">
-                <div class="number">75M+</div>
-                <div class="label">Autistic individuals globally eligible for meltdown prediction</div>
-            </div>
-            <div class="stat-box">
-                <div class="number">7M+</div>
-                <div class="label">People with Down syndrome candidates for cognitive enhancement</div>
-            </div>
-            <div class="stat-box">
-                <div class="number">300K+</div>
-                <div class="label">Patients in disorders of consciousness annually</div>
-            </div>
-            <div class="stat-box">
-                <div class="number">2-3</div>
-                <div class="label">Nature/Science-tier publications expected Year 1</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Clinical Partners -->
-    <section id="clinics" class="impact-bg">
-        <h2 class="section-title">Clinical Partnership Network</h2>
-        <p class="section-subtitle">Collaborating with leading institutions for treatment validation</p>
-        
-        <div class="clinic-grid">
-            <div class="clinic-card">
-                <h4>🏥 Instituto Nacional de Ciencias Neurológicas</h4>
-                <div class="location">Lima, Peru</div>
-                <p>National leader in neurological research and treatment. Primary partner for consciousness measurement and meltdown prediction validation studies.</p>
-                <div class="focus">
-                    <span class="focus-tag">Consciousness</span>
-                    <span class="focus-tag">Autism</span>
-                    <span class="focus-tag">EEG Research</span>
-                </div>
-            </div>
-
-            <div class="clinic-card">
-                <h4>🧬 Sociedad Peruana de Síndrome de Down</h4>
-                <div class="location">Lima, Peru</div>
-                <p>Premier organization serving Down syndrome population. Leading partner for cognitive enhancement trials and semantic mass amplification studies.</p>
-                <div class="focus">
-                    <span class="focus-tag">Down Syndrome</span>
-                    <span class="focus-tag">Cognitive Enhancement</span>
-                    <span class="focus-tag">Family Support</span>
-                </div>
-            </div>
-
-            <div class="clinic-card">
-                <h4>🔬 Research Expansion Partners</h4>
-                <div class="location">Global Network</div>
-                <p>We're actively seeking partnerships with additional neurology clinics, research institutions, and medical centers internationally.</p>
-                <div class="focus">
-                    <span class="focus-tag">Recruiting</span>
-                    <span class="focus-tag">All Specialties</span>
-                    <span class="focus-tag">Contact us</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sponsors -->
-    <section id="sponsors">
-        <h2 class="section-title">Research Sponsors & Partners</h2>
-        <p class="section-subtitle">Supporting breakthrough cognitive science research</p>
-        
-        <div class="sponsors-grid">
-            <div class="sponsor-card">
-                <div class="sponsor-logo">🧠</div>
-                <h4>Equipment Sponsors</h4>
-                <p>EEG headset manufacturers, brain imaging systems, and neurological monitoring equipment providers.</p>
-                <div class="category">In-Kind Donations</div>
-            </div>
-
-            <div class="sponsor-card">
-                <div class="sponsor-logo">🏥</div>
-                <h4>Clinical Partners</h4>
-                <p>Neurology clinics, research hospitals, and medical centers facilitating patient recruitment and treatment delivery.</p>
-                <div class="category">Services & Access</div>
-            </div>
-
-            <div class="sponsor-card">
-                <div class="sponsor-logo">💰</div>
-                <h4>Research Funding</h4>
-                <p>Foundations, grant programs, and individual donors supporting peer-reviewed studies and clinical trials.</p>
-                <div class="category">Financial Support</div>
-            </div>
-
-            <div class="sponsor-card">
-                <div class="sponsor-logo">👥</div>
-                <h4>Board Members</h4>
-                <p>Medical advisors, scientists, and business leaders providing strategic guidance and credibility.</p>
-                <div class="category">Governance</div>
-            </div>
-
-            <div class="sponsor-card">
-                <div class="sponsor-logo">📚</div>
-                <h4>Educational Partners</h4>
-                <p>Universities and research institutions collaborating on methodology validation and peer review.</p>
-                <div class="category">Academic Collaboration</div>
-            </div>
-
-            <div class="sponsor-card">
-                <div class="sponsor-logo">🌐</div>
-                <h4>Tech & Data Partners</h4>
-                <p>AI/ML platforms, data analytics companies, and software infrastructure providers supporting research infrastructure.</p>
-                <div class="category">Technical Support</div>
-            </div>
         </div>
 
-        <div style="text-align: center; margin-top: 4rem; padding: 2rem; background: var(--light); border: 1px solid var(--border); border-radius: 12px;">
-            <h3 style="margin-bottom: 1rem; color: var(--dark);">Sponsorship Opportunities Available</h3>
-            <p style="color: var(--gray); margin-bottom: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">Multiple sponsorship tiers available for organizations seeking to support groundbreaking cognitive science research with direct impact on patient outcomes.</p>
-            <a href="#contact" class="btn btn-primary">Learn About Sponsorship</a>
-        </div>
-    </section>
-
-    <!-- Team -->
-    <section id="team" class="impact-bg">
-        <h2 class="section-title">Leadership & Advisory Board</h2>
-        <p class="section-subtitle">Combining physics, neuroscience, and clinical expertise</p>
-        
-        <div class="team-grid">
-            <div class="team-card">
-                <h4>Kent Stone, Founder</h4>
-                <div class="role">Research Director & Principal Investigator</div>
-                <p>Creator of OMNIVER framework, SRF (Stone Retrieval Function), and JARVIS Cognitive AI. 11,500+ lines of validated code. Patent applications pending across 7 independent claim sets.</p>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">
-                    <a href="https://huggingface.co/KentStone" target="_blank">HuggingFace</a> • 
-                    <a href="https://github.com" target="_blank">GitHub</a>
-                </p>
-            </div>
-
-            <div class="team-card">
-                <h4>Scientific Advisory Board</h4>
-                <div class="role">Formation in Progress</div>
-                <p>Recruiting leading experts in neurology, physics, computational neuroscience, and clinical research to provide scientific guidance and peer validation.</p>
-                <p style="margin-top: 1rem;">
-                    <a href="#contact" style="color: var(--primary); text-decoration: none; font-weight: 600;">Join Our Board →</a>
-                </p>
-            </div>
-
-            <div class="team-card">
-                <h4>Clinical Partnerships</h4>
-                <div class="role">Active & Expanding</div>
-                <p><strong>INCN:</strong> Instituto Nacional de Ciencias Neurológicas (Lima)<br>
-                <strong>SPSD:</strong> Sociedad Peruana de Síndrome de Down (Lima)<br>
-                Additional partners welcomed globally.</p>
-                <p style="margin-top: 1rem;">
-                    <a href="#contact" style="color: var(--primary); text-decoration: none; font-weight: 600;">Partnership Inquiry →</a>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications -->
-    <section id="publications">
-        <h2 class="section-title">Publications & Framework</h2>
-        <p class="section-subtitle">Rigorous mathematical foundations for physics-based cognitive science</p>
-        
-        <ul class="publication-list">
-            <li>
-                <strong>Field Theory of Artificial Cognition</strong> (2025)<br>
-                Complete derivation of cognitive field equations from first principles using Einstein's field equations and Kerr black hole geometry<br>
-                <a href="https://huggingface.co/blog/KentStone/field-theory-of-artificial-cognition" target="_blank">Read on HuggingFace →</a>
-            </li>
-            <li>
-                <strong>Derivation of Cognitive Field Theory</strong> (2025)<br>
-                Mathematical framework applying General Relativity to semantic manifolds with validation across 15+ experimental datasets<br>
-                <a href="https://huggingface.co/blog/KentStone/derivation-of-cognitive-field-theory" target="_blank">Read on HuggingFace →</a>
-            </li>
-            <li>
-                <strong>OMNIVER: Unified Cognitive Field Theory</strong> (2026)<br>
-                Complete implementation: 11,500+ lines of validated Python code with experimental reproducibility<br>
-                Patent applications filed (7 independent claim sets) • Code archived on GitHub
-            </li>
-            <li>
-                <strong>Autism Meltdown Prediction Study (INCN)</strong> (In Progress)<br>
-                N=20-30, Lima Peru, 6-12 month timeline with real-time EEG monitoring<br>
-                Target journals: Nature Neuroscience, Lancet Neurology
-            </li>
-            <li>
-                <strong>Down Syndrome Cognitive Enhancement Trial (SPSD)</strong> (In Progress)<br>
-                N=15-25, multi-month semantic amplification program<br>
-                Target: JAMA Pediatrics or similar
-            </li>
-            <li>
-                <strong>Consciousness Measurement Validation</strong> (Planned)<br>
-                Prospective study in disorders of consciousness patient population<br>
-                Target: Brain, Neuroimage, or Clinical Neurophysiology
-            </li>
-        </ul>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="contact-bg">
-        <h2 class="section-title">Partnership & Collaboration</h2>
-        <p class="section-subtitle">Join the cognitive science revolution</p>
-        
-        <div class="contact-info">
-            <div class="contact-item">
-                <h4>📧 Research Inquiries</h4>
-                <p>kent.stone@gmail.com</p>
-            </div>
-            <div class="contact-item">
-                <h4>� WhatsApp</h4>
-                <p><a href="https://wa.me/51945012953" target="_blank">+51 945 012 953</a></p>
-            </div>
-            <div class="contact-item">
-                <h4>�🔬 Clinical Partnerships</h4>
-                <p>Neurology clinics, research institutions, patient recruitment</p>
-            </div>
-            <div class="contact-item">
-                <h4>📍 Based In</h4>
-                <p>San Isidro, Lima, Peru<br>Global partnerships welcomed</p>
-            </div>
-            <div class="contact-item">
-                <h4>💼 Connect Online</h4>
-                <p><a href="https://linkedin.com" target="_blank">LinkedIn</a> • <a href="https://github.com" target="_blank">GitHub</a> • <a href="https://huggingface.co/KentStone" target="_blank">HuggingFace</a></p>
-            </div>
-        </div>
-
-        <div class="partnership-benefits">
-            <div class="benefit-item">
-                <strong>Equipment Sponsors</strong><br>
-                In-kind EEG headsets, brain imaging
-            </div>
-            <div class="benefit-item">
-                <strong>Clinical Partners</strong><br>
-                Patient recruitment, research access
-            </div>
-            <div class="benefit-item">
-                <strong>Funding Partners</strong><br>
-                Grants, foundations, major donors
-            </div>
-            <div class="benefit-item">
-                <strong>Board Members</strong><br>
-                Medical, scientific, business advisors
-            </div>
-            <div class="benefit-item">
-                <strong>Tech Partners</strong><br>
-                AI/ML, data analytics, infrastructure
-            </div>
-            <div class="benefit-item">
-                <strong>Academic Partners</strong><br>
-                Universities, peer review, validation
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.2);">
-            <p style="font-size: 1.1rem; margin-bottom: 1rem;">Ready to collaborate on the future of cognitive science?</p>
-            <p style="opacity: 0.9;">Email us to discuss how your organization can partner with OMNIVER Research Foundation</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>OMNIVER</h4>
-                <p>Advancing consciousness research through physics-based mathematical frameworks.</p>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">501(c)(3) Formation in Progress</p>
-            </div>
-            <div class="footer-section">
-                <h4>Research</h4>
-                <a href="#research">Breakthrough Programs</a>
-                <a href="#results">Test Results</a>
-                <a href="#publications">Publications</a>
-            </div>
-            <div class="footer-section">
-                <h4>Partnership</h4>
-                <a href="#clinics">Clinical Partners</a>
-                <a href="#sponsors">Sponsors</a>
-                <a href="#contact">Contact Us</a>
-            </div>
-            <div class="footer-section">
-                <h4>Resources</h4>
-                <a href="https://github.com" target="_blank">GitHub</a>
-                <a href="https://huggingface.co/KentStone" target="_blank">HuggingFace</a>
-                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 OMNIVER Research Foundation. All rights reserved.</p>
-            <p style="margin-top: 0.5rem;">Making the immeasurable, measurable.</p>
-        </div>
-    </footer>
-
-    <!-- Modal for images -->
-    <div id="imageModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <img id="modalImage" src="" alt="">
-        </div>
     </div>
 
-    <script>
-        function openModal(imagePath) {
-            const modal = document.getElementById('imageModal');
-            const img = document.getElementById('modalImage');
-            img.src = imagePath;
-            modal.classList.add('active');
-        }
+</section>
 
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            modal.classList.remove('active');
-        }
+<footer>
 
-        // Close modal when clicking outside image
-        window.onclick = function(event) {
-            const modal = document.getElementById('imageModal');
-            if (event.target == modal) {
-                modal.classList.remove('active');
-            }
-        }
+    <p>
+        © 2026 Stone Leatherworks. Built for makers.
+    </p>
 
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-    </script>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImage">
+</div>
+
+<script>
+
+function openLightbox(src){
+    document.getElementById('lightbox').style.display='flex';
+    document.getElementById('lightboxImage').src=src;
+}
+
+function closeLightbox(){
+    document.getElementById('lightbox').style.display='none';
+}
+
+</script>
+
 </body>
 </html>
