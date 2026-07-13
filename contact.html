@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inquire — Light & Stone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo">Light&nbsp;&amp;<span> Stone</span></a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="pricing.html">Investment</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="legal.html">Legal</a></li>
+        <li class="nav-mobile-only"><a href="contact.html" class="active">Inquire</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="nav-cta">Inquire</a>
+    <button class="nav-toggle">Menu</button>
+  </div>
+</header>
+
+<section class="tight">
+  <div class="container section-head">
+    <span class="eyebrow">Let's Begin</span>
+    <h2>Request Your Date</h2>
+    <p>Share a few details below and I'll personally respond within 48 hours to discuss availability, your vision for the day, and next steps. A limited number of dates are accepted each year.</p>
+  </div>
+</section>
+
+<section class="tight" style="padding-top:0;">
+  <div class="container">
+    <!--
+      REAL FORM BACKEND (Formspree) — 2 steps to activate:
+      1. Create a free account at https://formspree.io and verify your email
+         (this part has to be done by you — I can't create accounts on your behalf).
+      2. Create a new form there, copy the endpoint it gives you
+         (looks like https://formspree.io/f/abcdwxyz), and paste just the ID
+         part into FORM_ID below, replacing YOUR_FORM_ID.
+      Until you do that, the form automatically falls back to opening the
+      visitor's email client instead (see js/script.js) — it will never be broken,
+      just less automated, in the meantime.
+    -->
+    <form class="inquiry" id="inquiry-form"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST">
+
+      <!-- Honeypot spam trap: real visitors never see or fill this field.
+           Formspree automatically discards submissions where it's filled. -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Full Name(s)</label>
+          <input type="text" id="name" name="name" required placeholder="e.g. Charlotte & James">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@email.com">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000">
+        </div>
+        <div class="field">
+          <label for="date">Wedding Date</label>
+          <input type="date" id="date" name="date">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="venue">Venue / Location</label>
+          <input type="text" id="venue" name="venue" placeholder="City, country, or venue name">
+        </div>
+        <div class="field">
+          <label for="guests">Estimated Guest Count</label>
+          <input type="text" id="guests" name="guests" placeholder="e.g. 120">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="budget">Investment Range</label>
+        <select id="budget" name="budget">
+          <option value="">Select a range</option>
+          <option value="$8,000–$12,000">$8,000 – $12,000</option>
+          <option value="$12,000–$20,000">$12,000 – $20,000</option>
+          <option value="$20,000–$35,000">$20,000 – $35,000</option>
+          <option value="$35,000+">$35,000+</option>
+          <option value="Prefer to discuss">Prefer to discuss</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="message">Tell me about your day</label>
+        <textarea id="message" name="message" placeholder="Venue, style, how you found me, and anything else that would help me understand your vision."></textarea>
+      </div>
+
+      <input type="hidden" name="_subject" value="New Wedding Inquiry from the Website">
+
+      <button type="submit" class="btn btn-dark" style="cursor:pointer;" id="submit-btn">Submit Inquiry</button>
+      <p id="form-status"></p>
+
+      <p class="form-note" id="form-note-text">
+        Submissions are sent directly and privately — nothing is stored or shared beyond reaching the studio inbox.
+      </p>
+    </form>
+
+    <div id="thank-you" style="display:none; text-align:center; max-width:720px; margin:0 auto;">
+      <h2 style="margin-bottom:18px;">Thank you — your inquiry has been sent</h2>
+      <p style="color:var(--charcoal-soft);">I personally read every inquiry and will respond within 48 hours to discuss your date and vision.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cream tight">
+  <div class="container" style="text-align:center;">
+    <span class="eyebrow">Prefer to talk directly?</span>
+    <h2 style="margin:16px 0;">architect@gsin.dev</h2>
+    <p style="color:var(--charcoal-soft);">+1 (000) 000-0000</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">Light&nbsp;&amp;<span> Stone</span></a>
+        <p style="margin-top:18px; max-width:320px;">Fine art wedding photography for discerning couples, available worldwide for destination celebrations.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="pricing.html">Investment</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="legal.html">Legal</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="contact.html">Inquire</a></li>
+          <li><a href="mailto:architect@gsin.dev">architect@gsin.dev</a></li>
+          <li><a href="tel:+10000000000">+1 (000) 000-0000</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Light &amp; Stone. All rights reserved.</span>
+      <span>Worldwide &amp; Destination Weddings</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

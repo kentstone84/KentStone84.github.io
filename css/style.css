@@ -1,0 +1,575 @@
+/* ============================================
+   Luxury Wedding Photography — Shared Styles
+   ============================================ */
+
+:root {
+  --ivory: #f7f4ee;
+  --cream: #efe9de;
+  --charcoal: #262421;
+  --charcoal-soft: #4a463f;
+  --gold: #b08d57;
+  --gold-light: #d4b483;
+  --line: rgba(38, 36, 33, 0.12);
+  --max-width: 1200px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-size: 19px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .display {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--charcoal);
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* ---------- Header / Nav ---------- */
+header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(247, 244, 238, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 22px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.logo span { color: var(--gold); }
+
+nav.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 38px;
+}
+
+nav.main-nav a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal-soft);
+  transition: color 0.25s ease;
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+}
+
+nav.main-nav a:hover,
+nav.main-nav a.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+.nav-cta {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid var(--charcoal);
+  padding: 11px 26px;
+  transition: all 0.25s ease;
+}
+
+.nav-cta:hover { background: var(--charcoal); color: var(--ivory); }
+
+.nav-toggle { display: none; }
+.nav-mobile-only { display: none; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 86vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(38,36,33,0.35), rgba(38,36,33,0.55)),
+              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000"><rect width="1600" height="1000" fill="%23bdb29a"/></svg>');
+  background-size: cover;
+  background-position: center;
+  color: var(--ivory);
+  padding: 0 24px;
+}
+
+.hero-inner { max-width: 780px; }
+
+.hero .eyebrow { color: var(--gold-light); margin-bottom: 22px; display: block; }
+
+.hero h1 {
+  font-size: clamp(40px, 6vw, 74px);
+  line-height: 1.08;
+  color: var(--ivory);
+  margin-bottom: 26px;
+}
+
+.hero p {
+  font-size: 21px;
+  color: rgba(247,244,238,0.85);
+  margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 16px 38px;
+  border: 1px solid var(--gold);
+  color: var(--ivory);
+  transition: all 0.3s ease;
+}
+
+.btn:hover { background: var(--gold); color: var(--charcoal); }
+
+.btn-dark {
+  border-color: var(--charcoal);
+  color: var(--charcoal);
+}
+
+.btn-dark:hover { background: var(--charcoal); color: var(--ivory); }
+
+/* ---------- Section basics ---------- */
+section { padding: 110px 0; }
+section.tight { padding: 70px 0; }
+section.cream { background: var(--cream); }
+
+.section-head { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+.section-head .eyebrow { display: block; margin-bottom: 14px; }
+.section-head h2 { font-size: clamp(30px, 4vw, 46px); }
+.section-head p { color: var(--charcoal-soft); margin-top: 18px; font-size: 20px; }
+
+/* ---------- Portfolio grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.grid-item {
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, #d8cfba, #bdb29a);
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.grid-item:hover img { transform: scale(1.04); }
+
+/* ---------- Copy-paste deterrence (portfolio images) ---------- */
+.grid-item img,
+.two-col .img-block img,
+.lightbox-img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none; /* disables the iOS long-press "Save Image" menu */
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 18, 16, 0.94);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.lightbox-overlay.active { display: flex; }
+
+.lightbox-overlay .lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  cursor: default;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  background: none;
+  border: none;
+  color: var(--ivory);
+  font-size: 40px;
+  line-height: 1;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  padding: 8px;
+}
+
+.lightbox-close:hover { opacity: 0.7; }
+
+.grid-item .cap {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 22px;
+  background: linear-gradient(0deg, rgba(38,36,33,0.6), transparent);
+  color: var(--ivory);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.grid-item:hover .cap { opacity: 1; }
+
+/* ---------- Cards ---------- */
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.card {
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  padding: 46px 36px;
+  text-align: center;
+}
+
+.card.featured {
+  border-color: var(--gold);
+  position: relative;
+}
+
+.card .tier-name { font-size: 26px; margin-bottom: 6px; }
+.card .tier-price { font-family: 'Montserrat', sans-serif; font-size: 30px; color: var(--gold); margin: 18px 0; }
+.card .tier-price span { font-size: 14px; color: var(--charcoal-soft); }
+.card ul { list-style: none; text-align: left; margin: 26px 0; }
+.card ul li { padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
+
+/* ---------- Collection-includes feature list ---------- */
+.feature-list { list-style: none; max-width: 680px; margin: 0 auto; }
+.feature-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 18px;
+  color: var(--charcoal-soft);
+  text-align: left;
+}
+.feature-list li:last-child { border-bottom: none; }
+.feature-list li strong { color: var(--charcoal); font-weight: 500; }
+
+/* ---------- Extras grid (Certificate / Story / Box / White Glove) ---------- */
+.extras-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 56px;
+}
+.extras-grid .extra h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+}
+.extras-grid .extra p { color: var(--charcoal-soft); font-size: 16px; }
+
+/* ---------- Legal page ---------- */
+.legal-disclaimer {
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+  padding: 18px 22px;
+  font-size: 15px;
+  color: var(--charcoal-soft);
+  margin: 0 0 30px;
+}
+
+.legal-toc { list-style: none; margin-bottom: 46px; }
+.legal-toc li { margin-bottom: 10px; }
+.legal-toc a { color: var(--charcoal); border-bottom: 1px solid var(--line); padding-bottom: 1px; }
+.legal-toc a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+.legal-text h3 { font-size: 25px; margin: 46px 0 14px; }
+.legal-text h3:first-child { margin-top: 0; }
+.legal-text h4 { font-family: 'Montserrat', sans-serif; font-size: 14px; letter-spacing: 0.04em; color: var(--gold); margin: 28px 0 10px; }
+.legal-text p, .legal-text li { color: var(--charcoal-soft); font-size: 17px; line-height: 1.7; margin-bottom: 14px; }
+.legal-text ul { margin: 0 0 16px 20px; }
+
+.release-choice { border: 1px solid var(--line); background: var(--ivory); padding: 24px 26px; margin: 20px 0 30px; }
+.release-choice .radio-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin-bottom: 16px; font-size: 16px; color: var(--charcoal); cursor: pointer;
+}
+.release-choice .radio-row input { margin-top: 5px; }
+.release-sub { margin: 6px 0 0 28px; display: none; }
+.release-sub.active { display: block; }
+.release-sub .check-row {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 15px; margin-bottom: 10px; color: var(--charcoal-soft); cursor: pointer;
+}
+
+/* ---------- Signature pad ---------- */
+.sig-block { margin: 26px 0 10px; }
+.sig-block > label {
+  display: block; font-family: 'Montserrat', sans-serif; font-size: 13px;
+  letter-spacing: 0.04em; color: var(--charcoal-soft); margin-bottom: 8px;
+}
+.sig-pad-wrap { border: 1px solid var(--line); background: #fff; }
+#sig-pad { display: block; width: 100%; height: 180px; touch-action: none; cursor: crosshair; }
+.sig-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+.sig-actions button {
+  background: none; border: none; color: var(--charcoal-soft); text-decoration: underline;
+  font-family: 'Montserrat', sans-serif; font-size: 13px; cursor: pointer; padding: 0;
+}
+
+.agree-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin: 26px 0; font-size: 15px; color: var(--charcoal); line-height: 1.5;
+}
+.agree-row input { margin-top: 4px; }
+
+/* ---------- Museum print paper/process list ---------- */
+.paper-list {
+  list-style: none;
+  columns: 2;
+  column-gap: 48px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.paper-list li {
+  font-size: 16px;
+  color: var(--charcoal-soft);
+  padding: 8px 0;
+  break-inside: avoid;
+}
+
+/* ---------- Testimonials ---------- */
+.quote-block {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quote-block p.quote {
+  font-size: 28px;
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+.quote-block .attribution {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 46px;
+}
+
+.testimonial-grid .quote-block { text-align: left; }
+.testimonial-grid p.quote { font-size: 21px; }
+
+/* ---------- Two column ---------- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.two-col .img-block {
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, #d8cfba, #bdb29a);
+  overflow: hidden;
+}
+
+.two-col .img-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Form ---------- */
+form.inquiry {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.field { margin-bottom: 26px; }
+
+.field label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--charcoal-soft);
+  margin-bottom: 9px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  padding: 10px 2px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  color: var(--charcoal);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--gold);
+}
+
+.field textarea { resize: vertical; min-height: 110px; }
+
+.form-note {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: var(--charcoal-soft);
+  margin-top: 18px;
+}
+
+#form-status {
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  display: none;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--charcoal);
+  color: var(--ivory);
+  padding: 70px 0 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+footer h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 20px;
+}
+
+footer .logo { color: var(--ivory); margin-bottom: 16px; }
+footer p { color: rgba(247,244,238,0.7); }
+footer ul { list-style: none; }
+footer ul li { margin-bottom: 10px; }
+footer ul a { color: rgba(247,244,238,0.7); transition: color 0.2s ease; }
+footer ul a:hover { color: var(--gold-light); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(247,244,238,0.15);
+  padding-top: 26px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: rgba(247,244,238,0.5);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  nav.main-nav, .nav-cta { display: none; }
+  .nav-toggle {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid var(--charcoal);
+    padding: 10px 18px;
+    background: none;
+  }
+  /* Make sure the Inquire link is reachable from the mobile menu -
+     the desktop gold CTA button is hidden above, so this stands in
+     for it once the hamburger menu is open. */
+  .nav-mobile-only {
+    display: block !important;
+    margin-top: 10px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .nav-mobile-only a {
+    color: var(--gold) !important;
+    font-weight: 600;
+  }
+  .grid, .card-row, .testimonial-grid, .two-col, .form-row, .footer-grid, .extras-grid {
+    grid-template-columns: 1fr;
+  }
+  .paper-list { columns: 1; }
+  section { padding: 70px 0; }
+  .container { padding: 0 24px; }
+}
